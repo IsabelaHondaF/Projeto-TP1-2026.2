@@ -1,3 +1,5 @@
+<img width="300" height="150" alt="Símbolo_da_UnB_(para_fundo_branco)" src="https://github.com/user-attachments/assets/3b50c780-d1e4-4b11-ac10-0dcac62b435f" />
+
 # Projeto-TP1-2026.2  
 ## Trabalho prático de Técnicas de Programação 1  
 ### Universidade de Brasília  
