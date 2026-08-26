@@ -2,7 +2,6 @@
 
 # Projeto-TP1-2026.2  
 ## Trabalho prático de Técnicas de Programação 1  
-### Universidade de Brasília  
 
 Semestre: 2026.2  
 Membros do grupo: Arthur, Gabriel, Isabela e João Roberto  
