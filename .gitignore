@@ -1,0 +1,51 @@
+# Arquivos compilados
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.so
+*.a
+
+# Pastas de compilação
+/build/
+/bin/
+/dist/
+/Debug/
+/Release/
+/out/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Configurações locais do VS Code
+.vscode/*
+!.vscode/settings.json
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Pastas criadas durante conflitos do Git
+Headers~*
+Dominios~*
+
+# Arquivos de cobertura e depuração
+*.d
+*.gcno
+*.gcda
+*.gcov
