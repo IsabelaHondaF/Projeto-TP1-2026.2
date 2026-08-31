@@ -95,4 +95,40 @@ void Tamanho::setTamanho(const string& tamanho){
     validar(tamanho);
     this->tamanho = tamanho;
 }
+
+
+//Classe Nome
+void Nome::validar(const string& novoNome) {
+    //valida tamanho
+    if (novoNome.empty() || novoNome.length() > MAXIMO)
+        throw invalid_argument("Nome invalido.");
+    //valida espaços no início e fim
+    if (novoNome.front() == ' ' || novoNome.back() == ' ')
+        throw invalid_argument("Nome invalido.");
+
+    for (unsigned int i = 0; i < novoNome.length(); i++) {
+
+        bool Ehletra = (novoNome[i] >= 'A' && novoNome[i] <= 'Z') ||
+                     (novoNome[i] >= 'a' && novoNome[i] <= 'z');
+        //se não for letra e não for espaço, nome inválido
+        if (!Ehletra && novoNome[i] != ' ')
+            throw invalid_argument("Nome invalido.");
+        //se for espaço e o próximo caractere não for o último
+        if (novoNome[i] == ' ' && i + 1 < novoNome.length()) {
+    
+            bool proximoEhLetra =
+                (novoNome[i + 1] >= 'A' && novoNome[i + 1] <= 'Z') ||
+                (novoNome[i + 1] >= 'a' && novoNome[i + 1] <= 'z');
+            //se o proximo caractere não for letra, nome inválido
+            if (!proximoEhLetra)
+                throw invalid_argument("Nome invalido.");
+        }
+    }
+}
+
+void Nome::setNome(const string& novoNome) {
+    validar(novoNome);
+    nome = novoNome;
+}
+
 #endif // DOMINIOS_CPP_INCLUDED

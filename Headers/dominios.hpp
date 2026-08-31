@@ -89,4 +89,21 @@ public:
 inline string Tamanho::getTamanho() const{
     return tamanho;
 }
-#endif // DOMINIOS_HPP_INCLUDED
+
+
+class Nome {
+private:
+    static const int MAXIMO = 15;
+    string nome;
+    void validar(const string&);
+
+public:
+    void setNome(const string&);
+    string getNome() const;
+};
+
+inline string Nome::getNome() const {
+    return nome;
+}
+
+#endif; // DOMINIOS_HPP_INCLUDED;
