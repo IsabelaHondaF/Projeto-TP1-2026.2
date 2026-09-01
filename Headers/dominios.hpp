@@ -106,4 +106,57 @@ inline string Nome::getNome() const {
     return nome;
 }
 
-#endif; // DOMINIOS_HPP_INCLUDED;
+
+class Papel{
+    private:
+    static const string GESTOR;
+    static const string DESENVOLVEDOR;
+    string papel;
+    void validar(const string&);
+
+public:
+    void setPapel(const string&);
+    string getPapel() const;
+};
+
+inline string Papel::getPapel() const{
+    return papel;
+}
+
+
+class Texto{
+private:
+    static const int MAXIMO = 30;
+    string texto;
+    void validar(const string&);
+
+public:
+    void setTexto(const string&);
+    string getTexto() const;
+};
+
+inline string Texto::getTexto() const{
+    return texto;
+}
+
+
+class Identificador{
+private:
+    static const int TAMANHO = 6;
+    string identificador;
+    void validar(const string&);
+
+public:
+    void setIdentificador(const string&);
+    string getIdentificador() const;
+};
+
+inline string Identificador::getIdentificador() const{
+    return identificador;
+}
+
+class Email{
+    static const int MAXIMO_PARTE_LOCAL = 64;
+    static const int MAXIMO_DOMINIO = 255;
+}
+#endif // DOMINIOS_HPP_INCLUDED;
