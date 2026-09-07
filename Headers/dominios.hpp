@@ -1,4 +1,3 @@
-
 #ifndef DOMINIOS_HPP_INCLUDED
 #define DOMINIOS_HPP_INCLUDED
 #include <string>
@@ -23,9 +22,9 @@ inline int Limite::getValor() const{
 
 class Senha{
 private:
-     string senha;
-     void validar(const string&);
-     static const int caracteres = 5;
+    string senha;
+    void validar(const string&);
+    static const int caracteres = 5;
 
 public:
     void setSenha(const string&);
@@ -108,7 +107,7 @@ inline string Nome::getNome() const {
 
 
 class Papel{
-    private:
+private:
     static const string GESTOR;
     static const string DESENVOLVEDOR;
     string papel;
@@ -155,8 +154,60 @@ inline string Identificador::getIdentificador() const{
     return identificador;
 }
 
+
+/**
+ * Representa o dominio EMAIL, no formato parte-local@dominio.
+ * Parte local: letras (a-z), digitos (0-9), ponto (.) ou hifen (-);
+ * nao pode iniciar/terminar com ponto ou hifen; ponto/hifen deve ser
+ * seguido por letra(s) ou digito(s); no maximo 64 caracteres.
+ * Dominio: uma ou mais partes separadas por ponto, cada parte com
+ * letras (a-z), digitos (0-9) ou hifen (-), sem iniciar/terminar com
+ * hifen; no maximo 255 caracteres.
+ */
 class Email{
+private:
     static const int MAXIMO_PARTE_LOCAL = 64;
     static const int MAXIMO_DOMINIO = 255;
+    string email;
+    void validar(const string&);
+
+public:
+    /** Define o email, validando o formato; lanca excecao se invalido. */
+    void setEmail(const string&);
+    /** Retorna o valor atual do email. */
+    string getEmail() const;
+};
+
+inline string Email::getEmail() const{
+    return email;
 }
-#endif // DOMINIOS_HPP_INCLUDED;
+
+
+/**
+ * Representa o dominio TIMESTAMP, no formato DIA-MES-ANO-HORARIO.
+ * DIA: numero de 1 a 31 (validado conforme o mes e ano, incluindo
+ * anos bissextos). MES: sigla de tres letras (JAN, FEV, ..., DEZ).
+ * ANO: numero de 2000 a 2099. HORARIO: HH:MM de 00:00 a 23:59.
+ */
+class Timestamp{
+private:
+    static const int ANO_MINIMO = 2000;
+    static const int ANO_MAXIMO = 2099;
+    string timestamp;
+    void validar(const string&);
+    static bool ehBissexto(int ano);
+    static int diasNoMes(int mes, int ano);
+    static int indiceMes(const string& mes);
+
+public:
+    /** Define o timestamp, validando o formato; lanca excecao se invalido. */
+    void setTimestamp(const string&);
+    /** Retorna o valor atual do timestamp. */
+    string getTimestamp() const;
+};
+
+inline string Timestamp::getTimestamp() const{
+    return timestamp;
+}
+
+#endif // DOMINIOS_HPP_INCLUDED

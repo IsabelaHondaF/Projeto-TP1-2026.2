@@ -219,14 +219,16 @@ void Identificador::validar(const string& identificador){
 
         char caractere = identificador[i];
 
-        if(i < 3)
+        if(i < 3){
             if((caractere <'A' || caractere > 'Z') &&
             (caractere < 'a' || caractere > 'z'))
                 verifica = false;
-        else    
+        }
+        else{
             if(caractere < '0' || caractere > '9')
                verifica = false;
-        
+        }
+
         if(!verifica)
             throw invalid_argument("Identificador invalido.");
     }
@@ -236,5 +238,182 @@ void Identificador::validar(const string& identificador){
 void Identificador::setIdentificador(const string& identificador){
     validar(identificador);
     this->identificador = identificador;
-} 
+}
+
+
+//Classe Email
+void Email::validar(const string& email){
+    //localiza o @ (deve existir exatamente um)
+    size_t posArroba = email.find('@');
+    if(posArroba == string::npos || email.find('@', posArroba + 1) != string::npos)
+        throw invalid_argument("Email invalido.");
+
+    string parteLocal = email.substr(0, posArroba);
+    string dominio = email.substr(posArroba + 1);
+
+    //valida parte local
+    if(parteLocal.empty() || parteLocal.length() > MAXIMO_PARTE_LOCAL)
+        throw invalid_argument("Email invalido.");
+
+    if(parteLocal.front() == '.' || parteLocal.front() == '-' ||
+       parteLocal.back() == '.' || parteLocal.back() == '-')
+        throw invalid_argument("Email invalido.");
+
+    for(size_t i = 0; i < parteLocal.length(); i++){
+        char caractere = parteLocal[i];
+
+        bool letra = (caractere >= 'a' && caractere <= 'z');
+        bool digito = (caractere >= '0' && caractere <= '9');
+        bool pontoOuHifen = (caractere == '.' || caractere == '-');
+
+        if(!letra && !digito && !pontoOuHifen)
+            throw invalid_argument("Email invalido.");
+
+        //ponto ou hifen deve ser seguido por letra(s) ou digito(s)
+        if(pontoOuHifen && i + 1 < parteLocal.length()){
+            char proximo = parteLocal[i + 1];
+            bool proximoValido = (proximo >= 'a' && proximo <= 'z') ||
+                                  (proximo >= '0' && proximo <= '9');
+            if(!proximoValido)
+                throw invalid_argument("Email invalido.");
+        }
+    }
+
+    //valida dominio
+    if(dominio.empty() || dominio.length() > MAXIMO_DOMINIO)
+        throw invalid_argument("Email invalido.");
+
+    size_t inicio = 0;
+    while(inicio <= dominio.length()){
+        size_t fim = dominio.find('.', inicio);
+        string parte = (fim == string::npos) ? dominio.substr(inicio)
+                                              : dominio.substr(inicio, fim - inicio);
+
+        //parte vazia significa ponto duplicado ou ponto no inicio/fim
+        if(parte.empty())
+            throw invalid_argument("Email invalido.");
+
+        if(parte.front() == '-' || parte.back() == '-')
+            throw invalid_argument("Email invalido.");
+
+        for(char caractere : parte){
+            bool letra = (caractere >= 'a' && caractere <= 'z');
+            bool digito = (caractere >= '0' && caractere <= '9');
+            bool hifen = (caractere == '-');
+
+            if(!letra && !digito && !hifen)
+                throw invalid_argument("Email invalido.");
+        }
+
+        if(fim == string::npos)
+            break;
+        inicio = fim + 1;
+    }
+}
+
+void Email::setEmail(const string& email){
+    validar(email);
+    this->email = email;
+}
+
+
+//Classe Timestamp
+bool Timestamp::ehBissexto(int ano){
+    return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+}
+
+int Timestamp::indiceMes(const string& mes){
+    static const string meses[12] = {
+        "JAN", "FEV", "MAR", "ABR", "MAI", "JUN",
+        "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"
+    };
+
+    for(int i = 0; i < 12; i++)
+        if(mes == meses[i])
+            return i + 1;
+
+    return -1;
+}
+
+int Timestamp::diasNoMes(int mes, int ano){
+    static const int dias[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if(mes == 2 && ehBissexto(ano))
+        return 29;
+
+    return dias[mes - 1];
+}
+
+void Timestamp::validar(const string& timestamp){
+    //separa DIA-MES-ANO-HORARIO
+    size_t p1 = timestamp.find('-');
+    size_t p2 = (p1 == string::npos) ? string::npos : timestamp.find('-', p1 + 1);
+    size_t p3 = (p2 == string::npos) ? string::npos : timestamp.find('-', p2 + 1);
+
+    if(p1 == string::npos || p2 == string::npos || p3 == string::npos)
+        throw invalid_argument("Timestamp invalido.");
+
+    string diaStr = timestamp.substr(0, p1);
+    string mesStr = timestamp.substr(p1 + 1, p2 - p1 - 1);
+    string anoStr = timestamp.substr(p2 + 1, p3 - p2 - 1);
+    string horaStr = timestamp.substr(p3 + 1);
+
+    //valida dia (somente digitos, 1 ou 2 caracteres)
+    if(diaStr.empty() || diaStr.length() > 2)
+        throw invalid_argument("Timestamp invalido.");
+
+    for(char caractere : diaStr)
+        if(caractere < '0' || caractere > '9')
+            throw invalid_argument("Timestamp invalido.");
+
+    int dia = stoi(diaStr);
+
+    //valida mes
+    int mes = indiceMes(mesStr);
+    if(mes == -1)
+        throw invalid_argument("Timestamp invalido.");
+
+    //valida ano (4 digitos, entre 2000 e 2099)
+    if(anoStr.length() != 4)
+        throw invalid_argument("Timestamp invalido.");
+
+    for(char caractere : anoStr)
+        if(caractere < '0' || caractere > '9')
+            throw invalid_argument("Timestamp invalido.");
+
+    int ano = stoi(anoStr);
+    if(ano < ANO_MINIMO || ano > ANO_MAXIMO)
+        throw invalid_argument("Timestamp invalido.");
+
+    //valida dia dentro do mes/ano (considerando anos bissextos)
+    if(dia < 1 || dia > diasNoMes(mes, ano))
+        throw invalid_argument("Timestamp invalido.");
+
+    //valida horario HH:MM
+    if(horaStr.length() != 5 || horaStr[2] != ':')
+        throw invalid_argument("Timestamp invalido.");
+
+    string horaP = horaStr.substr(0, 2);
+    string minutoP = horaStr.substr(3, 2);
+
+    for(char caractere : horaP)
+        if(caractere < '0' || caractere > '9')
+            throw invalid_argument("Timestamp invalido.");
+
+    for(char caractere : minutoP)
+        if(caractere < '0' || caractere > '9')
+            throw invalid_argument("Timestamp invalido.");
+
+    int hora = stoi(horaP);
+    int minuto = stoi(minutoP);
+
+    if(hora < 0 || hora > 23 || minuto < 0 || minuto > 59)
+        throw invalid_argument("Timestamp invalido.");
+}
+
+void Timestamp::setTimestamp(const string& timestamp){
+    validar(timestamp);
+    this->timestamp = timestamp;
+}
+
 #endif // DOMINIOS_CPP_INCLUDED
