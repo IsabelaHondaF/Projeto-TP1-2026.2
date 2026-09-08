@@ -6,6 +6,7 @@
 *.dll
 *.so
 *.a
+*.json
 
 # Pastas de compilação
 /build/
