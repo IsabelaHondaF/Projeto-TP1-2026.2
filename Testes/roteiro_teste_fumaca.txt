@@ -1,0 +1,153 @@
+2
+gestor@example.com
+Ana Silva
+abc12
+GESTOR
+2
+dev@example.com
+Bia Lima
+def34
+DESENVOLVEDOR
+1
+gestor@example.com
+abc12
+1
+2
+dev@example.com
+3
+Ana Souza
+abc12
+GESTOR
+5
+0
+2
+1
+PRJ001
+Projeto Alfa
+Projeto de teste.
+1-JAN-2026-09:00
+31-DEZ-2026-18:00
+2
+PRJ001
+3
+PRJ001
+Projeto Beta
+Nova descricao.
+1-JAN-2026-09:00
+31-DEZ-2026-18:00
+5
+0
+3
+1
+PRJ001
+QUA001
+Sprint Um
+2
+2
+QUA001
+3
+QUA001
+Sprint Dois
+2
+5
+0
+4
+1
+QUA001
+dev@example.com
+CAR001
+Tarefa Um
+Tarefa de teste.
+ALTA
+MEDIO
+2-JAN-2026-09:00
+1
+QUA001
+dev@example.com
+CAR002
+Tarefa Dois
+Tarefa de teste.
+BAIXA
+PEQUENO
+2-JAN-2026-09:30
+2
+CAR001
+3
+CAR001
+Tarefa Uma
+Tarefa de teste.
+ALTA
+MEDIO
+5
+QUA001
+0
+0
+1
+dev@example.com
+def34
+4
+6
+CAR001
+2-JAN-2026-10:00
+6
+CAR002
+2-JAN-2026-11:00
+11
+QUA001
+6
+CAR001
+2-JAN-2026-12:30
+6
+CAR002
+2-JAN-2026-14:00
+7
+CAR001
+9
+CAR001
+8
+QUA001
+10
+QUA001
+11
+QUA001
+0
+2
+2
+PRJ001
+0
+3
+2
+QUA001
+0
+1
+3
+Bia Souza
+def34
+DESENVOLVEDOR
+0
+0
+1
+gestor@example.com
+abc12
+4
+4
+CAR001
+4
+CAR002
+0
+3
+4
+QUA001
+0
+2
+4
+PRJ001
+0
+1
+4
+1
+dev@example.com
+def34
+1
+4
+0

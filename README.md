@@ -13,3 +13,7 @@ Kanban. Nesse sistema de software, cada quadro Kanban é composto pelas colunas 
 do projeto pode ser gestor ou desenvolvedor. Projeto tem por gestor aquele que o criou. Para acessar os serviços providos, cada
 usuário deve criar uma conta e depois ser autenticado. Uma vez autenticado, o usuário tem acesso aos serviços providos pelo
 sistema.
+
+
+## Como executar
+Veja `DOCUMENTACAO_CONTROLADORAS.md` (arquitetura e regras) e `Testes/LEIA-ME_TESTE_FUMACA.md` (como rodar o teste de fumaça).
