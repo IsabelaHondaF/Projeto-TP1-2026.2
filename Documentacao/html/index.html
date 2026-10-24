@@ -98,7 +98,7 @@ Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília 
 <h2><a class="anchor" id="autotoc_md4"></a>
 &lt;/blockquote&gt;</h2>
 <h2><a class="anchor" id="autotoc_md5"></a>
-📋 Especificações do Sistema</h2>
+Especificações do Sistema</h2>
 <p>O sistema provê suporte à gestão de projetos pelo método Kanban:</p><ul>
 <li><b>Quadros Kanban:</b> compostos estritamente pelas colunas <code>A FAZER</code>, <code>FAZENDO</code> e <code>FEITO</code>.</li>
 <li><b>Papéis:</b> <code>GESTOR</code> (cria projetos, quadros e cartões) e <code>DESENVOLVEDOR</code> (executa e move atividades).</li>
@@ -108,7 +108,7 @@ Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília 
 </ul>
 <hr  />
 <h2><a class="anchor" id="autotoc_md7"></a>
-🏛️ Arquitetura do Software</h2>
+Arquitetura do Software</h2>
 <p>O sistema adota o padrão de arquitetura em camadas (<em>layers</em>) composto por 5 módulos:</p>
 <div class="fragment"><div class="line">[ Camada de Apresentação ] (cin/cout, menus estruturados por papel)</div>
 <div class="line">           |</div>
@@ -129,7 +129,7 @@ Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília 
 </ul>
 <hr  />
 <h2><a class="anchor" id="autotoc_md9"></a>
-🚀 Como Compilar e Executar</h2>
+Como Compilar e Executar</h2>
 <h3><a class="anchor" id="autotoc_md10"></a>
 1. Compilação via Makefile</h3>
 <div class="fragment"><div class="line"># Compila todos os alvos (executável raiz, Debug, Release, SmokeTest e TestesUnitarios):</div>
@@ -160,7 +160,7 @@ Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília 
 </ul>
 <hr  />
 <h2><a class="anchor" id="autotoc_md14"></a>
-🧪 Suítes de Testes</h2>
+Suítes de Testes</h2>
 <ol type="1">
 <li>**Testes de Unidade (<code>make test_unit</code>):** Valida as 11 classes de domínio e as 4 entidades com casos válidos e limites inválidos (<code>std::invalid_argument</code>).</li>
 <li>**Testes de Fumaça das Controladoras (<code>make test_smoke</code>):** Valida as 26 operações de serviço, regras de permissão (GESTOR vs. DESENVOLVEDOR), WIP e consistência de exclusão.</li>

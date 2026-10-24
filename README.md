@@ -21,7 +21,7 @@
 
 ---
 
-## 📋 Especificações do Sistema
+##  Especificações do Sistema
 
 O sistema provê suporte à gestão de projetos pelo método Kanban:
 - **Quadros Kanban:** compostos estritamente pelas colunas `A FAZER`, `FAZENDO` e `FEITO`.
@@ -32,7 +32,7 @@ O sistema provê suporte à gestão de projetos pelo método Kanban:
 
 ---
 
-## 🏛️ Arquitetura do Software
+##  Arquitetura do Software
 
 O sistema adota o padrão de arquitetura em camadas (*layers*) composto por 5 módulos:
 
@@ -57,7 +57,7 @@ O sistema adota o padrão de arquitetura em camadas (*layers*) composto por 5 m�
 
 ---
 
-## 🚀 Como Compilar e Executar
+##  Como Compilar e Executar
 
 ### 1. Compilação via Makefile
 
@@ -95,7 +95,7 @@ O arquivo de projeto [`Projeto_TP1.cbp`](file:///home/gabriel/projeto.tp1/Projet
 
 ---
 
-## 🧪 Suítes de Testes
+##  Suítes de Testes
 
 1. **Testes de Unidade (`make test_unit`):**
    Valida as 11 classes de domínio e as 4 entidades com casos válidos e limites inválidos (`std::invalid_argument`).

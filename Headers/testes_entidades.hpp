@@ -29,3 +29,4 @@ public:
 };
 
 #endif // TESTES_ENTIDADES_HPP_INCLUDED
+

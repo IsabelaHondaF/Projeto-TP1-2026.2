@@ -82,3 +82,4 @@
 - **Projeto Code::Blocks:** `Projeto_TP1.cbp` (alvos: Debug, Release, SmokeTest, TestesUnitarios)
 - **Automação de Build e Empacotamento:** `Makefile`
 - **Documentação de Arquitetura e Regras:** `DOCUMENTACAO_CONTROLADORAS.md`, `README.md`
+

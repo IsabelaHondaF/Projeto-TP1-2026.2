@@ -8,7 +8,7 @@ var searchData=
   ['temprojetogerenciadopor_5',['temProjetoGerenciadoPor',['../classContainerProjetos.html#a83488a40a9784afc1819b35d087948ef',1,'ContainerProjetos']]],
   ['temquadrodoprojeto_6',['temQuadroDoProjeto',['../classContainerQuadros.html#a197e6af88d8846def60290c419a386d9',1,'ContainerQuadros']]],
   ['testar_7',['Compilar e testar',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md20',1,'']]],
-  ['testes_8',['🧪 Suítes de Testes',['../index.html#autotoc_md14',1,'']]],
+  ['testes_8',['Suítes de Testes',['../index.html#autotoc_md14',1,'']]],
   ['testes_5fdominios_2ehpp_9',['testes_dominios.hpp',['../testes__dominios_8hpp.html',1,'']]],
   ['testes_5fentidades_2ehpp_10',['testes_entidades.hpp',['../testes__entidades_8hpp.html',1,'']]],
   ['testeunitariobase_11',['testeunitariobase',['../classTesteUnitarioBase.html',1,'TesteUnitarioBase'],['../classTesteUnitarioBase.html#aaadfe6942dfe07b096e7f9547eaaa324',1,'TesteUnitarioBase::TesteUnitarioBase()']]],

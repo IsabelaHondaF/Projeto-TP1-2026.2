@@ -96,3 +96,4 @@ zip: all doc test
 
 clean:
 	rm -rf $(BIN_DIR) $(OBJ_DIR) $(TARGET_MAIN) $(DOC_DIR)/html *.zip
+

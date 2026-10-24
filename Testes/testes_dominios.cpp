@@ -529,3 +529,4 @@ bool TUTimestamp::executar() {
 
     return falha == 0;
 }
+
