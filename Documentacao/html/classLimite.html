@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Kanban - TP1 2026.2: Referência da Classe Limite</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Kanban - TP1 2026.2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Trabalho Pratico de Tecnicas de Programacao 1 - UnB</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classLimite-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe Limite</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Representa a quantidade máxima de atividades simultâneas na coluna FAZENDO.  
+ <a href="classLimite.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dominios_8hpp_source.html">dominios.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:ae3513251940018c33b8a072f91343f00" id="r_ae3513251940018c33b8a072f91343f00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimite.html#ae3513251940018c33b8a072f91343f00">getValor</a> () const</td></tr>
+<tr class="memdesc:ae3513251940018c33b8a072f91343f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta a quantidade máxima de atividades em andamento armazenada.  <br /></td></tr>
+<tr class="separator:ae3513251940018c33b8a072f91343f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd821e232fe87e1e2ef933cc18d501e0" id="r_afd821e232fe87e1e2ef933cc18d501e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLimite.html#afd821e232fe87e1e2ef933cc18d501e0">setValor</a> (int)</td></tr>
+<tr class="memdesc:afd821e232fe87e1e2ef933cc18d501e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida e armazena a quantidade máxima de atividades em andamento.  <br /></td></tr>
+<tr class="separator:afd821e232fe87e1e2ef933cc18d501e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Representa a quantidade máxima de atividades simultâneas na coluna FAZENDO. </p>
+<p>Aceita números inteiros de 1 a 25, inclusive. Esse valor corresponde ao limite de trabalho em andamento de um quadro Kanban. A verificação da quantidade de cartões durante uma movimentação cabe ao serviço. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="ae3513251940018c33b8a072f91343f00" name="ae3513251940018c33b8a072f91343f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3513251940018c33b8a072f91343f00">&#9670;&#160;</a></span>getValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Limite::getValor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Consulta a quantidade máxima de atividades em andamento armazenada. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Número inteiro definido como limite. </dd></dl>
+
+</div>
+</div>
+<a id="afd821e232fe87e1e2ef933cc18d501e0" name="afd821e232fe87e1e2ef933cc18d501e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd821e232fe87e1e2ef933cc18d501e0">&#9670;&#160;</a></span>setValor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Limite::setValor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>valor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valida e armazena a quantidade máxima de atividades em andamento. </p>
+<dl class="section user"><dt>Parâmetro de entrada</dt><dd>Número inteiro entre 1 e 25, inclusive.</dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>Se o número for menor que 1 ou maior que 25. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li><a class="el" href="dominios_8hpp_source.html">dominios.hpp</a></li>
+<li><a class="el" href="dominios_8cpp.html">dominios.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

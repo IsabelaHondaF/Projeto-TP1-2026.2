@@ -17,24 +17,56 @@ private:
     Papel papel;
 
 public:
-    /** Define o email (chave primaria) da pessoa; lanca excecao se invalido. */
-    void setEmail(const std::string&);
-    /** Retorna o email da pessoa. */
+    /**
+     * @brief Define o endereço de email (chave primária) da pessoa.
+     * @param[in] email String com o email no formato válido de domínio.
+     * @throws std::invalid_argument Se o formato do email for inválido.
+     */
+    void setEmail(const std::string& email);
+
+    /**
+     * @brief Retorna o endereço de email da pessoa.
+     * @return String com o email cadastrado.
+     */
     std::string getEmail() const;
 
-    /** Define o nome da pessoa; lanca excecao se invalido. */
-    void setNome(const std::string&);
-    /** Retorna o nome da pessoa. */
+    /**
+     * @brief Define o nome da pessoa.
+     * @param[in] nome String com o nome (até 15 caracteres válidos).
+     * @throws std::invalid_argument Se o nome não atender às regras de domínio.
+     */
+    void setNome(const std::string& nome);
+
+    /**
+     * @brief Retorna o nome da pessoa.
+     * @return String com o nome da pessoa.
+     */
     std::string getNome() const;
 
-    /** Define a senha da pessoa; lanca excecao se invalido. */
-    void setSenha(const std::string&);
-    /** Retorna a senha da pessoa. */
+    /**
+     * @brief Define a senha de acesso da conta da pessoa.
+     * @param[in] senha String de 5 caracteres alfanuméricos com pelo menos 1 letra e 1 dígito.
+     * @throws std::invalid_argument Se a senha for inválida.
+     */
+    void setSenha(const std::string& senha);
+
+    /**
+     * @brief Retorna a senha da pessoa.
+     * @return String com a senha armazenada.
+     */
     std::string getSenha() const;
 
-    /** Define o papel (GESTOR ou DESENVOLVEDOR) da pessoa; lanca excecao se invalido. */
-    void setPapel(const std::string&);
-    /** Retorna o papel da pessoa. */
+    /**
+     * @brief Define o papel de atuação da pessoa (GESTOR ou DESENVOLVEDOR).
+     * @param[in] papel String com o papel a ser atribuído.
+     * @throws std::invalid_argument Se o papel não for GESTOR ou DESENVOLVEDOR.
+     */
+    void setPapel(const std::string& papel);
+
+    /**
+     * @brief Retorna o papel da pessoa.
+     * @return String com o papel da pessoa.
+     */
     std::string getPapel() const;
 };
 
@@ -71,29 +103,69 @@ private:
     Timestamp termino;
 
 public:
-    /** Define o identificador (chave primaria) do projeto; lanca excecao se invalido. */
-    void setIdentificador(const std::string&);
-    /** Retorna o identificador do projeto. */
+    /**
+     * @brief Define o código identificador (chave primária) do projeto.
+     * @param[in] identificador String de 6 caracteres (3 letras seguidas de 3 dígitos).
+     * @throws std::invalid_argument Se o formato do identificador for inválido.
+     */
+    void setIdentificador(const std::string& identificador);
+
+    /**
+     * @brief Retorna o código identificador do projeto.
+     * @return String com o identificador do projeto.
+     */
     std::string getIdentificador() const;
 
-    /** Define o nome do projeto; lanca excecao se invalido. */
-    void setNome(const std::string&);
-    /** Retorna o nome do projeto. */
+    /**
+     * @brief Define o nome do projeto.
+     * @param[in] nome String com o nome do projeto (até 15 caracteres válidos).
+     * @throws std::invalid_argument Se o nome for inválido segundo o domínio.
+     */
+    void setNome(const std::string& nome);
+
+    /**
+     * @brief Retorna o nome do projeto.
+     * @return String com o nome do projeto.
+     */
     std::string getNome() const;
 
-    /** Define a descricao do projeto; lanca excecao se invalido. */
-    void setDescricao(const std::string&);
-    /** Retorna a descricao do projeto. */
+    /**
+     * @brief Define a descrição textual do projeto.
+     * @param[in] descricao String com o texto descritivo (até 30 caracteres válidos).
+     * @throws std::invalid_argument Se a descrição for inválida.
+     */
+    void setDescricao(const std::string& descricao);
+
+    /**
+     * @brief Retorna a descrição do projeto.
+     * @return String com a descrição do projeto.
+     */
     std::string getDescricao() const;
 
-    /** Define o timestamp de inicio do projeto; lanca excecao se invalido. */
-    void setInicio(const std::string&);
-    /** Retorna o timestamp de inicio do projeto. */
+    /**
+     * @brief Define o instante de início do projeto.
+     * @param[in] inicio String no formato DIA-MES-ANO-HORARIO válido.
+     * @throws std::invalid_argument Se o timestamp de início for inválido.
+     */
+    void setInicio(const std::string& inicio);
+
+    /**
+     * @brief Retorna o instante de início do projeto.
+     * @return String com o timestamp de início.
+     */
     std::string getInicio() const;
 
-    /** Define o timestamp de termino do projeto; lanca excecao se invalido. */
-    void setTermino(const std::string&);
-    /** Retorna o timestamp de termino do projeto. */
+    /**
+     * @brief Define o instante de término estimado do projeto.
+     * @param[in] termino String no formato DIA-MES-ANO-HORARIO válido.
+     * @throws std::invalid_argument Se o timestamp de término for inválido.
+     */
+    void setTermino(const std::string& termino);
+
+    /**
+     * @brief Retorna o instante de término estimado do projeto.
+     * @return String com o timestamp de término.
+     */
     std::string getTermino() const;
 };
 
@@ -132,19 +204,43 @@ private:
     Limite limite;
 
 public:
-    /** Define o identificador (chave primaria) do quadro; lanca excecao se invalido. */
-    void setIdentificador(const std::string&);
-    /** Retorna o identificador do quadro. */
+    /**
+     * @brief Define o código identificador (chave primária) do quadro.
+     * @param[in] identificador String de 6 caracteres (3 letras seguidas de 3 dígitos).
+     * @throws std::invalid_argument Se o formato do identificador for inválido.
+     */
+    void setIdentificador(const std::string& identificador);
+
+    /**
+     * @brief Retorna o código identificador do quadro.
+     * @return String com o identificador do quadro.
+     */
     std::string getIdentificador() const;
 
-    /** Define o nome do quadro; lanca excecao se invalido. */
-    void setNome(const std::string&);
-    /** Retorna o nome do quadro. */
+    /**
+     * @brief Define o nome do quadro Kanban.
+     * @param[in] nome String com o nome do quadro (até 15 caracteres válidos).
+     * @throws std::invalid_argument Se o nome for inválido segundo o domínio.
+     */
+    void setNome(const std::string& nome);
+
+    /**
+     * @brief Retorna o nome do quadro.
+     * @return String com o nome do quadro.
+     */
     std::string getNome() const;
 
-    /** Define o limite de WIP do quadro (1 a 25); lanca excecao se invalido. */
-    void setLimite(int);
-    /** Retorna o limite de WIP do quadro. */
+    /**
+     * @brief Define o limite de cartões simultâneos na coluna FAZENDO (WIP).
+     * @param[in] limite Valor inteiro entre 1 e 25.
+     * @throws std::invalid_argument Se o limite estiver fora da faixa permitida.
+     */
+    void setLimite(int limite);
+
+    /**
+     * @brief Retorna o limite de WIP do quadro.
+     * @return Inteiro com o limite de trabalho em andamento.
+     */
     int getLimite() const;
 };
 
@@ -181,49 +277,121 @@ private:
     Timestamp termino;
 
 public:
-    /** Define o identificador (chave primaria) do cartao; lanca excecao se invalido. */
-    void setIdentificador(const std::string&);
-    /** Retorna o identificador do cartao. */
+    /**
+     * @brief Define o código identificador (chave primária) do cartão.
+     * @param[in] identificador String de 6 caracteres (3 letras seguidas de 3 dígitos).
+     * @throws std::invalid_argument Se o formato do identificador for inválido.
+     */
+    void setIdentificador(const std::string& identificador);
+
+    /**
+     * @brief Retorna o código identificador do cartão.
+     * @return String com o identificador do cartão.
+     */
     std::string getIdentificador() const;
 
-    /** Define o nome do cartao; lanca excecao se invalido. */
-    void setNome(const std::string&);
-    /** Retorna o nome do cartao. */
+    /**
+     * @brief Define o nome do cartão de atividade.
+     * @param[in] nome String com o nome da atividade (até 15 caracteres válidos).
+     * @throws std::invalid_argument Se o nome for inválido.
+     */
+    void setNome(const std::string& nome);
+
+    /**
+     * @brief Retorna o nome do cartão de atividade.
+     * @return String com o nome do cartão.
+     */
     std::string getNome() const;
 
-    /** Define a descricao do cartao; lanca excecao se invalido. */
-    void setDescricao(const std::string&);
-    /** Retorna a descricao do cartao. */
+    /**
+     * @brief Define a descrição textual do cartão.
+     * @param[in] descricao String com o texto descritivo (até 30 caracteres válidos).
+     * @throws std::invalid_argument Se a descrição for inválida.
+     */
+    void setDescricao(const std::string& descricao);
+
+    /**
+     * @brief Retorna a descrição do cartão.
+     * @return String com o texto descritivo.
+     */
     std::string getDescricao() const;
 
-    /** Define a prioridade do cartao (ALTA, MEDIA ou BAIXA); lanca excecao se invalido. */
-    void setPrioridade(const std::string&);
-    /** Retorna a prioridade do cartao. */
+    /**
+     * @brief Define o nível de prioridade da atividade (ALTA, MEDIA ou BAIXA).
+     * @param[in] prioridade String com o nível de prioridade.
+     * @throws std::invalid_argument Se o valor for inválido.
+     */
+    void setPrioridade(const std::string& prioridade);
+
+    /**
+     * @brief Retorna o nível de prioridade da atividade.
+     * @return String com o nível de prioridade (ALTA, MEDIA ou BAIXA).
+     */
     std::string getPrioridade() const;
 
-    /** Define o estado do cartao (A FAZER, FAZENDO ou FEITO); lanca excecao se invalido. */
-    void setEstado(const std::string&);
-    /** Retorna o estado do cartao. */
+    /**
+     * @brief Define a etapa do fluxo Kanban (A FAZER, FAZENDO ou FEITO).
+     * @param[in] estado String com o estado da atividade.
+     * @throws std::invalid_argument Se o estado for inválido.
+     */
+    void setEstado(const std::string& estado);
+
+    /**
+     * @brief Retorna o estado atual da atividade no quadro Kanban.
+     * @return String com o estado (A FAZER, FAZENDO ou FEITO).
+     */
     std::string getEstado() const;
 
-    /** Define o tamanho do cartao (GRANDE, MEDIO ou PEQUENO); lanca excecao se invalido. */
-    void setTamanho(const std::string&);
-    /** Retorna o tamanho do cartao. */
+    /**
+     * @brief Define a dimensão estimada do trabalho (GRANDE, MEDIO ou PEQUENO).
+     * @param[in] tamanho String com a dimensão do trabalho.
+     * @throws std::invalid_argument Se o tamanho for inválido.
+     */
+    void setTamanho(const std::string& tamanho);
+
+    /**
+     * @brief Retorna a dimensão estimada da atividade.
+     * @return String com o tamanho (GRANDE, MEDIO ou PEQUENO).
+     */
     std::string getTamanho() const;
 
-    /** Define o timestamp de entrada do cartao no quadro; lanca excecao se invalido. */
-    void setEntrada(const std::string&);
-    /** Retorna o timestamp de entrada do cartao no quadro. */
+    /**
+     * @brief Define o timestamp de entrada do cartão no quadro (coluna A FAZER).
+     * @param[in] entrada String no formato DIA-MES-ANO-HORARIO válido.
+     * @throws std::invalid_argument Se o timestamp for inválido.
+     */
+    void setEntrada(const std::string& entrada);
+
+    /**
+     * @brief Retorna o instante de entrada da atividade no quadro.
+     * @return String com o timestamp de entrada.
+     */
     std::string getEntrada() const;
 
-    /** Define o timestamp de inicio (entrada na coluna FAZENDO) do cartao; lanca excecao se invalido. */
-    void setInicio(const std::string&);
-    /** Retorna o timestamp de inicio do cartao. */
+    /**
+     * @brief Define o timestamp de início da execução (entrada em FAZENDO).
+     * @param[in] inicio String no formato DIA-MES-ANO-HORARIO válido.
+     * @throws std::invalid_argument Se o timestamp for inválido.
+     */
+    void setInicio(const std::string& inicio);
+
+    /**
+     * @brief Retorna o instante de início da execução da atividade.
+     * @return String com o timestamp de início.
+     */
     std::string getInicio() const;
 
-    /** Define o timestamp de termino (entrada na coluna FEITO) do cartao; lanca excecao se invalido. */
-    void setTermino(const std::string&);
-    /** Retorna o timestamp de termino do cartao. */
+    /**
+     * @brief Define o timestamp de conclusão da atividade (entrada em FEITO).
+     * @param[in] termino String no formato DIA-MES-ANO-HORARIO válido.
+     * @throws std::invalid_argument Se o timestamp for inválido.
+     */
+    void setTermino(const std::string& termino);
+
+    /**
+     * @brief Retorna o instante de conclusão da atividade.
+     * @return String com o timestamp de conclusão.
+     */
     std::string getTermino() const;
 };
 

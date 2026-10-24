@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Kanban - TP1 2026.2: Referência da Classe IServicoQuadro</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Kanban - TP1 2026.2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Trabalho Pratico de Tecnicas de Programacao 1 - UnB</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classIServicoQuadro-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe IServicoQuadro<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface responsável pelos serviços relacionados à entidade <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>.  
+ <a href="classIServicoQuadro.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe IServicoQuadro:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classIServicoQuadro.png" usemap="#IServicoQuadro_map" alt=""/>
+  <map id="IServicoQuadro_map" name="IServicoQuadro_map">
+<area href="classCntrServicoQuadro.html" title="Implementação concreta dos serviços de negócio relacionados a Quadro Kanban." alt="CntrServicoQuadro" shape="rect" coords="0,56,123,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a3b39a5199db71e7404d862f99c6082c9" id="r_a3b39a5199db71e7404d862f99c6082c9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoQuadro.html#a3b39a5199db71e7404d862f99c6082c9">~IServicoQuadro</a> ()=default</td></tr>
+<tr class="memdesc:a3b39a5199db71e7404d862f99c6082c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual da interface.  <br /></td></tr>
+<tr class="separator:a3b39a5199db71e7404d862f99c6082c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ba6d748885c3a4be33703fa9923f30" id="r_a07ba6d748885c3a4be33703fa9923f30"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoQuadro.html#a07ba6d748885c3a4be33703fa9923f30">atualizar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro)=0</td></tr>
+<tr class="memdesc:a07ba6d748885c3a4be33703fa9923f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um quadro cadastrado.  <br /></td></tr>
+<tr class="separator:a07ba6d748885c3a4be33703fa9923f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6f14473164bec2e7c00c2b95127fbb" id="r_a4b6f14473164bec2e7c00c2b95127fbb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoQuadro.html#a4b6f14473164bec2e7c00c2b95127fbb">criar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;projeto, const <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro)=0</td></tr>
+<tr class="memdesc:a4b6f14473164bec2e7c00c2b95127fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo quadro associado a um projeto.  <br /></td></tr>
+<tr class="separator:a4b6f14473164bec2e7c00c2b95127fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2cbfeb97add51c75cc48bd6cc294fe7" id="r_aa2cbfeb97add51c75cc48bd6cc294fe7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoQuadro.html#aa2cbfeb97add51c75cc48bd6cc294fe7">excluir</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador)=0</td></tr>
+<tr class="memdesc:aa2cbfeb97add51c75cc48bd6cc294fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um quadro cadastrado.  <br /></td></tr>
+<tr class="separator:aa2cbfeb97add51c75cc48bd6cc294fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b5fa35ac4b19d3257c74e433d34dd9b" id="r_a2b5fa35ac4b19d3257c74e433d34dd9b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoQuadro.html#a2b5fa35ac4b19d3257c74e433d34dd9b">ler</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro)=0</td></tr>
+<tr class="memdesc:a2b5fa35ac4b19d3257c74e433d34dd9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera os dados de um quadro cadastrado.  <br /></td></tr>
+<tr class="separator:a2b5fa35ac4b19d3257c74e433d34dd9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18536f6a30c63128866c2cf56b115ec1" id="r_a18536f6a30c63128866c2cf56b115ec1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoQuadro.html#a18536f6a30c63128866c2cf56b115ec1">listar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;identificadores)=0</td></tr>
+<tr class="memdesc:a18536f6a30c63128866c2cf56b115ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores dos quadros cadastrados.  <br /></td></tr>
+<tr class="separator:a18536f6a30c63128866c2cf56b115ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Interface responsável pelos serviços relacionados à entidade <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>. </p>
+<p>Define as operações disponibilizadas pela camada de serviço para criação, leitura, atualização, exclusão e listagem de quadros.</p>
+<p>O vínculo entre um quadro e um projeto deve ser mantido pela camada de serviço. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a3b39a5199db71e7404d862f99c6082c9" name="a3b39a5199db71e7404d862f99c6082c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b39a5199db71e7404d862f99c6082c9">&#9670;&#160;</a></span>~IServicoQuadro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IServicoQuadro::~IServicoQuadro </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual da interface. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a07ba6d748885c3a4be33703fa9923f30" name="a07ba6d748885c3a4be33703fa9923f30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ba6d748885c3a4be33703fa9923f30">&#9670;&#160;</a></span>atualizar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoQuadro::atualizar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQuadro.html">Quadro</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados de um quadro cadastrado. </p>
+<p>O identificador do quadro deve ser utilizado para localizar a entidade armazenada e não pode ser alterado durante a atualização.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td>Código identificador do quadro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td>Entidade contendo os novos dados do quadro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a atualização seja realizada com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoQuadro.html#af6a0cfe2ceb6c7b86aa0583d1e88f875">CntrServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a4b6f14473164bec2e7c00c2b95127fbb" name="a4b6f14473164bec2e7c00c2b95127fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b6f14473164bec2e7c00c2b95127fbb">&#9670;&#160;</a></span>criar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoQuadro::criar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>projeto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classQuadro.html">Quadro</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria um novo quadro associado a um projeto. </p>
+<p>A operação deve associar o quadro informado ao projeto identificado pelo parâmetro projeto.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">projeto</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do projeto ao qual o quadro será associado. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td>Entidade <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a> que será cadastrada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o quadro seja criado com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoQuadro.html#a81ba96ad570ff7a50c834f4d682d3d14">CntrServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="aa2cbfeb97add51c75cc48bd6cc294fe7" name="aa2cbfeb97add51c75cc48bd6cc294fe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2cbfeb97add51c75cc48bd6cc294fe7">&#9670;&#160;</a></span>excluir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoQuadro::excluir </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui um quadro cadastrado. </p>
+<p>A exclusão deve preservar a consistência dos relacionamentos existentes no sistema.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro que será excluído.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o quadro seja excluído com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoQuadro.html#a7c240d303e7bb1f61acd252a3ec5c484">CntrServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a2b5fa35ac4b19d3257c74e433d34dd9b" name="a2b5fa35ac4b19d3257c74e433d34dd9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b5fa35ac4b19d3257c74e433d34dd9b">&#9670;&#160;</a></span>ler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoQuadro::ler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classQuadro.html">Quadro</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Recupera os dados de um quadro cadastrado. </p>
+<p>O quadro é localizado por meio de seu identificador.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro que será pesquisado. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">quadro</td><td>Referência utilizada para retornar os dados do quadro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o quadro seja encontrado. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoQuadro.html#ad00d7f98a41987dbcd5c1c9c76803ccd">CntrServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a18536f6a30c63128866c2cf56b115ec1" name="a18536f6a30c63128866c2cf56b115ec1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18536f6a30c63128866c2cf56b115ec1">&#9670;&#160;</a></span>listar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoQuadro::listar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>identificadores</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os identificadores dos quadros cadastrados. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">identificadores</td><td>Vetor utilizado para retornar os identificadores dos quadros cadastrados.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a listagem seja realizada com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoQuadro.html#a1a0770dcf7ae9b54cbb9bdded1fd825a">CntrServicoQuadro</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li><a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

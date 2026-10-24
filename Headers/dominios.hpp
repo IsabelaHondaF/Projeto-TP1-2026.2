@@ -347,13 +347,15 @@ inline std::string Identificador::getIdentificador() const{
 
 
 /**
- * Representa o dominio EMAIL, no formato parte-local@dominio.
- * Parte local: letras (a-z), digitos (0-9), ponto (.) ou hifen (-);
- * nao pode iniciar/terminar com ponto ou hifen; ponto/hifen deve ser
- * seguido por letra(s) ou digito(s); no maximo 64 caracteres.
- * Dominio: uma ou mais partes separadas por ponto, cada parte com
- * letras (a-z), digitos (0-9) ou hifen (-), sem iniciar/terminar com
- * hifen; no maximo 255 caracteres.
+ * @brief Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.
+ *
+ * Formato esperado: parte-local&#64;dominio.
+ * - Parte local: letras minúsculas (a-z), dígitos (0-9), ponto (.) ou hífen (-); não pode iniciar
+ *   ou terminar com ponto ou hífen; ponto ou hífen deve ser seguido por letra(s) ou dígito(s);
+ *   comprimento máximo de 64 caracteres.
+ * - Domínio: composto por uma ou mais partes separadas por ponto (.); cada parte pode conter letras
+ *   minúsculas (a-z), dígitos (0-9) ou hífen (-); não pode iniciar ou terminar com hífen;
+ *   comprimento máximo de 255 caracteres.
  */
 class Email{
 private:
@@ -363,9 +365,21 @@ private:
     void validar(const std::string&);
 
 public:
-    /** Define o email, validando o formato; lanca excecao se invalido. */
+    /**
+     * @brief Valida e armazena o endereço eletrônico da conta.
+     *
+     * @par Parâmetro de entrada
+     * Texto no formato parte-local&#64;dominio em conformidade com as regras de caracteres e limites.
+     *
+     * @throws std::invalid_argument Se o formato, caracteres ou limites do email forem violados.
+     */
     void setEmail(const std::string&);
-    /** Retorna o valor atual do email. */
+
+    /**
+     * @brief Consulta o endereço eletrônico atualmente armazenado.
+     *
+     * @return Cópia do endereço eletrônico armazenado.
+     */
     std::string getEmail() const;
 };
 
@@ -375,10 +389,14 @@ inline std::string Email::getEmail() const{
 
 
 /**
- * Representa o dominio TIMESTAMP, no formato DIA-MES-ANO-HORARIO.
- * DIA: numero de 1 a 31 (validado conforme o mes e ano, incluindo
- * anos bissextos). MES: sigla de tres letras (JAN, FEV, ..., DEZ).
- * ANO: numero de 2000 a 2099. HORARIO: HH:MM de 00:00 a 23:59.
+ * @brief Armazena um instante no tempo composto por data e horário.
+ *
+ * Formato esperado: DIA-MES-ANO-HORARIO.
+ * - DIA: número de 1 a 31.
+ * - MES: sigla de três letras maiúsculas (JAN, FEV, MAR, ABR, MAI, JUN, JUL, AGO, SET, OUT, NOV, DEZ).
+ * - ANO: número de 2000 a 2099.
+ * - HORARIO: valor no formato HH:MM entre 00:00 e 23:59.
+ * A data deve ser válida considerando o calendário e anos bissextos.
  */
 class Timestamp{
 private:
@@ -391,9 +409,21 @@ private:
     static int indiceMes(const std::string& mes);
 
 public:
-    /** Define o timestamp, validando o formato; lanca excecao se invalido. */
+    /**
+     * @brief Valida e armazena o instante de tempo.
+     *
+     * @par Parâmetro de entrada
+     * Texto no formato DIA-MES-ANO-HORARIO válido no calendário gregoriano.
+     *
+     * @throws std::invalid_argument Se qualquer componente da data ou horário for inválido.
+     */
     void setTimestamp(const std::string&);
-    /** Retorna o valor atual do timestamp. */
+
+    /**
+     * @brief Consulta o instante de tempo atualmente armazenado.
+     *
+     * @return Cópia do texto correspondente ao timestamp armazenado.
+     */
     std::string getTimestamp() const;
 };
 

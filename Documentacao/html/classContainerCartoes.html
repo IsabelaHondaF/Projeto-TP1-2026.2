@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Kanban - TP1 2026.2: Referência da Classe ContainerCartoes</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Kanban - TP1 2026.2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Trabalho Pratico de Tecnicas de Programacao 1 - UnB</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classContainerCartoes-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe ContainerCartoes</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Armazenamento em memória de cartões de atividade e seus vínculos.  
+ <a href="classContainerCartoes.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="repositorios_8hpp_source.html">repositorios.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a07e61a202ad59b4907f7ea10f4c6410a" id="r_a07e61a202ad59b4907f7ea10f4c6410a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#a07e61a202ad59b4907f7ea10f4c6410a">existe</a> (const std::string &amp;id) const</td></tr>
+<tr class="memdesc:a07e61a202ad59b4907f7ea10f4c6410a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um cartão existe no contêiner.  <br /></td></tr>
+<tr class="separator:a07e61a202ad59b4907f7ea10f4c6410a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586ce6935f6d19d12d3ca7a39ae520f0" id="r_a586ce6935f6d19d12d3ca7a39ae520f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#a586ce6935f6d19d12d3ca7a39ae520f0">inserir</a> (const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao, const std::string &amp;idQuadro, const std::string &amp;emailDesenvolvedor)</td></tr>
+<tr class="memdesc:a586ce6935f6d19d12d3ca7a39ae520f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um cartão com seus relacionamentos de quadro e responsável.  <br /></td></tr>
+<tr class="separator:a586ce6935f6d19d12d3ca7a39ae520f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31f00392b7195102e1ab17483b7e63b" id="r_ad31f00392b7195102e1ab17483b7e63b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#ad31f00392b7195102e1ab17483b7e63b">listarCartoesDoQuadro</a> (const std::string &amp;idQuadro) const</td></tr>
+<tr class="memdesc:ad31f00392b7195102e1ab17483b7e63b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna cópias de todas as entidades cartão de um determinado quadro.  <br /></td></tr>
+<tr class="separator:ad31f00392b7195102e1ab17483b7e63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735aaab993a8333222d0fd4dbb4792e3" id="r_a735aaab993a8333222d0fd4dbb4792e3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#a735aaab993a8333222d0fd4dbb4792e3">listarIdsDoQuadro</a> (const std::string &amp;idQuadro) const</td></tr>
+<tr class="memdesc:a735aaab993a8333222d0fd4dbb4792e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores de todos os cartões vinculados a um quadro.  <br /></td></tr>
+<tr class="separator:a735aaab993a8333222d0fd4dbb4792e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3071f3ac3b55e44f526cdc68db78e31b" id="r_a3071f3ac3b55e44f526cdc68db78e31b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#a3071f3ac3b55e44f526cdc68db78e31b">obter</a> (const std::string &amp;id, <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao, std::string *idQuadro=0, std::string *emailDesenvolvedor=0) const</td></tr>
+<tr class="memdesc:a3071f3ac3b55e44f526cdc68db78e31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera um cartão de atividade e opcionalmente seus vínculos.  <br /></td></tr>
+<tr class="separator:a3071f3ac3b55e44f526cdc68db78e31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1fae919d61b732dcd440f93db21b52f" id="r_ac1fae919d61b732dcd440f93db21b52f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#ac1fae919d61b732dcd440f93db21b52f">remover</a> (const std::string &amp;id)</td></tr>
+<tr class="memdesc:ac1fae919d61b732dcd440f93db21b52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um cartão de atividade.  <br /></td></tr>
+<tr class="separator:ac1fae919d61b732dcd440f93db21b52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfb05113d18fea76723d5b84e4d36d4" id="r_a5cfb05113d18fea76723d5b84e4d36d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#a5cfb05113d18fea76723d5b84e4d36d4">substituir</a> (const std::string &amp;id, const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao)</td></tr>
+<tr class="memdesc:a5cfb05113d18fea76723d5b84e4d36d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um cartão existente.  <br /></td></tr>
+<tr class="separator:a5cfb05113d18fea76723d5b84e4d36d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb045f81a012c5055663d5d8ce557eb4" id="r_acb045f81a012c5055663d5d8ce557eb4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#acb045f81a012c5055663d5d8ce557eb4">temCartaoDoDesenvolvedor</a> (const std::string &amp;emailDesenvolvedor) const</td></tr>
+<tr class="memdesc:acb045f81a012c5055663d5d8ce557eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se determinado desenvolvedor possui algum cartão sob sua responsabilidade.  <br /></td></tr>
+<tr class="separator:acb045f81a012c5055663d5d8ce557eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11027086b67bbb8d24d5eaf5766f0055" id="r_a11027086b67bbb8d24d5eaf5766f0055"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classContainerCartoes.html#a11027086b67bbb8d24d5eaf5766f0055">temCartaoNoQuadro</a> (const std::string &amp;idQuadro) const</td></tr>
+<tr class="memdesc:a11027086b67bbb8d24d5eaf5766f0055"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se determinado quadro possui algum cartão cadastrado.  <br /></td></tr>
+<tr class="separator:a11027086b67bbb8d24d5eaf5766f0055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Armazenamento em memória de cartões de atividade e seus vínculos. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a07e61a202ad59b4907f7ea10f4c6410a" name="a07e61a202ad59b4907f7ea10f4c6410a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e61a202ad59b4907f7ea10f4c6410a">&#9670;&#160;</a></span>existe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::existe </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se um cartão existe no contêiner. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se existir; false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="a586ce6935f6d19d12d3ca7a39ae520f0" name="a586ce6935f6d19d12d3ca7a39ae520f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586ce6935f6d19d12d3ca7a39ae520f0">&#9670;&#160;</a></span>inserir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::inserir </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;&#160;</td>
+          <td class="paramname"><em>cartao</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>idQuadro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>emailDesenvolvedor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere um cartão com seus relacionamentos de quadro e responsável. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cartao</td><td>Dados da entidade <a class="el" href="classCartaoDeAtividade.html" title="Representa um cartao de atividade de um quadro Kanban.">CartaoDeAtividade</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idQuadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro Kanban. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">emailDesenvolvedor</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do desenvolvedor atribuído. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se inserido com sucesso; false se o identificador já existir. </dd></dl>
+
+</div>
+</div>
+<a id="ad31f00392b7195102e1ab17483b7e63b" name="ad31f00392b7195102e1ab17483b7e63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31f00392b7195102e1ab17483b7e63b">&#9670;&#160;</a></span>listarCartoesDoQuadro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &gt; ContainerCartoes::listarCartoesDoQuadro </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>idQuadro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna cópias de todas as entidades cartão de um determinado quadro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idQuadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor contendo as instâncias de <a class="el" href="classCartaoDeAtividade.html" title="Representa um cartao de atividade de um quadro Kanban.">CartaoDeAtividade</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a735aaab993a8333222d0fd4dbb4792e3" name="a735aaab993a8333222d0fd4dbb4792e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735aaab993a8333222d0fd4dbb4792e3">&#9670;&#160;</a></span>listarIdsDoQuadro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; ContainerCartoes::listarIdsDoQuadro </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>idQuadro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lista os identificadores de todos os cartões vinculados a um quadro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idQuadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de identificadores dos cartões. </dd></dl>
+
+</div>
+</div>
+<a id="a3071f3ac3b55e44f526cdc68db78e31b" name="a3071f3ac3b55e44f526cdc68db78e31b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3071f3ac3b55e44f526cdc68db78e31b">&#9670;&#160;</a></span>obter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::obter </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;&#160;</td>
+          <td class="paramname"><em>cartao</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>idQuadro</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>emailDesenvolvedor</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recupera um cartão de atividade e opcionalmente seus vínculos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cartao</td><td>Recebe os dados do cartão. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">idQuadro</td><td>Ponteiro opcional para receber o id do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">emailDesenvolvedor</td><td>Ponteiro opcional para receber o email do desenvolvedor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se encontrado; false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="ac1fae919d61b732dcd440f93db21b52f" name="ac1fae919d61b732dcd440f93db21b52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1fae919d61b732dcd440f93db21b52f">&#9670;&#160;</a></span>remover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::remover </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um cartão de atividade. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão a ser excluído. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se removido; false se inexistente. </dd></dl>
+
+</div>
+</div>
+<a id="a5cfb05113d18fea76723d5b84e4d36d4" name="a5cfb05113d18fea76723d5b84e4d36d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfb05113d18fea76723d5b84e4d36d4">&#9670;&#160;</a></span>substituir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::substituir </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;&#160;</td>
+          <td class="paramname"><em>cartao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados de um cartão existente. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cartao</td><td>Novos dados do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se atualizado; false se não encontrado. </dd></dl>
+
+</div>
+</div>
+<a id="acb045f81a012c5055663d5d8ce557eb4" name="acb045f81a012c5055663d5d8ce557eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb045f81a012c5055663d5d8ce557eb4">&#9670;&#160;</a></span>temCartaoDoDesenvolvedor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::temCartaoDoDesenvolvedor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>emailDesenvolvedor</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se determinado desenvolvedor possui algum cartão sob sua responsabilidade. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">emailDesenvolvedor</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do desenvolvedor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se houver ao menos um cartão; false caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="a11027086b67bbb8d24d5eaf5766f0055" name="a11027086b67bbb8d24d5eaf5766f0055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11027086b67bbb8d24d5eaf5766f0055">&#9670;&#160;</a></span>temCartaoNoQuadro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ContainerCartoes::temCartaoNoQuadro </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>idQuadro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se determinado quadro possui algum cartão cadastrado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idQuadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se houver cartões; false caso o quadro esteja vazio. </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li><a class="el" href="repositorios_8hpp_source.html">repositorios.hpp</a></li>
+<li><a class="el" href="repositorios_8cpp.html">repositorios.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

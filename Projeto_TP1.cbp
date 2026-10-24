@@ -45,6 +45,18 @@
           <Add option="-Wextra" />
         </Compiler>
       </Target>
+      <Target title="TestesUnitarios">
+        <Option output="bin/TestesUnitarios/TestesUnitarios" prefix_auto="1" extension_auto="1" />
+        <Option object_output="obj/TestesUnitarios/" />
+        <Option type="1" />
+        <Option compiler="gcc" />
+        <Compiler>
+          <Add option="-std=c++11" />
+          <Add option="-g" />
+          <Add option="-Wall" />
+          <Add option="-Wextra" />
+        </Compiler>
+      </Target>
     </Build>
     <Unit filename="Main/main.cpp">
       <Option target="Debug" />
@@ -53,11 +65,33 @@
     <Unit filename="Testes/smoke_test_controladoras.cpp">
       <Option target="SmokeTest" />
     </Unit>
+    <Unit filename="Testes/testes_unitarios.cpp">
+      <Option target="TestesUnitarios" />
+    </Unit>
+    <Unit filename="Testes/testes_dominios.cpp">
+      <Option target="TestesUnitarios" />
+    </Unit>
+    <Unit filename="Testes/testes_entidades.cpp">
+      <Option target="TestesUnitarios" />
+    </Unit>
+    <Unit filename="Headers/testes_dominios.hpp" />
+    <Unit filename="Headers/testes_entidades.hpp" />
     <Unit filename="Dominios/dominios.cpp" />
     <Unit filename="Entidades/entidades.cpp" />
-    <Unit filename="Repositorios/repositorios.cpp" />
-    <Unit filename="Servicos/controladoras_servico.cpp" />
-    <Unit filename="Apresentacao/apresentacao.cpp" />
+    <Unit filename="Repositorios/repositorios.cpp">
+      <Option target="Debug" />
+      <Option target="Release" />
+      <Option target="SmokeTest" />
+    </Unit>
+    <Unit filename="Servicos/controladoras_servico.cpp">
+      <Option target="Debug" />
+      <Option target="Release" />
+      <Option target="SmokeTest" />
+    </Unit>
+    <Unit filename="Apresentacao/apresentacao.cpp">
+      <Option target="Debug" />
+      <Option target="Release" />
+    </Unit>
     <Unit filename="Headers/dominios.hpp" />
     <Unit filename="Headers/entidades.hpp" />
     <Unit filename="Headers/interfaces.hpp" />

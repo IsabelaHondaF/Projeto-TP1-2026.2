@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Kanban - TP1 2026.2: Referência da Classe IServicoCartaoDeAtividade</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Kanban - TP1 2026.2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Trabalho Pratico de Tecnicas de Programacao 1 - UnB</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="classIServicoCartaoDeAtividade-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe IServicoCartaoDeAtividade<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface responsável pelos serviços relacionados a cartões de atividade.  
+ <a href="classIServicoCartaoDeAtividade.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe IServicoCartaoDeAtividade:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classIServicoCartaoDeAtividade.png" usemap="#IServicoCartaoDeAtividade_map" alt=""/>
+  <map id="IServicoCartaoDeAtividade_map" name="IServicoCartaoDeAtividade_map">
+<area href="classCntrServicoCartaoDeAtividade.html" title="Implementação concreta dos serviços de negócio de Cartão de Atividade." alt="CntrServicoCartaoDeAtividade" shape="rect" coords="0,56,187,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a6a8e0f019bea751118776e5d2e096f92" id="r_a6a8e0f019bea751118776e5d2e096f92"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a6a8e0f019bea751118776e5d2e096f92">~IServicoCartaoDeAtividade</a> ()=default</td></tr>
+<tr class="memdesc:a6a8e0f019bea751118776e5d2e096f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual da interface.  <br /></td></tr>
+<tr class="separator:a6a8e0f019bea751118776e5d2e096f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3f11b0456bd71ee13e5b7e0172da99f" id="r_ad3f11b0456bd71ee13e5b7e0172da99f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#ad3f11b0456bd71ee13e5b7e0172da99f">atualizar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao)=0</td></tr>
+<tr class="memdesc:ad3f11b0456bd71ee13e5b7e0172da99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados editáveis de um cartão de atividade.  <br /></td></tr>
+<tr class="separator:ad3f11b0456bd71ee13e5b7e0172da99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53f7df92552e323d679cd450650aee1" id="r_ac53f7df92552e323d679cd450650aee1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#ac53f7df92552e323d679cd450650aee1">criar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, const <a class="el" href="classEmail.html">Email</a> &amp;desenvolvedor, const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao)=0</td></tr>
+<tr class="memdesc:ac53f7df92552e323d679cd450650aee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo cartão de atividade.  <br /></td></tr>
+<tr class="separator:ac53f7df92552e323d679cd450650aee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66b547f40d91b085a213e4a879cc307e" id="r_a66b547f40d91b085a213e4a879cc307e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a66b547f40d91b085a213e4a879cc307e">excluir</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador)=0</td></tr>
+<tr class="memdesc:a66b547f40d91b085a213e4a879cc307e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um cartão de atividade cadastrado.  <br /></td></tr>
+<tr class="separator:a66b547f40d91b085a213e4a879cc307e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2ae18c0e6ccfec0752f6d2bb5e1bea" id="r_a7f2ae18c0e6ccfec0752f6d2bb5e1bea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a7f2ae18c0e6ccfec0752f6d2bb5e1bea">ler</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao)=0</td></tr>
+<tr class="memdesc:a7f2ae18c0e6ccfec0752f6d2bb5e1bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera os dados de um cartão de atividade.  <br /></td></tr>
+<tr class="separator:a7f2ae18c0e6ccfec0752f6d2bb5e1bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d894007477d04835135b47eb6dd615" id="r_aa6d894007477d04835135b47eb6dd615"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#aa6d894007477d04835135b47eb6dd615">lerLeadTime</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, long long &amp;minutos)=0</td></tr>
+<tr class="memdesc:aa6d894007477d04835135b47eb6dd615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o lead time de um cartão de atividade.  <br /></td></tr>
+<tr class="separator:aa6d894007477d04835135b47eb6dd615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9aad781693d5a921dadef5d8f9feae" id="r_a6e9aad781693d5a921dadef5d8f9feae"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a6e9aad781693d5a921dadef5d8f9feae">lerLeadTimeMedio</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, double &amp;minutos)=0</td></tr>
+<tr class="memdesc:a6e9aad781693d5a921dadef5d8f9feae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o lead time médio dos cartões de um quadro.  <br /></td></tr>
+<tr class="separator:a6e9aad781693d5a921dadef5d8f9feae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a017867c75e7bdba0b07c3a04b95be18a" id="r_a017867c75e7bdba0b07c3a04b95be18a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a017867c75e7bdba0b07c3a04b95be18a">lerTempoCiclo</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, long long &amp;minutos)=0</td></tr>
+<tr class="memdesc:a017867c75e7bdba0b07c3a04b95be18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tempo de ciclo de um cartão de atividade.  <br /></td></tr>
+<tr class="separator:a017867c75e7bdba0b07c3a04b95be18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd44a96bf79e3163f61a49bb3ef161aa" id="r_afd44a96bf79e3163f61a49bb3ef161aa"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#afd44a96bf79e3163f61a49bb3ef161aa">lerTempoCicloMedio</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, double &amp;minutos)=0</td></tr>
+<tr class="memdesc:afd44a96bf79e3163f61a49bb3ef161aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tempo de ciclo médio dos cartões de um quadro.  <br /></td></tr>
+<tr class="separator:afd44a96bf79e3163f61a49bb3ef161aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad488ec4cf5149c42d1123e5354987b" id="r_a2ad488ec4cf5149c42d1123e5354987b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a2ad488ec4cf5149c42d1123e5354987b">lerWIP</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, int &amp;quantidade)=0</td></tr>
+<tr class="memdesc:a2ad488ec4cf5149c42d1123e5354987b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o WIP atual de um quadro.  <br /></td></tr>
+<tr class="separator:a2ad488ec4cf5149c42d1123e5354987b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9544036deea34c0421a0659ed137979f" id="r_a9544036deea34c0421a0659ed137979f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#a9544036deea34c0421a0659ed137979f">listar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;identificadores)=0</td></tr>
+<tr class="memdesc:a9544036deea34c0421a0659ed137979f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores dos cartões pertencentes a um quadro.  <br /></td></tr>
+<tr class="separator:a9544036deea34c0421a0659ed137979f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ee754cb870214fcaacddbe95bf9bbf" id="r_af5ee754cb870214fcaacddbe95bf9bbf"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIServicoCartaoDeAtividade.html#af5ee754cb870214fcaacddbe95bf9bbf">mover</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classTimestamp.html">Timestamp</a> &amp;instante)=0</td></tr>
+<tr class="memdesc:af5ee754cb870214fcaacddbe95bf9bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move um cartão para a próxima coluna permitida do quadro.  <br /></td></tr>
+<tr class="separator:af5ee754cb870214fcaacddbe95bf9bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Interface responsável pelos serviços relacionados a cartões de atividade. </p>
+<p>Define as operações disponibilizadas pela camada de serviço para criação, leitura, atualização, exclusão, listagem e movimentação de cartões, além do cálculo das métricas de tempo do quadro Kanban.</p>
+<p>A implementação deve controlar as movimentações entre A FAZER, FAZENDO e FEITO e respeitar o limite de WIP do quadro. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a6a8e0f019bea751118776e5d2e096f92" name="a6a8e0f019bea751118776e5d2e096f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a8e0f019bea751118776e5d2e096f92">&#9670;&#160;</a></span>~IServicoCartaoDeAtividade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IServicoCartaoDeAtividade::~IServicoCartaoDeAtividade </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual da interface. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="ad3f11b0456bd71ee13e5b7e0172da99f" name="ad3f11b0456bd71ee13e5b7e0172da99f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f11b0456bd71ee13e5b7e0172da99f">&#9670;&#160;</a></span>atualizar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::atualizar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;&#160;</td>
+          <td class="paramname"><em>cartao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados editáveis de um cartão de atividade. </p>
+<p>O identificador contido no cartão é utilizado para localizar a entidade armazenada e não deve ser alterado.</p>
+<p>A alteração do estado e dos instantes relacionados às movimentações deve ser realizada pelo serviço mover.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será atualizado. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cartao</td><td>Entidade contendo os novos dados do cartão.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a atualização seja realizada com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a3ad24a18606b347a82a3ea2927de8c85">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="ac53f7df92552e323d679cd450650aee1" name="ac53f7df92552e323d679cd450650aee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53f7df92552e323d679cd450650aee1">&#9670;&#160;</a></span>criar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::criar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>desenvolvedor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;&#160;</td>
+          <td class="paramname"><em>cartao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria um novo cartão de atividade. </p>
+<p>O cartão é associado a um quadro e a um desenvolvedor responsável.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro ao qual o cartão pertence. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">desenvolvedor</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do desenvolvedor responsável pelo cartão. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cartao</td><td>Entidade <a class="el" href="classCartaoDeAtividade.html" title="Representa um cartao de atividade de um quadro Kanban.">CartaoDeAtividade</a> que será cadastrada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o cartão seja criado com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a0aa47760e8b203da59bc4cb9765126c0">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="a66b547f40d91b085a213e4a879cc307e" name="a66b547f40d91b085a213e4a879cc307e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b547f40d91b085a213e4a879cc307e">&#9670;&#160;</a></span>excluir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::excluir </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui um cartão de atividade cadastrado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será excluído.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o cartão seja excluído com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a13278a757feb597f913ee22d0bdfedfb">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="a7f2ae18c0e6ccfec0752f6d2bb5e1bea" name="a7f2ae18c0e6ccfec0752f6d2bb5e1bea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2ae18c0e6ccfec0752f6d2bb5e1bea">&#9670;&#160;</a></span>ler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::ler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;&#160;</td>
+          <td class="paramname"><em>cartao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Recupera os dados de um cartão de atividade. </p>
+<p>O cartão é localizado por meio do seu identificador.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será pesquisado. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cartao</td><td>Referência utilizada para retornar os dados do cartão.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o cartão seja encontrado. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#adcee76c73fbd9c8c94b9be46e60b0c5b">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="aa6d894007477d04835135b47eb6dd615" name="aa6d894007477d04835135b47eb6dd615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d894007477d04835135b47eb6dd615">&#9670;&#160;</a></span>lerLeadTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::lerLeadTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long &amp;&#160;</td>
+          <td class="paramname"><em>minutos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o lead time de um cartão de atividade. </p>
+<p>O lead time corresponde ao intervalo entre a entrada do cartão em A FAZER e sua chegada em FEITO.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o lead time, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o lead time possa ser calculado. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a0a77bd59d8c1a70ff99cdcd168b40917">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="a6e9aad781693d5a921dadef5d8f9feae" name="a6e9aad781693d5a921dadef5d8f9feae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9aad781693d5a921dadef5d8f9feae">&#9670;&#160;</a></span>lerLeadTimeMedio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::lerLeadTimeMedio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>minutos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o lead time médio dos cartões de um quadro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o lead time médio, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a média possa ser calculada. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#aa81af2af378808f31a1b4462bc467ac1">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="a017867c75e7bdba0b07c3a04b95be18a" name="a017867c75e7bdba0b07c3a04b95be18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a017867c75e7bdba0b07c3a04b95be18a">&#9670;&#160;</a></span>lerTempoCiclo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::lerTempoCiclo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long &amp;&#160;</td>
+          <td class="paramname"><em>minutos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o tempo de ciclo de um cartão de atividade. </p>
+<p>O tempo de ciclo corresponde ao intervalo entre a entrada do cartão em FAZENDO e sua chegada em FEITO.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o tempo de ciclo, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o tempo de ciclo possa ser calculado. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a287f35cd6c6d04fe48914769704d3b84">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="afd44a96bf79e3163f61a49bb3ef161aa" name="afd44a96bf79e3163f61a49bb3ef161aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd44a96bf79e3163f61a49bb3ef161aa">&#9670;&#160;</a></span>lerTempoCicloMedio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::lerTempoCicloMedio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>minutos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o tempo de ciclo médio dos cartões de um quadro. </p>
+<p>O valor corresponde à média dos tempos de ciclo das atividades consideradas no quadro.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o tempo médio, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a média possa ser calculada. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#aa837c500232f78775fb75fcde4f18d5f">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="a2ad488ec4cf5149c42d1123e5354987b" name="a2ad488ec4cf5149c42d1123e5354987b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad488ec4cf5149c42d1123e5354987b">&#9670;&#160;</a></span>lerWIP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::lerWIP </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>quantidade</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o WIP atual de um quadro. </p>
+<p>O WIP corresponde à quantidade de cartões atualmente na coluna FAZENDO.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">quantidade</td><td>Referência utilizada para retornar o número de cartões em andamento.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o WIP seja obtido com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a2617c9790b8dffa5a1588fdec02b70ee">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="a9544036deea34c0421a0659ed137979f" name="a9544036deea34c0421a0659ed137979f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9544036deea34c0421a0659ed137979f">&#9670;&#160;</a></span>listar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::listar </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>quadro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>identificadores</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os identificadores dos cartões pertencentes a um quadro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro cujos cartões serão listados. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">identificadores</td><td>Vetor utilizado para retornar os identificadores dos cartões.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a listagem seja realizada com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#a89f108e04cdeac25986d24d3fc44dd43">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<a id="af5ee754cb870214fcaacddbe95bf9bbf" name="af5ee754cb870214fcaacddbe95bf9bbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5ee754cb870214fcaacddbe95bf9bbf">&#9670;&#160;</a></span>mover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IServicoCartaoDeAtividade::mover </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
+          <td class="paramname"><em>usuario</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
+          <td class="paramname"><em>identificador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classTimestamp.html">Timestamp</a> &amp;&#160;</td>
+          <td class="paramname"><em>instante</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move um cartão para a próxima coluna permitida do quadro. </p>
+<p>As únicas movimentações permitidas são:</p>
+<p>A FAZER -&gt; FAZENDO FAZENDO -&gt; FEITO</p>
+<p>Ao entrar em FAZENDO, a implementação deve registrar o instante de início e respeitar o limite de WIP do quadro.</p>
+<p>Ao entrar em FEITO, deve registrar o instante de término.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a movimentação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será movido. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">instante</td><td>Momento em que ocorre a movimentação.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a movimentação seja realizada. </dd>
+<dd>
+false caso a movimentação não seja permitida. </dd></dl>
+
+<p>Implementado por <a class="el" href="classCntrServicoCartaoDeAtividade.html#af49922eb3da616d3caf564b741a7c8ac">CntrServicoCartaoDeAtividade</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li><a class="el" href="interfaces_8hpp_source.html">interfaces.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

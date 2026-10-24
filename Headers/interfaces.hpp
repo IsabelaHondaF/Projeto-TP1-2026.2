@@ -171,7 +171,7 @@ public:
      * ser preservado, pois a chave primária não pode ser editada.
      * @pre O solicitante deve estar autenticado com papel GESTOR.
      * @param[in] usuario Endereço eletrônico do solicitante autenticado.
-     * @param[in] identifcador Código que identifica o projetoa ser alterado
+     * @param[in] identificador Código que identifica o projeto a ser alterado.
      * @param[in] projeto Código do registro existente e novos valores dos dados editáveis.
      * @return true se os dados forem atualizados; false se o registro não existir
      * ou a atualização não puder ser realizada.
@@ -386,6 +386,7 @@ public:
      * deve ser realizada pelo serviço mover.
      *
      * @param[in] usuario Email do usuário que solicita a operação.
+     * @param[in] identificador Identificador do cartão que será atualizado.
      * @param[in] cartao Entidade contendo os novos dados do cartão.
      *
      * @return true caso a atualização seja realizada com sucesso.

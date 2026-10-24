@@ -86,13 +86,13 @@ const std::string Tamanho::MEDIO = "MEDIO";
 const std::string Tamanho::PEQUENO = "PEQUENO";
 
 void Tamanho::validar(const std::string& tamanho){
-    if(tamanho != GRANDE && tamanho != MEDIO && tamanho != PEQUENO)
+    if(tamanho != GRANDE && tamanho != MEDIO && tamanho != PEQUENO && tamanho != "MÉDIO")
         throw std::invalid_argument("Tamanho invalido.");
 }
 
 void Tamanho::setTamanho(const std::string& tamanho){
     validar(tamanho);
-    this->tamanho = tamanho;
+    this->tamanho = (tamanho == "MÉDIO") ? MEDIO : tamanho;
 }
 
 
