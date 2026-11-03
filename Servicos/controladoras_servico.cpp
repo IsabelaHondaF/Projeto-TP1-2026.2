@@ -144,9 +144,16 @@ bool timestampEmMinutos(const std::string& texto, long long& resultado) {
     return true;
 }
 
-bool periodoProjetoValido(const Projeto& projeto) {
+bool pessoaCompleta(const Pessoa& pessoa) {
+    return !pessoa.getEmail().empty() && !pessoa.getNome().empty() &&
+           !pessoa.getSenha().empty() && !pessoa.getPapel().empty();
+}
+
+bool projetoValido(const Projeto& projeto) {
     long long inicio = 0, termino = 0;
-    return timestampEmMinutos(projeto.getInicio(), inicio) &&
+    return !projeto.getIdentificador().empty() && !projeto.getNome().empty() &&
+           !projeto.getDescricao().empty() &&
+           timestampEmMinutos(projeto.getInicio(), inicio) &&
            timestampEmMinutos(projeto.getTermino(), termino) && inicio <= termino;
 }
 
@@ -200,8 +207,7 @@ CntrServicoPessoa::CntrServicoPessoa(ContainerPessoas& pessoas,
 
 bool CntrServicoPessoa::criar(const Pessoa& pessoa) {
     // Cadastro é a única operação que não exige uma sessão já autenticada.
-    if (pessoa.getEmail().empty() || pessoa.getNome().empty() ||
-        pessoa.getSenha().empty() || pessoa.getPapel().empty()) return false;
+   if (!pessoaCompleta(pessoa)) return false;
     return pessoas.inserir(pessoa);
 }
 
@@ -218,6 +224,7 @@ bool CntrServicoPessoa::ler(const Email& usuario, const Email& alvo, Pessoa& pes
 
 bool CntrServicoPessoa::atualizar(const Email& usuario, const Email& alvo,
                                   const Pessoa& pessoa) {
+    if (!pessoaCompleta(pessoa)) return false;
     const std::string emailAlvo = alvo.getEmail();
     // Cada usuário só pode alterar a própria conta.
     if (usuario.getEmail() != emailAlvo ||
@@ -272,7 +279,7 @@ bool CntrServicoProjeto::criar(const Email& gestor, const Projeto& projeto) {
     const std::string email = gestor.getEmail();
     // O projeto ainda não existe; basta confirmar que o criador é um GESTOR.
     if (!usuarioTemPapel(pessoas, email, "GESTOR")) return false;
-    if (!periodoProjetoValido(projeto)) return false;
+    if (!projetoValido(projeto)) return false;
     return projetos.inserir(projeto, email);
 }
 
@@ -287,7 +294,7 @@ bool CntrServicoProjeto::atualizar(const Email& usuario,
                                    const Projeto& projeto) {
     const std::string id = identificador.getIdentificador();
     if (!ehGestorDoProjeto(pessoas, projetos, usuario.getEmail(), id) ||
-        projeto.getIdentificador() != id || !periodoProjetoValido(projeto)) return false;
+        projeto.getIdentificador() != id || !projetoValido(projeto)) return false;
     return projetos.substituir(id, projeto);
 }
 
@@ -391,7 +398,10 @@ bool CntrServicoCartaoDeAtividade::criar(const Email& usuario,
     if (!ehGestorDoQuadro(pessoas, projetos, quadros, usuario.getEmail(), idQuadro) ||
         !quadros.obter(idQuadro, quadroExistente) ||
         !usuarioTemPapel(pessoas, emailDev, "DESENVOLVEDOR") ||
-        cartao.getIdentificador().empty() || cartao.getNome().empty() ||
+        cartao.getIdentificador().empty() || cartao.getNome().empty() ||         
+        cartao.getDescricao().empty() ||
+        cartao.getPrioridade().empty() ||
+        cartao.getTamanho().empty() ||
         cartao.getEstado() != "A FAZER" ||
         !timestampEmMinutos(cartao.getEntrada(), entrada) ||
         !cartao.getInicio().empty() || !cartao.getTermino().empty()) return false;

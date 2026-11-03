@@ -14,7 +14,7 @@ class Limite {
 private:
     static const int MINIMO = 1;
     static const int MAXIMO = 25;
-    int valor;
+    int valor = 0;
     void validar(int);
 
 public:
