@@ -163,28 +163,35 @@ private:
 /**
  * @brief Controladora principal da apresentação: tela inicial, sessão e menu principal.
  *
- * Coordena as demais controladoras de apresentação. Só repassa aos serviços
- * o e-mail de um usuário que passou pela autenticação.
+ * Coordena as demais controladoras por meio das interfaces de apresentação.
+ * Só repassa aos serviços o e-mail de um usuário que passou pela autenticação.
  */
 class CntrApresentacaoPrincipal {
 private:
     IServicoPessoa* servicoPessoa;
-    CntrApresentacaoPessoa pessoa;
-    CntrApresentacaoProjeto projeto;
-    CntrApresentacaoQuadro quadro;
-    CntrApresentacaoCartao cartao;
+    IApresentacaoPessoa& pessoa;
+    IApresentacaoProjeto& projeto;
+    IApresentacaoQuadro& quadro;
+    IApresentacaoCartao& cartao;
+
 public:
     /**
-     * @brief Constrói a controladora principal a partir das interfaces de serviço.
-     * @param[in] servicoPessoa Serviço de pessoa.
-     * @param[in] servicoProjeto Serviço de projeto.
-     * @param[in] servicoQuadro Serviço de quadro.
-     * @param[in] servicoCartao Serviço de cartão de atividade.
+     * @brief Constrói a controladora principal a partir das interfaces utilizadas.
+     * @param[in] servicoPessoa Serviço para consultar os dados do usuário autenticado;
+     * não pode ser nulo.
+     * @param[in] apresentacaoPessoa Interface de apresentação de contas e autenticação.
+     * @param[in] apresentacaoProjeto Interface de apresentação de projetos.
+     * @param[in] apresentacaoQuadro Interface de apresentação de quadros.
+     * @param[in] apresentacaoCartao Interface de apresentação de cartões.
+     * @note As dependências devem permanecer válidas durante toda a vida da controladora.
      */
-    CntrApresentacaoPrincipal(IServicoPessoa* servicoPessoa,
-                              IServicoProjeto* servicoProjeto,
-                              IServicoQuadro* servicoQuadro,
-                              IServicoCartaoDeAtividade* servicoCartao);
+    CntrApresentacaoPrincipal(
+        IServicoPessoa* servicoPessoa,
+        IApresentacaoPessoa& apresentacaoPessoa,
+        IApresentacaoProjeto& apresentacaoProjeto,
+        IApresentacaoQuadro& apresentacaoQuadro,
+        IApresentacaoCartao& apresentacaoCartao
+    );
 
     /**
      * @brief Executa o sistema: tela inicial (entrar, criar conta, sair) e menu principal.

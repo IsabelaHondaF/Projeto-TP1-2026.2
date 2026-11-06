@@ -16,8 +16,19 @@ int main() {
     CntrServicoQuadro servicoQuadro(pessoas, projetos, quadros, cartoes);
     CntrServicoCartaoDeAtividade servicoCartao(pessoas, projetos, quadros, cartoes);
 
-    CntrApresentacaoPrincipal apresentacao(&servicoPessoa, &servicoProjeto,
-                                           &servicoQuadro, &servicoCartao);
+    CntrApresentacaoPessoa apresentacaoPessoa(&servicoPessoa);
+    CntrApresentacaoProjeto apresentacaoProjeto(&servicoProjeto);
+    CntrApresentacaoQuadro apresentacaoQuadro(&servicoQuadro);
+    CntrApresentacaoCartao apresentacaoCartao(&servicoCartao);
+
+    CntrApresentacaoPrincipal apresentacao(
+        &servicoPessoa,
+        apresentacaoPessoa,
+        apresentacaoProjeto,
+        apresentacaoQuadro,
+        apresentacaoCartao
+    );
+    
     apresentacao.executar();
     return 0;
 }

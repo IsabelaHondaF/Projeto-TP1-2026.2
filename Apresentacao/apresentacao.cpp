@@ -500,15 +500,18 @@ void CntrApresentacaoCartao::lerWIP(const Email& usuario) {
 // Principal
 // -----------------------------------------------------------------------------
 
-CntrApresentacaoPrincipal::CntrApresentacaoPrincipal(IServicoPessoa* servicoPessoa,
-                                                     IServicoProjeto* servicoProjeto,
-                                                     IServicoQuadro* servicoQuadro,
-                                                     IServicoCartaoDeAtividade* servicoCartao)
+CntrApresentacaoPrincipal::CntrApresentacaoPrincipal(
+    IServicoPessoa* servicoPessoa,
+    IApresentacaoPessoa& apresentacaoPessoa,
+    IApresentacaoProjeto& apresentacaoProjeto,
+    IApresentacaoQuadro& apresentacaoQuadro,
+    IApresentacaoCartao& apresentacaoCartao
+)
     : servicoPessoa(servicoPessoa),
-      pessoa(servicoPessoa),
-      projeto(servicoProjeto),
-      quadro(servicoQuadro),
-      cartao(servicoCartao) {}
+      pessoa(apresentacaoPessoa),
+      projeto(apresentacaoProjeto),
+      quadro(apresentacaoQuadro),
+      cartao(apresentacaoCartao) {}
 
 void CntrApresentacaoPrincipal::executar() {
     try {
