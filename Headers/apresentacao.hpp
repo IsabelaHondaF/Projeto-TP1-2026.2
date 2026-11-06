@@ -23,9 +23,10 @@ class FimDeEntrada {};
 /**
  * @brief Controladora de apresentação dos serviços relacionados a Pessoa.
  *
+ * Implementa a interface IApresentacaoPessoa.
  * Lê e valida os dados digitados (e-mail, nome, senha e papel) antes de chamar o serviço.
  */
-class CntrApresentacaoPessoa {
+class CntrApresentacaoPessoa : public IApresentacaoPessoa {
 private:
     IServicoPessoa* servico;
 public:
@@ -39,21 +40,21 @@ public:
      * @brief Solicita os dados de uma nova conta e a cadastra (serviço CRIAR PESSOA).
      * @return true se a conta foi criada.
      */
-    bool cadastrar();
+    bool cadastrar() override;
 
     /**
      * @brief Solicita e-mail e senha e verifica as credenciais.
      * @param[out] usuario Recebe o e-mail autenticado em caso de sucesso.
      * @return true se a autenticação foi bem-sucedida.
      */
-    bool autenticar(Email& usuario);
+    bool autenticar(Email& usuario) override;
 
     /**
      * @brief Apresenta o menu de pessoas (ler, atualizar, excluir e listar).
      * @param[in] usuario E-mail do usuário autenticado.
      * @return true se o usuário excluiu a própria conta (a sessão deve ser encerrada).
      */
-    bool executar(const Email& usuario);
+    bool executar(const Email& usuario) override;
 
 private:
     void ler(const Email& usuario);
@@ -64,8 +65,10 @@ private:
 
 /**
  * @brief Controladora de apresentação dos serviços relacionados a Projeto.
+ * 
+ * Implementa a interface IApresentacaoProjeto.
  */
-class CntrApresentacaoProjeto {
+class CntrApresentacaoProjeto : public IApresentacaoProjeto{
 private:
     IServicoProjeto* servico;
 public:
@@ -80,7 +83,7 @@ public:
      * @param[in] usuario E-mail do usuário autenticado.
      * @param[in] papel Papel do usuário (GESTOR ou DESENVOLVEDOR).
      */
-    void executar(const Email& usuario, const std::string& papel);
+    void executar(const Email& usuario, const std::string& papel) override;
 
 private:
     void criar(const Email& usuario);
@@ -92,8 +95,10 @@ private:
 
 /**
  * @brief Controladora de apresentação dos serviços relacionados a Quadro.
+ * 
+ * Implementa a interface IApresentacaoQuadro.
  */
-class CntrApresentacaoQuadro {
+class CntrApresentacaoQuadro : public IApresentacaoQuadro{
 private:
     IServicoQuadro* servico;
 public:
@@ -108,7 +113,7 @@ public:
      * @param[in] usuario E-mail do usuário autenticado.
      * @param[in] papel Papel do usuário (GESTOR ou DESENVOLVEDOR).
      */
-    void executar(const Email& usuario, const std::string& papel);
+    void executar(const Email& usuario, const std::string& papel) override;
 
 private:
     void criar(const Email& usuario);
@@ -120,10 +125,11 @@ private:
 
 /**
  * @brief Controladora de apresentação dos serviços relacionados a Cartão de atividade.
- *
+ * 
+ * Implementa a interface IApresentacaoCartao.
  * Inclui mover cartão e a leitura de tempo de ciclo, lead time e WIP.
  */
-class CntrApresentacaoCartao {
+class CntrApresentacaoCartao : public IApresentacaoCartao {
 private:
     IServicoCartaoDeAtividade* servico;
 public:
@@ -138,7 +144,7 @@ public:
      * @param[in] usuario E-mail do usuário autenticado.
      * @param[in] papel Papel do usuário (GESTOR ou DESENVOLVEDOR).
      */
-    void executar(const Email& usuario, const std::string& papel);
+    void executar(const Email& usuario, const std::string& papel) override;
 
 private:
     void criar(const Email& usuario);

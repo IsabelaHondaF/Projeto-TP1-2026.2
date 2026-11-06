@@ -3,8 +3,11 @@
 
 #include "entidades.hpp"
 #include <vector>
+#include <string>
 
-// Padrao de nomenclatura: IServico + nome da entidade
+// Padrao de nomenclatura:
+// IServico + nome da entidade.
+// IApresentacao + nome da entidade.
 
 /**
  * @brief Define operações para cadastrar contas, verificar credenciais e consultar usuários.
@@ -553,4 +556,95 @@ public:
     ) = 0;
 };
 
+ /**
+     * @brief Interface de apresentação de contas e autenticação (IAA).
+     *
+     * Permite cadastrar uma conta, autenticar o usuário e acessar
+     * as operações de apresentação relacionadas a pessoas.
+     */
+    class IApresentacaoPessoa {
+    public:
+        /** @brief Permite destruição por meio da interface. */
+        virtual ~IApresentacaoPessoa() = default;
+
+        /**
+         * @brief Solicita e valida os dados para cadastrar uma conta.
+         * @return true se a conta for criada; false caso contrário.
+         */
+        virtual bool cadastrar() = 0;
+
+        /**
+         * @brief Solicita as credenciais e tenta autenticar o usuário.
+         * @param[out] usuario Recebe o email autenticado em caso de sucesso.
+         * @return true se a autenticação tiver sucesso; false caso contrário.
+         */
+        virtual bool autenticar(Email& usuario) = 0;
+
+        /**
+         * @brief Apresenta o menu de operações relacionadas a pessoas.
+         * @param[in] usuario Email do usuário autenticado.
+         * @return true se o usuário excluir a própria conta;
+         * false ao retornar normalmente do menu.
+         */
+        virtual bool executar(const Email& usuario) = 0;
+    };
+
+    /**
+     * @brief Interface de apresentação da gestão de projetos (IAP).
+     */
+    class IApresentacaoProjeto {
+    public:
+        /** @brief Permite destruição por meio da interface. */
+        virtual ~IApresentacaoProjeto() = default;
+
+        /**
+         * @brief Apresenta o menu de projetos e trata as entradas do usuário.
+         * @param[in] usuario Email do usuário autenticado.
+         * @param[in] papel Papel do usuário: GESTOR ou DESENVOLVEDOR.
+         */
+        virtual void executar(
+            const Email& usuario,
+            const std::string& papel
+        ) = 0;
+    };
+
+    /**
+     * @brief Interface de apresentação da gestão de quadros (IAQ).
+     */
+    class IApresentacaoQuadro {
+    public:
+        /** @brief Permite destruição por meio da interface. */
+        virtual ~IApresentacaoQuadro() = default;
+
+        /**
+         * @brief Apresenta o menu de quadros e trata as entradas do usuário.
+         * @param[in] usuario Email do usuário autenticado.
+         * @param[in] papel Papel do usuário: GESTOR ou DESENVOLVEDOR.
+         */
+        virtual void executar(
+            const Email& usuario,
+            const std::string& papel
+        ) = 0;
+    };
+
+    /**
+     * @brief Interface de apresentação de cartões e suas métricas (IAC).
+     */
+    class IApresentacaoCartao {
+    public:
+        /** @brief Permite destruição por meio da interface. */
+        virtual ~IApresentacaoCartao() = default;
+
+        /**
+         * @brief Apresenta o menu de cartões e trata as entradas do usuário.
+         * @param[in] usuario Email do usuário autenticado.
+         * @param[in] papel Papel do usuário: GESTOR ou DESENVOLVEDOR.
+         */
+        virtual void executar(
+            const Email& usuario,
+            const std::string& papel
+        ) = 0;
+    };
+
 #endif // INTERFACES_HPP_INCLUDED
+   
