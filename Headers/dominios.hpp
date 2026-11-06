@@ -156,8 +156,8 @@ inline std::string Prioridade::getPrioridade() const{
 /**
  * @brief Classifica a dimensão do trabalho de uma atividade.
  *
- * Aceita as categorias GRANDE, MEDIO e PEQUENO. Os valores devem ser
- * escritos exatamente dessa forma, com letras maiúsculas e sem acentuação.
+ * Aceita as categorias GRANDE, MEDIO e PEQUENO, escritas em letras maiúsculas.
+ * A escrita MÉDIO também é aceita e armazenada como MEDIO.
  */
 class Tamanho{
 private:
@@ -173,6 +173,7 @@ public:
      *
      * @par Parâmetro de entrada
      * Texto GRANDE, MEDIO ou PEQUENO, escrito exatamente como indicado.
+     * Também aceita MÉDIO, que é armazenado como MEDIO.
      *
      * @throws std::invalid_argument Se o texto não corresponder a uma das categorias aceitas.
      */
@@ -313,7 +314,8 @@ inline std::string Texto::getTexto() const{
  *
  * O código deve conter exatamente seis caracteres: três letras de A a Z
  * ou de a a z, seguidas por três dígitos de 0 a 9.
- * A classe valida o formato e a unicidade entre registros.
+ * A classe valida o formato do código. A unicidade entre registros
+ * é garantida pelos contêineres.
  */
 class Identificador{
 private:

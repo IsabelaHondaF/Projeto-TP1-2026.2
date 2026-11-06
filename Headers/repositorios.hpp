@@ -214,6 +214,14 @@ public:
      * @return Vetor de identificadores.
      */
     std::vector<std::string> listarIds() const;
+
+    /**
+     * @brief Lista os identificadores dos quadros vinculados a um projeto.
+     * @param[in] idProjeto Identificador do projeto a consultar.
+     * @return Vetor com os identificadores encontrados; vazio se não houver vínculos.
+     * @note A existência do projeto é verificada pela controladora de serviço.
+     */
+    std::vector<std::string> listarIdsDoProjeto(const std::string& idProjeto) const;
 };
 
 /**

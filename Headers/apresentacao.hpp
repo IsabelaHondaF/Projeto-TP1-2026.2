@@ -67,16 +67,19 @@ private:
  * @brief Controladora de apresentação dos serviços relacionados a Projeto.
  * 
  * Implementa a interface IApresentacaoProjeto.
+ * Consulta os quadros de um projeto por meio de IServicoQuadro.
  */
 class CntrApresentacaoProjeto : public IApresentacaoProjeto{
 private:
     IServicoProjeto* servico;
+    IServicoQuadro* servicoQuadro;
 public:
     /**
      * @brief Constrói a controladora.
      * @param[in] servico Serviço de projeto que será utilizado (não pode ser nulo).
+     * @param[in] servicoQuadro Serviço para listar os quadros do projeto (não pode ser nulo).
      */
-    explicit CntrApresentacaoProjeto(IServicoProjeto* servico);
+    explicit CntrApresentacaoProjeto(IServicoProjeto* servico, IServicoQuadro* servicoQuadro);
 
     /**
      * @brief Apresenta o menu de projetos conforme o papel do usuário.
@@ -91,22 +94,27 @@ private:
     void atualizar(const Email& usuario);
     void excluir(const Email& usuario);
     void listar(const Email& usuario);
+    void listarQuadros(const Email& usuario);
 };
 
 /**
  * @brief Controladora de apresentação dos serviços relacionados a Quadro.
  * 
  * Implementa a interface IApresentacaoQuadro.
+ * Consulta os cartões de um quadro por meio de IServicoCartaoDeAtividade.
  */
 class CntrApresentacaoQuadro : public IApresentacaoQuadro{
 private:
     IServicoQuadro* servico;
+    IServicoCartaoDeAtividade* servicoCartao;
 public:
     /**
      * @brief Constrói a controladora.
      * @param[in] servico Serviço de quadro que será utilizado (não pode ser nulo).
+     * @param[in] servicoCartao Serviço para listar os cartões do quadro (não pode ser nulo).
      */
-    explicit CntrApresentacaoQuadro(IServicoQuadro* servico);
+    explicit CntrApresentacaoQuadro(IServicoQuadro* servico,
+                                   IServicoCartaoDeAtividade* servicoCartao);
 
     /**
      * @brief Apresenta o menu de quadros conforme o papel do usuário.
@@ -121,6 +129,7 @@ private:
     void atualizar(const Email& usuario);
     void excluir(const Email& usuario);
     void listar(const Email& usuario);
+    void listarCartoes(const Email& usuario);
 };
 
 /**

@@ -378,6 +378,24 @@ bool CntrServicoQuadro::listar(const Email& usuario,
     return true;
 }
 
+bool CntrServicoQuadro::listarPorProjeto(
+    const Email& usuario, const Identificador& projeto,
+    std::vector<Identificador>& identificadores) {
+    const std::string idProjeto = projeto.getIdentificador();
+    if (!usuarioCadastrado(pessoas, usuario.getEmail()) || !projetos.existe(idProjeto))
+        return false;
+
+    const std::vector<std::string> valores = quadros.listarIdsDoProjeto(idProjeto);
+    std::vector<Identificador> resultado;
+    for (std::size_t i = 0; i < valores.size(); ++i) {
+        Identificador id;
+        if (!criarIdentificador(valores[i], id)) return false;
+        resultado.push_back(id);
+    }
+    identificadores.swap(resultado);
+    return true;
+}
+
 // -----------------------------------------------------------------------------
 // Cartão de atividade
 // -----------------------------------------------------------------------------

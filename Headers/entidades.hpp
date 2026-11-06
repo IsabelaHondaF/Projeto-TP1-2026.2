@@ -262,7 +262,8 @@ inline int Quadro::getLimite() const{
  *
  * O atributo identificador funciona como chave primaria da entidade.
  * Os atributos entrada, inicio e termino sao usados para calcular
- * tempo de ciclo, lead time e work in progress (WIP) do quadro.
+ * tempo de ciclo e lead time. O work in progress (WIP) do quadro
+ * corresponde a quantidade de cartoes com estado FAZENDO.
  */
 class CartaoDeAtividade{
 private:

@@ -124,6 +124,10 @@ public:
 
     /** @copydoc IServicoQuadro::listar */
     bool listar(const Email& usuario, std::vector<Identificador>& identificadores) override;
+
+    /** @copydoc IServicoQuadro::listarPorProjeto */
+    bool listarPorProjeto(const Email& usuario, const Identificador& projeto,
+                          std::vector<Identificador>& identificadores) override;
 };
 
 /**

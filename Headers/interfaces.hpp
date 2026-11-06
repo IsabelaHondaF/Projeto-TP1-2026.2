@@ -320,6 +320,23 @@ public:
         const Email& usuario,
         std::vector<Identificador>& identificadores
     ) = 0;
+
+    /**
+     * @brief Lista os identificadores dos quadros pertencentes a um projeto.
+     * @pre O solicitante deve estar autenticado como GESTOR ou DESENVOLVEDOR.
+     * @param[in] usuario Email do usuário autenticado.
+     * @param[in] projeto Identificador do projeto cujos quadros serão listados.
+     * @param[out] identificadores Recebe os identificadores em caso de sucesso.
+     * @return true se a consulta for concluída, inclusive se o projeto não tiver
+     * quadros; false se o usuário não estiver cadastrado, o projeto não existir
+     * ou a consulta não puder ser concluída.
+     * @note Em caso de falha, o vetor de saída permanece inalterado.
+     */
+    virtual bool listarPorProjeto(
+        const Email& usuario,
+        const Identificador& projeto,
+        std::vector<Identificador>& identificadores
+    ) = 0;
 };
 
 

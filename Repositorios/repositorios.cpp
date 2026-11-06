@@ -195,6 +195,14 @@ std::vector<std::string> ContainerQuadros::listarIds() const {
     return resultado;
 }
 
+std::vector<std::string> ContainerQuadros::listarIdsDoProjeto(const std::string& idProjeto) const {
+    std::vector<std::string> resultado;
+    for (std::size_t i = 0; i < quadros.size(); ++i)
+        if (quadros[i].idProjeto == idProjeto)
+            resultado.push_back(quadros[i].quadro.getIdentificador());
+    return resultado;
+}
+
 // -----------------------------------------------------------------------------
 // Cartões
 // -----------------------------------------------------------------------------
