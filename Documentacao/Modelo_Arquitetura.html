@@ -130,22 +130,27 @@
       <td><strong>Arthur Vieira</strong></td>
       <td><strong>Gabriel Sales</strong></td>
       <td><strong>Isabela Honda Ferreira</strong></td>
-      <td><strong>João Roberto</strong></td>
+      <td><strong>João Roberto Machado</strong></td>
     </tr>
   </table>
 </div>
 
 <h2>1. Visão Geral e Propósito do Sistema</h2>
 <p>
-O sistema de software tem o propósito de prover suporte à gestão de projetos pelo método Kanban. Em cada projeto gerenciado, os fluxos de trabalho são organizados em quadros compostos por três colunas estritas: <strong>A FAZER</strong>, <strong>FAZENDO</strong> e <strong>FEITO</strong>. O sistema suporta dois papéis de usuário com privilégios diferenciados: <strong>GESTOR</strong> (responsável pela criação de projetos, quadros e cartões) e <strong>DESENVOLVEDOR</strong> (responsável pela execução e movimentação das atividades atribuídas).
-</p>
-<p>
-A arquitetura foi integralmente projetada segundo o estilo <strong>em camadas (layers)</strong>, com desacoplamento estrito entre a interface com o usuário (Camada de Apresentação), as regras de negócio e permissões (Camada de Serviço), o armazenamento em memória (Camada de Contêineres/Repositórios), o modelo de domínio do problema (Camada de Entidades) e as regras elementares de validação estrutural (Camada de Domínios).
+O sistema adota o estilo de arquitetura em duas camadas:
+<strong>Apresentação</strong> e <strong>Serviço</strong>.
+A camada de apresentação realiza a interação com o usuário, valida os
+dados de entrada e solicita operações por meio de interfaces abstratas.
+A camada de serviço aplica as regras de negócio, verifica permissões,
+preserva os relacionamentos entre as entidades e utiliza contêineres
+para armazenar os dados em memória. As classes de domínio e entidade
+representam os dados utilizados pelas duas camadas.
 </p>
 
 <h2>2. Diagrama de Módulos, Interfaces e Relacionamentos (UML)</h2>
 <p>
-O diagrama a seguir especifica os módulos do sistema, as interfaces abstratas que intermedeiam a comunicação entre as camadas e as dependências estruturais entre os componentes.
+O diagrama a seguir especifica os módulos do sistema, as interfaces
+abstratas e as dependências entre os componentes.
 </p>
 
 <div class="diagrama-container">
@@ -324,52 +329,134 @@ O diagrama de entidades define as quatro classes fundamentais de dados do sistem
 
 <h2>4. Descrição Textual das Responsabilidades dos Módulos</h2>
 
-<h3>4.1 Módulo Apresentação (<code>Apresentacao</code>)</h3>
 <p>
-Responsável exclusivo pela interação com o usuário final via entrada e saída padrão (<code>cin</code> e <code>cout</code>).
+A arquitetura possui nove módulos, distribuídos entre as camadas
+de apresentação e serviço. As siglas abaixo correspondem aos módulos
+e às interfaces identificados no diagrama de arquitetura.
 </p>
-<ul>
-  <li>Coordena menus estruturados e navegação conforme o estado da sessão (usuário desautenticado vs. autenticado).</li>
-  <li>Valida localmente os dados digitados utilizando diretamente os métodos <code>set</code> das classes de domínio antes de invocar a camada de serviço. Em caso de formato inválido, a exceção é tratada e o usuário é orientado a digitar novamente.</li>
-  <li>Depende unicamente das <strong>interfaces abstratas de serviço</strong> (<code>IServicoPessoa</code>, <code>IServicoProjeto</code>, <code>IServicoQuadro</code>, <code>IServicoCartaoDeAtividade</code>), desconhecendo as classes concretas da camada de serviço.</li>
-</ul>
 
-<h3>4.2 Módulo de Interfaces (<code>Headers/interfaces.hpp</code>)</h3>
+<h3>4.1 MAC — Apresentação Principal</h3>
 <p>
-Estabelece o contrato de desacoplamento fundamental entre apresentação e serviço, contendo apenas métodos virtuais puros:
+Implementado por <code>CntrApresentacaoPrincipal</code>, coordena o
+menu inicial, o acesso à sessão autenticada e a navegação entre os
+subsistemas. Solicita operações às interfaces de apresentação
+IAA, IAP, IAQ e IAC. Também depende de ISA
+(<code>IServicoPessoa</code>) para consultar os dados e o papel
+atual do usuário autenticado.
 </p>
-<ul>
-  <li><code>IServicoPessoa</code>: 6 serviços para gerenciamento de contas, credenciais e listagem de usuários.</li>
-  <li><code>IServicoProjeto</code>: 5 serviços para ciclo de vida de projetos Kanban.</li>
-  <li><code>IServicoQuadro</code>: 5 serviços para gestão de quadros e seus limites de WIP.</li>
-  <li><code>IServicoCartaoDeAtividade</code>: 10 serviços cobrindo ciclo de vida de cartões, movimentações entre colunas e métricas de desempenho.</li>
-</ul>
 
-<h3>4.3 Módulo de Serviço (<code>Servicos</code>)</h3>
+<h3>4.2 MAA — Apresentação de Pessoa</h3>
 <p>
-Encapsula integralmente a lógica de negócio do sistema Kanban:
+Implementado por <code>CntrApresentacaoPessoa</code>, fornece
+IAA (<code>IApresentacaoPessoa</code>). Realiza a interação
+relacionada ao cadastro, à autenticação e ao gerenciamento de
+pessoas. Coleta e valida os dados de entrada, solicita as operações
+por meio de ISA (<code>IServicoPessoa</code>) e apresenta seus resultados.
 </p>
-<ul>
-  <li>Verificação estrita de papéis e permissões: restringe criação/atualização/exclusão de projetos, quadros e cartões ao <strong>GESTOR</strong> criador do projeto; restringe atualização/exclusão de conta à própria pessoa; permite que o desenvolvedor responsável ou o gestor executem o serviço <strong>MOVER</strong>.</li>
-  <li>Controle de fluxo de trabalho Kanban: impõe as transições únicas permitidas: <code>A FAZER -> FAZENDO</code> e <code>FAZENDO -> FEITO</code>.</li>
-  <li>Controle de capacidade (WIP): bloqueia movimentação para <code>FAZENDO</code> se a quantidade atual atingir o <code>Limite</code> do quadro; impede redução do limite abaixo do WIP corrente.</li>
-  <li>Cálculo de métricas temporais: calcula tempo de ciclo (<code>término - início</code>), lead time (<code>término - entrada</code>), tempo de ciclo médio e lead time médio do quadro em minutos.</li>
-  <li>Garantia de integridade referencial: impede exclusões em cascata que deixariam órfãos (não exclui gestor com projetos, nem desenvolvedor com cartões, nem projeto com quadros, nem quadro com cartões).</li>
-</ul>
 
-<h3>4.4 Módulo de Contêineres / Repositórios (<code>Repositorios</code>)</h3>
+<h3>4.3 MAP — Apresentação de Projeto</h3>
 <p>
-Responsável pelo armazenamento e gerenciamento das coleções em memória compartilhada entre os serviços:
+Implementado por <code>CntrApresentacaoProjeto</code>, fornece
+IAP (<code>IApresentacaoProjeto</code>). Apresenta as operações
+de criação, leitura, atualização, exclusão e listagem de projetos,
+utilizando ISP (<code>IServicoProjeto</code>).
+Também depende de ISQ (<code>IServicoQuadro</code>) para listar
+os quadros de um projeto por meio de <code>listarPorProjeto</code>,
+concretizando a dependência diagonal MAP → ISQ.
 </p>
-<ul>
-  <li>Classes <code>ContainerPessoas</code>, <code>ContainerProjetos</code>, <code>ContainerQuadros</code> e <code>ContainerCartoes</code>.</li>
-  <li>Garante a unicidade das chaves primárias (<code>email</code> e <code>identificador</code>).</li>
-  <li>Mantém e consulta os vínculos relacionais entre as entidades (gestor-projeto, projeto-quadro, quadro-cartão, desenvolvedor-cartão).</li>
-</ul>
 
-<h3>4.5 Módulos de Entidades e Domínios (<code>Entidades</code> e <code>Dominios</code>)</h3>
+<h3>4.4 MAQ — Apresentação de Quadro</h3>
 <p>
-O módulo de <strong>Entidades</strong> modela os conceitos centrais (Pessoa, Projeto, Quadro, Cartão), encapsulando seus atributos em instâncias de domínios com métodos públicos <code>set</code> e <code>get</code>. O módulo de <strong>Domínios</strong> garante que nenhum dado inválido penetre o sistema, validando formatos, intervalos, expressões regulares e calendários com anos bissextos, lançando <code>std::invalid_argument</code> em qualquer inconformidade.
+Implementado por <code>CntrApresentacaoQuadro</code>, fornece
+IAQ (<code>IApresentacaoQuadro</code>). Apresenta as operações
+de criação, leitura, atualização, exclusão e listagem de quadros,
+utilizando ISQ (<code>IServicoQuadro</code>).
+Também depende de ISC (<code>IServicoCartaoDeAtividade</code>)
+para listar os cartões de um quadro, concretizando a dependência
+diagonal MAQ → ISC.
+</p>
+
+<h3>4.5 MAC2 — Apresentação de Cartão</h3>
+<p>
+Implementado por <code>CntrApresentacaoCartao</code>, fornece
+IAC (<code>IApresentacaoCartao</code>). Realiza a interação
+relacionada ao gerenciamento e à movimentação de cartões, além
+da consulta de métricas. Coleta e valida os dados de entrada,
+solicita as operações por meio de ISC
+(<code>IServicoCartaoDeAtividade</code>) e apresenta seus resultados.
+</p>
+
+<h3>4.6 MSA — Serviço de Pessoa</h3>
+<p>
+Implementado por <code>CntrServicoPessoa</code>, fornece
+ISA (<code>IServicoPessoa</code>). Executa os serviços de
+cadastro, autenticação, leitura, atualização, exclusão e listagem
+de pessoas. Restringe a atualização e a exclusão de uma conta
+ao próprio usuário e verifica os vínculos com projetos e cartões
+antes da exclusão. Utiliza os contêineres de pessoas, projetos e cartões.
+</p>
+
+<h3>4.7 MSP — Serviço de Projeto</h3>
+<p>
+Implementado por <code>CntrServicoProjeto</code>, fornece
+ISP (<code>IServicoProjeto</code>). Executa as operações
+relacionadas aos projetos, verifica o papel e as permissões
+do usuário e mantém o vínculo entre projeto e gestor.
+Impede a exclusão de projetos que possuem quadros.
+Utiliza os contêineres de pessoas, projetos e quadros.
+</p>
+
+<h3>4.8 MSQ — Serviço de Quadro</h3>
+<p>
+Implementado por <code>CntrServicoQuadro</code>, fornece
+ISQ (<code>IServicoQuadro</code>). Executa as operações
+relacionadas aos quadros, incluindo sua listagem por projeto.
+Verifica permissões, mantém o vínculo com o projeto e impede
+a exclusão de quadros que possuem cartões. Também impede
+a redução do limite abaixo do WIP atual.
+Utiliza os contêineres de pessoas, projetos, quadros e cartões.
+</p>
+
+<h3>4.9 MSC — Serviço de Cartão</h3>
+<p>
+Implementado por <code>CntrServicoCartaoDeAtividade</code>,
+fornece ISC (<code>IServicoCartaoDeAtividade</code>).
+Executa as operações relacionadas aos cartões, verifica permissões
+e mantém seus vínculos com quadros e desenvolvedores.
+Controla as transições A FAZER → FAZENDO e FAZENDO → FEITO,
+a ordem cronológica dos registros de tempo e o limite de WIP.
+Calcula tempo de ciclo, lead time, suas médias por quadro e WIP.
+Utiliza os contêineres de pessoas, projetos, quadros e cartões.
+</p>
+
+<h3>4.10 Interfaces e Classes de Apoio</h3>
+<p>
+As oito interfaces abstratas são declaradas em
+<code>Headers/interfaces.hpp</code>.
+As interfaces de apresentação definem os contratos utilizados
+por MAC para acessar os demais módulos de apresentação.
+As interfaces de serviço definem os contratos utilizados
+para solicitar operações à camada de serviço.
+</p>
+
+<p>
+As classes <code>ContainerPessoas</code>,
+<code>ContainerProjetos</code>, <code>ContainerQuadros</code>
+e <code>ContainerCartoes</code> implementam o armazenamento
+em memória utilizado pelos módulos de serviço.
+Garantem a unicidade das chaves e armazenam os vínculos
+entre as entidades. Suas instâncias são criadas no
+<code>main.cpp</code> e compartilhadas entre as controladoras
+de serviço por referência.
+</p>
+
+<p>
+As entidades Pessoa, Projeto, Quadro e CartaoDeAtividade
+representam os dados do sistema e possuem atributos
+compostos por classes de domínio. Os domínios validam
+formatos e valores por meio de seus métodos de atribuição,
+lançando <code>std::invalid_argument</code> quando recebem
+valores inválidos.
 </p>
 
 <div class="page-break"></div>

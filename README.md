@@ -13,9 +13,9 @@
 | Nome | Função Principal |
 |---|---|
 | **Arthur Vieira** | Domínios, Entidades e Configuração Code::Blocks |
-| **Gabriel Sales** | Interfaces Abstratas, Testes de Unidade e Documentação Doxygen |
-| **Isabela Honda Ferreira** | Repositório GitHub, Domínios e Entidades |
-| **João Roberto** | Serviços de Negócio, Apresentação e Integração |
+| **Gabriel Sales** | Entidades, Interfaces Abstratas, Testes de Unidade e Documentação Doxygen |
+| **Isabela Honda Ferreira** | Repositório GitHub |
+| **João Roberto Machado** | Serviços de Negócio, Apresentação, Integração e Domínios |
 
 > Para o detalhamento completo dos artefatos construídos por cada autor, consulte [EQUIPE_E_ARTEFATOS.md](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/EQUIPE_E_ARTEFATOS.md).
 
@@ -34,22 +34,22 @@ O sistema provê suporte à gestão de projetos pelo método Kanban:
 
 ##  Arquitetura do Software
 
-O sistema adota o padrão de arquitetura em camadas (*layers*) composto por 5 módulos:
+O sistema adota o estilo de arquitetura em duas camadas:
 
-```
-[ Camada de Apresentação ] (cin/cout, menus estruturados por papel)
-           |
-           v (depende de interfaces abstratas)
-[ Interfaces de Serviço  ] (IServicoPessoa, IServicoProjeto, IServicoQuadro, IServicoCartaoDeAtividade)
-           ^
-           | (implementam as interfaces)
-[ Camada de Serviço      ] (regras de negócio, permissões, WIP e métricas temporais)
-           |
-           v
-[ Contêineres em Memória ] (persistência e vínculos relacionais compartilhados)
-           |
-   [ Entidades e Domínios ] (modelagem OO e validações estritas de tipos com exceções)
-```
+- **Apresentação:** módulos MAC, MAA, MAP, MAQ e MAC2, responsáveis
+  pela navegação, interação com o usuário e validação das entradas.
+- **Serviço:** módulos MSA, MSP, MSQ e MSC, responsáveis pelas regras
+  de negócio, permissões, integridade dos relacionamentos e acesso
+  ao armazenamento em memória.
+
+A comunicação entre os módulos ocorre por interfaces abstratas.
+As dependências incluem MAP → ISQ, para consultar os quadros de um
+projeto; MAQ → ISC, para consultar os cartões de um quadro; e
+MAC → ISA, para consultar os dados do usuário autenticado.
+
+Os contêineres integram a implementação do armazenamento utilizado
+pela camada de serviço. As classes de domínio e entidade representam
+os dados utilizados pelas duas camadas.
 
 - **Modelo de Arquitetura em PDF:** [Modelo_Arquitetura.pdf](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Modelo_Arquitetura.pdf)
 - **Documentação Técnica em HTML (Doxygen):** `Documentacao/html/index.html`
