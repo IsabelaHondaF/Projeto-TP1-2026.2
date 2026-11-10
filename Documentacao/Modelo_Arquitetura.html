@@ -113,6 +113,31 @@
     border-radius: 3px;
     font-size: 9pt;
   }
+
+  @media print {
+  .diagrama-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  table.dados tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  table.dados code {
+    overflow-wrap: anywhere;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+}
 </style>
 </head>
 <body>
@@ -137,6 +162,9 @@
 
 <h2>1. Visão Geral e Propósito do Sistema</h2>
 <p>
+O sistema de software tem o propósito de prover suporte à gestão de projetos pelo método Kanban. Em cada projeto gerenciado, os fluxos de trabalho são organizados em quadros compostos por três colunas estritas: <strong>A FAZER</strong>, <strong>FAZENDO</strong> e <strong>FEITO</strong>. O sistema suporta dois papéis de usuário com privilégios diferenciados: <strong>GESTOR</strong> (responsável pela criação de projetos, quadros e cartões) e <strong>DESENVOLVEDOR</strong> (responsável pela execução e movimentação das atividades atribuídas).
+</p>
+<p>
 O sistema adota o estilo de arquitetura em duas camadas:
 <strong>Apresentação</strong> e <strong>Serviço</strong>.
 A camada de apresentação realiza a interação com o usuário, valida os
@@ -154,101 +182,12 @@ abstratas e as dependências entre os componentes.
 </p>
 
 <div class="diagrama-container">
-<svg width="720" height="420" viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
-  <!-- Fundo -->
-  <rect width="720" height="420" fill="#ffffff" />
-
-  <!-- Pacote Apresentação -->
-  <rect x="30" y="30" width="660" height="75" rx="6" fill="#f0f4f8" stroke="#328cc1" stroke-width="2"/>
-  <rect x="30" y="30" width="180" height="22" rx="4" fill="#328cc1" />
-  <text x="40" y="46" fill="#ffffff" font-size="11" font-weight="bold">MÓDULO APRESENTAÇÃO</text>
-  <text x="50" y="75" fill="#102a43" font-size="10" font-weight="bold">CntrApresentacaoPrincipal | CntrApresentacaoPessoa | CntrApresentacaoProjeto</text>
-  <text x="50" y="93" fill="#102a43" font-size="10" font-weight="bold">CntrApresentacaoQuadro | CntrApresentacaoCartao (Interage via cin/cout, valida entrada com Domínios)</text>
-
-  <!-- Interfaces de Serviço -->
-  <g transform="translate(0, 130)">
-    <!-- Linhas de Dependência Apresentação -> Interfaces -->
-    <line x1="110" y1="-25" x2="110" y2="10" stroke="#627d98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)" />
-    <line x1="280" y1="-25" x2="280" y2="10" stroke="#627d98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)" />
-    <line x1="450" y1="-25" x2="450" y2="10" stroke="#627d98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)" />
-    <line x1="620" y1="-25" x2="620" y2="10" stroke="#627d98" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)" />
-
-    <!-- Caixa IServicoPessoa -->
-    <rect x="40" y="10" width="140" height="45" rx="4" fill="#ffffff" stroke="#0b3c5d" stroke-width="1.5"/>
-    <text x="110" y="27" fill="#0b3c5d" font-size="9" font-style="italic" text-anchor="middle">&lt;&lt;interface&gt;&gt;</text>
-    <text x="110" y="42" fill="#0b3c5d" font-size="10" font-weight="bold" text-anchor="middle">IServicoPessoa</text>
-
-    <!-- Caixa IServicoProjeto -->
-    <rect x="210" y="10" width="140" height="45" rx="4" fill="#ffffff" stroke="#0b3c5d" stroke-width="1.5"/>
-    <text x="280" y="27" fill="#0b3c5d" font-size="9" font-style="italic" text-anchor="middle">&lt;&lt;interface&gt;&gt;</text>
-    <text x="280" y="42" fill="#0b3c5d" font-size="10" font-weight="bold" text-anchor="middle">IServicoProjeto</text>
-
-    <!-- Caixa IServicoQuadro -->
-    <rect x="380" y="10" width="140" height="45" rx="4" fill="#ffffff" stroke="#0b3c5d" stroke-width="1.5"/>
-    <text x="450" y="27" fill="#0b3c5d" font-size="9" font-style="italic" text-anchor="middle">&lt;&lt;interface&gt;&gt;</text>
-    <text x="450" y="42" fill="#0b3c5d" font-size="10" font-weight="bold" text-anchor="middle">IServicoQuadro</text>
-
-    <!-- Caixa IServicoCartaoDeAtividade -->
-    <rect x="540" y="10" width="150" height="45" rx="4" fill="#ffffff" stroke="#0b3c5d" stroke-width="1.5"/>
-    <text x="615" y="27" fill="#0b3c5d" font-size="9" font-style="italic" text-anchor="middle">&lt;&lt;interface&gt;&gt;</text>
-    <text x="615" y="42" fill="#0b3c5d" font-size="9.5" font-weight="bold" text-anchor="middle">IServicoCartaoDeAtividade</text>
-  </g>
-
-  <!-- Pacote Serviço -->
-  <g transform="translate(0, 205)">
-    <!-- Realizações: Serviço realiza Interfaces -->
-    <line x1="110" y1="20" x2="110" y2="-20" stroke="#0b3c5d" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#triangle)" />
-    <line x1="280" y1="20" x2="280" y2="-20" stroke="#0b3c5d" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#triangle)" />
-    <line x1="450" y1="20" x2="450" y2="-20" stroke="#0b3c5d" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#triangle)" />
-    <line x1="615" y1="20" x2="615" y2="-20" stroke="#0b3c5d" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#triangle)" />
-
-    <rect x="30" y="20" width="660" height="70" rx="6" fill="#e6f4ea" stroke="#137333" stroke-width="2"/>
-    <rect x="30" y="20" width="150" height="22" rx="4" fill="#137333" />
-    <text x="40" y="36" fill="#ffffff" font-size="11" font-weight="bold">MÓDULO SERVIÇO</text>
-    <text x="50" y="62" fill="#0d522c" font-size="10" font-weight="bold">CntrServicoPessoa | CntrServicoProjeto | CntrServicoQuadro | CntrServicoCartaoDeAtividade</text>
-    <text x="50" y="80" fill="#0d522c" font-size="9.5">Regras de negócio, verificação de papéis (Gestor/Dev), limites de WIP, métricas (Lead/Cycle time)</text>
-  </g>
-
-  <!-- Repositórios / Entidades / Domínios -->
-  <g transform="translate(0, 315)">
-    <!-- Conexão Serviço -> Repositórios -->
-    <line x1="180" y1="-20" x2="180" y2="10" stroke="#627d98" stroke-width="1.5" marker-end="url(#arrow)" />
-    <line x1="450" y1="-20" x2="450" y2="10" stroke="#627d98" stroke-width="1.5" marker-end="url(#arrow)" />
-    <line x1="600" y1="-20" x2="600" y2="10" stroke="#627d98" stroke-width="1.5" marker-end="url(#arrow)" />
-
-    <!-- Contêineres -->
-    <rect x="30" y="10" width="280" height="75" rx="6" fill="#fef7e0" stroke="#b06000" stroke-width="2"/>
-    <text x="40" y="30" fill="#b06000" font-size="11" font-weight="bold">MÓDULO CONTÊINERES (REPOSITÓRIOS)</text>
-    <text x="40" y="50" fill="#7a4100" font-size="9.5" font-weight="bold">ContainerPessoas | ContainerProjetos</text>
-    <text x="40" y="68" fill="#7a4100" font-size="9.5" font-weight="bold">ContainerQuadros | ContainerCartoes</text>
-    <text x="40" y="81" fill="#7a4100" font-size="8.5">Persistência em memória e integridade de chaves primárias</text>
-
-    <!-- Entidades -->
-    <rect x="330" y="10" width="180" height="75" rx="6" fill="#fce8e6" stroke="#c5221f" stroke-width="2"/>
-    <text x="340" y="30" fill="#c5221f" font-size="11" font-weight="bold">MÓDULO ENTIDADES</text>
-    <text x="340" y="50" fill="#80100d" font-size="9.5" font-weight="bold">Pessoa | Projeto</text>
-    <text x="340" y="68" fill="#80100d" font-size="9.5" font-weight="bold">Quadro | CartaoDeAtividade</text>
-    <text x="340" y="81" fill="#80100d" font-size="8.5">Modelagem orientada a objetos</text>
-
-    <!-- Domínios -->
-    <rect x="530" y="10" width="160" height="75" rx="6" fill="#f3e8fd" stroke="#7627bb" stroke-width="2"/>
-    <text x="540" y="30" fill="#7627bb" font-size="11" font-weight="bold">MÓDULO DOMÍNIOS</text>
-    <text x="540" y="47" fill="#4a1577" font-size="8.5" font-weight="bold">Email, Identificador, Nome,</text>
-    <text x="540" y="60" fill="#4a1577" font-size="8.5" font-weight="bold">Senha, Papel, Texto,</text>
-    <text x="540" y="73" fill="#4a1577" font-size="8.5" font-weight="bold">Limite, Prioridade, Estado,</text>
-    <text x="540" y="83" fill="#4a1577" font-size="8.5" font-weight="bold">Tamanho, Timestamp</text>
-  </g>
-
-  <!-- Marcadores SVG -->
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#627d98" />
-    </marker>
-    <marker id="triangle" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <polygon points="0 0, 10 6, 0 12" fill="#ffffff" stroke="#0b3c5d" stroke-width="1.5" />
-    </marker>
-  </defs>
-</svg>
+<img
+  src="Diagrama_Arquitetura.png"
+  alt="Arquitetura em duas camadas, com nove módulos,
+       oito interfaces e as dependências entre os subsistemas."
+  style="display: block; width: 100%; height: auto; margin: 0 auto;"
+>
 <div class="diagrama-legenda">Figura 1 — Modelo de Arquitetura em Camadas com Interfaces Abstratas e Módulos do Sistema Kanban.</div>
 </div>
 

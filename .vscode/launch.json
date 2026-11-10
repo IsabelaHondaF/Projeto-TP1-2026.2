@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/Gamer/Desktop/Projeto_TP1/Projeto-TP1-2026.2/Headers",
-      "program": "c:/Users/Gamer/Desktop/Projeto_TP1/Projeto-TP1-2026.2/Headers/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/home/joaor/Downloads/Projeto-TP1-2026.2/Main",
+      "program": "/home/joaor/Downloads/Projeto-TP1-2026.2/Main/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
