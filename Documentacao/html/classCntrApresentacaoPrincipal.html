@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Sistema Kanban - TP1 2026.2: Referência da Classe CntrApresentacaoPrincipal</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -30,28 +34,64 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.9.8 -->
+<!-- Gerado por Doxygen 1.18.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Busca');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classCntrApresentacaoPrincipal.html','','classCntrApresentacaoPrincipal-members'); });
 </script>
-<div id="main-nav"></div>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<div id="MSearchSelectWindow">
 </div>
 
 <!-- iframe showing the search results (closed by default) -->
@@ -68,35 +108,29 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Membros Públicos</a> &#124;
-<a href="classCntrApresentacaoPrincipal-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle"><div class="title">Referência da Classe CntrApresentacaoPrincipal</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Controladora principal da apresentação: tela inicial, sessão e menu principal.  
- <a href="classCntrApresentacaoPrincipal.html#details">Mais...</a></p>
+ <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="apresentacao_8hpp_source.html">apresentacao.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:ae6d852607f5700997941aa10abfbb443" id="r_ae6d852607f5700997941aa10abfbb443"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrApresentacaoPrincipal.html#ae6d852607f5700997941aa10abfbb443">CntrApresentacaoPrincipal</a> (<a class="el" href="classIServicoPessoa.html">IServicoPessoa</a> *servicoPessoa, <a class="el" href="classIServicoProjeto.html">IServicoProjeto</a> *servicoProjeto, <a class="el" href="classIServicoQuadro.html">IServicoQuadro</a> *servicoQuadro, <a class="el" href="classIServicoCartaoDeAtividade.html">IServicoCartaoDeAtividade</a> *servicoCartao)</td></tr>
-<tr class="memdesc:ae6d852607f5700997941aa10abfbb443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói a controladora principal a partir das interfaces de serviço.  <br /></td></tr>
-<tr class="separator:ae6d852607f5700997941aa10abfbb443"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a76afb3d49cfaefc07db255b72190fb" id="r_a0a76afb3d49cfaefc07db255b72190fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrApresentacaoPrincipal.html#a0a76afb3d49cfaefc07db255b72190fb">executar</a> ()</td></tr>
+<tr class="memitem:a2319672c2f2ae31c19d91cccd8c8bccc" id="r_a2319672c2f2ae31c19d91cccd8c8bccc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2319672c2f2ae31c19d91cccd8c8bccc">CntrApresentacaoPrincipal</a> (<a class="el" href="classIServicoPessoa.html">IServicoPessoa</a> *servicoPessoa, <a class="el" href="classIApresentacaoPessoa.html">IApresentacaoPessoa</a> &amp;apresentacaoPessoa, <a class="el" href="classIApresentacaoProjeto.html">IApresentacaoProjeto</a> &amp;apresentacaoProjeto, <a class="el" href="classIApresentacaoQuadro.html">IApresentacaoQuadro</a> &amp;apresentacaoQuadro)</td></tr>
+<tr class="memdesc:a2319672c2f2ae31c19d91cccd8c8bccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói a controladora principal a partir das interfaces utilizadas.  <br /></td></tr>
+<tr class="memitem:a0a76afb3d49cfaefc07db255b72190fb" id="r_a0a76afb3d49cfaefc07db255b72190fb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0a76afb3d49cfaefc07db255b72190fb">executar</a> ()</td></tr>
 <tr class="memdesc:a0a76afb3d49cfaefc07db255b72190fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa o sistema: tela inicial (entrar, criar conta, sair) e menu principal.  <br /></td></tr>
-<tr class="separator:a0a76afb3d49cfaefc07db255b72190fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Controladora principal da apresentação: tela inicial, sessão e menu principal. </p>
-<p>Coordena as demais controladoras de apresentação. Só repassa aos serviços o e-mail de um usuário que passou pela autenticação. </p>
-</div><h2 class="groupheader">Construtores e Destrutores</h2>
-<a id="ae6d852607f5700997941aa10abfbb443" name="ae6d852607f5700997941aa10abfbb443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6d852607f5700997941aa10abfbb443">&#9670;&#160;</a></span>CntrApresentacaoPrincipal()</h2>
+<p>Coordena as demais controladoras por meio das interfaces de apresentação. Só repassa aos serviços o e-mail de um usuário que passou pela autenticação. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="a2319672c2f2ae31c19d91cccd8c8bccc" name="a2319672c2f2ae31c19d91cccd8c8bccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2319672c2f2ae31c19d91cccd8c8bccc">&#9670;&#160;</a></span>CntrApresentacaoPrincipal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -104,49 +138,41 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">CntrApresentacaoPrincipal::CntrApresentacaoPrincipal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classIServicoPessoa.html">IServicoPessoa</a> *&#160;</td>
-          <td class="paramname"><em>servicoPessoa</em>, </td>
+          <td class="paramtype"><a class="el" href="classIServicoPessoa.html">IServicoPessoa</a> *</td>          <td class="paramname"><span class="paramname"><em>servicoPessoa</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIServicoProjeto.html">IServicoProjeto</a> *&#160;</td>
-          <td class="paramname"><em>servicoProjeto</em>, </td>
+          <td class="paramtype"><a class="el" href="classIApresentacaoPessoa.html">IApresentacaoPessoa</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>apresentacaoPessoa</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIServicoQuadro.html">IServicoQuadro</a> *&#160;</td>
-          <td class="paramname"><em>servicoQuadro</em>, </td>
+          <td class="paramtype"><a class="el" href="classIApresentacaoProjeto.html">IApresentacaoProjeto</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>apresentacaoProjeto</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIServicoCartaoDeAtividade.html">IServicoCartaoDeAtividade</a> *&#160;</td>
-          <td class="paramname"><em>servicoCartao</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype"><a class="el" href="classIApresentacaoQuadro.html">IApresentacaoQuadro</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>apresentacaoQuadro</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constrói a controladora principal a partir das interfaces de serviço. </p>
+<p>Constrói a controladora principal a partir das interfaces utilizadas. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">servicoPessoa</td><td>Serviço de pessoa. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">servicoProjeto</td><td>Serviço de projeto. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">servicoQuadro</td><td>Serviço de quadro. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">servicoCartao</td><td>Serviço de cartão de atividade. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">servicoPessoa</td><td>Serviço para consultar os dados do usuário autenticado; não pode ser nulo. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">apresentacaoPessoa</td><td>Interface de apresentação de contas e autenticação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">apresentacaoProjeto</td><td>Interface de apresentação de projetos. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">apresentacaoQuadro</td><td>Interface de apresentação de quadros. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Observação</dt><dd>As dependências devem permanecer válidas durante toda a vida da controladora. </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Documentação das funções</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
 <a id="a0a76afb3d49cfaefc07db255b72190fb" name="a0a76afb3d49cfaefc07db255b72190fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a76afb3d49cfaefc07db255b72190fb">&#9670;&#160;</a></span>executar()</h2>
 
@@ -156,7 +182,7 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">void CntrApresentacaoPrincipal::executar </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -171,9 +197,21 @@ Membros Públicos</h2></td></tr>
 <li><a class="el" href="apresentacao_8cpp.html">apresentacao.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classCntrApresentacaoPrincipal.html">CntrApresentacaoPrincipal</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 </body>
 </html>

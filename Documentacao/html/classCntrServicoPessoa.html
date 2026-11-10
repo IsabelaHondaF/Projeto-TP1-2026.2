@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Sistema Kanban - TP1 2026.2: Referência da Classe CntrServicoPessoa</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -30,28 +34,64 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.9.8 -->
+<!-- Gerado por Doxygen 1.18.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Busca');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classCntrServicoPessoa.html','','classCntrServicoPessoa-members'); });
 </script>
-<div id="main-nav"></div>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<div id="MSearchSelectWindow">
 </div>
 
 <!-- iframe showing the search results (closed by default) -->
@@ -68,17 +108,13 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Membros Públicos</a> &#124;
-<a href="classCntrServicoPessoa-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle"><div class="title">Referência da Classe CntrServicoPessoa</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Implementação concreta dos serviços de negócio relacionados a <a class="el" href="classPessoa.html" title="Representa uma pessoa cadastrada no sistema.">Pessoa</a>.  
- <a href="classCntrServicoPessoa.html#details">Mais...</a></p>
+ <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="controladoras__servico_8hpp_source.html">controladoras_servico.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -91,34 +127,27 @@ Diagrama de hierarquia da classe CntrServicoPessoa:</div>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a172954c09fa5a67e4abedcf07828ca60" id="r_a172954c09fa5a67e4abedcf07828ca60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#a172954c09fa5a67e4abedcf07828ca60">CntrServicoPessoa</a> (<a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;pessoas, <a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;projetos, <a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;cartoes)</td></tr>
+<tr class="memitem:a172954c09fa5a67e4abedcf07828ca60" id="r_a172954c09fa5a67e4abedcf07828ca60"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a172954c09fa5a67e4abedcf07828ca60">CntrServicoPessoa</a> (<a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;pessoas, <a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;projetos, <a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;cartoes)</td></tr>
 <tr class="memdesc:a172954c09fa5a67e4abedcf07828ca60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói a controladora de serviço de pessoa.  <br /></td></tr>
-<tr class="separator:a172954c09fa5a67e4abedcf07828ca60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3e1893bfd2b87d28f8c47a6ae7a9819" id="r_ae3e1893bfd2b87d28f8c47a6ae7a9819"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#ae3e1893bfd2b87d28f8c47a6ae7a9819">atualizar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classEmail.html">Email</a> &amp;alvo, const <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa) override</td></tr>
-<tr class="memdesc:ae3e1893bfd2b87d28f8c47a6ae7a9819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Substitui os dados editáveis de uma conta já cadastrada.    <br /></td></tr>
-<tr class="separator:ae3e1893bfd2b87d28f8c47a6ae7a9819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08f686304cf11c381588f586bc05bf22" id="r_a08f686304cf11c381588f586bc05bf22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#a08f686304cf11c381588f586bc05bf22">autenticar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;email, const <a class="el" href="classSenha.html">Senha</a> &amp;senha) override</td></tr>
-<tr class="memdesc:a08f686304cf11c381588f586bc05bf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se as credenciais correspondem a uma conta cadastrada.    <br /></td></tr>
-<tr class="separator:a08f686304cf11c381588f586bc05bf22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1839907a0cf0fe8627d885da471df607" id="r_a1839907a0cf0fe8627d885da471df607"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#a1839907a0cf0fe8627d885da471df607">criar</a> (const <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa) override</td></tr>
-<tr class="memdesc:a1839907a0cf0fe8627d885da471df607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cadastra uma conta para permitir o acesso do usuário ao sistema.    <br /></td></tr>
-<tr class="separator:a1839907a0cf0fe8627d885da471df607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa728546f52ace07d0da4604de350ac2d" id="r_aa728546f52ace07d0da4604de350ac2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#aa728546f52ace07d0da4604de350ac2d">excluir</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classEmail.html">Email</a> &amp;alvo) override</td></tr>
-<tr class="memdesc:aa728546f52ace07d0da4604de350ac2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove uma conta cadastrada, preservando a consistência dos vínculos do sistema.    <br /></td></tr>
-<tr class="separator:aa728546f52ace07d0da4604de350ac2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bea3b9d1fc3df6073c16af0e7552c57" id="r_a5bea3b9d1fc3df6073c16af0e7552c57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#a5bea3b9d1fc3df6073c16af0e7552c57">ler</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classEmail.html">Email</a> &amp;alvo, <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa) override</td></tr>
-<tr class="memdesc:a5bea3b9d1fc3df6073c16af0e7552c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os dados da conta identificada pelo endereço eletrônico de destino.    <br /></td></tr>
-<tr class="separator:a5bea3b9d1fc3df6073c16af0e7552c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fa920abae835a83a6976fd398f4f077" id="r_a2fa920abae835a83a6976fd398f4f077"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoPessoa.html#a2fa920abae835a83a6976fd398f4f077">listar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, std::vector&lt; <a class="el" href="classEmail.html">Email</a> &gt; &amp;emails) override</td></tr>
-<tr class="memdesc:a2fa920abae835a83a6976fd398f4f077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os endereços eletrônicos que identificam as contas cadastradas.    <br /></td></tr>
-<tr class="separator:a2fa920abae835a83a6976fd398f4f077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e1893bfd2b87d28f8c47a6ae7a9819" id="r_ae3e1893bfd2b87d28f8c47a6ae7a9819"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae3e1893bfd2b87d28f8c47a6ae7a9819">atualizar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classEmail.html">Email</a> &amp;alvo, const <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa) override</td></tr>
+<tr class="memdesc:ae3e1893bfd2b87d28f8c47a6ae7a9819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Substitui os dados editáveis de uma conta já cadastrada.     <br /></td></tr>
+<tr class="memitem:a08f686304cf11c381588f586bc05bf22" id="r_a08f686304cf11c381588f586bc05bf22"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a08f686304cf11c381588f586bc05bf22">autenticar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;email, const <a class="el" href="classSenha.html">Senha</a> &amp;senha) override</td></tr>
+<tr class="memdesc:a08f686304cf11c381588f586bc05bf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se as credenciais correspondem a uma conta cadastrada.     <br /></td></tr>
+<tr class="memitem:a1839907a0cf0fe8627d885da471df607" id="r_a1839907a0cf0fe8627d885da471df607"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1839907a0cf0fe8627d885da471df607">criar</a> (const <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa) override</td></tr>
+<tr class="memdesc:a1839907a0cf0fe8627d885da471df607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cadastra uma conta para permitir o acesso do usuário ao sistema.     <br /></td></tr>
+<tr class="memitem:aa728546f52ace07d0da4604de350ac2d" id="r_aa728546f52ace07d0da4604de350ac2d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa728546f52ace07d0da4604de350ac2d">excluir</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classEmail.html">Email</a> &amp;alvo) override</td></tr>
+<tr class="memdesc:aa728546f52ace07d0da4604de350ac2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove uma conta cadastrada, preservando a consistência dos vínculos do sistema.     <br /></td></tr>
+<tr class="memitem:a5bea3b9d1fc3df6073c16af0e7552c57" id="r_a5bea3b9d1fc3df6073c16af0e7552c57"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5bea3b9d1fc3df6073c16af0e7552c57">ler</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classEmail.html">Email</a> &amp;alvo, <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa) override</td></tr>
+<tr class="memdesc:a5bea3b9d1fc3df6073c16af0e7552c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os dados da conta identificada pelo endereço eletrônico de destino.     <br /></td></tr>
+<tr class="memitem:a2fa920abae835a83a6976fd398f4f077" id="r_a2fa920abae835a83a6976fd398f4f077"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2fa920abae835a83a6976fd398f4f077">listar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, std::vector&lt; <a class="el" href="classEmail.html">Email</a> &gt; &amp;emails) override</td></tr>
+<tr class="memdesc:a2fa920abae835a83a6976fd398f4f077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os endereços eletrônicos que identificam as contas cadastradas.     <br /></td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Implementação concreta dos serviços de negócio relacionados a <a class="el" href="classPessoa.html" title="Representa uma pessoa cadastrada no sistema.">Pessoa</a>. </p>
 <p>Implementa a interface <a class="el" href="classIServicoPessoa.html" title="Define operações para cadastrar contas, verificar credenciais e consultar usuários.">IServicoPessoa</a> acessando os contêineres compartilhados em memória. </p>
-</div><h2 class="groupheader">Construtores e Destrutores</h2>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
 <a id="a172954c09fa5a67e4abedcf07828ca60" name="a172954c09fa5a67e4abedcf07828ca60"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a172954c09fa5a67e4abedcf07828ca60">&#9670;&#160;</a></span>CntrServicoPessoa()</h2>
 
@@ -128,25 +157,17 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">CntrServicoPessoa::CntrServicoPessoa </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;&#160;</td>
-          <td class="paramname"><em>pessoas</em>, </td>
+          <td class="paramtype"><a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pessoas</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;&#160;</td>
-          <td class="paramname"><em>projetos</em>, </td>
+          <td class="paramtype"><a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>projetos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;&#160;</td>
-          <td class="paramname"><em>cartoes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype"><a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartoes</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -163,7 +184,7 @@ Membros Públicos</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Documentação das funções</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
 <a id="ae3e1893bfd2b87d28f8c47a6ae7a9819" name="ae3e1893bfd2b87d28f8c47a6ae7a9819"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3e1893bfd2b87d28f8c47a6ae7a9819">&#9670;&#160;</a></span>atualizar()</h2>
 
@@ -176,35 +197,27 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoPessoa::atualizar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>alvo</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>alvo</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classPessoa.html">Pessoa</a> &amp;&#160;</td>
-          <td class="paramname"><em>pessoa</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classPessoa.html">Pessoa</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pessoa</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Substitui os dados editáveis de uma conta já cadastrada.   </p>
+<p>Substitui os dados editáveis de uma conta já cadastrada.    </p>
 <p>O endereço eletrônico presente em pessoa seleciona o registro existente e deve ser preservado. <a class="el" href="classNome.html" title="Armazena o nome de uma pessoa, projeto, quadro ou atividade.">Nome</a>, senha e papel compõem os dados atualizáveis. </p><dl class="section pre"><dt>Pré-condição</dt><dd>O solicitante deve estar autenticado como GESTOR ou DESENVOLVEDOR. </dd></dl>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -214,7 +227,7 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem atualizados; false se a conta não existir ou a atualização não puder ser realizada.   </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem atualizados; false se a conta não existir ou a atualização não puder ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoPessoa.html#a6863333d2498352dcc7a5b4bf63e4bd8">IServicoPessoa</a>.</p>
 
@@ -232,29 +245,22 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoPessoa::autenticar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>email</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>email</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classSenha.html">Senha</a> &amp;&#160;</td>
-          <td class="paramname"><em>senha</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classSenha.html">Senha</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>senha</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Verifica se as credenciais correspondem a uma conta cadastrada.   </p>
+<p>Verifica se as credenciais correspondem a uma conta cadastrada.    </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">email</td><td>Endereço eletrônico que identifica a conta a ser verificada. </td></tr>
@@ -262,7 +268,7 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a conta existir e a senha corresponder à cadastrada; false se as credenciais não forem reconhecidas.   </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a conta existir e a senha corresponder à cadastrada; false se as credenciais não forem reconhecidas.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoPessoa.html#a5f6fd344f9adf207321df6dce0f2f003">IServicoPessoa</a>.</p>
 
@@ -280,26 +286,25 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoPessoa::criar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classPessoa.html">Pessoa</a> &amp;&#160;</td>
-          <td class="paramname"><em>pessoa</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classPessoa.html">Pessoa</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pessoa</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Cadastra uma conta para permitir o acesso do usuário ao sistema.   </p>
+<p>Cadastra uma conta para permitir o acesso do usuário ao sistema.    </p>
 <p>Esta operação não exige autenticação prévia. O endereço eletrônico fornecido identifica a nova conta e não pode duplicar uma conta existente. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">pessoa</td><td>Dados de cadastro: endereço eletrônico, nome, senha e papel. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a conta for cadastrada; false se não for possível cadastrá-la.   </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a conta for cadastrada; false se não for possível cadastrá-la.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoPessoa.html#aa76114ff7aca7e8814b3ef0fbd840e26">IServicoPessoa</a>.</p>
 
@@ -317,29 +322,22 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoPessoa::excluir </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>alvo</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>alvo</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Remove uma conta cadastrada, preservando a consistência dos vínculos do sistema.   </p>
+<p>Remove uma conta cadastrada, preservando a consistência dos vínculos do sistema.    </p>
 <p>A implementação deve impedir que a remoção deixe relacionamentos inconsistentes. </p><dl class="section pre"><dt>Pré-condição</dt><dd>O solicitante deve estar autenticado como GESTOR ou DESENVOLVEDOR. </dd></dl>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -348,7 +346,7 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a conta for removida; false se ela não existir ou a exclusão não puder ser realizada com consistência.   </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a conta for removida; false se ela não existir ou a exclusão não puder ser realizada com consistência.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoPessoa.html#aba30f864fdf771ad704b8b1cb1b656fd">IServicoPessoa</a>.</p>
 
@@ -366,35 +364,27 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoPessoa::ler </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>alvo</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>alvo</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classPessoa.html">Pessoa</a> &amp;&#160;</td>
-          <td class="paramname"><em>pessoa</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype"><a class="el" href="classPessoa.html">Pessoa</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pessoa</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Obtém os dados da conta identificada pelo endereço eletrônico de destino.   </p>
+<p>Obtém os dados da conta identificada pelo endereço eletrônico de destino.    </p>
 <dl class="section pre"><dt>Pré-condição</dt><dd>O solicitante deve estar autenticado como GESTOR ou DESENVOLVEDOR. </dd></dl>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -404,7 +394,7 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem obtidos; false se a conta não existir ou a consulta não puder ser realizada.   </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem obtidos; false se a conta não existir ou a consulta não puder ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoPessoa.html#a057d40f91760cd2674c549ea1137d493">IServicoPessoa</a>.</p>
 
@@ -422,29 +412,22 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoPessoa::listar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classEmail.html">Email</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>emails</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classEmail.html">Email</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>emails</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Obtém os endereços eletrônicos que identificam as contas cadastradas.   </p>
+<p>Obtém os endereços eletrônicos que identificam as contas cadastradas.    </p>
 <dl class="section pre"><dt>Pré-condição</dt><dd>O solicitante deve estar autenticado como GESTOR ou DESENVOLVEDOR. </dd></dl>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -453,7 +436,7 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a consulta for concluída, inclusive quando não houver contas a listar; false se a consulta não puder ser realizada.   </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a consulta for concluída, inclusive quando não houver contas a listar; false se a consulta não puder ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoPessoa.html#a73df94d8b73f1f443e9f3f71366905ae">IServicoPessoa</a>.</p>
 
@@ -464,9 +447,21 @@ Membros Públicos</h2></td></tr>
 <li><a class="el" href="controladoras__servico_8cpp.html">controladoras_servico.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classCntrServicoPessoa.html">CntrServicoPessoa</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 </body>
 </html>

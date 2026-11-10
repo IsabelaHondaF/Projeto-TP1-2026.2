@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Sistema Kanban - TP1 2026.2: Sistema Kanban - TP1 2026.2</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -30,29 +34,64 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.9.8 -->
+<!-- Gerado por Doxygen 1.18.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Busca');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<div id="MSearchSelectWindow">
 </div>
 
 <!-- iframe showing the search results (closed by default) -->
@@ -73,64 +112,64 @@ $(function() {
   <div class="headertitle"><div class="title">Sistema Kanban - TP1 2026.2 </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p><div align="center"> <img src="https://github.com/user-attachments/assets/3b50c780-d1e4-4b11-ac10-0dcac62b435f" alt="Símbolo da UnB" width="300" height="150" class="inline"/></div><div align="center"></div><h1><a class="anchor" id="autotoc_md0"></a>
-Projeto-TP1-2026.2</h1>
-<div align="center"> </div><h3><a class="anchor" id="autotoc_md1"></a>
-Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília (UnB)</h3>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p><div align="center"> <img src="https://github.com/user-attachments/assets/3b50c780-d1e4-4b11-ac10-0dcac62b435f" alt="Símbolo da UnB" width="300" height="150" class="inline"/></div><div align="center"></div><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+<div align="center">Projeto-TP1-2026.2</div></h1>
+<div align="center"> </div><h3 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<div align="center">Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília (UnB)</div></h3>
 <div align="center"> <b>Semestre:</b> 2026.2 &#160;|&#160; <b>Linguagem:</b> C++11 &#160;|&#160; <b>IDE:</b> Code::Blocks </div><hr  />
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 👥 Integrantes da Equipe</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone"><a class="el" href="classNome.html" title="Armazena o nome de uma pessoa, projeto, quadro ou atividade.">Nome</a>   </th><th class="markdownTableHeadNone">Função Principal    </th></tr>
+<th class="markdownTableHeadNone"><a class="el" href="classNome.html" title="Armazena o nome de uma pessoa, projeto, quadro ou atividade.">Nome</a>  </th><th class="markdownTableHeadNone">Função Principal  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Arthur Vieira</b>   </td><td class="markdownTableBodyNone">Domínios, Entidades e Configuração Code::Blocks    </td></tr>
+<td class="markdownTableBodyNone"><b>Arthur Vieira</b>  </td><td class="markdownTableBodyNone">Domínios, Entidades e Configuração Code::Blocks  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>Gabriel Sales</b>   </td><td class="markdownTableBodyNone">Interfaces Abstratas, Testes de Unidade e Documentação Doxygen    </td></tr>
+<td class="markdownTableBodyNone"><b>Gabriel Sales</b>  </td><td class="markdownTableBodyNone">Entidades, Interfaces Abstratas, Testes de Unidade e Documentação Doxygen  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Isabela Honda Ferreira</b>   </td><td class="markdownTableBodyNone">Repositório GitHub, Domínios e Entidades    </td></tr>
+<td class="markdownTableBodyNone"><b>Isabela Honda Ferreira</b>  </td><td class="markdownTableBodyNone">Repositório GitHub  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>João Roberto</b>   </td><td class="markdownTableBodyNone">Serviços de Negócio, Apresentação e Integração   </td></tr>
+<td class="markdownTableBodyNone"><b>João Roberto Machado</b>  </td><td class="markdownTableBodyNone">Serviços de Negócio, Apresentação, Integração e Domínios  </td></tr>
 </table>
 <blockquote class="doxtable">
-<p>&zwj;Para o detalhamento completo dos artefatos construídos por cada autor, consulte <a href="file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/EQUIPE_E_ARTEFATOS.md">EQUIPE_E_ARTEFATOS.md</a>. </p>
+<p>Para o detalhamento completo dos artefatos construídos por cada autor, consulte <span class="tt">EQUIPE_E_ARTEFATOS.md</span>. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md4"></a>
-&lt;/blockquote&gt;</h2>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 Especificações do Sistema</h2>
 <p>O sistema provê suporte à gestão de projetos pelo método Kanban:</p><ul>
-<li><b>Quadros Kanban:</b> compostos estritamente pelas colunas <code>A FAZER</code>, <code>FAZENDO</code> e <code>FEITO</code>.</li>
-<li><b>Papéis:</b> <code>GESTOR</code> (cria projetos, quadros e cartões) e <code>DESENVOLVEDOR</code> (executa e move atividades).</li>
-<li><b>Controle de WIP:</b> a coluna <code>FAZENDO</code> possui um <code><a class="el" href="classLimite.html" title="Representa a quantidade máxima de atividades simultâneas na coluna FAZENDO.">Limite</a></code> de cartões simultâneos (1 a 25).</li>
+<li><b>Quadros Kanban:</b> compostos estritamente pelas colunas <span class="tt">A FAZER</span>, <span class="tt">FAZENDO</span> e <span class="tt">FEITO</span>.</li>
+<li><b>Papéis:</b> <span class="tt">GESTOR</span> (cria projetos, quadros e cartões) e <span class="tt">DESENVOLVEDOR</span> (executa e move atividades).</li>
+<li><b>Controle de WIP:</b> a coluna <span class="tt">FAZENDO</span> possui um <span class="tt"><a class="el" href="classLimite.html" title="Representa a quantidade máxima de atividades simultâneas na coluna FAZENDO.">Limite</a></span> de cartões simultâneos (1 a 25).</li>
 <li><b>Métricas:</b> cálculo de tempo de ciclo (<em>cycle time</em>), <em>lead time</em>, tempo de ciclo médio, <em>lead time</em> médio e <em>Work in Progress</em> (WIP).</li>
 <li><b>Integridade:</b> exclusão de entidades preserva consistência dos relacionamentos e multiplicidades.</li>
 </ul>
 <hr  />
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 Arquitetura do Software</h2>
-<p>O sistema adota o padrão de arquitetura em camadas (<em>layers</em>) composto por 5 módulos:</p>
-<div class="fragment"><div class="line">[ Camada de Apresentação ] (cin/cout, menus estruturados por papel)</div>
-<div class="line">           |</div>
-<div class="line">           v (depende de interfaces abstratas)</div>
-<div class="line">[ Interfaces de Serviço  ] (IServicoPessoa, IServicoProjeto, IServicoQuadro, IServicoCartaoDeAtividade)</div>
-<div class="line">           ^</div>
-<div class="line">           | (implementam as interfaces)</div>
-<div class="line">[ Camada de Serviço      ] (regras de negócio, permissões, WIP e métricas temporais)</div>
-<div class="line">           |</div>
-<div class="line">           v</div>
-<div class="line">[ Contêineres em Memória ] (persistência e vínculos relacionais compartilhados)</div>
-<div class="line">           |</div>
-<div class="line">   [ Entidades e Domínios ] (modelagem OO e validações estritas de tipos com exceções)</div>
-</div><!-- fragment --><ul>
-<li><b>Modelo de Arquitetura em PDF:</b> <a href="file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Modelo_Arquitetura.pdf">Modelo_Arquitetura.pdf</a></li>
-<li><b>Documentação Técnica em HTML (Doxygen):</b> <code>Documentacao/html/index.html</code></li>
-<li><b>Documentação de Regras das Controladoras:</b> <a href="file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/DOCUMENTACAO_CONTROLADORAS.md">DOCUMENTACAO_CONTROLADORAS.md</a></li>
+<p>O sistema adota o estilo de arquitetura em duas camadas, organizadas em três subsistemas: <a class="el" href="classPessoa.html" title="Representa uma pessoa cadastrada no sistema.">Pessoa</a>, <a class="el" href="classProjeto.html" title="Representa um projeto cadastrado no sistema.">Projeto</a> e <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>.</p>
+<ul>
+<li><b>Apresentação:</b> módulos MAC, MAA, MAP e MAQ, responsáveis pela navegação, interação com o usuário e validação das entradas.</li>
+<li><b>Serviço:</b> módulos MSA, MSP e MSQ, responsáveis pelas regras de negócio, permissões, integridade dos relacionamentos e armazenamento em memória.</li>
+</ul>
+<p>O subsistema <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a> incorpora o gerenciamento dos cartões de atividade, sua movimentação, o controle de WIP e a consulta de métricas. Essas funcionalidades são implementadas por MAQ e MSQ.</p>
+<p>A comunicação entre os módulos ocorre por seis interfaces abstratas:</p>
+<ul>
+<li><b>Apresentação:</b> IAA (<span class="tt"><a class="el" href="classIApresentacaoPessoa.html" title="Interface de apresentação de contas e autenticação (IAA).">IApresentacaoPessoa</a></span>), IAP (<span class="tt"><a class="el" href="classIApresentacaoProjeto.html" title="Interface de apresentação da gestão de projetos (IAP).">IApresentacaoProjeto</a></span>) e IAQ (<span class="tt"><a class="el" href="classIApresentacaoQuadro.html" title="Interface de apresentação da gestão de quadros e seus cartões (IAQ).">IApresentacaoQuadro</a></span>).</li>
+<li><b>Serviço:</b> ISA (<span class="tt"><a class="el" href="classIServicoPessoa.html" title="Define operações para cadastrar contas, verificar credenciais e consultar usuários.">IServicoPessoa</a></span>), ISP (<span class="tt"><a class="el" href="classIServicoProjeto.html" title="Define operações para cadastrar e manter conjuntos de atividades e seus períodos.">IServicoProjeto</a></span>) e ISQ (<span class="tt"><a class="el" href="classIServicoQuadro.html" title="Interface dos serviços de quadros e cartões do subsistema Quadro (ISQ).">IServicoQuadro</a></span>).</li>
+</ul>
+<p>MAC depende de IAA, IAP e IAQ para acessar os subsistemas. Também depende de ISA para consultar os dados e o papel do usuário autenticado.</p>
+<p>MAA solicita operações por meio de ISA, MAP utiliza ISP e MAQ utiliza ISQ para as operações de quadros e cartões.</p>
+<p>Os contêineres implementam o armazenamento em memória utilizado pela camada de serviço. As classes de domínio e entidade representam os dados utilizados pelas duas camadas.</p>
+<ul>
+<li><b>Modelo de Arquitetura em PDF:</b> <span class="tt">Documentacao/Modelo_Arquitetura.pdf</span></li>
+<li><b>Documentação Técnica em HTML (Doxygen):</b> <span class="tt">Documentacao/html/index.html</span></li>
+<li><b>Documentação de Regras das Controladoras:</b> <span class="tt">DOCUMENTACAO_CONTROLADORAS.md</span></li>
 </ul>
 <hr  />
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Como Compilar e Executar</h2>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 1. Compilação via Makefile</h3>
 <div class="fragment"><div class="line"># Compila todos os alvos (executável raiz, Debug, Release, SmokeTest e TestesUnitarios):</div>
 <div class="line">make all</div>
@@ -143,35 +182,40 @@ Como Compilar e Executar</h2>
 <div class="line"> </div>
 <div class="line"># Gera o pacote ZIP no padrão de entrega (T1-TP1-X-Y-Z.ZIP):</div>
 <div class="line">make zip</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 2. Executando o Sistema Integrado</h3>
 <div class="fragment"><div class="line"># Modo interativo:</div>
 <div class="line">./Projeto_TP1</div>
 <div class="line"> </div>
 <div class="line"># Modo de teste automatizado (cobre todos os 26 serviços do enunciado):</div>
 <div class="line">./Projeto_TP1 &lt; Testes/roteiro_teste_fumaca.txt</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 3. Ambiente Code::Blocks</h3>
-<p>O arquivo de projeto <a href="file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Projeto_TP1.cbp"><code>Projeto_TP1.cbp</code></a> está configurado com 4 alvos independentes:</p><ul>
-<li>**<code>Debug</code>**: compilação do sistema completo com flags de depuração (<code>-g</code>).</li>
-<li>**<code>Release</code>**: compilação otimizada do sistema (<code>-O2 -s</code>).</li>
-<li>**<code>SmokeTest</code>**: executa a suíte de teste de fumaça das controladoras de serviço (75 asserções).</li>
-<li>**<code>TestesUnitarios</code>**: executa a bateria de testes de unidade de domínios e entidades (106 asserções).</li>
+<p>O arquivo de projeto <span class="tt">Projeto_TP1.cbp</span> está configurado com 4 alvos independentes:</p><ul>
+<li><b><span class="tt">Debug</span></b>: compilação do sistema completo com flags de depuração (<span class="tt">-g</span>).</li>
+<li><b><span class="tt">Release</span></b>: compilação otimizada do sistema (<span class="tt">-O2 -s</span>).</li>
+<li><b><span class="tt">SmokeTest</span></b>: executa a suíte de teste de fumaça das controladoras de serviço (75 asserções).</li>
+<li><b><span class="tt">TestesUnitarios</span></b>: executa a bateria de testes de unidade de domínios e entidades (106 asserções).</li>
 </ul>
 <hr  />
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 Suítes de Testes</h2>
 <ol type="1">
-<li>**Testes de Unidade (<code>make test_unit</code>):** Valida as 11 classes de domínio e as 4 entidades com casos válidos e limites inválidos (<code>std::invalid_argument</code>).</li>
-<li>**Testes de Fumaça das Controladoras (<code>make test_smoke</code>):** Valida as 26 operações de serviço, regras de permissão (GESTOR vs. DESENVOLVEDOR), WIP e consistência de exclusão.</li>
-<li>**Teste de Fumaça Integrado (<code>make test_integrated</code>):** Simula a interação com o usuário em 4 sessões consecutivas cobrindo todos os requisitos funcionais sem erros.</li>
+<li><b>Testes de Unidade (<span class="tt">make test_unit</span>):</b> Valida as 11 classes de domínio e as 4 entidades com casos válidos e limites inválidos (<span class="tt">std::invalid_argument</span>).</li>
+<li><b>Testes de Fumaça das Controladoras (<span class="tt">make test_smoke</span>):</b> Valida as 26 operações de serviço, regras de permissão (GESTOR vs. DESENVOLVEDOR), WIP e consistência de exclusão.</li>
+<li><b>Teste de Fumaça Integrado (<span class="tt">make test_integrated</span>):</b> Simula a interação com o usuário em 4 sessões consecutivas cobrindo todos os requisitos funcionais sem erros.</li>
 </ol>
-<p>Para instruções completas sobre o vídeo de demonstração, consulte <a href="file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Testes/LEIA-ME_TESTE_FUMACA.md">Testes/LEIA-ME_TESTE_FUMACA.md</a>. </p>
+<p>Para instruções completas sobre o vídeo de demonstração, consulte <span class="tt">Testes/LEIA-ME_TESTE_FUMACA.md</span>. </p>
 </div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 </body>
 </html>

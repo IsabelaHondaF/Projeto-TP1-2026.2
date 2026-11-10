@@ -17,7 +17,7 @@
 | **Isabela Honda Ferreira** | Repositório GitHub |
 | **João Roberto Machado** | Serviços de Negócio, Apresentação, Integração e Domínios |
 
-> Para o detalhamento completo dos artefatos construídos por cada autor, consulte [EQUIPE_E_ARTEFATOS.md](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/EQUIPE_E_ARTEFATOS.md).
+> Para o detalhamento completo dos artefatos construídos por cada autor, consulte `EQUIPE_E_ARTEFATOS.md`.
 
 ---
 
@@ -66,9 +66,9 @@ Os contêineres implementam o armazenamento em memória utilizado
 pela camada de serviço. As classes de domínio e entidade
 representam os dados utilizados pelas duas camadas.
 
-- **Modelo de Arquitetura em PDF:** [Modelo_Arquitetura.pdf](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Modelo_Arquitetura.pdf)
+- **Modelo de Arquitetura em PDF:** `Documentacao/Modelo_Arquitetura.pdf`
 - **Documentação Técnica em HTML (Doxygen):** `Documentacao/html/index.html`
-- **Documentação de Regras das Controladoras:** [DOCUMENTACAO_CONTROLADORAS.md](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/DOCUMENTACAO_CONTROLADORAS.md)
+- **Documentação de Regras das Controladoras:** `DOCUMENTACAO_CONTROLADORAS.md`
 
 ---
 
@@ -102,7 +102,7 @@ make zip
 
 ### 3. Ambiente Code::Blocks
 
-O arquivo de projeto [`Projeto_TP1.cbp`](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Projeto_TP1.cbp) está configurado com 4 alvos independentes:
+O arquivo de projeto `Projeto_TP1.cbp` está configurado com 4 alvos independentes:
 - **`Debug`**: compilação do sistema completo com flags de depuração (`-g`).
 - **`Release`**: compilação otimizada do sistema (`-O2 -s`).
 - **`SmokeTest`**: executa a suíte de teste de fumaça das controladoras de serviço (75 asserções).
@@ -119,4 +119,4 @@ O arquivo de projeto [`Projeto_TP1.cbp`](file:///home/gabriel/projeto.tp1/Projet
 3. **Teste de Fumaça Integrado (`make test_integrated`):**
    Simula a interação com o usuário em 4 sessões consecutivas cobrindo todos os requisitos funcionais sem erros.
 
-Para instruções completas sobre o vídeo de demonstração, consulte [Testes/LEIA-ME_TESTE_FUMACA.md](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Testes/LEIA-ME_TESTE_FUMACA.md).
+Para instruções completas sobre o vídeo de demonstração, consulte `Testes/LEIA-ME_TESTE_FUMACA.md`.

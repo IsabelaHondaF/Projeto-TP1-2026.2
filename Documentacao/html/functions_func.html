@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Sistema Kanban - TP1 2026.2: Membros de classe - Funções</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -30,29 +34,64 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.9.8 -->
+<!-- Gerado por Doxygen 1.18.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Busca');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('functions_func.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<div id="MSearchSelectWindow">
 </div>
 
 <!-- iframe showing the search results (closed by default) -->
@@ -70,37 +109,40 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Esta é a list de todas as funções com links para a classe a que pertencem:</div>
+<div class="textblock">Esta é a list de todas as funções com links para a classe a que pertencem:</div><br/>
+<div class="qindex"><a class="qindex" href="#index_a">A</a><div class="alphasepar"></div><a class="qindex" href="#index_c">C</a><div class="alphasepar"></div><a class="qindex" href="#index_e">E</a><div class="alphasepar"></div><a class="qindex" href="#index_g">G</a><div class="alphasepar"></div><a class="qindex" href="#index_i">I</a><div class="alphasepar"></div><a class="qindex" href="#index_l">L</a><div class="alphasepar"></div><a class="qindex" href="#index_m">M</a><div class="alphasepar"></div><a class="qindex" href="#index_o">O</a><div class="alphasepar"></div><a class="qindex" href="#index_p">P</a><div class="alphasepar"></div><a class="qindex" href="#index_r">R</a><div class="alphasepar"></div><a class="qindex" href="#index_s">S</a><div class="alphasepar"></div><a class="qindex" href="#index_t">T</a><div class="alphasepar"></div><a class="qindex" href="#index_~">~</a></div>
 
-<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>atualizar()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a3ad24a18606b347a82a3ea2927de8c85">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classCntrServicoPessoa.html#ae3e1893bfd2b87d28f8c47a6ae7a9819">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a435bfe7c27c71e663a338ca3105b1ab2">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#af6a0cfe2ceb6c7b86aa0583d1e88f875">CntrServicoQuadro</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#ad3f11b0456bd71ee13e5b7e0172da99f">IServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoPessoa.html#a6863333d2498352dcc7a5b4bf63e4bd8">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a9384aad8c7e9bd29dc362a18a273a874">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a07ba6d748885c3a4be33703fa9923f30">IServicoQuadro</a></li>
-<li>autenticar()&#160;:&#160;<a class="el" href="classCntrApresentacaoPessoa.html#adba3329379c7d3691c4cb088483134fe">CntrApresentacaoPessoa</a>, <a class="el" href="classCntrServicoPessoa.html#a08f686304cf11c381588f586bc05bf22">CntrServicoPessoa</a>, <a class="el" href="classIServicoPessoa.html#a5f6fd344f9adf207321df6dce0f2f003">IServicoPessoa</a></li>
+
+<h3 class="doxsection"><a id="index_a" name="index_a"></a>- a -</h3><ul>
+<li>atualizar()&#160;:&#160;<a class="el" href="classCntrServicoPessoa.html#ae3e1893bfd2b87d28f8c47a6ae7a9819">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a435bfe7c27c71e663a338ca3105b1ab2">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#af6a0cfe2ceb6c7b86aa0583d1e88f875">CntrServicoQuadro</a>, <a class="el" href="classIServicoPessoa.html#a6863333d2498352dcc7a5b4bf63e4bd8">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a9384aad8c7e9bd29dc362a18a273a874">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a07ba6d748885c3a4be33703fa9923f30">IServicoQuadro</a></li>
+<li>atualizarCartao()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a3779d2a9686ad6fe7df7e7d95b9383f0">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a99da1010ad6afe26f6064ba3be8f2912">IServicoQuadro</a></li>
+<li>autenticar()&#160;:&#160;<a class="el" href="classCntrApresentacaoPessoa.html#a36a5110fdea663856494909eed7f5191">CntrApresentacaoPessoa</a>, <a class="el" href="classCntrServicoPessoa.html#a08f686304cf11c381588f586bc05bf22">CntrServicoPessoa</a>, <a class="el" href="classIApresentacaoPessoa.html#a0825c5d01b2ef938aeab20d5525d32c2">IApresentacaoPessoa</a>, <a class="el" href="classIServicoPessoa.html#a5f6fd344f9adf207321df6dce0f2f003">IServicoPessoa</a></li>
 </ul>
 
 
-<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>cadastrar()&#160;:&#160;<a class="el" href="classCntrApresentacaoPessoa.html#a6cf76ffa637558e45324a5c6e1dc0554">CntrApresentacaoPessoa</a></li>
-<li>CntrApresentacaoCartao()&#160;:&#160;<a class="el" href="classCntrApresentacaoCartao.html#af3d20362c5adaaad9cc57b73fb87cd18">CntrApresentacaoCartao</a></li>
+<h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>cadastrar()&#160;:&#160;<a class="el" href="classCntrApresentacaoPessoa.html#a9ab0970888652ff3d88f8c9786c60dec">CntrApresentacaoPessoa</a>, <a class="el" href="classIApresentacaoPessoa.html#a72bdbcda47abf21bcb5f0c94d4c2cd38">IApresentacaoPessoa</a></li>
 <li>CntrApresentacaoPessoa()&#160;:&#160;<a class="el" href="classCntrApresentacaoPessoa.html#a3c3037d8f68f9abd937b5eb539dc975a">CntrApresentacaoPessoa</a></li>
-<li>CntrApresentacaoPrincipal()&#160;:&#160;<a class="el" href="classCntrApresentacaoPrincipal.html#ae6d852607f5700997941aa10abfbb443">CntrApresentacaoPrincipal</a></li>
+<li>CntrApresentacaoPrincipal()&#160;:&#160;<a class="el" href="classCntrApresentacaoPrincipal.html#a2319672c2f2ae31c19d91cccd8c8bccc">CntrApresentacaoPrincipal</a></li>
 <li>CntrApresentacaoProjeto()&#160;:&#160;<a class="el" href="classCntrApresentacaoProjeto.html#aeec428dec091e0860278e71bd9771a84">CntrApresentacaoProjeto</a></li>
 <li>CntrApresentacaoQuadro()&#160;:&#160;<a class="el" href="classCntrApresentacaoQuadro.html#a70fb598e47cfaed4afdadd0dfefe0de5">CntrApresentacaoQuadro</a></li>
-<li>CntrServicoCartaoDeAtividade()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a870838bb7e769894c708b33285f6b7ff">CntrServicoCartaoDeAtividade</a></li>
 <li>CntrServicoPessoa()&#160;:&#160;<a class="el" href="classCntrServicoPessoa.html#a172954c09fa5a67e4abedcf07828ca60">CntrServicoPessoa</a></li>
 <li>CntrServicoProjeto()&#160;:&#160;<a class="el" href="classCntrServicoProjeto.html#af4047bc36600df930a395852c3ff9d67">CntrServicoProjeto</a></li>
 <li>CntrServicoQuadro()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a8ff6a7a35db523d7797a7e9e7ab13ca6">CntrServicoQuadro</a></li>
-<li>criar()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a0aa47760e8b203da59bc4cb9765126c0">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classCntrServicoPessoa.html#a1839907a0cf0fe8627d885da471df607">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a0e58c957d7154d378f4c4718f386e4e9">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#a81ba96ad570ff7a50c834f4d682d3d14">CntrServicoQuadro</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#ac53f7df92552e323d679cd450650aee1">IServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoPessoa.html#aa76114ff7aca7e8814b3ef0fbd840e26">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a74a9a644b2af7e010e4e12c566f13c27">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a4b6f14473164bec2e7c00c2b95127fbb">IServicoQuadro</a></li>
+<li>criar()&#160;:&#160;<a class="el" href="classCntrServicoPessoa.html#a1839907a0cf0fe8627d885da471df607">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a0e58c957d7154d378f4c4718f386e4e9">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#a81ba96ad570ff7a50c834f4d682d3d14">CntrServicoQuadro</a>, <a class="el" href="classIServicoPessoa.html#aa76114ff7aca7e8814b3ef0fbd840e26">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a74a9a644b2af7e010e4e12c566f13c27">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a4b6f14473164bec2e7c00c2b95127fbb">IServicoQuadro</a></li>
+<li>criarCartao()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#ab895f9faadf516cc71ed9851b0de2db3">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a657bc74c632b1a1f0458904abe6310ea">IServicoQuadro</a></li>
 </ul>
 
 
-<h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>excluir()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a13278a757feb597f913ee22d0bdfedfb">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classCntrServicoPessoa.html#aa728546f52ace07d0da4604de350ac2d">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#ae93d6dd75b871d0c844ae7273084a5ae">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#a7c240d303e7bb1f61acd252a3ec5c484">CntrServicoQuadro</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#a66b547f40d91b085a213e4a879cc307e">IServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoPessoa.html#aba30f864fdf771ad704b8b1cb1b656fd">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a7da0d81d9ef2da0b36b7c1b601b6111e">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#aa2cbfeb97add51c75cc48bd6cc294fe7">IServicoQuadro</a></li>
-<li>executar()&#160;:&#160;<a class="el" href="classCntrApresentacaoCartao.html#a927d895af2f5530103143a2268ab2762">CntrApresentacaoCartao</a>, <a class="el" href="classCntrApresentacaoPessoa.html#ae3198d69d237e401c450dfd236c6d6c4">CntrApresentacaoPessoa</a>, <a class="el" href="classCntrApresentacaoPrincipal.html#a0a76afb3d49cfaefc07db255b72190fb">CntrApresentacaoPrincipal</a>, <a class="el" href="classCntrApresentacaoProjeto.html#a6581111ddd5d05f448c3029824c447c5">CntrApresentacaoProjeto</a>, <a class="el" href="classCntrApresentacaoQuadro.html#a658ef48d73904bc56c34af6944ce7633">CntrApresentacaoQuadro</a>, <a class="el" href="classTUCartaoDeAtividade.html#adc101f85710196ba9ef2219240760ec7">TUCartaoDeAtividade</a>, <a class="el" href="classTUEmail.html#a32e62a34e5a16a5b84f778ddab77e8e8">TUEmail</a>, <a class="el" href="classTUEstado.html#a43781c91723e8a200ba13e4fd93c953e">TUEstado</a>, <a class="el" href="classTUIdentificador.html#aac66170a9608e0af3e7e6c47212a4333">TUIdentificador</a>, <a class="el" href="classTULimite.html#a9f90c829d4419a094671a77f36bbda37">TULimite</a>, <a class="el" href="classTUNome.html#a0047dd6c89e30c19963abff5ed03b3c0">TUNome</a>, <a class="el" href="classTUPapel.html#ab296234266c014f30ed0cbaa923b4499">TUPapel</a>, <a class="el" href="classTUPessoa.html#ae15ef9c5da0396b87db97041707093f5">TUPessoa</a>, <a class="el" href="classTUPrioridade.html#a93ac2f89f097deeff066903b7db93f97">TUPrioridade</a>, <a class="el" href="classTUProjeto.html#a6cffe1bcc7d6ca1b0af1d95c5774fc54">TUProjeto</a>, <a class="el" href="classTUQuadro.html#a4b380e7807d2a0a0eb1647e9d011436a">TUQuadro</a>, <a class="el" href="classTUSenha.html#a5fa2656200db2802d074f422e2941fbb">TUSenha</a>, <a class="el" href="classTUTamanho.html#a6523904285e404b1870c840bfd5d3f07">TUTamanho</a>, <a class="el" href="classTUTexto.html#a61332d2ad2eaa8bccaf643a3ffc04979">TUTexto</a>, <a class="el" href="classTUTimestamp.html#adfdca46aa48427efa602dc3bf66731a0">TUTimestamp</a></li>
+<h3 class="doxsection"><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>excluir()&#160;:&#160;<a class="el" href="classCntrServicoPessoa.html#aa728546f52ace07d0da4604de350ac2d">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#ae93d6dd75b871d0c844ae7273084a5ae">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#a7c240d303e7bb1f61acd252a3ec5c484">CntrServicoQuadro</a>, <a class="el" href="classIServicoPessoa.html#aba30f864fdf771ad704b8b1cb1b656fd">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a7da0d81d9ef2da0b36b7c1b601b6111e">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#aa2cbfeb97add51c75cc48bd6cc294fe7">IServicoQuadro</a></li>
+<li>excluirCartao()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a30c3ebae09b4e5cddb2937faf33ae2e2">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a8c36e2f196a72010e7479aeb9f0b8c23">IServicoQuadro</a></li>
+<li>executar()&#160;:&#160;<a class="el" href="classCntrApresentacaoPessoa.html#a70007540057c9db34825f924de6c59e8">CntrApresentacaoPessoa</a>, <a class="el" href="classCntrApresentacaoPrincipal.html#a0a76afb3d49cfaefc07db255b72190fb">CntrApresentacaoPrincipal</a>, <a class="el" href="classCntrApresentacaoProjeto.html#aca614167dfd23cd5e7d3a2d9a6970dac">CntrApresentacaoProjeto</a>, <a class="el" href="classCntrApresentacaoQuadro.html#a556bbb9c3df9f292d4874df9ae96a36c">CntrApresentacaoQuadro</a>, <a class="el" href="classIApresentacaoPessoa.html#aee7dc22fdd4572b2427fc5f3a34998b2">IApresentacaoPessoa</a>, <a class="el" href="classIApresentacaoProjeto.html#aa1c0b569ff8a67a00265c62ecdc3460c">IApresentacaoProjeto</a>, <a class="el" href="classIApresentacaoQuadro.html#a87bddbeb554599f465d69bf4782120cc">IApresentacaoQuadro</a>, <a class="el" href="classTUCartaoDeAtividade.html#adc101f85710196ba9ef2219240760ec7">TUCartaoDeAtividade</a>, <a class="el" href="classTUEmail.html#a32e62a34e5a16a5b84f778ddab77e8e8">TUEmail</a>, <a class="el" href="classTUEstado.html#a43781c91723e8a200ba13e4fd93c953e">TUEstado</a>, <a class="el" href="classTUIdentificador.html#aac66170a9608e0af3e7e6c47212a4333">TUIdentificador</a>, <a class="el" href="classTULimite.html#a9f90c829d4419a094671a77f36bbda37">TULimite</a>, <a class="el" href="classTUNome.html#a0047dd6c89e30c19963abff5ed03b3c0">TUNome</a>, <a class="el" href="classTUPapel.html#ab296234266c014f30ed0cbaa923b4499">TUPapel</a>, <a class="el" href="classTUPessoa.html#ae15ef9c5da0396b87db97041707093f5">TUPessoa</a>, <a class="el" href="classTUPrioridade.html#a93ac2f89f097deeff066903b7db93f97">TUPrioridade</a>, <a class="el" href="classTUProjeto.html#a6cffe1bcc7d6ca1b0af1d95c5774fc54">TUProjeto</a>, <a class="el" href="classTUQuadro.html#a4b380e7807d2a0a0eb1647e9d011436a">TUQuadro</a>, <a class="el" href="classTUSenha.html#a5fa2656200db2802d074f422e2941fbb">TUSenha</a>, <a class="el" href="classTUTamanho.html#a6523904285e404b1870c840bfd5d3f07">TUTamanho</a>, <a class="el" href="classTUTexto.html#a61332d2ad2eaa8bccaf643a3ffc04979">TUTexto</a>, <a class="el" href="classTUTimestamp.html#adfdca46aa48427efa602dc3bf66731a0">TUTimestamp</a></li>
 <li>existe()&#160;:&#160;<a class="el" href="classContainerCartoes.html#a07e61a202ad59b4907f7ea10f4c6410a">ContainerCartoes</a>, <a class="el" href="classContainerPessoas.html#a6c90c5dd75db69c06f0bb682d687f224">ContainerPessoas</a>, <a class="el" href="classContainerProjetos.html#af9619d9e07d3eb566225be6ddfee2ed5">ContainerProjetos</a>, <a class="el" href="classContainerQuadros.html#a1225170d833766a467fd353d2b5e7f60">ContainerQuadros</a></li>
 </ul>
 
 
-<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<h3 class="doxsection"><a id="index_g" name="index_g"></a>- g -</h3><ul>
 <li>gestorDoProjeto()&#160;:&#160;<a class="el" href="classContainerProjetos.html#a5b60070978d0cb073605e694c6a824f8">ContainerProjetos</a></li>
 <li>getDescricao()&#160;:&#160;<a class="el" href="classCartaoDeAtividade.html#af4532de65692a44c8a1c3f152853c264">CartaoDeAtividade</a>, <a class="el" href="classProjeto.html#a7b20e27da2c59e3ede9d2a8baf56e3ba">Projeto</a></li>
 <li>getEmail()&#160;:&#160;<a class="el" href="classEmail.html#a70860df6261f62d64413fd679f31f534">Email</a>, <a class="el" href="classPessoa.html#aa1870ca4f33348dcdc1cd05476e66905">Pessoa</a></li>
@@ -123,47 +165,51 @@ $(function() {
 </ul>
 
 
-<h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
+<h3 class="doxsection"><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>inserir()&#160;:&#160;<a class="el" href="classContainerCartoes.html#a586ce6935f6d19d12d3ca7a39ae520f0">ContainerCartoes</a>, <a class="el" href="classContainerPessoas.html#acaec641526e95646fda67b1a4a01e15d">ContainerPessoas</a>, <a class="el" href="classContainerProjetos.html#a7fd1326b99eeba309c6b075d8aeb2b6e">ContainerProjetos</a>, <a class="el" href="classContainerQuadros.html#ac4b582e36445037c85d582a8ea90fb7c">ContainerQuadros</a></li>
 </ul>
 
 
-<h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>ler()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#adcee76c73fbd9c8c94b9be46e60b0c5b">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classCntrServicoPessoa.html#a5bea3b9d1fc3df6073c16af0e7552c57">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a847d9e32ef832e174cd87727ccb916d8">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#ad00d7f98a41987dbcd5c1c9c76803ccd">CntrServicoQuadro</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#a7f2ae18c0e6ccfec0752f6d2bb5e1bea">IServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoPessoa.html#a057d40f91760cd2674c549ea1137d493">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a3378a4cb5b73a06924c66dd7ef158346">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a2b5fa35ac4b19d3257c74e433d34dd9b">IServicoQuadro</a></li>
-<li>lerLeadTime()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a0a77bd59d8c1a70ff99cdcd168b40917">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#aa6d894007477d04835135b47eb6dd615">IServicoCartaoDeAtividade</a></li>
-<li>lerLeadTimeMedio()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#aa81af2af378808f31a1b4462bc467ac1">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#a6e9aad781693d5a921dadef5d8f9feae">IServicoCartaoDeAtividade</a></li>
-<li>lerTempoCiclo()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a287f35cd6c6d04fe48914769704d3b84">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#a017867c75e7bdba0b07c3a04b95be18a">IServicoCartaoDeAtividade</a></li>
-<li>lerTempoCicloMedio()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#aa837c500232f78775fb75fcde4f18d5f">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#afd44a96bf79e3163f61a49bb3ef161aa">IServicoCartaoDeAtividade</a></li>
-<li>lerWIP()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a2617c9790b8dffa5a1588fdec02b70ee">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#a2ad488ec4cf5149c42d1123e5354987b">IServicoCartaoDeAtividade</a></li>
-<li>listar()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#a89f108e04cdeac25986d24d3fc44dd43">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classCntrServicoPessoa.html#a2fa920abae835a83a6976fd398f4f077">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a7f5256bfa07f47a0591c854bac383093">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#a1a0770dcf7ae9b54cbb9bdded1fd825a">CntrServicoQuadro</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#a9544036deea34c0421a0659ed137979f">IServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoPessoa.html#a73df94d8b73f1f443e9f3f71366905ae">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#aa6dcf1743e00c7383059724f6260241d">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a18536f6a30c63128866c2cf56b115ec1">IServicoQuadro</a></li>
+<h3 class="doxsection"><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<li>ler()&#160;:&#160;<a class="el" href="classCntrServicoPessoa.html#a5bea3b9d1fc3df6073c16af0e7552c57">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a847d9e32ef832e174cd87727ccb916d8">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#ad00d7f98a41987dbcd5c1c9c76803ccd">CntrServicoQuadro</a>, <a class="el" href="classIServicoPessoa.html#a057d40f91760cd2674c549ea1137d493">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#a3378a4cb5b73a06924c66dd7ef158346">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a2b5fa35ac4b19d3257c74e433d34dd9b">IServicoQuadro</a></li>
+<li>lerCartao()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a6e31036e10077bdf7baf9c69bb3232f8">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a337983485b05c1ab4b42a0d5b0731204">IServicoQuadro</a></li>
+<li>lerLeadTime()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a8d4e1de6144f4e46298ea55b053cb1f4">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#ab9f8c6efa096e5dad635565c46112481">IServicoQuadro</a></li>
+<li>lerLeadTimeMedio()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#aa116d1cdf17fe282d5cacc0ef7a36bfe">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#ae803cefeeb0676d9f19cce2f6405e37f">IServicoQuadro</a></li>
+<li>lerTempoCiclo()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a6777aaef5a25a48a09ed7a6df97028b4">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a6884b89b23eb71fc57dd7fb85a3d3c15">IServicoQuadro</a></li>
+<li>lerTempoCicloMedio()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a33b973bb52b5d9c5f57b57164b37e8c9">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#acb309d95eb908a9b71c89a1cdadd47fc">IServicoQuadro</a></li>
+<li>lerWIP()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#adfd9d224be3372d11c4942a2ef029383">IServicoQuadro</a></li>
+<li>listar()&#160;:&#160;<a class="el" href="classCntrServicoPessoa.html#a2fa920abae835a83a6976fd398f4f077">CntrServicoPessoa</a>, <a class="el" href="classCntrServicoProjeto.html#a7f5256bfa07f47a0591c854bac383093">CntrServicoProjeto</a>, <a class="el" href="classCntrServicoQuadro.html#a1a0770dcf7ae9b54cbb9bdded1fd825a">CntrServicoQuadro</a>, <a class="el" href="classIServicoPessoa.html#a73df94d8b73f1f443e9f3f71366905ae">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html#aa6dcf1743e00c7383059724f6260241d">IServicoProjeto</a>, <a class="el" href="classIServicoQuadro.html#a18536f6a30c63128866c2cf56b115ec1">IServicoQuadro</a></li>
+<li>listarCartoes()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a7c2afb076e920ea1dacde8c2d7e166e9">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a7824ed441f84f8e1d1c0b6cba46c9a1f">IServicoQuadro</a></li>
 <li>listarCartoesDoQuadro()&#160;:&#160;<a class="el" href="classContainerCartoes.html#ad31f00392b7195102e1ab17483b7e63b">ContainerCartoes</a></li>
 <li>listarEmails()&#160;:&#160;<a class="el" href="classContainerPessoas.html#ae8434819a99c0bd4d3b366ca5e0201a2">ContainerPessoas</a></li>
 <li>listarIds()&#160;:&#160;<a class="el" href="classContainerProjetos.html#a00d4cefde1d3ad9404ea3dc52bcef69c">ContainerProjetos</a>, <a class="el" href="classContainerQuadros.html#a7185936e4dd15aca035a401840af2057">ContainerQuadros</a></li>
+<li>listarIdsDoProjeto()&#160;:&#160;<a class="el" href="classContainerQuadros.html#a23d8e55093c9da5da464d7b7f68cdff3">ContainerQuadros</a></li>
 <li>listarIdsDoQuadro()&#160;:&#160;<a class="el" href="classContainerCartoes.html#a735aaab993a8333222d0fd4dbb4792e3">ContainerCartoes</a></li>
+<li>listarPorProjeto()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a6559bb061ec4b145ef50d6b4c2170989">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a59a8e2a2845006555fc28fd3c6b1f0f2">IServicoQuadro</a></li>
 </ul>
 
 
-<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>mover()&#160;:&#160;<a class="el" href="classCntrServicoCartaoDeAtividade.html#af49922eb3da616d3caf564b741a7c8ac">CntrServicoCartaoDeAtividade</a>, <a class="el" href="classIServicoCartaoDeAtividade.html#af5ee754cb870214fcaacddbe95bf9bbf">IServicoCartaoDeAtividade</a></li>
+<h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>moverCartao()&#160;:&#160;<a class="el" href="classCntrServicoQuadro.html#a061345b4704bf4f59698e908c85288fa">CntrServicoQuadro</a>, <a class="el" href="classIServicoQuadro.html#a183827c66fc113ee4b6998a6c67aeaae">IServicoQuadro</a></li>
 </ul>
 
 
-<h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<h3 class="doxsection"><a id="index_o" name="index_o"></a>- o -</h3><ul>
 <li>obter()&#160;:&#160;<a class="el" href="classContainerCartoes.html#a3071f3ac3b55e44f526cdc68db78e31b">ContainerCartoes</a>, <a class="el" href="classContainerPessoas.html#a120a1064559aff6ddec432a1ab5f211b">ContainerPessoas</a>, <a class="el" href="classContainerProjetos.html#a59bfcd4f988c05c14a60220d786b68f3">ContainerProjetos</a>, <a class="el" href="classContainerQuadros.html#accc1644200e7c110e6bf31d63f36bd10">ContainerQuadros</a></li>
 </ul>
 
 
-<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<h3 class="doxsection"><a id="index_p" name="index_p"></a>- p -</h3><ul>
 <li>projetoDoQuadro()&#160;:&#160;<a class="el" href="classContainerQuadros.html#ac3b02f73bea1732045a0c07c1fac47b3">ContainerQuadros</a></li>
 </ul>
 
 
-<h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
 <li>remover()&#160;:&#160;<a class="el" href="classContainerCartoes.html#ac1fae919d61b732dcd440f93db21b52f">ContainerCartoes</a>, <a class="el" href="classContainerPessoas.html#a014a7ae4255d547ef484d03106daf89d">ContainerPessoas</a>, <a class="el" href="classContainerProjetos.html#a3aeb2c393f90d9d97cd6fe38d5df51a2">ContainerProjetos</a>, <a class="el" href="classContainerQuadros.html#a06fa13f1b2b2bfc12f7ad0a94027b1e9">ContainerQuadros</a></li>
 </ul>
 
 
-<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>setDescricao()&#160;:&#160;<a class="el" href="classCartaoDeAtividade.html#a905e492c219f5cfc2b8495ed9a6fc84c">CartaoDeAtividade</a>, <a class="el" href="classProjeto.html#a99e88990d9f78338eb1fbc323329e13e">Projeto</a></li>
 <li>setEmail()&#160;:&#160;<a class="el" href="classEmail.html#a52ca8011920bf53ea3465c7281370f14">Email</a>, <a class="el" href="classPessoa.html#ade6c7ecf339f07b33019cfcf79424623">Pessoa</a></li>
 <li>setEntrada()&#160;:&#160;<a class="el" href="classCartaoDeAtividade.html#a2f18b5c419776d6a28a78e7f9f248ae6">CartaoDeAtividade</a></li>
@@ -184,7 +230,7 @@ $(function() {
 </ul>
 
 
-<h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
 <li>temCartaoDoDesenvolvedor()&#160;:&#160;<a class="el" href="classContainerCartoes.html#acb045f81a012c5055663d5d8ce557eb4">ContainerCartoes</a></li>
 <li>temCartaoNoQuadro()&#160;:&#160;<a class="el" href="classContainerCartoes.html#a11027086b67bbb8d24d5eaf5766f0055">ContainerCartoes</a></li>
 <li>temProjetoGerenciadoPor()&#160;:&#160;<a class="el" href="classContainerProjetos.html#a83488a40a9784afc1819b35d087948ef">ContainerProjetos</a></li>
@@ -193,17 +239,23 @@ $(function() {
 </ul>
 
 
-<h3><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
-<li>~IServicoCartaoDeAtividade()&#160;:&#160;<a class="el" href="classIServicoCartaoDeAtividade.html#a6a8e0f019bea751118776e5d2e096f92">IServicoCartaoDeAtividade</a></li>
+<h3 class="doxsection"><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
+<li>~IApresentacaoPessoa()&#160;:&#160;<a class="el" href="classIApresentacaoPessoa.html#af01986ebfedb24a0e2456b2f23e8227e">IApresentacaoPessoa</a></li>
+<li>~IApresentacaoProjeto()&#160;:&#160;<a class="el" href="classIApresentacaoProjeto.html#a77821fed37eed06e0dd169e697f237ca">IApresentacaoProjeto</a></li>
+<li>~IApresentacaoQuadro()&#160;:&#160;<a class="el" href="classIApresentacaoQuadro.html#ab5dff7ed17e9947980e76f537576468d">IApresentacaoQuadro</a></li>
 <li>~IServicoPessoa()&#160;:&#160;<a class="el" href="classIServicoPessoa.html#adb4598cb66d1461709437040f7f938fb">IServicoPessoa</a></li>
 <li>~IServicoProjeto()&#160;:&#160;<a class="el" href="classIServicoProjeto.html#a902fb92e797c24d1a11c778d0a716487">IServicoProjeto</a></li>
 <li>~IServicoQuadro()&#160;:&#160;<a class="el" href="classIServicoQuadro.html#a3b39a5199db71e7404d862f99c6082c9">IServicoQuadro</a></li>
 <li>~TesteUnitarioBase()&#160;:&#160;<a class="el" href="classTesteUnitarioBase.html#a1492d53fb48d272ee13def88f1b875f6">TesteUnitarioBase</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 </body>
 </html>

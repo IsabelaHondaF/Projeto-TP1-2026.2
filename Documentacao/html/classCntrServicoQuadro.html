@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Sistema Kanban - TP1 2026.2: Referência da Classe CntrServicoQuadro</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -30,28 +34,64 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.9.8 -->
+<!-- Gerado por Doxygen 1.18.0 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Busca');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classCntrServicoQuadro.html','','classCntrServicoQuadro-members'); });
 </script>
-<div id="main-nav"></div>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<div id="MSearchSelectWindow">
 </div>
 
 <!-- iframe showing the search results (closed by default) -->
@@ -68,17 +108,13 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Membros Públicos</a> &#124;
-<a href="classCntrServicoQuadro-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle"><div class="title">Referência da Classe CntrServicoQuadro</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementação concreta dos serviços de negócio relacionados a <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a> Kanban.  
- <a href="classCntrServicoQuadro.html#details">Mais...</a></p>
+<p>Implementação dos serviços de quadros e cartões do subsistema <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>.  
+ <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="controladoras__servico_8hpp_source.html">controladoras_servico.hpp</a>&gt;</code></p>
 <div class="dynheader">
@@ -87,35 +123,53 @@ Diagrama de hierarquia da classe CntrServicoQuadro:</div>
  <div class="center">
   <img src="classCntrServicoQuadro.png" usemap="#CntrServicoQuadro_map" alt=""/>
   <map id="CntrServicoQuadro_map" name="CntrServicoQuadro_map">
-<area href="classIServicoQuadro.html" title="Interface responsável pelos serviços relacionados à entidade Quadro." alt="IServicoQuadro" shape="rect" coords="0,0,123,24"/>
+<area href="classIServicoQuadro.html" title="Interface dos serviços de quadros e cartões do subsistema Quadro (ISQ)." alt="IServicoQuadro" shape="rect" coords="0,0,123,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a8ff6a7a35db523d7797a7e9e7ab13ca6" id="r_a8ff6a7a35db523d7797a7e9e7ab13ca6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoQuadro.html#a8ff6a7a35db523d7797a7e9e7ab13ca6">CntrServicoQuadro</a> (<a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;pessoas, <a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;projetos, <a class="el" href="classContainerQuadros.html">ContainerQuadros</a> &amp;quadros, <a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;cartoes)</td></tr>
+<tr class="memitem:a8ff6a7a35db523d7797a7e9e7ab13ca6" id="r_a8ff6a7a35db523d7797a7e9e7ab13ca6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8ff6a7a35db523d7797a7e9e7ab13ca6">CntrServicoQuadro</a> (<a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;pessoas, <a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;projetos, <a class="el" href="classContainerQuadros.html">ContainerQuadros</a> &amp;quadros, <a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;cartoes)</td></tr>
 <tr class="memdesc:a8ff6a7a35db523d7797a7e9e7ab13ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrói a controladora de serviço de quadro.  <br /></td></tr>
-<tr class="separator:a8ff6a7a35db523d7797a7e9e7ab13ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6a0cfe2ceb6c7b86aa0583d1e88f875" id="r_af6a0cfe2ceb6c7b86aa0583d1e88f875"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoQuadro.html#af6a0cfe2ceb6c7b86aa0583d1e88f875">atualizar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro) override</td></tr>
-<tr class="memdesc:af6a0cfe2ceb6c7b86aa0583d1e88f875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um quadro cadastrado.    <br /></td></tr>
-<tr class="separator:af6a0cfe2ceb6c7b86aa0583d1e88f875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81ba96ad570ff7a50c834f4d682d3d14" id="r_a81ba96ad570ff7a50c834f4d682d3d14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoQuadro.html#a81ba96ad570ff7a50c834f4d682d3d14">criar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;projeto, const <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro) override</td></tr>
-<tr class="memdesc:a81ba96ad570ff7a50c834f4d682d3d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo quadro associado a um projeto.    <br /></td></tr>
-<tr class="separator:a81ba96ad570ff7a50c834f4d682d3d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c240d303e7bb1f61acd252a3ec5c484" id="r_a7c240d303e7bb1f61acd252a3ec5c484"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoQuadro.html#a7c240d303e7bb1f61acd252a3ec5c484">excluir</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador) override</td></tr>
-<tr class="memdesc:a7c240d303e7bb1f61acd252a3ec5c484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um quadro cadastrado.    <br /></td></tr>
-<tr class="separator:a7c240d303e7bb1f61acd252a3ec5c484"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad00d7f98a41987dbcd5c1c9c76803ccd" id="r_ad00d7f98a41987dbcd5c1c9c76803ccd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoQuadro.html#ad00d7f98a41987dbcd5c1c9c76803ccd">ler</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro) override</td></tr>
-<tr class="memdesc:ad00d7f98a41987dbcd5c1c9c76803ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera os dados de um quadro cadastrado.    <br /></td></tr>
-<tr class="separator:ad00d7f98a41987dbcd5c1c9c76803ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a0770dcf7ae9b54cbb9bdded1fd825a" id="r_a1a0770dcf7ae9b54cbb9bdded1fd825a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCntrServicoQuadro.html#a1a0770dcf7ae9b54cbb9bdded1fd825a">listar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;identificadores) override</td></tr>
-<tr class="memdesc:a1a0770dcf7ae9b54cbb9bdded1fd825a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores dos quadros cadastrados.    <br /></td></tr>
-<tr class="separator:a1a0770dcf7ae9b54cbb9bdded1fd825a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a0cfe2ceb6c7b86aa0583d1e88f875" id="r_af6a0cfe2ceb6c7b86aa0583d1e88f875"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af6a0cfe2ceb6c7b86aa0583d1e88f875">atualizar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro) override</td></tr>
+<tr class="memdesc:af6a0cfe2ceb6c7b86aa0583d1e88f875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um quadro cadastrado.     <br /></td></tr>
+<tr class="memitem:a3779d2a9686ad6fe7df7e7d95b9383f0" id="r_a3779d2a9686ad6fe7df7e7d95b9383f0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3779d2a9686ad6fe7df7e7d95b9383f0">atualizarCartao</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao) override</td></tr>
+<tr class="memdesc:a3779d2a9686ad6fe7df7e7d95b9383f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados editáveis de um cartão de atividade.     <br /></td></tr>
+<tr class="memitem:a81ba96ad570ff7a50c834f4d682d3d14" id="r_a81ba96ad570ff7a50c834f4d682d3d14"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a81ba96ad570ff7a50c834f4d682d3d14">criar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;projeto, const <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro) override</td></tr>
+<tr class="memdesc:a81ba96ad570ff7a50c834f4d682d3d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo quadro associado a um projeto.     <br /></td></tr>
+<tr class="memitem:ab895f9faadf516cc71ed9851b0de2db3" id="r_ab895f9faadf516cc71ed9851b0de2db3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab895f9faadf516cc71ed9851b0de2db3">criarCartao</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, const <a class="el" href="classEmail.html">Email</a> &amp;desenvolvedor, const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao) override</td></tr>
+<tr class="memdesc:ab895f9faadf516cc71ed9851b0de2db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo cartão de atividade.     <br /></td></tr>
+<tr class="memitem:a7c240d303e7bb1f61acd252a3ec5c484" id="r_a7c240d303e7bb1f61acd252a3ec5c484"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7c240d303e7bb1f61acd252a3ec5c484">excluir</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador) override</td></tr>
+<tr class="memdesc:a7c240d303e7bb1f61acd252a3ec5c484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um quadro cadastrado.     <br /></td></tr>
+<tr class="memitem:a30c3ebae09b4e5cddb2937faf33ae2e2" id="r_a30c3ebae09b4e5cddb2937faf33ae2e2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a30c3ebae09b4e5cddb2937faf33ae2e2">excluirCartao</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador) override</td></tr>
+<tr class="memdesc:a30c3ebae09b4e5cddb2937faf33ae2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exclui um cartão de atividade cadastrado.     <br /></td></tr>
+<tr class="memitem:ad00d7f98a41987dbcd5c1c9c76803ccd" id="r_ad00d7f98a41987dbcd5c1c9c76803ccd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad00d7f98a41987dbcd5c1c9c76803ccd">ler</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, <a class="el" href="classQuadro.html">Quadro</a> &amp;quadro) override</td></tr>
+<tr class="memdesc:ad00d7f98a41987dbcd5c1c9c76803ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera os dados de um quadro cadastrado.     <br /></td></tr>
+<tr class="memitem:a6e31036e10077bdf7baf9c69bb3232f8" id="r_a6e31036e10077bdf7baf9c69bb3232f8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6e31036e10077bdf7baf9c69bb3232f8">lerCartao</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao) override</td></tr>
+<tr class="memdesc:a6e31036e10077bdf7baf9c69bb3232f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera os dados de um cartão de atividade.     <br /></td></tr>
+<tr class="memitem:a8d4e1de6144f4e46298ea55b053cb1f4" id="r_a8d4e1de6144f4e46298ea55b053cb1f4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8d4e1de6144f4e46298ea55b053cb1f4">lerLeadTime</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, long long &amp;minutos) override</td></tr>
+<tr class="memdesc:a8d4e1de6144f4e46298ea55b053cb1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o lead time de um cartão de atividade.     <br /></td></tr>
+<tr class="memitem:aa116d1cdf17fe282d5cacc0ef7a36bfe" id="r_aa116d1cdf17fe282d5cacc0ef7a36bfe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa116d1cdf17fe282d5cacc0ef7a36bfe">lerLeadTimeMedio</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, double &amp;minutos) override</td></tr>
+<tr class="memdesc:aa116d1cdf17fe282d5cacc0ef7a36bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o lead time médio dos cartões de um quadro.     <br /></td></tr>
+<tr class="memitem:a6777aaef5a25a48a09ed7a6df97028b4" id="r_a6777aaef5a25a48a09ed7a6df97028b4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6777aaef5a25a48a09ed7a6df97028b4">lerTempoCiclo</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, long long &amp;minutos) override</td></tr>
+<tr class="memdesc:a6777aaef5a25a48a09ed7a6df97028b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tempo de ciclo de um cartão de atividade.     <br /></td></tr>
+<tr class="memitem:a33b973bb52b5d9c5f57b57164b37e8c9" id="r_a33b973bb52b5d9c5f57b57164b37e8c9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a33b973bb52b5d9c5f57b57164b37e8c9">lerTempoCicloMedio</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, double &amp;minutos) override</td></tr>
+<tr class="memdesc:a33b973bb52b5d9c5f57b57164b37e8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tempo de ciclo médio dos cartões de um quadro.     <br /></td></tr>
+<tr class="memitem:aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e" id="r_aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e">lerWIP</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, int &amp;quantidade) override</td></tr>
+<tr class="memdesc:aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o WIP atual de um quadro.     <br /></td></tr>
+<tr class="memitem:a1a0770dcf7ae9b54cbb9bdded1fd825a" id="r_a1a0770dcf7ae9b54cbb9bdded1fd825a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a0770dcf7ae9b54cbb9bdded1fd825a">listar</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;identificadores) override</td></tr>
+<tr class="memdesc:a1a0770dcf7ae9b54cbb9bdded1fd825a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores dos quadros cadastrados.     <br /></td></tr>
+<tr class="memitem:a7c2afb076e920ea1dacde8c2d7e166e9" id="r_a7c2afb076e920ea1dacde8c2d7e166e9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7c2afb076e920ea1dacde8c2d7e166e9">listarCartoes</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;quadro, std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;identificadores) override</td></tr>
+<tr class="memdesc:a7c2afb076e920ea1dacde8c2d7e166e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores dos cartões pertencentes a um quadro.     <br /></td></tr>
+<tr class="memitem:a6559bb061ec4b145ef50d6b4c2170989" id="r_a6559bb061ec4b145ef50d6b4c2170989"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6559bb061ec4b145ef50d6b4c2170989">listarPorProjeto</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;projeto, std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;identificadores) override</td></tr>
+<tr class="memdesc:a6559bb061ec4b145ef50d6b4c2170989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores dos quadros pertencentes a um projeto.     <br /></td></tr>
+<tr class="memitem:a061345b4704bf4f59698e908c85288fa" id="r_a061345b4704bf4f59698e908c85288fa"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a061345b4704bf4f59698e908c85288fa">moverCartao</a> (const <a class="el" href="classEmail.html">Email</a> &amp;usuario, const <a class="el" href="classIdentificador.html">Identificador</a> &amp;identificador, const <a class="el" href="classTimestamp.html">Timestamp</a> &amp;instante) override</td></tr>
+<tr class="memdesc:a061345b4704bf4f59698e908c85288fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move um cartão para a próxima coluna permitida do quadro.     <br /></td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Implementação concreta dos serviços de negócio relacionados a <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a> Kanban. </p>
-<p>Implementa a interface <a class="el" href="classIServicoQuadro.html" title="Interface responsável pelos serviços relacionados à entidade Quadro.">IServicoQuadro</a> e garante integridade com os projetos pais e cartões filhos. </p>
-</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementação dos serviços de quadros e cartões do subsistema <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>. </p>
+<p>Implementa <a class="el" href="classIServicoQuadro.html" title="Interface dos serviços de quadros e cartões do subsistema Quadro (ISQ).">IServicoQuadro</a>, garantindo integridade, permissões, fluxo Kanban, WIP e métricas. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
 <a id="a8ff6a7a35db523d7797a7e9e7ab13ca6" name="a8ff6a7a35db523d7797a7e9e7ab13ca6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ff6a7a35db523d7797a7e9e7ab13ca6">&#9670;&#160;</a></span>CntrServicoQuadro()</h2>
 
@@ -125,31 +179,22 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">CntrServicoQuadro::CntrServicoQuadro </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;&#160;</td>
-          <td class="paramname"><em>pessoas</em>, </td>
+          <td class="paramtype"><a class="el" href="classContainerPessoas.html">ContainerPessoas</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pessoas</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;&#160;</td>
-          <td class="paramname"><em>projetos</em>, </td>
+          <td class="paramtype"><a class="el" href="classContainerProjetos.html">ContainerProjetos</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>projetos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classContainerQuadros.html">ContainerQuadros</a> &amp;&#160;</td>
-          <td class="paramname"><em>quadros</em>, </td>
+          <td class="paramtype"><a class="el" href="classContainerQuadros.html">ContainerQuadros</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadros</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;&#160;</td>
-          <td class="paramname"><em>cartoes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype"><a class="el" href="classContainerCartoes.html">ContainerCartoes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartoes</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -167,7 +212,7 @@ Membros Públicos</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Documentação das funções</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
 <a id="af6a0cfe2ceb6c7b86aa0583d1e88f875" name="af6a0cfe2ceb6c7b86aa0583d1e88f875"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af6a0cfe2ceb6c7b86aa0583d1e88f875">&#9670;&#160;</a></span>atualizar()</h2>
 
@@ -180,35 +225,27 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="memname">bool CntrServicoQuadro::atualizar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
-          <td class="paramname"><em>identificador</em>, </td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classQuadro.html">Quadro</a> &amp;&#160;</td>
-          <td class="paramname"><em>quadro</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classQuadro.html">Quadro</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Atualiza os dados de um quadro cadastrado.   </p>
+<p>Atualiza os dados de um quadro cadastrado.    </p>
 <p>O identificador do quadro deve ser utilizado para localizar a entidade armazenada e não pode ser alterado durante a atualização.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -220,9 +257,60 @@ Membros Públicos</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true caso a atualização seja realizada com sucesso. </dd>
 <dd>
-false caso a operação não possa ser realizada.   </dd></dl>
+false caso a operação não possa ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoQuadro.html#a07ba6d748885c3a4be33703fa9923f30">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a3779d2a9686ad6fe7df7e7d95b9383f0" name="a3779d2a9686ad6fe7df7e7d95b9383f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3779d2a9686ad6fe7df7e7d95b9383f0">&#9670;&#160;</a></span>atualizarCartao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::atualizarCartao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartao</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os dados editáveis de um cartão de atividade.    </p>
+<p>O identificador contido no cartão é utilizado para localizar a entidade armazenada e não deve ser alterado.</p>
+<p>A alteração do estado e dos instantes relacionados às movimentações deve ser realizada pelo serviço moverCartao.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será atualizado. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cartao</td><td>Entidade contendo os novos dados do cartão.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a atualização seja realizada com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a99da1010ad6afe26f6064ba3be8f2912">IServicoQuadro</a>.</p>
 
 </div>
 </div>
@@ -238,35 +326,27 @@ false caso a operação não possa ser realizada.   </dd></dl>
         <tr>
           <td class="memname">bool CntrServicoQuadro::criar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
-          <td class="paramname"><em>projeto</em>, </td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>projeto</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classQuadro.html">Quadro</a> &amp;&#160;</td>
-          <td class="paramname"><em>quadro</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classQuadro.html">Quadro</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Cria um novo quadro associado a um projeto.   </p>
+<p>Cria um novo quadro associado a um projeto.    </p>
 <p>A operação deve associar o quadro informado ao projeto identificado pelo parâmetro projeto.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -278,9 +358,65 @@ false caso a operação não possa ser realizada.   </dd></dl>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true caso o quadro seja criado com sucesso. </dd>
 <dd>
-false caso a operação não possa ser realizada.   </dd></dl>
+false caso a operação não possa ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoQuadro.html#a4b6f14473164bec2e7c00c2b95127fbb">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="ab895f9faadf516cc71ed9851b0de2db3" name="ab895f9faadf516cc71ed9851b0de2db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab895f9faadf516cc71ed9851b0de2db3">&#9670;&#160;</a></span>criarCartao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::criarCartao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>desenvolvedor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartao</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria um novo cartão de atividade.    </p>
+<p>O cartão é associado a um quadro e a um desenvolvedor responsável.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro ao qual o cartão pertence. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">desenvolvedor</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do desenvolvedor responsável pelo cartão. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cartao</td><td>Entidade <a class="el" href="classCartaoDeAtividade.html" title="Representa um cartao de atividade de um quadro Kanban.">CartaoDeAtividade</a> que será cadastrada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o cartão seja criado com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a657bc74c632b1a1f0458904abe6310ea">IServicoQuadro</a>.</p>
 
 </div>
 </div>
@@ -296,29 +432,22 @@ false caso a operação não possa ser realizada.   </dd></dl>
         <tr>
           <td class="memname">bool CntrServicoQuadro::excluir </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
-          <td class="paramname"><em>identificador</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Exclui um quadro cadastrado.   </p>
+<p>Exclui um quadro cadastrado.    </p>
 <p>A exclusão deve preservar a consistência dos relacionamentos existentes no sistema.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -329,9 +458,52 @@ false caso a operação não possa ser realizada.   </dd></dl>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true caso o quadro seja excluído com sucesso. </dd>
 <dd>
-false caso a operação não possa ser realizada.   </dd></dl>
+false caso a operação não possa ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoQuadro.html#aa2cbfeb97add51c75cc48bd6cc294fe7">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a30c3ebae09b4e5cddb2937faf33ae2e2" name="a30c3ebae09b4e5cddb2937faf33ae2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c3ebae09b4e5cddb2937faf33ae2e2">&#9670;&#160;</a></span>excluirCartao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::excluirCartao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exclui um cartão de atividade cadastrado.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será excluído.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o cartão seja excluído com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a8c36e2f196a72010e7479aeb9f0b8c23">IServicoQuadro</a>.</p>
 
 </div>
 </div>
@@ -347,35 +519,27 @@ false caso a operação não possa ser realizada.   </dd></dl>
         <tr>
           <td class="memname">bool CntrServicoQuadro::ler </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;&#160;</td>
-          <td class="paramname"><em>identificador</em>, </td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classQuadro.html">Quadro</a> &amp;&#160;</td>
-          <td class="paramname"><em>quadro</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype"><a class="el" href="classQuadro.html">Quadro</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Recupera os dados de um quadro cadastrado.   </p>
+<p>Recupera os dados de um quadro cadastrado.    </p>
 <p>O quadro é localizado por meio de seu identificador.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
@@ -387,9 +551,308 @@ false caso a operação não possa ser realizada.   </dd></dl>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true caso o quadro seja encontrado. </dd>
 <dd>
-false caso a operação não possa ser realizada.   </dd></dl>
+false caso a operação não possa ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoQuadro.html#a2b5fa35ac4b19d3257c74e433d34dd9b">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a6e31036e10077bdf7baf9c69bb3232f8" name="a6e31036e10077bdf7baf9c69bb3232f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e31036e10077bdf7baf9c69bb3232f8">&#9670;&#160;</a></span>lerCartao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::lerCartao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cartao</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Recupera os dados de um cartão de atividade.    </p>
+<p>O cartão é localizado por meio do seu identificador.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será pesquisado. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cartao</td><td>Referência utilizada para retornar os dados do cartão.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o cartão seja encontrado. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a337983485b05c1ab4b42a0d5b0731204">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a8d4e1de6144f4e46298ea55b053cb1f4" name="a8d4e1de6144f4e46298ea55b053cb1f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d4e1de6144f4e46298ea55b053cb1f4">&#9670;&#160;</a></span>lerLeadTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::lerLeadTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o lead time de um cartão de atividade.    </p>
+<p>O lead time corresponde ao intervalo entre a entrada do cartão em A FAZER e sua chegada em FEITO.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o lead time, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o lead time possa ser calculado. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#ab9f8c6efa096e5dad635565c46112481">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="aa116d1cdf17fe282d5cacc0ef7a36bfe" name="aa116d1cdf17fe282d5cacc0ef7a36bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa116d1cdf17fe282d5cacc0ef7a36bfe">&#9670;&#160;</a></span>lerLeadTimeMedio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::lerLeadTimeMedio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o lead time médio dos cartões de um quadro.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o lead time médio, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a média possa ser calculada. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#ae803cefeeb0676d9f19cce2f6405e37f">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a6777aaef5a25a48a09ed7a6df97028b4" name="a6777aaef5a25a48a09ed7a6df97028b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6777aaef5a25a48a09ed7a6df97028b4">&#9670;&#160;</a></span>lerTempoCiclo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::lerTempoCiclo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o tempo de ciclo de um cartão de atividade.    </p>
+<p>O tempo de ciclo corresponde ao intervalo entre a entrada do cartão em FAZENDO e sua chegada em FEITO.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o tempo de ciclo, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o tempo de ciclo possa ser calculado. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a6884b89b23eb71fc57dd7fb85a3d3c15">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a33b973bb52b5d9c5f57b57164b37e8c9" name="a33b973bb52b5d9c5f57b57164b37e8c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33b973bb52b5d9c5f57b57164b37e8c9">&#9670;&#160;</a></span>lerTempoCicloMedio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::lerTempoCicloMedio </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>minutos</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o tempo de ciclo médio dos cartões de um quadro.    </p>
+<p>O valor corresponde à média dos tempos de ciclo das atividades consideradas no quadro.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">minutos</td><td>Referência utilizada para retornar o tempo médio, em minutos.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a média possa ser calculada. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#acb309d95eb908a9b71c89a1cdadd47fc">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e" name="aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c9a80a2fcfd29bcb1cd2eaa9fbc39e">&#9670;&#160;</a></span>lerWIP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::lerWIP </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>quantidade</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém o WIP atual de um quadro.    </p>
+<p>O WIP corresponde à quantidade de cartões atualmente na coluna FAZENDO.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">quantidade</td><td>Referência utilizada para retornar o número de cartões em andamento.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso o WIP seja obtido com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#adfd9d224be3372d11c4942a2ef029383">IServicoQuadro</a>.</p>
 
 </div>
 </div>
@@ -405,29 +868,22 @@ false caso a operação não possa ser realizada.   </dd></dl>
         <tr>
           <td class="memname">bool CntrServicoQuadro::listar </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;&#160;</td>
-          <td class="paramname"><em>usuario</em>, </td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>identificadores</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>identificadores</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Lista os identificadores dos quadros cadastrados.   </p>
+<p>Lista os identificadores dos quadros cadastrados.    </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
@@ -437,9 +893,160 @@ false caso a operação não possa ser realizada.   </dd></dl>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true caso a listagem seja realizada com sucesso. </dd>
 <dd>
-false caso a operação não possa ser realizada.   </dd></dl>
+false caso a operação não possa ser realizada.    </dd></dl>
 
 <p>Implementa <a class="el" href="classIServicoQuadro.html#a18536f6a30c63128866c2cf56b115ec1">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a7c2afb076e920ea1dacde8c2d7e166e9" name="a7c2afb076e920ea1dacde8c2d7e166e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c2afb076e920ea1dacde8c2d7e166e9">&#9670;&#160;</a></span>listarCartoes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::listarCartoes </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>quadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>identificadores</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os identificadores dos cartões pertencentes a um quadro.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a operação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">quadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro cujos cartões serão listados. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">identificadores</td><td>Vetor utilizado para retornar os identificadores dos cartões.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a listagem seja realizada com sucesso. </dd>
+<dd>
+false caso a operação não possa ser realizada.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a7824ed441f84f8e1d1c0b6cba46c9a1f">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a6559bb061ec4b145ef50d6b4c2170989" name="a6559bb061ec4b145ef50d6b4c2170989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6559bb061ec4b145ef50d6b4c2170989">&#9670;&#160;</a></span>listarPorProjeto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::listarPorProjeto </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>projeto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classIdentificador.html">Identificador</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>identificadores</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lista os identificadores dos quadros pertencentes a um projeto.    </p>
+<dl class="section pre"><dt>Pré-condição</dt><dd>O solicitante deve estar autenticado como GESTOR ou DESENVOLVEDOR. </dd></dl>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário autenticado. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">projeto</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do projeto cujos quadros serão listados. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">identificadores</td><td>Recebe os identificadores em caso de sucesso. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a consulta for concluída, inclusive se o projeto não tiver quadros; false se o usuário não estiver cadastrado, o projeto não existir ou a consulta não puder ser concluída. </dd></dl>
+<dl class="section note"><dt>Observação</dt><dd>Em caso de falha, o vetor de saída permanece inalterado.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a59a8e2a2845006555fc28fd3c6b1f0f2">IServicoQuadro</a>.</p>
+
+</div>
+</div>
+<a id="a061345b4704bf4f59698e908c85288fa" name="a061345b4704bf4f59698e908c85288fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a061345b4704bf4f59698e908c85288fa">&#9670;&#160;</a></span>moverCartao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CntrServicoQuadro::moverCartao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classEmail.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classIdentificador.html">Identificador</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identificador</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classTimestamp.html">Timestamp</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>instante</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move um cartão para a próxima coluna permitida do quadro.    </p>
+<p>As únicas movimentações permitidas são:</p>
+<p>A FAZER -&gt; FAZENDO FAZENDO -&gt; FEITO</p>
+<p>Ao entrar em FAZENDO, a implementação deve registrar o instante de início e respeitar o limite de WIP do quadro.</p>
+<p>Ao entrar em FEITO, deve registrar o instante de término.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">usuario</td><td><a class="el" href="classEmail.html" title="Armazena o endereço eletrônico utilizado para identificar uma conta no sistema.">Email</a> do usuário que solicita a movimentação. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">identificador</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do cartão que será movido. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">instante</td><td>Momento em que ocorre a movimentação.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true caso a movimentação seja realizada. </dd>
+<dd>
+false caso a movimentação não seja permitida.    </dd></dl>
+
+<p>Implementa <a class="el" href="classIServicoQuadro.html#a183827c66fc113ee4b6998a6c67aeaae">IServicoQuadro</a>.</p>
 
 </div>
 </div>
@@ -448,9 +1055,21 @@ false caso a operação não possa ser realizada.   </dd></dl>
 <li><a class="el" href="controladoras__servico_8cpp.html">controladoras_servico.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classCntrServicoQuadro.html">CntrServicoQuadro</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 </body>
 </html>

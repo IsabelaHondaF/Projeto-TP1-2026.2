@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['da_20equipe_0',['👥 Integrantes da Equipe',['../index.html#autotoc_md3',1,'']]],
+  ['de_20brasília_20unb_1',['Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília (UnB)',['../index.html#autotoc_md1',1,'']]],
+  ['de_20programação_201_20—_20universidade_20de_20brasília_20unb_2',['Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília (UnB)',['../index.html#autotoc_md1',1,'']]],
+  ['de_20serviços_20do_20enunciado_3',['Regras implementadas (conforme tabela de serviços do enunciado)',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md18',1,'']]],
+  ['de_20técnicas_20de_20programação_201_20—_20universidade_20de_20brasília_20unb_4',['Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília (UnB)',['../index.html#autotoc_md1',1,'']]],
+  ['de_20testes_5',['Suítes de Testes',['../index.html#autotoc_md14',1,'']]],
+  ['decisões_20que_20o_20enunciado_20não_20especifica_6',['Decisões que o enunciado não especifica',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md19',1,'']]],
+  ['do_20enunciado_7',['Regras implementadas (conforme tabela de serviços do enunciado)',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md18',1,'']]],
+  ['do_20sistema_8',['Especificações do Sistema',['../index.html#autotoc_md5',1,'']]],
+  ['do_20software_9',['Arquitetura do Software',['../index.html#autotoc_md7',1,'']]]
+];
