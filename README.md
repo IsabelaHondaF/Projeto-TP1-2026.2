@@ -34,22 +34,37 @@ O sistema provê suporte à gestão de projetos pelo método Kanban:
 
 ##  Arquitetura do Software
 
-O sistema adota o estilo de arquitetura em duas camadas:
 
-- **Apresentação:** módulos MAC, MAA, MAP, MAQ e MAC2, responsáveis
+O sistema adota o estilo de arquitetura em duas camadas,
+organizadas em três subsistemas: Pessoa, Projeto e Quadro.
+
+- **Apresentação:** módulos MAC, MAA, MAP e MAQ, responsáveis
   pela navegação, interação com o usuário e validação das entradas.
-- **Serviço:** módulos MSA, MSP, MSQ e MSC, responsáveis pelas regras
-  de negócio, permissões, integridade dos relacionamentos e acesso
-  ao armazenamento em memória.
+- **Serviço:** módulos MSA, MSP e MSQ, responsáveis pelas regras
+  de negócio, permissões, integridade dos relacionamentos e
+  armazenamento em memória.
 
-A comunicação entre os módulos ocorre por interfaces abstratas.
-As dependências incluem MAP → ISQ, para consultar os quadros de um
-projeto; MAQ → ISC, para consultar os cartões de um quadro; e
-MAC → ISA, para consultar os dados do usuário autenticado.
+O subsistema Quadro incorpora o gerenciamento dos cartões de
+atividade, sua movimentação, o controle de WIP e a consulta de
+métricas. Essas funcionalidades são implementadas por MAQ e MSQ.
 
-Os contêineres integram a implementação do armazenamento utilizado
-pela camada de serviço. As classes de domínio e entidade representam
-os dados utilizados pelas duas camadas.
+A comunicação entre os módulos ocorre por seis interfaces abstratas:
+
+- **Apresentação:** IAA (`IApresentacaoPessoa`),
+  IAP (`IApresentacaoProjeto`) e IAQ (`IApresentacaoQuadro`).
+- **Serviço:** ISA (`IServicoPessoa`),
+  ISP (`IServicoProjeto`) e ISQ (`IServicoQuadro`).
+
+MAC depende de IAA, IAP e IAQ para acessar os subsistemas.
+Também depende de ISA para consultar os dados e o papel do
+usuário autenticado.
+
+MAA solicita operações por meio de ISA, MAP utiliza ISP e
+MAQ utiliza ISQ para as operações de quadros e cartões.
+
+Os contêineres implementam o armazenamento em memória utilizado
+pela camada de serviço. As classes de domínio e entidade
+representam os dados utilizados pelas duas camadas.
 
 - **Modelo de Arquitetura em PDF:** [Modelo_Arquitetura.pdf](file:///home/gabriel/projeto.tp1/Projeto-TP1-2026.2/Modelo_Arquitetura.pdf)
 - **Documentação Técnica em HTML (Doxygen):** `Documentacao/html/index.html`

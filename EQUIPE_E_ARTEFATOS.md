@@ -13,8 +13,8 @@
 |---|---|---|
 | **Arthur Vieira** | `[Inserir Matrícula Arthur]` | Modelagem de Domínios e Entidades |
 | **Gabriel Sales** | `[Inserir Matrícula Gabriel]` | Interfaces entre Módulos e Testes de Unidade |
-| **Isabela Honda Ferreira** | `[Inserir Matrícula Isabela]` | Repositório, Domínios e Entidades |
-| **João Roberto** | `[Inserir Matrícula João]` | Camada de Serviço, Apresentação e Integração |
+| **Isabela Honda Ferreira** | `[Inserir Matrícula Isabela]` | Repositório |
+| **João Roberto** | `[Inserir Matrícula João]` | Camada de Serviço, Apresentação, Integração e Domínios |
 
 > **Nota:** Antes do empacotamento final de entrega (`T1-TP1-X-Y-Z-W.ZIP`), cada membro deve preencher seu respectivo número de matrícula nos campos acima e no nome do arquivo ZIP conforme a regra 33 e 34 do enunciado.
 
@@ -29,8 +29,9 @@
 
 ### Gabriel Sales
 - Especificação e codificação das interfaces abstratas de serviço:
-  - `IServicoQuadro` (operações de criação, leitura, atualização, exclusão e listagem de quadros).
-  - `IServicoCartaoDeAtividade` (ciclo de vida de cartões, movimentações e métricas Kanban).
+  - `IServicoQuadro` (operações de quadros e cartões de atividade,
+    movimentações e métricas Kanban, reunidas na interface do
+    subsistema Quadro).
 - Documentação técnica das interfaces com Doxygen.
 - Elaboração e codificação dos testes de unidade exaustivos:
   - `Headers/testes_dominios.hpp` e `Testes/testes_dominios.cpp` (11 classes de domínio).
@@ -39,9 +40,6 @@
 
 ### Isabela Honda Ferreira
 - Criação e administração do repositório no GitHub.
-- Implementação das classes de domínio: `Email`, `Timestamp` e validações de calendário/bissexto.
-- Implementação das entidades `Pessoa` e `Projeto` em `Headers/entidades.hpp` e `Entidades/entidades.cpp`.
-- Revisão ortográfica, conformidade com os padrões de codificação e diretrizes da especificação.
 
 ### João Roberto
 - Implementação das interfaces abstratas `IServicoPessoa` e `IServicoProjeto`.
@@ -61,7 +59,7 @@
 ### Código-Fonte e Cabeçalhos
 - **Domínios (11 classes):** `Headers/dominios.hpp`, `Dominios/dominios.cpp`
 - **Entidades (4 classes):** `Headers/entidades.hpp`, `Entidades/entidades.cpp`
-- **Interfaces Abstratas (4 interfaces, 26 serviços):** `Headers/interfaces.hpp`
+- **Interfaces Abstratas (6 interfaces: 3 de apresentação e 3 de serviço):** `Headers/interfaces.hpp`. As interfaces de serviço contemplam os 26 serviços funcionais do enunciado, além das operações auxiliares.
 - **Contêineres / Repositórios em Memória:** `Headers/repositorios.hpp`, `Repositorios/repositorios.cpp`
 - **Controladoras de Serviço:** `Headers/controladoras_servico.hpp`, `Servicos/controladoras_servico.cpp`
 - **Controladoras de Apresentação:** `Headers/apresentacao.hpp`, `Apresentacao/apresentacao.cpp`

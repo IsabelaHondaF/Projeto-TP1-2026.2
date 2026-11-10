@@ -184,8 +184,8 @@ abstratas e as dependências entre os componentes.
 <div class="diagrama-container">
 <img
   src="Diagrama_Arquitetura.png"
-  alt="Arquitetura em duas camadas, com nove módulos,
-       oito interfaces e as dependências entre os subsistemas."
+  alt="Arquitetura em duas camadas, com
+       sete módulos, seis interfaces e três subsistemas, como também as dependências entre os subsistemas."
   style="display: block; width: 100%; height: auto; margin: 0 auto;"
 >
 <div class="diagrama-legenda">Figura 1 — Modelo de Arquitetura em Camadas com Interfaces Abstratas e Módulos do Sistema Kanban.</div>
@@ -269,7 +269,7 @@ O diagrama de entidades define as quatro classes fundamentais de dados do sistem
 <h2>4. Descrição Textual das Responsabilidades dos Módulos</h2>
 
 <p>
-A arquitetura possui nove módulos, distribuídos entre as camadas
+A arquitetura possui sete módulos, distribuídos entre as camadas
 de apresentação e serviço. As siglas abaixo correspondem aos módulos
 e às interfaces identificados no diagrama de arquitetura.
 </p>
@@ -279,7 +279,7 @@ e às interfaces identificados no diagrama de arquitetura.
 Implementado por <code>CntrApresentacaoPrincipal</code>, coordena o
 menu inicial, o acesso à sessão autenticada e a navegação entre os
 subsistemas. Solicita operações às interfaces de apresentação
-IAA, IAP, IAQ e IAC. Também depende de ISA
+IAA, IAP e IAQ. Também depende de ISA
 (<code>IServicoPessoa</code>) para consultar os dados e o papel
 atual do usuário autenticado.
 </p>
@@ -299,33 +299,18 @@ Implementado por <code>CntrApresentacaoProjeto</code>, fornece
 IAP (<code>IApresentacaoProjeto</code>). Apresenta as operações
 de criação, leitura, atualização, exclusão e listagem de projetos,
 utilizando ISP (<code>IServicoProjeto</code>).
-Também depende de ISQ (<code>IServicoQuadro</code>) para listar
-os quadros de um projeto por meio de <code>listarPorProjeto</code>,
-concretizando a dependência diagonal MAP → ISQ.
 </p>
 
 <h3>4.4 MAQ — Apresentação de Quadro</h3>
 <p>
 Implementado por <code>CntrApresentacaoQuadro</code>, fornece
 IAQ (<code>IApresentacaoQuadro</code>). Apresenta as operações
-de criação, leitura, atualização, exclusão e listagem de quadros,
-utilizando ISQ (<code>IServicoQuadro</code>).
-Também depende de ISC (<code>IServicoCartaoDeAtividade</code>)
-para listar os cartões de um quadro, concretizando a dependência
-diagonal MAQ → ISC.
+de quadros e cartões de atividade, incluindo movimentação e
+consulta de métricas. Solicita essas operações por meio de
+ISQ (<code>IServicoQuadro</code>).
 </p>
 
-<h3>4.5 MAC2 — Apresentação de Cartão</h3>
-<p>
-Implementado por <code>CntrApresentacaoCartao</code>, fornece
-IAC (<code>IApresentacaoCartao</code>). Realiza a interação
-relacionada ao gerenciamento e à movimentação de cartões, além
-da consulta de métricas. Coleta e valida os dados de entrada,
-solicita as operações por meio de ISC
-(<code>IServicoCartaoDeAtividade</code>) e apresenta seus resultados.
-</p>
-
-<h3>4.6 MSA — Serviço de Pessoa</h3>
+<h3>4.5 MSA — Serviço de Pessoa</h3>
 <p>
 Implementado por <code>CntrServicoPessoa</code>, fornece
 ISA (<code>IServicoPessoa</code>). Executa os serviços de
@@ -335,7 +320,7 @@ ao próprio usuário e verifica os vínculos com projetos e cartões
 antes da exclusão. Utiliza os contêineres de pessoas, projetos e cartões.
 </p>
 
-<h3>4.7 MSP — Serviço de Projeto</h3>
+<h3>4.6 MSP — Serviço de Projeto</h3>
 <p>
 Implementado por <code>CntrServicoProjeto</code>, fornece
 ISP (<code>IServicoProjeto</code>). Executa as operações
@@ -345,10 +330,11 @@ Impede a exclusão de projetos que possuem quadros.
 Utiliza os contêineres de pessoas, projetos e quadros.
 </p>
 
-<h3>4.8 MSQ — Serviço de Quadro</h3>
+<h3>4.7 MSQ — Serviço de Quadro</h3>
 <p>
-Implementado por <code>CntrServicoQuadro</code>, fornece
-ISQ (<code>IServicoQuadro</code>). Executa as operações
+Implementado por <code>CntrServicoQuadro</code>, a qual cria e atualiza cartões 
+, controla WIP e calcula tempo de ciclo e leade time. Fornece
+ISQ (<code>IServicoQuadro</code>), executa as operações
 relacionadas aos quadros, incluindo sua listagem por projeto.
 Verifica permissões, mantém o vínculo com o projeto e impede
 a exclusão de quadros que possuem cartões. Também impede
@@ -356,19 +342,7 @@ a redução do limite abaixo do WIP atual.
 Utiliza os contêineres de pessoas, projetos, quadros e cartões.
 </p>
 
-<h3>4.9 MSC — Serviço de Cartão</h3>
-<p>
-Implementado por <code>CntrServicoCartaoDeAtividade</code>,
-fornece ISC (<code>IServicoCartaoDeAtividade</code>).
-Executa as operações relacionadas aos cartões, verifica permissões
-e mantém seus vínculos com quadros e desenvolvedores.
-Controla as transições A FAZER → FAZENDO e FAZENDO → FEITO,
-a ordem cronológica dos registros de tempo e o limite de WIP.
-Calcula tempo de ciclo, lead time, suas médias por quadro e WIP.
-Utiliza os contêineres de pessoas, projetos, quadros e cartões.
-</p>
-
-<h3>4.10 Interfaces e Classes de Apoio</h3>
+<h3>4.8 Interfaces e Classes de Apoio</h3>
 <p>
 As oito interfaces abstratas são declaradas em
 <code>Headers/interfaces.hpp</code>.
@@ -428,17 +402,17 @@ valores inválidos.
     <tr><td>13</td><td>ATUALIZAR</td><td>QUADRO</td><td>GESTOR</td><td><code>IServicoQuadro::atualizar</code></td></tr>
     <tr><td>14</td><td>EXCLUIR</td><td>QUADRO</td><td>GESTOR</td><td><code>IServicoQuadro::excluir</code></td></tr>
     <tr><td>15</td><td>LISTAR</td><td>QUADRO</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::listar</code></td></tr>
-    <tr><td>16</td><td>CRIAR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR</td><td><code>IServicoCartaoDeAtividade::criar</code></td></tr>
-    <tr><td>17</td><td>LER</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::ler</code></td></tr>
-    <tr><td>18</td><td>ATUALIZAR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR</td><td><code>IServicoCartaoDeAtividade::atualizar</code></td></tr>
-    <tr><td>19</td><td>EXCLUIR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR</td><td><code>IServicoCartaoDeAtividade::excluir</code></td></tr>
-    <tr><td>20</td><td>LISTAR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::listar</code></td></tr>
-    <tr><td>21</td><td>MOVER</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::mover</code></td></tr>
-    <tr><td>22</td><td>LER TEMPO DE CICLO</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::lerTempoCiclo</code></td></tr>
-    <tr><td>23</td><td>LER TEMPO DE CICLO MÉDIO</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::lerTempoCicloMedio</code></td></tr>
-    <tr><td>24</td><td>LER LEAD TIME</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::lerLeadTime</code></td></tr>
-    <tr><td>25</td><td>LER LEAD TIME MÉDIO</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::lerLeadTimeMedio</code></td></tr>
-    <tr><td>26</td><td>LER WIP</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoCartaoDeAtividade::lerWIP</code></td></tr>
+    <tr><td>16</td><td>CRIAR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR</td><td><code>IServicoQuadro::criarCartao</code></td></tr>
+    <tr><td>17</td><td>LER</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::lerCartao</code></td></tr>
+    <tr><td>18</td><td>ATUALIZAR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR</td><td><code>IServicoQuadro::atualizarCartao</code></td></tr>
+    <tr><td>19</td><td>EXCLUIR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR</td><td><code>IServicoQuadro::excluirCartao</code></td></tr>
+    <tr><td>20</td><td>LISTAR</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::listarCartoes</code></td></tr>
+    <tr><td>21</td><td>MOVER</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::moverCartao</code></td></tr>
+    <tr><td>22</td><td>LER TEMPO DE CICLO</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::lerTempoCiclo</code></td></tr>
+    <tr><td>23</td><td>LER TEMPO DE CICLO MÉDIO</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::lerTempoCicloMedio</code></td></tr>
+    <tr><td>24</td><td>LER LEAD TIME</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::lerLeadTime</code></td></tr>
+    <tr><td>25</td><td>LER LEAD TIME MÉDIO</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::lerLeadTimeMedio</code></td></tr>
+    <tr><td>26</td><td>LER WIP</td><td>CARTÃO DE ATIVIDADE</td><td>GESTOR, DESENVOLVEDOR</td><td><code>IServicoQuadro::lerWIP</code></td></tr>
   </tbody>
 </table>
 
