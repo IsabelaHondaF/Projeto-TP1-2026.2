@@ -397,18 +397,13 @@ bool CntrServicoQuadro::listarPorProjeto(
 }
 
 // -----------------------------------------------------------------------------
-// Cartão de atividade
+// Cartões de atividade internos ao subsistema Quadro
 // -----------------------------------------------------------------------------
 
-CntrServicoCartaoDeAtividade::CntrServicoCartaoDeAtividade(
-    ContainerPessoas& pessoas, ContainerProjetos& projetos,
-    ContainerQuadros& quadros, ContainerCartoes& cartoes)
-    : pessoas(pessoas), projetos(projetos), quadros(quadros), cartoes(cartoes) {}
-
-bool CntrServicoCartaoDeAtividade::criar(const Email& usuario,
-                                         const Identificador& quadro,
-                                         const Email& desenvolvedor,
-                                         const CartaoDeAtividade& cartao) {
+bool CntrServicoQuadro::criarCartao(const Email& usuario,
+                                    const Identificador& quadro,
+                                    const Email& desenvolvedor,
+                                    const CartaoDeAtividade& cartao) {
     const std::string idQuadro = quadro.getIdentificador();
     const std::string emailDev = desenvolvedor.getEmail();
     Quadro quadroExistente;
@@ -427,22 +422,22 @@ bool CntrServicoCartaoDeAtividade::criar(const Email& usuario,
     return cartoes.inserir(cartao, idQuadro, emailDev);
 }
 
-bool CntrServicoCartaoDeAtividade::ler(const Email& usuario,
-                                       const Identificador& identificador,
-                                       CartaoDeAtividade& cartao) {
+bool CntrServicoQuadro::lerCartao(const Email& usuario,
+                                  const Identificador& identificador,
+                                  CartaoDeAtividade& cartao) {
     if (!usuarioCadastrado(pessoas, usuario.getEmail())) return false;
     return cartoes.obter(identificador.getIdentificador(), cartao);
 }
 
-bool CntrServicoCartaoDeAtividade::atualizar(const Email& usuario,
-                                             const Identificador& identificador,
-                                             const CartaoDeAtividade& cartao) {
+bool CntrServicoQuadro::atualizarCartao(const Email& usuario,
+                                        const Identificador& identificador,
+                                        const CartaoDeAtividade& cartao) {
     const std::string id = identificador.getIdentificador();
     if (cartao.getIdentificador() != id ||
         !ehGestorDoCartao(pessoas, projetos, quadros, cartoes, usuario.getEmail(), id))
         return false;
 
-    // Campos de fluxo (estado e timestamps) não são editáveis por atualizar().
+    // Campos de fluxo (estado e timestamps) não são editáveis por atualizarCartao().
     CartaoDeAtividade atual;
     if (!cartoes.obter(id, atual)) return false;
     try {
@@ -456,17 +451,17 @@ bool CntrServicoCartaoDeAtividade::atualizar(const Email& usuario,
     return cartoes.substituir(id, atual);
 }
 
-bool CntrServicoCartaoDeAtividade::excluir(const Email& usuario,
-                                          const Identificador& identificador) {
+bool CntrServicoQuadro::excluirCartao(const Email& usuario,
+                                      const Identificador& identificador) {
     const std::string id = identificador.getIdentificador();
     if (!ehGestorDoCartao(pessoas, projetos, quadros, cartoes, usuario.getEmail(), id))
         return false;
     return cartoes.remover(id);
 }
 
-bool CntrServicoCartaoDeAtividade::listar(const Email& usuario,
-                                          const Identificador& quadro,
-                                          std::vector<Identificador>& identificadores) {
+bool CntrServicoQuadro::listarCartoes(const Email& usuario,
+                                      const Identificador& quadro,
+                                      std::vector<Identificador>& identificadores) {
     if (!usuarioCadastrado(pessoas, usuario.getEmail()) ||
         !quadros.existe(quadro.getIdentificador())) return false;
     const std::vector<std::string> valores =
@@ -481,9 +476,9 @@ bool CntrServicoCartaoDeAtividade::listar(const Email& usuario,
     return true;
 }
 
-bool CntrServicoCartaoDeAtividade::mover(const Email& usuario,
-                                         const Identificador& identificador,
-                                         const Timestamp& instante) {
+bool CntrServicoQuadro::moverCartao(const Email& usuario,
+                                    const Identificador& identificador,
+                                    const Timestamp& instante) {
     const std::string id = identificador.getIdentificador();
     if (!podeOperarCartao(pessoas, projetos, quadros, cartoes, usuario.getEmail(), id))
         return false;
@@ -528,9 +523,9 @@ bool CntrServicoCartaoDeAtividade::mover(const Email& usuario,
     return cartoes.substituir(id, cartao);
 }
 
-bool CntrServicoCartaoDeAtividade::lerTempoCiclo(const Email& usuario,
-                                                 const Identificador& identificador,
-                                                 long long& minutos) {
+bool CntrServicoQuadro::lerTempoCiclo(const Email& usuario,
+                                      const Identificador& identificador,
+                                      long long& minutos) {
     if (!usuarioCadastrado(pessoas, usuario.getEmail())) return false;
     CartaoDeAtividade cartao;
     long long resultado = 0;
@@ -540,9 +535,9 @@ bool CntrServicoCartaoDeAtividade::lerTempoCiclo(const Email& usuario,
     return true;
 }
 
-bool CntrServicoCartaoDeAtividade::lerTempoCicloMedio(const Email& usuario,
-                                                      const Identificador& quadro,
-                                                      double& minutos) {
+bool CntrServicoQuadro::lerTempoCicloMedio(const Email& usuario,
+                                           const Identificador& quadro,
+                                           double& minutos) {
     const std::string idQuadro = quadro.getIdentificador();
     if (!usuarioCadastrado(pessoas, usuario.getEmail()) || !quadros.existe(idQuadro))
         return false;
@@ -562,9 +557,9 @@ bool CntrServicoCartaoDeAtividade::lerTempoCicloMedio(const Email& usuario,
     return true;
 }
 
-bool CntrServicoCartaoDeAtividade::lerLeadTime(const Email& usuario,
-                                               const Identificador& identificador,
-                                               long long& minutos) {
+bool CntrServicoQuadro::lerLeadTime(const Email& usuario,
+                                    const Identificador& identificador,
+                                    long long& minutos) {
     if (!usuarioCadastrado(pessoas, usuario.getEmail())) return false;
     CartaoDeAtividade cartao;
     long long resultado = 0;
@@ -574,9 +569,9 @@ bool CntrServicoCartaoDeAtividade::lerLeadTime(const Email& usuario,
     return true;
 }
 
-bool CntrServicoCartaoDeAtividade::lerLeadTimeMedio(const Email& usuario,
-                                                    const Identificador& quadro,
-                                                    double& minutos) {
+bool CntrServicoQuadro::lerLeadTimeMedio(const Email& usuario,
+                                         const Identificador& quadro,
+                                         double& minutos) {
     const std::string idQuadro = quadro.getIdentificador();
     if (!usuarioCadastrado(pessoas, usuario.getEmail()) || !quadros.existe(idQuadro))
         return false;
@@ -596,9 +591,9 @@ bool CntrServicoCartaoDeAtividade::lerLeadTimeMedio(const Email& usuario,
     return true;
 }
 
-bool CntrServicoCartaoDeAtividade::lerWIP(const Email& usuario,
-                                          const Identificador& quadro,
-                                          int& quantidade) {
+bool CntrServicoQuadro::lerWIP(const Email& usuario,
+                               const Identificador& quadro,
+                               int& quantidade) {
     const std::string idQuadro = quadro.getIdentificador();
     if (!usuarioCadastrado(pessoas, usuario.getEmail()) || !quadros.existe(idQuadro))
         return false;

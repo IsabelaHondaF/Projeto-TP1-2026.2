@@ -51,7 +51,8 @@ Sprint Dois
 2
 5
 0
-4
+3
+6
 1
 QUA001
 dev@example.com
@@ -82,10 +83,12 @@ MEDIO
 QUA001
 0
 0
+0
 1
 dev@example.com
 def34
-4
+3
+6
 6
 CAR001
 2-JAN-2026-10:00
@@ -111,6 +114,7 @@ QUA001
 11
 QUA001
 0
+0
 2
 2
 PRJ001
@@ -129,11 +133,13 @@ DESENVOLVEDOR
 1
 gestor@example.com
 abc12
-4
+3
+6
 4
 CAR001
 4
 CAR002
+0
 0
 3
 4

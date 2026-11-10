@@ -66,17 +66,17 @@ Para atender ao **Requisito 4.26, 4.27 e Critério 6** da avaliação (100% de p
 | 13 | ATUALIZAR | QUADRO | GESTOR | Menu Principal → `3` → `3` |
 | 14 | EXCLUIR | QUADRO | GESTOR | Menu Principal → `3` → `4` |
 | 15 | LISTAR | QUADRO | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `5` |
-| 16 | CRIAR | CARTÃO DE ATIVIDADE | GESTOR | Menu Principal → `4` → `1` |
-| 17 | LER | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `2` |
-| 18 | ATUALIZAR | CARTÃO DE ATIVIDADE | GESTOR | Menu Principal → `4` → `3` |
-| 19 | EXCLUIR | CARTÃO DE ATIVIDADE | GESTOR | Menu Principal → `4` → `4` |
-| 20 | LISTAR | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `5` |
-| 21 | MOVER | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `6` |
-| 22 | LER TEMPO DE CICLO | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `7` |
-| 23 | LER TEMPO DE CICLO MÉDIO | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `8` |
-| 24 | LER LEAD TIME | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `9` |
-| 25 | LER LEAD TIME MÉDIO | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `10` |
-| 26 | LER WIP | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `4` → `11` |
+| 16 | CRIAR | CARTÃO DE ATIVIDADE | GESTOR | Menu Principal → `3` → `6` → `1` |
+| 17 | LER | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `2` |
+| 18 | ATUALIZAR | CARTÃO DE ATIVIDADE | GESTOR | Menu Principal → `3` → `6` → `3` |
+| 19 | EXCLUIR | CARTÃO DE ATIVIDADE | GESTOR | Menu Principal → `3` → `6` → `4` |
+| 20 | LISTAR | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `5` |
+| 21 | MOVER | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `6` |
+| 22 | LER TEMPO DE CICLO | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `7` |
+| 23 | LER TEMPO DE CICLO MÉDIO | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `8` |
+| 24 | LER LEAD TIME | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `9` |
+| 25 | LER LEAD TIME MÉDIO | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `10` |
+| 26 | LER WIP | CARTÃO DE ATIVIDADE | GESTOR, DESENVOLVEDOR | Menu Principal → `3` → `6` → `11` |
 
 ---
 

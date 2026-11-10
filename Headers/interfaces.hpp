@@ -217,13 +217,12 @@ public:
 
 
 /**
- * @brief Interface responsável pelos serviços relacionados à entidade Quadro.
+ * @brief Interface dos serviços de quadros e cartões do subsistema Quadro (ISQ).
  *
- * Define as operações disponibilizadas pela camada de serviço para
- * criação, leitura, atualização, exclusão e listagem de quadros.
- *
- * O vínculo entre um quadro e um projeto deve ser mantido pela camada
- * de serviço.
+ * Define operações de criação, leitura, atualização, exclusão e listagem
+ * de quadros e cartões, além de movimentação de cartões e consulta de métricas.
+ * A implementação deve preservar os vínculos com projetos e desenvolvedores,
+ * verificar permissões e respeitar o fluxo Kanban e o limite de WIP.
  */
 class IServicoQuadro {
 public:
@@ -337,26 +336,8 @@ public:
         const Identificador& projeto,
         std::vector<Identificador>& identificadores
     ) = 0;
-};
 
-
-/**
- * @brief Interface responsável pelos serviços relacionados a cartões de atividade.
- *
- * Define as operações disponibilizadas pela camada de serviço para criação,
- * leitura, atualização, exclusão, listagem e movimentação de cartões,
- * além do cálculo das métricas de tempo do quadro Kanban.
- *
- * A implementação deve controlar as movimentações entre A FAZER, FAZENDO
- * e FEITO e respeitar o limite de WIP do quadro.
- */
-class IServicoCartaoDeAtividade {
-public:
-
-    /**
-     * @brief Destrutor virtual da interface.
-     */
-    virtual ~IServicoCartaoDeAtividade() = default;
+    // Operações de cartões pertencentes ao subsistema Quadro.
 
     /**
      * @brief Cria um novo cartão de atividade.
@@ -371,7 +352,7 @@ public:
      * @return true caso o cartão seja criado com sucesso.
      * @return false caso a operação não possa ser realizada.
      */
-    virtual bool criar(
+    virtual bool criarCartao(
         const Email& usuario,
         const Identificador& quadro,
         const Email& desenvolvedor,
@@ -390,7 +371,7 @@ public:
      * @return true caso o cartão seja encontrado.
      * @return false caso a operação não possa ser realizada.
      */
-    virtual bool ler(
+    virtual bool lerCartao(
         const Email& usuario,
         const Identificador& identificador,
         CartaoDeAtividade& cartao
@@ -403,7 +384,7 @@ public:
      * a entidade armazenada e não deve ser alterado.
      *
      * A alteração do estado e dos instantes relacionados às movimentações
-     * deve ser realizada pelo serviço mover.
+     * deve ser realizada pelo serviço moverCartao.
      *
      * @param[in] usuario Email do usuário que solicita a operação.
      * @param[in] identificador Identificador do cartão que será atualizado.
@@ -412,7 +393,7 @@ public:
      * @return true caso a atualização seja realizada com sucesso.
      * @return false caso a operação não possa ser realizada.
      */
-    virtual bool atualizar(
+    virtual bool atualizarCartao(
         const Email& usuario,
         const Identificador& identificador,
         const CartaoDeAtividade& cartao
@@ -427,7 +408,7 @@ public:
      * @return true caso o cartão seja excluído com sucesso.
      * @return false caso a operação não possa ser realizada.
      */
-    virtual bool excluir(
+    virtual bool excluirCartao(
         const Email& usuario,
         const Identificador& identificador
     ) = 0;
@@ -443,7 +424,7 @@ public:
      * @return true caso a listagem seja realizada com sucesso.
      * @return false caso a operação não possa ser realizada.
      */
-    virtual bool listar(
+    virtual bool listarCartoes(
         const Email& usuario,
         const Identificador& quadro,
         std::vector<Identificador>& identificadores
@@ -469,7 +450,7 @@ public:
      * @return true caso a movimentação seja realizada.
      * @return false caso a movimentação não seja permitida.
      */
-    virtual bool mover(
+    virtual bool moverCartao(
         const Email& usuario,
         const Identificador& identificador,
         const Timestamp& instante
@@ -626,7 +607,7 @@ public:
     };
 
     /**
-     * @brief Interface de apresentação da gestão de quadros (IAQ).
+     * @brief Interface de apresentação da gestão de quadros e seus cartões (IAQ).
      */
     class IApresentacaoQuadro {
     public:
@@ -634,26 +615,7 @@ public:
         virtual ~IApresentacaoQuadro() = default;
 
         /**
-         * @brief Apresenta o menu de quadros e trata as entradas do usuário.
-         * @param[in] usuario Email do usuário autenticado.
-         * @param[in] papel Papel do usuário: GESTOR ou DESENVOLVEDOR.
-         */
-        virtual void executar(
-            const Email& usuario,
-            const std::string& papel
-        ) = 0;
-    };
-
-    /**
-     * @brief Interface de apresentação de cartões e suas métricas (IAC).
-     */
-    class IApresentacaoCartao {
-    public:
-        /** @brief Permite destruição por meio da interface. */
-        virtual ~IApresentacaoCartao() = default;
-
-        /**
-         * @brief Apresenta o menu de cartões e trata as entradas do usuário.
+         * @brief Apresenta o menu de quadros e o submenu de cartões, validando as entradas.
          * @param[in] usuario Email do usuário autenticado.
          * @param[in] papel Papel do usuário: GESTOR ou DESENVOLVEDOR.
          */

@@ -9,7 +9,7 @@
  * @brief Camada de apresentação: interface com o usuário (cin/cout) e validação dos dados de entrada.
  *
  * As classes desta camada dependem apenas das interfaces de serviço
- * (IServicoPessoa, IServicoProjeto, IServicoQuadro e IServicoCartaoDeAtividade),
+ * (IServicoPessoa, IServicoProjeto e IServicoQuadro),
  * nunca das classes concretas da camada de serviço.
  */
 
@@ -94,26 +94,23 @@ private:
 };
 
 /**
- * @brief Controladora de apresentação dos serviços relacionados a Quadro.
+ * @brief Controladora de apresentação de quadros, cartões e métricas.
  * 
  * Implementa a interface IApresentacaoQuadro.
- * Consulta os cartões de um quadro por meio de IServicoCartaoDeAtividade.
+ * Gerencia os cartões e suas métricas internamente, utilizando IServicoQuadro.
  */
 class CntrApresentacaoQuadro : public IApresentacaoQuadro{
 private:
     IServicoQuadro* servico;
-    IServicoCartaoDeAtividade* servicoCartao;
 public:
     /**
      * @brief Constrói a controladora.
      * @param[in] servico Serviço de quadro que será utilizado (não pode ser nulo).
-     * @param[in] servicoCartao Serviço para listar os cartões do quadro (não pode ser nulo).
      */
-    explicit CntrApresentacaoQuadro(IServicoQuadro* servico,
-                                   IServicoCartaoDeAtividade* servicoCartao);
+    explicit CntrApresentacaoQuadro(IServicoQuadro* servico);
 
     /**
-     * @brief Apresenta o menu de quadros conforme o papel do usuário.
+     * @brief Apresenta o menu de quadros e o acesso aos cartões conforme o papel do usuário.
      * @param[in] usuario E-mail do usuário autenticado.
      * @param[in] papel Papel do usuário (GESTOR ou DESENVOLVEDOR).
      */
@@ -125,39 +122,14 @@ private:
     void atualizar(const Email& usuario);
     void excluir(const Email& usuario);
     void listar(const Email& usuario);
+
+    void gerenciarCartoes(const Email& usuario, const std::string& papel);
+    void criarCartao(const Email& usuario);
+    void lerCartao(const Email& usuario);
+    void atualizarCartao(const Email& usuario);
+    void excluirCartao(const Email& usuario);
     void listarCartoes(const Email& usuario);
-};
-
-/**
- * @brief Controladora de apresentação dos serviços relacionados a Cartão de atividade.
- * 
- * Implementa a interface IApresentacaoCartao.
- * Inclui mover cartão e a leitura de tempo de ciclo, lead time e WIP.
- */
-class CntrApresentacaoCartao : public IApresentacaoCartao {
-private:
-    IServicoCartaoDeAtividade* servico;
-public:
-    /**
-     * @brief Constrói a controladora.
-     * @param[in] servico Serviço de cartão que será utilizado (não pode ser nulo).
-     */
-    explicit CntrApresentacaoCartao(IServicoCartaoDeAtividade* servico);
-
-    /**
-     * @brief Apresenta o menu de cartões conforme o papel do usuário.
-     * @param[in] usuario E-mail do usuário autenticado.
-     * @param[in] papel Papel do usuário (GESTOR ou DESENVOLVEDOR).
-     */
-    void executar(const Email& usuario, const std::string& papel) override;
-
-private:
-    void criar(const Email& usuario);
-    void ler(const Email& usuario);
-    void atualizar(const Email& usuario);
-    void excluir(const Email& usuario);
-    void listar(const Email& usuario);
-    void mover(const Email& usuario);
+    void moverCartao(const Email& usuario);
     void lerTempoCiclo(const Email& usuario);
     void lerTempoCicloMedio(const Email& usuario);
     void lerLeadTime(const Email& usuario);
@@ -177,7 +149,6 @@ private:
     IApresentacaoPessoa& pessoa;
     IApresentacaoProjeto& projeto;
     IApresentacaoQuadro& quadro;
-    IApresentacaoCartao& cartao;
 
 public:
     /**
@@ -187,15 +158,13 @@ public:
      * @param[in] apresentacaoPessoa Interface de apresentação de contas e autenticação.
      * @param[in] apresentacaoProjeto Interface de apresentação de projetos.
      * @param[in] apresentacaoQuadro Interface de apresentação de quadros.
-     * @param[in] apresentacaoCartao Interface de apresentação de cartões.
      * @note As dependências devem permanecer válidas durante toda a vida da controladora.
      */
     CntrApresentacaoPrincipal(
         IServicoPessoa* servicoPessoa,
         IApresentacaoPessoa& apresentacaoPessoa,
         IApresentacaoProjeto& apresentacaoProjeto,
-        IApresentacaoQuadro& apresentacaoQuadro,
-        IApresentacaoCartao& apresentacaoCartao
+        IApresentacaoQuadro& apresentacaoQuadro
     );
 
     /**

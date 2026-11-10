@@ -85,9 +85,9 @@ public:
 };
 
 /**
- * @brief Implementação concreta dos serviços de negócio relacionados a Quadro Kanban.
+ * @brief Implementação dos serviços de quadros e cartões do subsistema Quadro.
  *
- * Implementa a interface IServicoQuadro e garante integridade com os projetos pais e cartões filhos.
+ * Implementa IServicoQuadro, garantindo integridade, permissões, fluxo Kanban, WIP e métricas.
  */
 class CntrServicoQuadro : public IServicoQuadro {
 private:
@@ -128,74 +128,47 @@ public:
     /** @copydoc IServicoQuadro::listarPorProjeto */
     bool listarPorProjeto(const Email& usuario, const Identificador& projeto,
                           std::vector<Identificador>& identificadores) override;
-};
 
-/**
- * @brief Implementação concreta dos serviços de negócio de Cartão de Atividade.
- *
- * Implementa a interface IServicoCartaoDeAtividade, gerenciando o fluxo Kanban,
- * limites de WIP e métricas de tempo de ciclo e lead time.
- */
-class CntrServicoCartaoDeAtividade : public IServicoCartaoDeAtividade {
-private:
-    ContainerPessoas& pessoas;
-    ContainerProjetos& projetos;
-    ContainerQuadros& quadros;
-    ContainerCartoes& cartoes;
+    /** @copydoc IServicoQuadro::criarCartao */
+    bool criarCartao(const Email& usuario, const Identificador& quadro,
+                     const Email& desenvolvedor, const CartaoDeAtividade& cartao) override;
 
-public:
-    /**
-     * @brief Constrói a controladora de serviço de cartões de atividade.
-     * @param[in] pessoas Referência para o repositório de pessoas.
-     * @param[in] projetos Referência para o repositório de projetos.
-     * @param[in] quadros Referência para o repositório de quadros.
-     * @param[in] cartoes Referência para o repositório de cartões.
-     */
-    CntrServicoCartaoDeAtividade(ContainerPessoas& pessoas,
-                                 ContainerProjetos& projetos,
-                                 ContainerQuadros& quadros,
-                                 ContainerCartoes& cartoes);
+    /** @copydoc IServicoQuadro::lerCartao */
+    bool lerCartao(const Email& usuario, const Identificador& identificador,
+                   CartaoDeAtividade& cartao) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::criar */
-    bool criar(const Email& usuario, const Identificador& quadro,
-               const Email& desenvolvedor, const CartaoDeAtividade& cartao) override;
+    /** @copydoc IServicoQuadro::atualizarCartao */
+    bool atualizarCartao(const Email& usuario, const Identificador& identificador,
+                         const CartaoDeAtividade& cartao) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::ler */
-    bool ler(const Email& usuario, const Identificador& identificador,
-             CartaoDeAtividade& cartao) override;
+    /** @copydoc IServicoQuadro::excluirCartao */
+    bool excluirCartao(const Email& usuario, const Identificador& identificador) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::atualizar */
-    bool atualizar(const Email& usuario, const Identificador& identificador,
-                   const CartaoDeAtividade& cartao) override;
+    /** @copydoc IServicoQuadro::listarCartoes */
+    bool listarCartoes(const Email& usuario, const Identificador& quadro,
+                       std::vector<Identificador>& identificadores) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::excluir */
-    bool excluir(const Email& usuario, const Identificador& identificador) override;
+    /** @copydoc IServicoQuadro::moverCartao */
+    bool moverCartao(const Email& usuario, const Identificador& identificador,
+                     const Timestamp& instante) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::listar */
-    bool listar(const Email& usuario, const Identificador& quadro,
-                std::vector<Identificador>& identificadores) override;
-
-    /** @copydoc IServicoCartaoDeAtividade::mover */
-    bool mover(const Email& usuario, const Identificador& identificador,
-               const Timestamp& instante) override;
-
-    /** @copydoc IServicoCartaoDeAtividade::lerTempoCiclo */
+    /** @copydoc IServicoQuadro::lerTempoCiclo */
     bool lerTempoCiclo(const Email& usuario, const Identificador& identificador,
                        long long& minutos) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::lerTempoCicloMedio */
+    /** @copydoc IServicoQuadro::lerTempoCicloMedio */
     bool lerTempoCicloMedio(const Email& usuario, const Identificador& quadro,
                             double& minutos) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::lerLeadTime */
+    /** @copydoc IServicoQuadro::lerLeadTime */
     bool lerLeadTime(const Email& usuario, const Identificador& identificador,
                      long long& minutos) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::lerLeadTimeMedio */
+    /** @copydoc IServicoQuadro::lerLeadTimeMedio */
     bool lerLeadTimeMedio(const Email& usuario, const Identificador& quadro,
                           double& minutos) override;
 
-    /** @copydoc IServicoCartaoDeAtividade::lerWIP */
+    /** @copydoc IServicoQuadro::lerWIP */
     bool lerWIP(const Email& usuario, const Identificador& quadro,
                 int& quantidade) override;
 };

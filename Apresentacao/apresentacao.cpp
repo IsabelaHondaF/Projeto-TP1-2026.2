@@ -298,14 +298,12 @@ void CntrApresentacaoProjeto::listar(const Email& usuario) {
         std::cout << "  - " << ids[i].getIdentificador() << "\n";
 }
 
-
 // -----------------------------------------------------------------------------
 // Quadro
 // -----------------------------------------------------------------------------
 
-CntrApresentacaoQuadro::CntrApresentacaoQuadro(IServicoQuadro* servico,
-                                             IServicoCartaoDeAtividade* servicoCartao)
-    : servico(servico), servicoCartao(servicoCartao) {}
+CntrApresentacaoQuadro::CntrApresentacaoQuadro(IServicoQuadro* servico)
+    : servico(servico) {}
 
 void CntrApresentacaoQuadro::executar(const Email& usuario, const std::string& papel) {
     const bool gestor = (papel == "GESTOR");
@@ -314,7 +312,7 @@ void CntrApresentacaoQuadro::executar(const Email& usuario, const std::string& p
         if (gestor) std::cout << "1 - Criar\n";
         std::cout << "2 - Ler\n";
         if (gestor) std::cout << "3 - Atualizar\n4 - Excluir\n";
-        std::cout << "5 - Listar\n6 - Listar cartoes de um quadro\n0 - Voltar\n";
+        std::cout << "5 - Listar\n6 - Cartoes de atividade\n0 - Voltar\n";
         const int opcao = lerOpcao();
         if (opcao == 0) return;
         if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); continue; }
@@ -324,7 +322,7 @@ void CntrApresentacaoQuadro::executar(const Email& usuario, const std::string& p
             case 3: atualizar(usuario); break;
             case 4: excluir(usuario); break;
             case 5: listar(usuario); break;
-            case 6: listarCartoes(usuario); break;
+            case 6: gerenciarCartoes(usuario, papel); break;
             default: opcaoInvalida();
         }
     }
@@ -371,27 +369,11 @@ void CntrApresentacaoQuadro::listar(const Email& usuario) {
         std::cout << "  - " << ids[i].getIdentificador() << "\n";
 }
 
-void CntrApresentacaoQuadro::listarCartoes(const Email& usuario) {
-    const Identificador quadro = criarId(lerIdentificador("Identificador do quadro: "));
-    std::vector<Identificador> ids;
-    if (!servicoCartao->listar(usuario, quadro, ids)) {
-        std::cout << MSG_FALHA << "\n";
-        return;
-    }
-    std::cout << "  Cartoes do quadro " << quadro.getIdentificador()
-              << " (" << ids.size() << "):\n";
-    for (std::size_t i = 0; i < ids.size(); ++i)
-        std::cout << "  - " << ids[i].getIdentificador() << "\n";
-}
-
 // -----------------------------------------------------------------------------
-// Cartão de atividade
+// Cartões de atividade: submenu interno de Quadro
 // -----------------------------------------------------------------------------
 
-CntrApresentacaoCartao::CntrApresentacaoCartao(IServicoCartaoDeAtividade* servico)
-    : servico(servico) {}
-
-void CntrApresentacaoCartao::executar(const Email& usuario, const std::string& papel) {
+void CntrApresentacaoQuadro::gerenciarCartoes(const Email& usuario, const std::string& papel) {
     const bool gestor = (papel == "GESTOR");
     for (;;) {
         std::cout << "\n--- Cartoes de atividade ---\n";
@@ -405,12 +387,12 @@ void CntrApresentacaoCartao::executar(const Email& usuario, const std::string& p
         if (opcao == 0) return;
         if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); continue; }
         switch (opcao) {
-            case 1: criar(usuario); break;
-            case 2: ler(usuario); break;
-            case 3: atualizar(usuario); break;
-            case 4: excluir(usuario); break;
-            case 5: listar(usuario); break;
-            case 6: mover(usuario); break;
+            case 1: criarCartao(usuario); break;
+            case 2: lerCartao(usuario); break;
+            case 3: atualizarCartao(usuario); break;
+            case 4: excluirCartao(usuario); break;
+            case 5: listarCartoes(usuario); break;
+            case 6: moverCartao(usuario); break;
             case 7: lerTempoCiclo(usuario); break;
             case 8: lerTempoCicloMedio(usuario); break;
             case 9: lerLeadTime(usuario); break;
@@ -421,7 +403,7 @@ void CntrApresentacaoCartao::executar(const Email& usuario, const std::string& p
     }
 }
 
-void CntrApresentacaoCartao::criar(const Email& usuario) {
+void CntrApresentacaoQuadro::criarCartao(const Email& usuario) {
     const Identificador quadro = criarId(lerIdentificador("Identificador do quadro: "));
     const Email desenvolvedor = criarEmail(lerEmail("Email do desenvolvedor responsavel: "));
     CartaoDeAtividade cartao;
@@ -432,17 +414,17 @@ void CntrApresentacaoCartao::criar(const Email& usuario) {
     cartao.setTamanho(lerTamanho("Tamanho (GRANDE, MEDIO ou PEQUENO): "));
     cartao.setEstado("A FAZER"); // todo cartão novo entra na coluna A FAZER
     cartao.setEntrada(lerTimestamp("Entrada na coluna A FAZER (DIA-MES-ANO-HH:MM): "));
-    resultado(servico->criar(usuario, quadro, desenvolvedor, cartao), "Cartao criado na coluna A FAZER.");
+    resultado(servico->criarCartao(usuario, quadro, desenvolvedor, cartao), "Cartao criado na coluna A FAZER.");
 }
 
-void CntrApresentacaoCartao::ler(const Email& usuario) {
+void CntrApresentacaoQuadro::lerCartao(const Email& usuario) {
     const Identificador id = criarId(lerIdentificador("Identificador do cartao: "));
     CartaoDeAtividade cartao;
-    if (servico->ler(usuario, id, cartao)) mostrar(cartao);
+    if (servico->lerCartao(usuario, id, cartao)) mostrar(cartao);
     else std::cout << MSG_FALHA << "\n";
 }
 
-void CntrApresentacaoCartao::atualizar(const Email& usuario) {
+void CntrApresentacaoQuadro::atualizarCartao(const Email& usuario) {
     std::cout << "Estado e datas so mudam pela opcao Mover.\n";
     const std::string idTexto = lerIdentificador("Identificador do cartao: ");
     CartaoDeAtividade cartao;
@@ -451,18 +433,18 @@ void CntrApresentacaoCartao::atualizar(const Email& usuario) {
     cartao.setDescricao(lerTexto("Nova descricao: "));
     cartao.setPrioridade(lerPrioridade("Nova prioridade (ALTA, MEDIA ou BAIXA): "));
     cartao.setTamanho(lerTamanho("Novo tamanho (GRANDE, MEDIO ou PEQUENO): "));
-    resultado(servico->atualizar(usuario, criarId(idTexto), cartao), "Cartao atualizado.");
+    resultado(servico->atualizarCartao(usuario, criarId(idTexto), cartao), "Cartao atualizado.");
 }
 
-void CntrApresentacaoCartao::excluir(const Email& usuario) {
+void CntrApresentacaoQuadro::excluirCartao(const Email& usuario) {
     const Identificador id = criarId(lerIdentificador("Identificador do cartao: "));
-    resultado(servico->excluir(usuario, id), "Cartao excluido.");
+    resultado(servico->excluirCartao(usuario, id), "Cartao excluido.");
 }
 
-void CntrApresentacaoCartao::listar(const Email& usuario) {
+void CntrApresentacaoQuadro::listarCartoes(const Email& usuario) {
     const Identificador quadro = criarId(lerIdentificador("Identificador do quadro: "));
     std::vector<Identificador> ids;
-    if (!servico->listar(usuario, quadro, ids)) {
+    if (!servico->listarCartoes(usuario, quadro, ids)) {
         std::cout << MSG_FALHA << "\n";
         return;
     }
@@ -471,43 +453,43 @@ void CntrApresentacaoCartao::listar(const Email& usuario) {
         std::cout << "  - " << ids[i].getIdentificador() << "\n";
 }
 
-void CntrApresentacaoCartao::mover(const Email& usuario) {
+void CntrApresentacaoQuadro::moverCartao(const Email& usuario) {
     std::cout << "Movimentos possiveis: A FAZER -> FAZENDO e FAZENDO -> FEITO.\n";
     const Identificador id = criarId(lerIdentificador("Identificador do cartao: "));
     Timestamp instante;
     instante.setTimestamp(lerTimestamp("Instante da movimentacao (DIA-MES-ANO-HH:MM): "));
-    resultado(servico->mover(usuario, id, instante), "Cartao movido para a proxima coluna.");
+    resultado(servico->moverCartao(usuario, id, instante), "Cartao movido para a proxima coluna.");
 }
 
-void CntrApresentacaoCartao::lerTempoCiclo(const Email& usuario) {
+void CntrApresentacaoQuadro::lerTempoCiclo(const Email& usuario) {
     const Identificador id = criarId(lerIdentificador("Identificador do cartao: "));
     long long minutos = 0;
     if (servico->lerTempoCiclo(usuario, id, minutos)) mostrarMinutos("Tempo de ciclo", minutos);
     else std::cout << "[ERRO] Indisponivel (o cartao precisa estar FEITO) ou sem permissao.\n";
 }
 
-void CntrApresentacaoCartao::lerTempoCicloMedio(const Email& usuario) {
+void CntrApresentacaoQuadro::lerTempoCicloMedio(const Email& usuario) {
     const Identificador quadro = criarId(lerIdentificador("Identificador do quadro: "));
     double minutos = 0;
     if (servico->lerTempoCicloMedio(usuario, quadro, minutos)) mostrarMinutos("Tempo de ciclo medio", minutos);
     else std::cout << "[ERRO] Indisponivel (nenhum cartao FEITO no quadro) ou sem permissao.\n";
 }
 
-void CntrApresentacaoCartao::lerLeadTime(const Email& usuario) {
+void CntrApresentacaoQuadro::lerLeadTime(const Email& usuario) {
     const Identificador id = criarId(lerIdentificador("Identificador do cartao: "));
     long long minutos = 0;
     if (servico->lerLeadTime(usuario, id, minutos)) mostrarMinutos("Lead time", minutos);
     else std::cout << "[ERRO] Indisponivel (o cartao precisa estar FEITO) ou sem permissao.\n";
 }
 
-void CntrApresentacaoCartao::lerLeadTimeMedio(const Email& usuario) {
+void CntrApresentacaoQuadro::lerLeadTimeMedio(const Email& usuario) {
     const Identificador quadro = criarId(lerIdentificador("Identificador do quadro: "));
     double minutos = 0;
     if (servico->lerLeadTimeMedio(usuario, quadro, minutos)) mostrarMinutos("Lead time medio", minutos);
     else std::cout << "[ERRO] Indisponivel (nenhum cartao FEITO no quadro) ou sem permissao.\n";
 }
 
-void CntrApresentacaoCartao::lerWIP(const Email& usuario) {
+void CntrApresentacaoQuadro::lerWIP(const Email& usuario) {
     const Identificador quadro = criarId(lerIdentificador("Identificador do quadro: "));
     int wip = 0;
     if (servico->lerWIP(usuario, quadro, wip)) std::cout << "  WIP (cartoes em FAZENDO): " << wip << "\n";
@@ -522,14 +504,12 @@ CntrApresentacaoPrincipal::CntrApresentacaoPrincipal(
     IServicoPessoa* servicoPessoa,
     IApresentacaoPessoa& apresentacaoPessoa,
     IApresentacaoProjeto& apresentacaoProjeto,
-    IApresentacaoQuadro& apresentacaoQuadro,
-    IApresentacaoCartao& apresentacaoCartao
+    IApresentacaoQuadro& apresentacaoQuadro
 )
     : servicoPessoa(servicoPessoa),
       pessoa(apresentacaoPessoa),
       projeto(apresentacaoProjeto),
-      quadro(apresentacaoQuadro),
-      cartao(apresentacaoCartao) {}
+      quadro(apresentacaoQuadro) {}
 
 void CntrApresentacaoPrincipal::executar() {
     try {
@@ -561,14 +541,13 @@ void CntrApresentacaoPrincipal::sessao(const Email& usuario) {
         const std::string papel = atual.getPapel();
 
         std::cout << "\n=== Menu principal (" << usuario.getEmail() << " - " << papel << ") ===\n"
-                  << "1 - Pessoas\n2 - Projetos\n3 - Quadros\n4 - Cartoes de atividade\n"
+                  << "1 - Pessoas\n2 - Projetos\n3 - Quadros\n"
                   << "0 - Sair da sessao\n";
         switch (lerOpcao()) {
             case 0: std::cout << "Sessao encerrada.\n"; return;
             case 1: if (pessoa.executar(usuario)) return; break;
             case 2: projeto.executar(usuario, papel); break;
             case 3: quadro.executar(usuario, papel); break;
-            case 4: cartao.executar(usuario, papel); break;
             default: opcaoInvalida();
         }
     }

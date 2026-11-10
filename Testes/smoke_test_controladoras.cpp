@@ -65,11 +65,9 @@ int main() {
     CntrServicoPessoa cp(pessoas, projetos, cartoes);
     CntrServicoProjeto cj(pessoas, projetos, quadros);
     CntrServicoQuadro cq(pessoas, projetos, quadros, cartoes);
-    CntrServicoCartaoDeAtividade cc(pessoas, projetos, quadros, cartoes);
     IServicoPessoa& sp = cp;
     IServicoProjeto& sj = cj;
     IServicoQuadro& sq = cq;
-    IServicoCartaoDeAtividade& sc = cc;
 
     const Email gestor = email("gestor@example.com");
     const Email outroGestor = email("outro.gestor@example.com");
@@ -111,30 +109,30 @@ int main() {
     verificar("15 LISTAR QUADRO", sq.listar(dev, ids) && ids.size() == 1 && ids[0].getIdentificador() == "QUA001");
 
     // --- Cartão ---------------------------------------------------------------
-    verificar("16 CRIAR CARTAO DE ATIVIDADE (CAR001)", sc.criar(gestor, id("QUA001"), dev, cartao("CAR001", "Tarefa Um", "2-JAN-2026-09:00")));
-    verificar("16 CRIAR CARTAO DE ATIVIDADE (CAR002)", sc.criar(gestor, id("QUA001"), dev, cartao("CAR002", "Tarefa Dois", "2-JAN-2026-09:30")));
-    verificar("16 CRIAR CARTAO DE ATIVIDADE (CAR003)", sc.criar(gestor, id("QUA001"), dev2, cartao("CAR003", "Tarefa Tres", "2-JAN-2026-10:00")));
+    verificar("16 CRIAR CARTAO DE ATIVIDADE (CAR001)", sq.criarCartao(gestor, id("QUA001"), dev, cartao("CAR001", "Tarefa Um", "2-JAN-2026-09:00")));
+    verificar("16 CRIAR CARTAO DE ATIVIDADE (CAR002)", sq.criarCartao(gestor, id("QUA001"), dev, cartao("CAR002", "Tarefa Dois", "2-JAN-2026-09:30")));
+    verificar("16 CRIAR CARTAO DE ATIVIDADE (CAR003)", sq.criarCartao(gestor, id("QUA001"), dev2, cartao("CAR003", "Tarefa Tres", "2-JAN-2026-10:00")));
     CartaoDeAtividade ct;
-    verificar("17 LER CARTAO DE ATIVIDADE", sc.ler(dev, id("CAR001"), ct) && ct.getEstado() == "A FAZER" && ct.getNome() == "Tarefa Um");
-    verificar("18 ATUALIZAR CARTAO DE ATIVIDADE", sc.atualizar(gestor, id("CAR001"), cartao("CAR001", "Tarefa Uma", "2-JAN-2026-09:00")));
-    verificar("17 LER CARTAO DE ATIVIDADE (dado atualizado)", sc.ler(gestor, id("CAR001"), ct) && ct.getNome() == "Tarefa Uma");
-    verificar("20 LISTAR CARTAO DE ATIVIDADE", sc.listar(dev, id("QUA001"), ids) && ids.size() == 3);
+    verificar("17 LER CARTAO DE ATIVIDADE", sq.lerCartao(dev, id("CAR001"), ct) && ct.getEstado() == "A FAZER" && ct.getNome() == "Tarefa Um");
+    verificar("18 ATUALIZAR CARTAO DE ATIVIDADE", sq.atualizarCartao(gestor, id("CAR001"), cartao("CAR001", "Tarefa Uma", "2-JAN-2026-09:00")));
+    verificar("17 LER CARTAO DE ATIVIDADE (dado atualizado)", sq.lerCartao(gestor, id("CAR001"), ct) && ct.getNome() == "Tarefa Uma");
+    verificar("20 LISTAR CARTAO DE ATIVIDADE", sq.listarCartoes(dev, id("QUA001"), ids) && ids.size() == 3);
 
     int wip = -1;
-    verificar("26 LER WIP (inicial = 0)", sc.lerWIP(gestor, id("QUA001"), wip) && wip == 0);
-    verificar("21 MOVER CAR001 (A FAZER -> FAZENDO)", sc.mover(dev, id("CAR001"), ts("2-JAN-2026-10:00")));
-    verificar("21 MOVER CAR002 (A FAZER -> FAZENDO)", sc.mover(dev, id("CAR002"), ts("2-JAN-2026-11:00")));
-    verificar("26 LER WIP (dois em FAZENDO)", sc.lerWIP(dev, id("QUA001"), wip) && wip == 2);
-    verificar("21 MOVER CAR001 (FAZENDO -> FEITO)", sc.mover(dev, id("CAR001"), ts("2-JAN-2026-12:30")));
-    verificar("21 MOVER CAR002 (FAZENDO -> FEITO, gestor)", sc.mover(gestor, id("CAR002"), ts("2-JAN-2026-14:00")));
-    verificar("26 LER WIP (final = 0)", sc.lerWIP(gestor, id("QUA001"), wip) && wip == 0);
+    verificar("26 LER WIP (inicial = 0)", sq.lerWIP(gestor, id("QUA001"), wip) && wip == 0);
+    verificar("21 MOVER CAR001 (A FAZER -> FAZENDO)", sq.moverCartao(dev, id("CAR001"), ts("2-JAN-2026-10:00")));
+    verificar("21 MOVER CAR002 (A FAZER -> FAZENDO)", sq.moverCartao(dev, id("CAR002"), ts("2-JAN-2026-11:00")));
+    verificar("26 LER WIP (dois em FAZENDO)", sq.lerWIP(dev, id("QUA001"), wip) && wip == 2);
+    verificar("21 MOVER CAR001 (FAZENDO -> FEITO)", sq.moverCartao(dev, id("CAR001"), ts("2-JAN-2026-12:30")));
+    verificar("21 MOVER CAR002 (FAZENDO -> FEITO, gestor)", sq.moverCartao(gestor, id("CAR002"), ts("2-JAN-2026-14:00")));
+    verificar("26 LER WIP (final = 0)", sq.lerWIP(gestor, id("QUA001"), wip) && wip == 0);
 
     long long minutos = -1;
     double media = -1;
-    verificar("22 LER TEMPO DE CICLO (CAR001 = 150 min)", sc.lerTempoCiclo(dev, id("CAR001"), minutos) && minutos == 150);
-    verificar("24 LER LEAD TIME (CAR001 = 210 min)", sc.lerLeadTime(dev, id("CAR001"), minutos) && minutos == 210);
-    verificar("23 LER TEMPO DE CICLO MEDIO (150 e 180 -> 165)", sc.lerTempoCicloMedio(gestor, id("QUA001"), media) && std::fabs(media - 165.0) < 1e-9);
-    verificar("25 LER LEAD TIME MEDIO (210 e 270 -> 240)", sc.lerLeadTimeMedio(gestor, id("QUA001"), media) && std::fabs(media - 240.0) < 1e-9);
+    verificar("22 LER TEMPO DE CICLO (CAR001 = 150 min)", sq.lerTempoCiclo(dev, id("CAR001"), minutos) && minutos == 150);
+    verificar("24 LER LEAD TIME (CAR001 = 210 min)", sq.lerLeadTime(dev, id("CAR001"), minutos) && minutos == 210);
+    verificar("23 LER TEMPO DE CICLO MEDIO (150 e 180 -> 165)", sq.lerTempoCicloMedio(gestor, id("QUA001"), media) && std::fabs(media - 165.0) < 1e-9);
+    verificar("25 LER LEAD TIME MEDIO (210 e 270 -> 240)", sq.lerLeadTimeMedio(gestor, id("QUA001"), media) && std::fabs(media - 240.0) < 1e-9);
 
     std::cout << "\n== Casos em que o servico deve recusar ==\n";
 
@@ -146,27 +144,27 @@ int main() {
     verificar("PROJETO duplicado e recusado", !sj.criar(gestor, projeto("PRJ001", "Projeto Alfa", "Duplicado.")));
     verificar("Gestor que nao criou o projeto nao atualiza", !sj.atualizar(outroGestor, id("PRJ001"), projeto("PRJ001", "Invasao", "Nao deve.")));
     verificar("Gestor que nao criou o projeto nao cria quadro nele", !sq.criar(outroGestor, id("PRJ001"), quadro("QUA002", "Invasao", 3)));
-    verificar("DESENVOLVEDOR nao cria cartao", !sc.criar(dev, id("QUA001"), dev, cartao("CAR004", "Tarefa Quatro", "2-JAN-2026-11:00")));
-    verificar("DESENVOLVEDOR nao atualiza cartao", !sc.atualizar(dev, id("CAR001"), cartao("CAR001", "Alterado", "2-JAN-2026-09:00")));
-    verificar("DESENVOLVEDOR nao exclui cartao", !sc.excluir(dev, id("CAR001")));
-    verificar("Cartao de quadro inexistente e recusado", !sc.criar(gestor, id("QUA999"), dev, cartao("CAR004", "Tarefa Quatro", "2-JAN-2026-11:00")));
-    verificar("Cartao so pode ser criado para um DESENVOLVEDOR", !sc.criar(gestor, id("QUA001"), outroGestor, cartao("CAR004", "Tarefa Quatro", "2-JAN-2026-11:00")));
-    verificar("Cartao FEITO nao pode mais ser movido", !sc.mover(dev, id("CAR001"), ts("2-JAN-2026-18:00")));
-    verificar("Mover cartao de outro desenvolvedor e recusado", !sc.mover(dev, id("CAR003"), ts("2-JAN-2026-10:30")));
+    verificar("DESENVOLVEDOR nao cria cartao", !sq.criarCartao(dev, id("QUA001"), dev, cartao("CAR004", "Tarefa Quatro", "2-JAN-2026-11:00")));
+    verificar("DESENVOLVEDOR nao atualiza cartao", !sq.atualizarCartao(dev, id("CAR001"), cartao("CAR001", "Alterado", "2-JAN-2026-09:00")));
+    verificar("DESENVOLVEDOR nao exclui cartao", !sq.excluirCartao(dev, id("CAR001")));
+    verificar("Cartao de quadro inexistente e recusado", !sq.criarCartao(gestor, id("QUA999"), dev, cartao("CAR004", "Tarefa Quatro", "2-JAN-2026-11:00")));
+    verificar("Cartao so pode ser criado para um DESENVOLVEDOR", !sq.criarCartao(gestor, id("QUA001"), outroGestor, cartao("CAR004", "Tarefa Quatro", "2-JAN-2026-11:00")));
+    verificar("Cartao FEITO nao pode mais ser movido", !sq.moverCartao(dev, id("CAR001"), ts("2-JAN-2026-18:00")));
+    verificar("Mover cartao de outro desenvolvedor e recusado", !sq.moverCartao(dev, id("CAR003"), ts("2-JAN-2026-10:30")));
 
     // Limite de WIP (quadro com limite 2): CAR003 só entra em FAZENDO se houver vaga.
     // Para testar o limite, cria CAR004 e CAR005 e ocupa as duas vagas.
-    verificar("-- preparo: CAR004", sc.criar(gestor, id("QUA001"), dev, cartao("CAR004", "Tarefa Quatro", "3-JAN-2026-09:00")));
-    verificar("-- preparo: CAR005", sc.criar(gestor, id("QUA001"), dev, cartao("CAR005", "Tarefa Cinco", "3-JAN-2026-09:10")));
-    verificar("-- preparo: CAR006", sc.criar(gestor, id("QUA001"), dev, cartao("CAR006", "Tarefa Seis", "3-JAN-2026-09:20")));
-    verificar("MOVER CAR004 para FAZENDO", sc.mover(dev, id("CAR004"), ts("3-JAN-2026-10:00")));
-    verificar("MOVER CAR005 para FAZENDO", sc.mover(dev, id("CAR005"), ts("3-JAN-2026-10:05")));
-    verificar("WIP acima do limite e recusado (limite 2)", !sc.mover(dev, id("CAR006"), ts("3-JAN-2026-10:10")));
+    verificar("-- preparo: CAR004", sq.criarCartao(gestor, id("QUA001"), dev, cartao("CAR004", "Tarefa Quatro", "3-JAN-2026-09:00")));
+    verificar("-- preparo: CAR005", sq.criarCartao(gestor, id("QUA001"), dev, cartao("CAR005", "Tarefa Cinco", "3-JAN-2026-09:10")));
+    verificar("-- preparo: CAR006", sq.criarCartao(gestor, id("QUA001"), dev, cartao("CAR006", "Tarefa Seis", "3-JAN-2026-09:20")));
+    verificar("MOVER CAR004 para FAZENDO", sq.moverCartao(dev, id("CAR004"), ts("3-JAN-2026-10:00")));
+    verificar("MOVER CAR005 para FAZENDO", sq.moverCartao(dev, id("CAR005"), ts("3-JAN-2026-10:05")));
+    verificar("WIP acima do limite e recusado (limite 2)", !sq.moverCartao(dev, id("CAR006"), ts("3-JAN-2026-10:10")));
     verificar("Reduzir limite abaixo do WIP atual e recusado", !sq.atualizar(gestor, id("QUA001"), quadro("QUA001", "Sprint Um", 1)));
-    verificar("Mover com instante anterior ao inicio e recusado", !sc.mover(dev, id("CAR004"), ts("3-JAN-2026-09:00")));
-    verificar("Conclui CAR004", sc.mover(dev, id("CAR004"), ts("3-JAN-2026-11:00")));
-    verificar("Com vaga liberada, CAR006 entra em FAZENDO", sc.mover(dev, id("CAR006"), ts("3-JAN-2026-11:05")));
-    verificar("Metrica de cartao que nao esta FEITO e recusada", !sc.lerTempoCiclo(dev, id("CAR006"), minutos));
+    verificar("Mover com instante anterior ao inicio e recusado", !sq.moverCartao(dev, id("CAR004"), ts("3-JAN-2026-09:00")));
+    verificar("Conclui CAR004", sq.moverCartao(dev, id("CAR004"), ts("3-JAN-2026-11:00")));
+    verificar("Com vaga liberada, CAR006 entra em FAZENDO", sq.moverCartao(dev, id("CAR006"), ts("3-JAN-2026-11:05")));
+    verificar("Metrica de cartao que nao esta FEITO e recusada", !sq.lerTempoCiclo(dev, id("CAR006"), minutos));
 
     std::cout << "\n== Consistencia nas exclusoes ==\n";
 
@@ -180,9 +178,9 @@ int main() {
     const char* cartoesParaExcluir[] = {"CAR001", "CAR002", "CAR003", "CAR004", "CAR005", "CAR006"};
     bool todosExcluidos = true;
     for (int i = 0; i < 6; ++i)
-        todosExcluidos = sc.excluir(gestor, id(cartoesParaExcluir[i])) && todosExcluidos;
+        todosExcluidos = sq.excluirCartao(gestor, id(cartoesParaExcluir[i])) && todosExcluidos;
     verificar("19 EXCLUIR CARTAO DE ATIVIDADE (seis cartoes)", todosExcluidos);
-    verificar("17 LER CARTAO excluido e recusado", !sc.ler(gestor, id("CAR001"), ct));
+    verificar("17 LER CARTAO excluido e recusado", !sq.lerCartao(gestor, id("CAR001"), ct));
     verificar("14 EXCLUIR QUADRO", sq.excluir(gestor, id("QUA001")));
     verificar("09 EXCLUIR PROJETO", sj.excluir(gestor, id("PRJ001")));
     verificar("04 EXCLUIR PESSOA (dev2, sem vinculos)", sp.excluir(dev2, dev2));
