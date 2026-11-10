@@ -67,19 +67,16 @@ private:
  * @brief Controladora de apresentação dos serviços relacionados a Projeto.
  * 
  * Implementa a interface IApresentacaoProjeto.
- * Consulta os quadros de um projeto por meio de IServicoQuadro.
  */
 class CntrApresentacaoProjeto : public IApresentacaoProjeto{
 private:
     IServicoProjeto* servico;
-    IServicoQuadro* servicoQuadro;
 public:
     /**
      * @brief Constrói a controladora.
      * @param[in] servico Serviço de projeto que será utilizado (não pode ser nulo).
-     * @param[in] servicoQuadro Serviço para listar os quadros do projeto (não pode ser nulo).
      */
-    explicit CntrApresentacaoProjeto(IServicoProjeto* servico, IServicoQuadro* servicoQuadro);
+    explicit CntrApresentacaoProjeto(IServicoProjeto* servico);
 
     /**
      * @brief Apresenta o menu de projetos conforme o papel do usuário.
@@ -94,7 +91,6 @@ private:
     void atualizar(const Email& usuario);
     void excluir(const Email& usuario);
     void listar(const Email& usuario);
-    void listarQuadros(const Email& usuario);
 };
 
 /**

@@ -229,9 +229,8 @@ void CntrApresentacaoPessoa::listar(const Email& usuario) {
 // Projeto
 // -----------------------------------------------------------------------------
 
-CntrApresentacaoProjeto::CntrApresentacaoProjeto(IServicoProjeto* servico,
-                                               IServicoQuadro* servicoQuadro)
-    : servico(servico), servicoQuadro(servicoQuadro) {}
+CntrApresentacaoProjeto::CntrApresentacaoProjeto(IServicoProjeto* servico)
+    : servico(servico) {}
 
 void CntrApresentacaoProjeto::executar(const Email& usuario, const std::string& papel) {
     const bool gestor = (papel == "GESTOR");
@@ -240,7 +239,7 @@ void CntrApresentacaoProjeto::executar(const Email& usuario, const std::string& 
         if (gestor) std::cout << "1 - Criar\n";
         std::cout << "2 - Ler\n";
         if (gestor) std::cout << "3 - Atualizar\n4 - Excluir\n";
-        std::cout << "5 - Listar\n6 - Listar quadros de um projeto\n0 - Voltar\n";
+        std::cout << "5 - Listar\n0 - Voltar\n";
         const int opcao = lerOpcao();
         if (opcao == 0) return;
         if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); continue; }
@@ -250,7 +249,6 @@ void CntrApresentacaoProjeto::executar(const Email& usuario, const std::string& 
             case 3: atualizar(usuario); break;
             case 4: excluir(usuario); break;
             case 5: listar(usuario); break;
-            case 6: listarQuadros(usuario); break;
             default: opcaoInvalida();
         }
     }
@@ -300,18 +298,6 @@ void CntrApresentacaoProjeto::listar(const Email& usuario) {
         std::cout << "  - " << ids[i].getIdentificador() << "\n";
 }
 
-void CntrApresentacaoProjeto::listarQuadros(const Email& usuario) {
-    const Identificador projeto = criarId(lerIdentificador("Identificador do projeto: "));
-    std::vector<Identificador> ids;
-    if (!servicoQuadro->listarPorProjeto(usuario, projeto, ids)) {
-        std::cout << MSG_FALHA << "\n";
-        return;
-    }
-    std::cout << "  Quadros do projeto " << projeto.getIdentificador()
-              << " (" << ids.size() << "):\n";
-    for (std::size_t i = 0; i < ids.size(); ++i)
-        std::cout << "  - " << ids[i].getIdentificador() << "\n";
-}
 
 // -----------------------------------------------------------------------------
 // Quadro

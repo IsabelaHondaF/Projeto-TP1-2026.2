@@ -17,7 +17,7 @@ int main() {
     CntrServicoCartaoDeAtividade servicoCartao(pessoas, projetos, quadros, cartoes);
 
     CntrApresentacaoPessoa apresentacaoPessoa(&servicoPessoa);
-    CntrApresentacaoProjeto apresentacaoProjeto(&servicoProjeto, &servicoQuadro);
+   CntrApresentacaoProjeto apresentacaoProjeto(&servicoProjeto);
     CntrApresentacaoQuadro apresentacaoQuadro(&servicoQuadro, &servicoCartao);
     CntrApresentacaoCartao apresentacaoCartao(&servicoCartao);
 
