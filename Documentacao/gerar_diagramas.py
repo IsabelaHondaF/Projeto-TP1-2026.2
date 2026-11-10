@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import shutil
 os.environ['MPLCONFIGDIR'] = '/tmp/mpl_config'
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -124,14 +125,14 @@ def criar_diagrama_modulos(caminho_saida):
 
 
 def criar_diagrama_entidades(caminho_saida):
-    fig, ax = plt.subplots(figsize=(13, 9), dpi=300)
-    ax.set_xlim(0, 130)
-    ax.set_ylim(0, 95)
-    ax.axis('off')
+    pasta_documentacao = os.path.dirname(os.path.abspath(__file__))
+    imagem_atual = os.path.join(
+        pasta_documentacao,
+        "Diagrama_Arquitetura.png"
+    )
 
-    c_box_bg = '#FFFFFF'
-    c_box_header = '#0B3C5D'
-    c_box_border = '#0B3C5D'
+    shutil.copyfile(imagem_atual, caminho_saida)
+    print(f"Diagrama de módulos atualizado em {caminho_saida}")
 
     def desenhar_entidade(x, y, w, h, titulo, atributos):
         # Caixa principal
