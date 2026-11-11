@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1794318002 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Apresentacao/apresentacao.cpp
+	"../Headers/apresentacao.hpp"
+	<functional>
+	<iomanip>
+	<iostream>
+	<stdexcept>
+	<vector>
+
+1794318124 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/apresentacao.hpp
+	"interfaces.hpp"
+	<string>
+
+1794318124 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/interfaces.hpp
+	"entidades.hpp"
+	<vector>
+	<string>
+
+1793975778 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/entidades.hpp
+	"dominios.hpp"
+
+1793975906 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/dominios.hpp
+	<string>
+	<stdexcept>
+
+1793975778 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Dominios/dominios.cpp
+	"../Headers/dominios.hpp"
+	<stdexcept>
+	<cstring>
+
+1793975778 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Entidades/entidades.cpp
+	"../Headers/entidades.hpp"
+
+1794318002 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Main/main.cpp
+	"../Headers/apresentacao.hpp"
+	"../Headers/controladoras_servico.hpp"
+
+1794318124 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/controladoras_servico.hpp
+	"interfaces.hpp"
+	"repositorios.hpp"
+
+1793975778 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/repositorios.hpp
+	"entidades.hpp"
+	<string>
+	<vector>
+
+1793975778 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Repositorios/repositorios.cpp
+	"../Headers/repositorios.hpp"
+
+1794318124 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Servicos/controladoras_servico.cpp
+	"../Headers/controladoras_servico.hpp"
+	<exception>
+	<string>
+	<vector>
+

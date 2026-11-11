@@ -1,10 +1,18 @@
 #include "../Headers/apresentacao.hpp"
 
+#include <cstdio>
 #include <functional>
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+
+#ifdef _WIN32
+#include <cstdlib>
+#include <io.h>
+#else
+#include <unistd.h>
+#endif
 
 namespace {
 
@@ -18,6 +26,30 @@ std::string lerLinha(const std::string& rotulo) {
     if (!std::getline(std::cin, linha)) throw FimDeEntrada();
     if (!linha.empty() && linha[linha.size() - 1] == '\r') linha.erase(linha.size() - 1);
     return linha;
+}
+
+bool terminalInterativo() {
+#ifdef _WIN32
+    return _isatty(_fileno(stdin)) && _isatty(_fileno(stdout));
+#else
+    return isatty(fileno(stdin)) && isatty(fileno(stdout));
+#endif
+}
+
+void limparTela() {
+    if (!terminalInterativo()) return;
+#ifdef _WIN32
+    std::cout.flush();
+    std::system("cls");
+#else
+    std::cout << "\033[2J\033[H" << std::flush;
+#endif
+}
+
+void aguardarContinuacao() {
+    if (!terminalInterativo()) return;
+    lerLinha("\nPressione Enter para continuar...");
+    limparTela();
 }
 
 /** Repete a leitura até que a classe de domínio aceite o valor digitado. */
@@ -80,6 +112,7 @@ int lerLimite(const std::string& rotulo) {
 
 int lerOpcao() {
     const std::string texto = lerLinha("Opcao: ");
+    limparTela();
     try {
         std::size_t usados = 0;
         const int valor = std::stoi(texto, &usados);
@@ -185,10 +218,16 @@ bool CntrApresentacaoPessoa::executar(const Email& usuario) {
             case 0: return false;
             case 2: ler(usuario); break;
             case 3: atualizar(usuario); break;
-            case 4: if (excluir(usuario)) return true; break;
+            case 4:
+                if (excluir(usuario)) {
+                    aguardarContinuacao();
+                    return true;
+                }
+                break;
             case 5: listar(usuario); break;
             default: opcaoInvalida();
         }
+        aguardarContinuacao();
     }
 }
 
@@ -229,8 +268,7 @@ void CntrApresentacaoPessoa::listar(const Email& usuario) {
 // Projeto
 // -----------------------------------------------------------------------------
 
-CntrApresentacaoProjeto::CntrApresentacaoProjeto(IServicoProjeto* servico)
-    : servico(servico) {}
+CntrApresentacaoProjeto::CntrApresentacaoProjeto(IServicoProjeto* servico) : servico(servico) {}
 
 void CntrApresentacaoProjeto::executar(const Email& usuario, const std::string& papel) {
     const bool gestor = (papel == "GESTOR");
@@ -242,7 +280,7 @@ void CntrApresentacaoProjeto::executar(const Email& usuario, const std::string& 
         std::cout << "5 - Listar\n0 - Voltar\n";
         const int opcao = lerOpcao();
         if (opcao == 0) return;
-        if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); continue; }
+        if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); aguardarContinuacao(); continue; }
         switch (opcao) {
             case 1: criar(usuario); break;
             case 2: ler(usuario); break;
@@ -251,6 +289,7 @@ void CntrApresentacaoProjeto::executar(const Email& usuario, const std::string& 
             case 5: listar(usuario); break;
             default: opcaoInvalida();
         }
+        aguardarContinuacao();
     }
 }
 
@@ -302,8 +341,7 @@ void CntrApresentacaoProjeto::listar(const Email& usuario) {
 // Quadro
 // -----------------------------------------------------------------------------
 
-CntrApresentacaoQuadro::CntrApresentacaoQuadro(IServicoQuadro* servico)
-    : servico(servico) {}
+CntrApresentacaoQuadro::CntrApresentacaoQuadro(IServicoQuadro* servico) : servico(servico) {}
 
 void CntrApresentacaoQuadro::executar(const Email& usuario, const std::string& papel) {
     const bool gestor = (papel == "GESTOR");
@@ -312,19 +350,20 @@ void CntrApresentacaoQuadro::executar(const Email& usuario, const std::string& p
         if (gestor) std::cout << "1 - Criar\n";
         std::cout << "2 - Ler\n";
         if (gestor) std::cout << "3 - Atualizar\n4 - Excluir\n";
-        std::cout << "5 - Listar\n6 - Cartoes de atividade\n0 - Voltar\n";
+        std::cout << "5 - Listar\n6 - Gerenciar cartoes\n0 - Voltar\n";
         const int opcao = lerOpcao();
         if (opcao == 0) return;
-        if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); continue; }
+        if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); aguardarContinuacao(); continue; }
         switch (opcao) {
             case 1: criar(usuario); break;
             case 2: ler(usuario); break;
             case 3: atualizar(usuario); break;
             case 4: excluir(usuario); break;
             case 5: listar(usuario); break;
-            case 6: gerenciarCartoes(usuario, papel); break;
+            case 6: gerenciarCartoes(usuario, papel); continue;
             default: opcaoInvalida();
         }
+        aguardarContinuacao();
     }
 }
 
@@ -370,7 +409,7 @@ void CntrApresentacaoQuadro::listar(const Email& usuario) {
 }
 
 // -----------------------------------------------------------------------------
-// Cartões de atividade: submenu interno de Quadro
+// Cartão de atividade
 // -----------------------------------------------------------------------------
 
 void CntrApresentacaoQuadro::gerenciarCartoes(const Email& usuario, const std::string& papel) {
@@ -385,7 +424,7 @@ void CntrApresentacaoQuadro::gerenciarCartoes(const Email& usuario, const std::s
                   << "10 - Ler lead time medio\n11 - Ler WIP\n0 - Voltar\n";
         const int opcao = lerOpcao();
         if (opcao == 0) return;
-        if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); continue; }
+        if (!gestor && (opcao == 1 || opcao == 3 || opcao == 4)) { opcaoIndisponivel(); aguardarContinuacao(); continue; }
         switch (opcao) {
             case 1: criarCartao(usuario); break;
             case 2: lerCartao(usuario); break;
@@ -400,6 +439,7 @@ void CntrApresentacaoQuadro::gerenciarCartoes(const Email& usuario, const std::s
             case 11: lerWIP(usuario); break;
             default: opcaoInvalida();
         }
+        aguardarContinuacao();
     }
 }
 
@@ -514,6 +554,7 @@ CntrApresentacaoPrincipal::CntrApresentacaoPrincipal(
 void CntrApresentacaoPrincipal::executar() {
     try {
         for (;;) {
+            limparTela();
             std::cout << "\n=== Sistema Kanban ===\n1 - Entrar\n2 - Criar conta\n0 - Sair\n";
             const int opcao = lerOpcao();
             if (opcao == 0) {
@@ -522,11 +563,15 @@ void CntrApresentacaoPrincipal::executar() {
             }
             if (opcao == 1) {
                 Email usuario;
-                if (pessoa.autenticar(usuario)) sessao(usuario);
+                const bool autenticado = pessoa.autenticar(usuario);
+                aguardarContinuacao();
+                if (autenticado) sessao(usuario);
             } else if (opcao == 2) {
                 pessoa.cadastrar();
+                aguardarContinuacao();
             } else {
                 opcaoInvalida();
+                aguardarContinuacao();
             }
         }
     } catch (const FimDeEntrada&) {
@@ -544,11 +589,14 @@ void CntrApresentacaoPrincipal::sessao(const Email& usuario) {
                   << "1 - Pessoas\n2 - Projetos\n3 - Quadros\n"
                   << "0 - Sair da sessao\n";
         switch (lerOpcao()) {
-            case 0: std::cout << "Sessao encerrada.\n"; return;
+            case 0:
+                std::cout << "Sessao encerrada.\n";
+                aguardarContinuacao();
+                return;
             case 1: if (pessoa.executar(usuario)) return; break;
             case 2: projeto.executar(usuario, papel); break;
             case 3: quadro.executar(usuario, papel); break;
-            default: opcaoInvalida();
+            default: opcaoInvalida(); aguardarContinuacao();
         }
     }
 }
