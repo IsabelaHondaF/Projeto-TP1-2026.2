@@ -112,7 +112,25 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('repositorios_8
   <div class="headertitle"><div class="title">Referência do Arquivo repositorios.cpp</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Persistência dos contêineres em tabelas relacionais SQLite.  
+<a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="repositorios_8hpp_source.html">../Headers/repositorios.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="banco__dados_8hpp_source.html">../Headers/banco_dados.hpp</a>&quot;</code><br />
+<code>#include &lt;sqlite3.h&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+</div><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Persistência dos contêineres em tabelas relacionais SQLite. </p>
+<p><a class="el" href="classBancoDados.html#abb3dcb890739db9fc4f37024c6de2f05" title="Fornece acesso à conexão compartilhada pelos repositórios.">BancoDados::getConexao()</a> deve fornecer uma conexão sqlite3* já aberta. A criação das tabelas e a ativação de PRAGMA foreign_keys = ON pertencem a <a class="el" href="classBancoDados.html" title="Gerencia a conexão com o banco de dados relacional SQLite do sistema.">BancoDados</a>. O esquema esperado por este arquivo é:</p><ul>
+<li>pessoas(email, nome, senha, papel);</li>
+<li>projetos(identificador, nome, descricao, inicio, termino, email_gestor);</li>
+<li>quadros(identificador, nome, limite, id_projeto);</li>
+<li>cartoes(identificador, nome, descricao, prioridade, estado, tamanho,
+          entrada, inicio, termino, id_quadro, email_desenvolvedor).</li>
+</ul>
+<p>As chaves primárias são email e identificador, respectivamente. Os vínculos usam chaves estrangeiras com exclusão restrita, sem remoção em cascata. As tabelas devem manter o rowid do SQLite: as listagens o utilizam para preservar a ordem de inserção dos antigos vetores. As colunas são TEXT, exceto limite (INTEGER); inicio e termino dos cartões admitem NULL.</p>
+<p>Operações de escrita retornam false quando não encontram o registro ou violam uma restrição de integridade. Falhas de acesso ou execução do SQL lançam std::runtime_error. As regras de negócio continuam nas controladoras. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

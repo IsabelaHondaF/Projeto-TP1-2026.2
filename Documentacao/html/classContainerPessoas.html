@@ -113,13 +113,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('classContainer
 </div><!--header-->
 <div class="contents">
 
-<p>Armazenamento em memória das pessoas cadastradas.  
+<p>Persistência em banco de dados relacional SQLite das pessoas cadastradas.  
  <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="repositorios_8hpp_source.html">repositorios.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
+<tr class="memitem:a979c04e5882d2b640ca843914fc4c35c" id="r_a979c04e5882d2b640ca843914fc4c35c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a979c04e5882d2b640ca843914fc4c35c">ContainerPessoas</a> (<a class="el" href="classBancoDados.html">BancoDados</a> &amp;bancoDados)</td></tr>
+<tr class="memdesc:a979c04e5882d2b640ca843914fc4c35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o contêiner de pessoas com o banco de dados compartilhado.  <br /></td></tr>
 <tr class="memitem:a6c90c5dd75db69c06f0bb682d687f224" id="r_a6c90c5dd75db69c06f0bb682d687f224"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c90c5dd75db69c06f0bb682d687f224">existe</a> (const std::string &amp;email) const</td></tr>
 <tr class="memdesc:a6c90c5dd75db69c06f0bb682d687f224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se existe uma conta cadastrada com o email fornecido.  <br /></td></tr>
 <tr class="memitem:acaec641526e95646fda67b1a4a01e15d" id="r_acaec641526e95646fda67b1a4a01e15d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acaec641526e95646fda67b1a4a01e15d">inserir</a> (const <a class="el" href="classPessoa.html">Pessoa</a> &amp;pessoa)</td></tr>
@@ -134,9 +136,44 @@ Membros Públicos</h2></td></tr>
 <tr class="memdesc:a455cb8f5b6cc41f7e69a61c35837d6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Substitui os dados de uma pessoa existente mantendo a chave primária.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Armazenamento em memória das pessoas cadastradas. </p>
-<p>O repositório cuida exclusivamente da persistência em memória e da garantia de unicidade da chave primária (email). Autenticação e regras de permissão pertencem às controladoras de serviço. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<div class="textblock"><p>Persistência em banco de dados relacional SQLite das pessoas cadastradas. </p>
+<p>O repositório cuida exclusivamente da persistência dos dados e da garantia de unicidade da chave primária (email). Autenticação e regras de permissão pertencem às controladoras de serviço. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="a979c04e5882d2b640ca843914fc4c35c" name="a979c04e5882d2b640ca843914fc4c35c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979c04e5882d2b640ca843914fc4c35c">&#9670;&#160;</a></span>ContainerPessoas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ContainerPessoas::ContainerPessoas </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBancoDados.html">BancoDados</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bancoDados</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inicializa o contêiner de pessoas com o banco de dados compartilhado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bancoDados</td><td>Gerenciador da conexão SQLite utilizada pelo contêiner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>O banco deve permanecer válido durante toda a vida do contêiner. O contêiner não abre nem fecha a conexão. </dd></dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
 <a id="a6c90c5dd75db69c06f0bb682d687f224" name="a6c90c5dd75db69c06f0bb682d687f224"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c90c5dd75db69c06f0bb682d687f224">&#9670;&#160;</a></span>existe()</h2>
 

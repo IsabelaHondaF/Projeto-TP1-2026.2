@@ -114,10 +114,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('main_8cpp.html
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="apresentacao_8hpp_source.html">../Headers/apresentacao.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="controladoras__servico_8hpp_source.html">../Headers/controladoras_servico.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="banco__dados_8hpp_source.html">../Headers/banco_dados.hpp</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Funções</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o banco de dados, as controladoras e a apresentação.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Funções</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
@@ -134,7 +138,10 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ponto de entrada: instancia o armazenamento em memória, as controladoras de serviço e a camada de apresentação, ligando-as por meio das interfaces. </p>
+
+<p>Inicializa o banco de dados, as controladoras e a apresentação. </p>
+<p>Os quatro contêineres compartilham a conexão SQLite. As controladoras de serviço e a apresentação continuam ligadas por meio das interfaces.</p>
+<dl class="section return"><dt>Retorna</dt><dd>0 ao encerrar normalmente; 1 em caso de falha de acesso ao banco. </dd></dl>
 
 </div>
 </div>

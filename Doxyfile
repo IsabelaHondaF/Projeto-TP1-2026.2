@@ -36,6 +36,7 @@ INPUT                  = Headers \
                          Entidades \
                          Servicos \
                          Repositorios \
+                         BancoDados \
                          Apresentacao \
                          Main \
                          README.md \

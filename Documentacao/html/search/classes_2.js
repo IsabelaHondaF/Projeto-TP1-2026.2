@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fimdeentrada_0',['FimDeEntrada',['../classFimDeEntrada.html',1,'']]]
+  ['email_0',['Email',['../classEmail.html',1,'']]],
+  ['estado_1',['Estado',['../classEstado.html',1,'']]]
 ];

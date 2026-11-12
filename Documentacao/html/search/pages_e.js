@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['que_20o_20enunciado_20não_20especifica_0',['Decisões que o enunciado não especifica',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md19',1,'']]]
+  ['que_20o_20enunciado_20não_20especifica_0',['Decisões que o enunciado não especifica',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md22',1,'']]]
 ];

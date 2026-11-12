@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('md_DOCUMENTACA
   <div class="headertitle"><div class="title">Controladoras — TP1 Kanban </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md15"></a></p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md18"></a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 Estrutura</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -127,12 +127,12 @@ Estrutura</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Serviço  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="controladoras__servico_8hpp.html">Headers/controladoras_servico.hpp</a></span>, <span class="tt"><a class="el" href="controladoras__servico_8cpp.html">Servicos/controladoras_servico.cpp</a></span>  </td><td class="markdownTableBodyNone">Controladoras <span class="tt">CntrServico...</span>: regras de negócio e permissões  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Containers  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="repositorios_8hpp.html">Headers/repositorios.hpp</a></span>, <span class="tt"><a class="el" href="repositorios_8cpp.html">Repositorios/repositorios.cpp</a></span>  </td><td class="markdownTableBodyNone">Armazenamento em memória e vínculos entre entidades  </td></tr>
+<td class="markdownTableBodyNone">Containers  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="repositorios_8hpp.html">Headers/repositorios.hpp</a></span>, <span class="tt"><a class="el" href="repositorios_8cpp.html" title="Persistência dos contêineres em tabelas relacionais SQLite.">Repositorios/repositorios.cpp</a></span>  </td><td class="markdownTableBodyNone">Armazenamento em memória e vínculos entre entidades  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Apresentação  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="apresentacao_8hpp.html" title="Camada de apresentação: interface com o usuário (cin/cout) e validação dos dados de entrada.">Headers/apresentacao.hpp</a></span>, <span class="tt"><a class="el" href="apresentacao_8cpp.html">Apresentacao/apresentacao.cpp</a></span>  </td><td class="markdownTableBodyNone">Controladoras <span class="tt">CntrApresentacao...</span>: menus (cin/cout) e validação da entrada  </td></tr>
 </table>
 <p>A apresentação depende apenas das interfaces <span class="tt">IServico...</span>; <span class="tt"><a class="el" href="main_8cpp.html">Main/main.cpp</a></span> liga as camadas.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
 Como as camadas se comunicam</h1>
 <ol type="1">
 <li>A apresentação lê e valida o dado digitado (usando as próprias classes de domínio) e chama um método da interface (por exemplo, <span class="tt"><a class="el" href="classIServicoProjeto.html#a74a9a644b2af7e010e4e12c566f13c27" title="Cadastra um conjunto de atividades e vincula seu criador como gestor.">IServicoProjeto::criar</a></span>).</li>
@@ -141,7 +141,7 @@ Como as camadas se comunicam</h1>
 <li>O método devolve <span class="tt">true</span> se a operação foi concluída e <span class="tt">false</span> se foi recusada.</li>
 </ol>
 <p>As controladoras recebem os containers por referência, e todas compartilham o mesmo armazenamento.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
 Regras implementadas (conforme tabela de serviços do enunciado)</h1>
 <ul>
 <li><b><a class="el" href="classPessoa.html" title="Representa uma pessoa cadastrada no sistema.">Pessoa</a>:</b> criar e autenticar não exigem sessão. Ler e listar: qualquer usuário cadastrado. <b>Atualizar e excluir: somente a própria conta.</b> A chave e-mail não muda. A exclusão é recusada se a pessoa gerencia projeto ou tem cartões. O papel não pode mudar se isso quebrar um vínculo existente.</li>
@@ -151,7 +151,7 @@ Regras implementadas (conforme tabela de serviços do enunciado)</h1>
 <li><b>Mover:</b> gestor do projeto ou desenvolvedor responsável. Só A FAZER → FAZENDO → FEITO. Entrar em FAZENDO respeita o limite de WIP. O instante não pode ser anterior à entrada/início.</li>
 <li><b>Métricas:</b> ciclo = término − início; lead time = término − entrada; WIP = cartões em FAZENDO. As médias consideram cartões FEITO; sem nenhum, retornam <span class="tt">false</span>.</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
 Decisões que o enunciado não especifica</h1>
 <ul>
 <li>Atualizar/excluir pessoa restrito à própria conta (evita que alguém altere a conta de outro).</li>
@@ -159,7 +159,7 @@ Decisões que o enunciado não especifica</h1>
 <li>As interfaces recebem o e-mail do solicitante, sem token de sessão. A apresentação só repassa o e-mail de quem foi autenticado.</li>
 <li>Armazenamento somente em memória: os dados somem ao encerrar o programa.</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
 Compilar e testar</h1>
 <p>Veja <span class="tt">Testes/LEIA-ME_TESTE_FUMACA.md</span>. No Code::Blocks há três alvos: <span class="tt">Debug</span> e <span class="tt">Release</span> (sistema) e <span class="tt">SmokeTest</span> (teste automático das controladoras de serviço). </p>
 </div></div><!-- contents -->

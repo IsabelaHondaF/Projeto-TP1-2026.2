@@ -1,5 +1,6 @@
 var classContainerPessoas =
 [
+    [ "ContainerPessoas", "classContainerPessoas.html#a979c04e5882d2b640ca843914fc4c35c", null ],
     [ "existe", "classContainerPessoas.html#a6c90c5dd75db69c06f0bb682d687f224", null ],
     [ "inserir", "classContainerPessoas.html#acaec641526e95646fda67b1a4a01e15d", null ],
     [ "listarEmails", "classContainerPessoas.html#ae8434819a99c0bd4d3b366ca5e0201a2", null ],

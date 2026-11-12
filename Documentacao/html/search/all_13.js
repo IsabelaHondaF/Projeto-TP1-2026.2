@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['se_20comunicam_0',['Como as camadas se comunicam',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md17',1,'']]],
+  ['se_20comunicam_0',['Como as camadas se comunicam',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md20',1,'']]],
   ['senha_1',['Senha',['../classSenha.html',1,'']]],
-  ['serviços_20do_20enunciado_2',['Regras implementadas (conforme tabela de serviços do enunciado)',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md18',1,'']]],
+  ['serviços_20do_20enunciado_2',['Regras implementadas (conforme tabela de serviços do enunciado)',['../md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md21',1,'']]],
   ['setdescricao_3',['setDescricao',['../classProjeto.html#a99e88990d9f78338eb1fbc323329e13e',1,'Projeto::setDescricao()'],['../classCartaoDeAtividade.html#a905e492c219f5cfc2b8495ed9a6fc84c',1,'CartaoDeAtividade::setDescricao()']]],
   ['setemail_4',['setEmail',['../classEmail.html#a52ca8011920bf53ea3465c7281370f14',1,'Email::setEmail()'],['../classPessoa.html#ade6c7ecf339f07b33019cfcf79424623',1,'Pessoa::setEmail()']]],
   ['setentrada_5',['setEntrada',['../classCartaoDeAtividade.html#a2f18b5c419776d6a28a78e7f9f248ae6',1,'CartaoDeAtividade']]],
@@ -20,10 +20,11 @@ var searchData=
   ['settimestamp_17',['setTimestamp',['../classTimestamp.html#a909c4ce49ca04d6084fa58cff3f7e547',1,'Timestamp']]],
   ['setvalor_18',['setValor',['../classLimite.html#afd821e232fe87e1e2ef933cc18d501e0',1,'Limite']]],
   ['sistema_19',['Especificações do Sistema',['../index.html#autotoc_md5',1,'']]],
-  ['sistema_20integrado_20',['2. Executando o Sistema Integrado',['../index.html#autotoc_md11',1,'']]],
+  ['sistema_20integrado_20',['2. Executando o Sistema Integrado',['../index.html#autotoc_md12',1,'']]],
   ['sistema_20kanban_20tp1_202026_202_21',['Sistema Kanban - TP1 2026.2',['../index.html',1,'']]],
   ['software_22',['Arquitetura do Software',['../index.html#autotoc_md7',1,'']]],
-  ['suítes_20de_20testes_23',['Suítes de Testes',['../index.html#autotoc_md14',1,'']]],
-  ['substituir_24',['substituir',['../classContainerPessoas.html#a455cb8f5b6cc41f7e69a61c35837d6d4',1,'ContainerPessoas::substituir()'],['../classContainerProjetos.html#a61715aca9664459b1c2e7c54982a50b6',1,'ContainerProjetos::substituir()'],['../classContainerQuadros.html#aa49e1d8f4968b3c55b507275c0683735',1,'ContainerQuadros::substituir()'],['../classContainerCartoes.html#a5cfb05113d18fea76723d5b84e4d36d4',1,'ContainerCartoes::substituir()']]],
-  ['sucesso_25',['sucesso',['../classTesteUnitarioBase.html#a2a2b84687c2de18d9a9c8494f75c8755',1,'TesteUnitarioBase']]]
+  ['sqlite_23',['SQLite',['../index.html#autotoc_md10',1,'Dependência SQLite'],['../index.html#autotoc_md15',1,'Persistência com SQLite']]],
+  ['suítes_20de_20testes_24',['Suítes de Testes',['../index.html#autotoc_md17',1,'']]],
+  ['substituir_25',['substituir',['../classContainerPessoas.html#a455cb8f5b6cc41f7e69a61c35837d6d4',1,'ContainerPessoas::substituir()'],['../classContainerProjetos.html#a61715aca9664459b1c2e7c54982a50b6',1,'ContainerProjetos::substituir()'],['../classContainerQuadros.html#aa49e1d8f4968b3c55b507275c0683735',1,'ContainerQuadros::substituir()'],['../classContainerCartoes.html#a5cfb05113d18fea76723d5b84e4d36d4',1,'ContainerCartoes::substituir()']]],
+  ['sucesso_26',['sucesso',['../classTesteUnitarioBase.html#a2a2b84687c2de18d9a9c8494f75c8755',1,'TesteUnitarioBase']]]
 ];

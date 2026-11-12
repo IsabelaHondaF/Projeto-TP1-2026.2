@@ -143,6 +143,7 @@ Especificações do Sistema</h2>
 <li><b>Controle de WIP:</b> a coluna <span class="tt">FAZENDO</span> possui um <span class="tt"><a class="el" href="classLimite.html" title="Representa a quantidade máxima de atividades simultâneas na coluna FAZENDO.">Limite</a></span> de cartões simultâneos (1 a 25).</li>
 <li><b>Métricas:</b> cálculo de tempo de ciclo (<em>cycle time</em>), <em>lead time</em>, tempo de ciclo médio, <em>lead time</em> médio e <em>Work in Progress</em> (WIP).</li>
 <li><b>Integridade:</b> exclusão de entidades preserva consistência dos relacionamentos e multiplicidades.</li>
+<li><b>Persistência:</b> pessoas, projetos, quadros e cartões são armazenados em um banco de dados relacional SQLite e permanecem disponíveis entre execuções.</li>
 </ul>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
@@ -150,7 +151,7 @@ Arquitetura do Software</h2>
 <p>O sistema adota o estilo de arquitetura em duas camadas, organizadas em três subsistemas: <a class="el" href="classPessoa.html" title="Representa uma pessoa cadastrada no sistema.">Pessoa</a>, <a class="el" href="classProjeto.html" title="Representa um projeto cadastrado no sistema.">Projeto</a> e <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>.</p>
 <ul>
 <li><b>Apresentação:</b> módulos MAC, MAA, MAP e MAQ, responsáveis pela navegação, interação com o usuário e validação das entradas.</li>
-<li><b>Serviço:</b> módulos MSA, MSP e MSQ, responsáveis pelas regras de negócio, permissões, integridade dos relacionamentos e armazenamento em memória.</li>
+<li><b>Serviço:</b> módulos MSA, MSP e MSQ, responsáveis pelas regras de negócio, permissões e integridade dos relacionamentos, com acesso aos dados por meio dos repositórios.</li>
 </ul>
 <p>O subsistema <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a> incorpora o gerenciamento dos cartões de atividade, sua movimentação, o controle de WIP e a consulta de métricas. Essas funcionalidades são implementadas por MAQ e MSQ.</p>
 <p>A comunicação entre os módulos ocorre por seis interfaces abstratas:</p>
@@ -160,16 +161,23 @@ Arquitetura do Software</h2>
 </ul>
 <p>MAC depende de IAA, IAP e IAQ para acessar os subsistemas. Também depende de ISA para consultar os dados e o papel do usuário autenticado.</p>
 <p>MAA solicita operações por meio de ISA, MAP utiliza ISP e MAQ utiliza ISQ para as operações de quadros e cartões.</p>
-<p>Os contêineres implementam o armazenamento em memória utilizado pela camada de serviço. As classes de domínio e entidade representam os dados utilizados pelas duas camadas.</p>
+<p>Os contêineres implementam os repositórios SQL utilizados pela camada de serviço. Um objeto <span class="tt"><a class="el" href="classBancoDados.html" title="Gerencia a conexão com o banco de dados relacional SQLite do sistema.">BancoDados</a></span> gerencia a conexão SQLite compartilhada pelos quatro contêineres e a criação das tabelas. As classes de domínio e entidade representam os dados utilizados pelas duas camadas.</p>
 <ul>
 <li><b>Modelo de Arquitetura em PDF:</b> <span class="tt">Documentacao/Modelo_Arquitetura.pdf</span></li>
 <li><b>Documentação Técnica em HTML (Doxygen):</b> <span class="tt">Documentacao/html/index.html</span></li>
-<li><b>Documentação de Regras das Controladoras:</b> <span class="tt">DOCUMENTACAO_CONTROLADORAS.md</span></li>
+<li><b>Documentação de Regras das Controladoras:</b> <span class="tt"><a class="el" href="DOCUMENTACAO__CONTROLADORAS_8md.html">DOCUMENTACAO_CONTROLADORAS.md</a></span></li>
 </ul>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Como Compilar e Executar</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Dependência SQLite</h3>
+<p>Além do compilador com suporte a C++11 e do Make, a compilação dos alvos que acessam o banco requer o cabeçalho <span class="tt">sqlite3.h</span> e a biblioteca SQLite disponível para vinculação com <span class="tt">-lsqlite3</span>.</p>
+<p>Em Debian/Ubuntu, instale os arquivos de desenvolvimento:</p>
+<div class="fragment"><div class="line">sudo apt update</div>
+<div class="line">sudo apt install libsqlite3-dev</div>
+</div><!-- fragment --><p>O pacote <span class="tt">libsqlite3-dev</span> está disponível nos repositórios oficiais do <a href="https://packages.debian.org/stable/libsqlite3-dev">Debian</a> e do <a href="https://packages.ubuntu.com/noble/libsqlite3-dev">Ubuntu</a>. Em outros ambientes, disponibilize o cabeçalho e a biblioteca SQLite para o compilador utilizado.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 1. Compilação via Makefile</h3>
 <div class="fragment"><div class="line"># Compila todos os alvos (executável raiz, Debug, Release, SmokeTest e TestesUnitarios):</div>
 <div class="line">make all</div>
@@ -182,14 +190,16 @@ Como Compilar e Executar</h2>
 <div class="line"> </div>
 <div class="line"># Gera o pacote ZIP no padrão de entrega (T1-TP1-X-Y-Z.ZIP):</div>
 <div class="line">make zip</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 2. Executando o Sistema Integrado</h3>
 <div class="fragment"><div class="line"># Modo interativo:</div>
 <div class="line">./Projeto_TP1</div>
 <div class="line"> </div>
 <div class="line"># Modo de teste automatizado (cobre todos os 26 serviços do enunciado):</div>
-<div class="line">./Projeto_TP1 &lt; Testes/roteiro_teste_fumaca.txt</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<div class="line">make test_integrated</div>
+</div><!-- fragment --><p>Na execução interativa, o programa cria ou abre <span class="tt">kanban.db</span> no diretório de execução. Para recuperar os mesmos dados, execute novamente a partir desse diretório.</p>
+<p>O alvo <span class="tt">make test_integrated</span> utiliza <span class="tt">Testes/roteiro_teste_fumaca.txt</span> em um diretório temporário, preservando o banco de uso normal. O diretório e o banco de teste são removidos ao terminar.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 3. Ambiente Code::Blocks</h3>
 <p>O arquivo de projeto <span class="tt">Projeto_TP1.cbp</span> está configurado com 4 alvos independentes:</p><ul>
 <li><b><span class="tt">Debug</span></b>: compilação do sistema completo com flags de depuração (<span class="tt">-g</span>).</li>
@@ -197,15 +207,31 @@ Como Compilar e Executar</h2>
 <li><b><span class="tt">SmokeTest</span></b>: executa a suíte de teste de fumaça das controladoras de serviço (75 asserções).</li>
 <li><b><span class="tt">TestesUnitarios</span></b>: executa a bateria de testes de unidade de domínios e entidades (106 asserções).</li>
 </ul>
+<p>Os alvos <span class="tt">Debug</span>, <span class="tt">Release</span> e <span class="tt">SmokeTest</span> incluem <span class="tt"><a class="el" href="banco__dados_8cpp.html" title="Abertura, configuração e fechamento do banco relacional SQLite.">BancoDados/banco_dados.cpp</a></span> e vinculam a biblioteca <span class="tt">sqlite3</span>. O cabeçalho <span class="tt"><a class="el" href="banco__dados_8hpp.html">Headers/banco_dados.hpp</a></span> também está incluído no projeto. O alvo <span class="tt">TestesUnitarios</span> permanece independente do banco.</p>
+<p>Abra o <span class="tt">Projeto_TP1.cbp</span> atualizado após instalar a dependência SQLite. Nos alvos <span class="tt">Debug</span> e <span class="tt">Release</span>, o diretório de execução determina a localização de <span class="tt">kanban.db</span>; utilize o mesmo diretório para acessar os mesmos dados nos dois alvos.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Persistência com SQLite</h2>
+<p>O banco contém as tabelas <span class="tt">pessoas</span>, <span class="tt">projetos</span>, <span class="tt">quadros</span> e <span class="tt">cartoes</span>. As chaves estrangeiras associam projetos aos seus gestores, quadros aos projetos e cartões aos quadros e desenvolvedores. A exclusão de registros ainda referenciados é restringida pelo banco, em conjunto com as verificações existentes nas controladoras.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Arquivos  </th><th class="markdownTableHeadNone">Responsabilidade  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="banco__dados_8hpp.html">Headers/banco_dados.hpp</a></span> e <span class="tt"><a class="el" href="banco__dados_8cpp.html" title="Abertura, configuração e fechamento do banco relacional SQLite.">BancoDados/banco_dados.cpp</a></span>  </td><td class="markdownTableBodyNone">Abrir e fechar a conexão, habilitar as chaves estrangeiras e criar as tabelas e os índices ausentes.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="repositorios_8hpp.html">Headers/repositorios.hpp</a></span> e <span class="tt"><a class="el" href="repositorios_8cpp.html" title="Persistência dos contêineres em tabelas relacionais SQLite.">Repositorios/repositorios.cpp</a></span>  </td><td class="markdownTableBodyNone">Executar as operações SQL de pessoas, projetos, quadros e cartões por meio dos quatro contêineres.  </td></tr>
+</table>
+<p>Ao iniciar, o programa prepara a estrutura do banco preservando os registros existentes. Ao encerrar, fecha a conexão e mantém o arquivo <span class="tt">kanban.db</span>, permitindo consultar os dados em uma nova execução. As regras de domínio, permissões, movimentação dos cartões e cálculo das métricas continuam nas classes correspondentes.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 Suítes de Testes</h2>
 <ol type="1">
 <li><b>Testes de Unidade (<span class="tt">make test_unit</span>):</b> Valida as 11 classes de domínio e as 4 entidades com casos válidos e limites inválidos (<span class="tt">std::invalid_argument</span>).</li>
-<li><b>Testes de Fumaça das Controladoras (<span class="tt">make test_smoke</span>):</b> Valida as 26 operações de serviço, regras de permissão (GESTOR vs. DESENVOLVEDOR), WIP e consistência de exclusão.</li>
-<li><b>Teste de Fumaça Integrado (<span class="tt">make test_integrated</span>):</b> Simula a interação com o usuário em 4 sessões consecutivas cobrindo todos os requisitos funcionais sem erros.</li>
+<li><b>Testes de Fumaça das Controladoras (<span class="tt">make test_smoke</span>):</b> Valida as 26 operações de serviço, regras de permissão (GESTOR vs. DESENVOLVEDOR), WIP e consistência de exclusão. Utiliza SQLite em memória (<span class="tt">:memory:</span>), com um banco vazio em cada execução, sem criar ou alterar <span class="tt">kanban.db</span>.</li>
+<li><b>Teste de Fumaça Integrado (<span class="tt">make test_integrated</span>):</b> Simula a interação com o usuário em 4 sessões consecutivas cobrindo todos os requisitos funcionais sem erros. Utiliza um arquivo de banco exclusivo em um diretório temporário, removido ao final do teste.</li>
 </ol>
-<p>Para instruções completas sobre o vídeo de demonstração, consulte <span class="tt">Testes/LEIA-ME_TESTE_FUMACA.md</span>. </p>
+<p>Para instruções completas sobre o vídeo de demonstração, consulte <span class="tt">Testes/LEIA-ME_TESTE_FUMACA.md</span>.</p>
+<p>O mesmo guia inclui, na seção 4, um roteiro complementar para verificar a persistência em disco: cadastrar uma conta, encerrar o executável e confirmar que a conta pode ser autenticada e consultada ao reabrir o programa no mesmo diretório. O <span class="tt">SmokeTest</span> em memória verifica os serviços, mas não a conservação dos dados entre processos. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

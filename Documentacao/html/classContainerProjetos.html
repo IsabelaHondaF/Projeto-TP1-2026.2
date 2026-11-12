@@ -113,13 +113,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('classContainer
 </div><!--header-->
 <div class="contents">
 
-<p>Armazenamento em memória de projetos e seus respectivos gestores.  
+<p>Persistência em banco de dados relacional SQLite de projetos e seus respectivos gestores.  
  <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="repositorios_8hpp_source.html">repositorios.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
+<tr class="memitem:afba05c76a8f2321bbb81174a534facf7" id="r_afba05c76a8f2321bbb81174a534facf7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afba05c76a8f2321bbb81174a534facf7">ContainerProjetos</a> (<a class="el" href="classBancoDados.html">BancoDados</a> &amp;bancoDados)</td></tr>
+<tr class="memdesc:afba05c76a8f2321bbb81174a534facf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o contêiner de projetos com o banco de dados compartilhado.  <br /></td></tr>
 <tr class="memitem:af9619d9e07d3eb566225be6ddfee2ed5" id="r_af9619d9e07d3eb566225be6ddfee2ed5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af9619d9e07d3eb566225be6ddfee2ed5">existe</a> (const std::string &amp;id) const</td></tr>
 <tr class="memdesc:af9619d9e07d3eb566225be6ddfee2ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um projeto existe.  <br /></td></tr>
 <tr class="memitem:a5b60070978d0cb073605e694c6a824f8" id="r_a5b60070978d0cb073605e694c6a824f8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5b60070978d0cb073605e694c6a824f8">gestorDoProjeto</a> (const std::string &amp;id, std::string &amp;emailGestor) const</td></tr>
@@ -138,8 +140,43 @@ Membros Públicos</h2></td></tr>
 <tr class="memdesc:a83488a40a9784afc1819b35d087948ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se determinado usuário gerencia pelo menos um projeto.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Armazenamento em memória de projetos e seus respectivos gestores. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<div class="textblock"><p>Persistência em banco de dados relacional SQLite de projetos e seus respectivos gestores. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="afba05c76a8f2321bbb81174a534facf7" name="afba05c76a8f2321bbb81174a534facf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba05c76a8f2321bbb81174a534facf7">&#9670;&#160;</a></span>ContainerProjetos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ContainerProjetos::ContainerProjetos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBancoDados.html">BancoDados</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bancoDados</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inicializa o contêiner de projetos com o banco de dados compartilhado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bancoDados</td><td>Gerenciador da conexão SQLite utilizada pelo contêiner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>O banco deve permanecer válido durante toda a vida do contêiner. O contêiner não abre nem fecha a conexão. </dd></dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
 <a id="af9619d9e07d3eb566225be6ddfee2ed5" name="af9619d9e07d3eb566225be6ddfee2ed5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9619d9e07d3eb566225be6ddfee2ed5">&#9670;&#160;</a></span>existe()</h2>
 
