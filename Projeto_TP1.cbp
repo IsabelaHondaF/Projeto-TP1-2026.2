@@ -17,6 +17,9 @@
           <Add option="-Wall" />
           <Add option="-Wextra" />
         </Compiler>
+        <Linker>
+          <Add library="sqlite3" />
+        </Linker>
       </Target>
       <Target title="Release">
         <Option output="bin/Release/Projeto_TP1" prefix_auto="1" extension_auto="1" />
@@ -31,6 +34,7 @@
         </Compiler>
         <Linker>
           <Add option="-s" />
+          <Add library="sqlite3" />
         </Linker>
       </Target>
       <Target title="SmokeTest">
@@ -44,6 +48,9 @@
           <Add option="-Wall" />
           <Add option="-Wextra" />
         </Compiler>
+        <Linker>
+          <Add library="sqlite3" />
+        </Linker>
       </Target>
       <Target title="TestesUnitarios">
         <Option output="bin/TestesUnitarios/TestesUnitarios" prefix_auto="1" extension_auto="1" />
@@ -83,6 +90,11 @@
       <Option target="Release" />
       <Option target="SmokeTest" />
     </Unit>
+    <Unit filename="BancoDados/banco_dados.cpp">
+      <Option target="Debug" />
+      <Option target="Release" />
+      <Option target="SmokeTest" />
+    </Unit>
     <Unit filename="Servicos/controladoras_servico.cpp">
       <Option target="Debug" />
       <Option target="Release" />
@@ -96,6 +108,7 @@
     <Unit filename="Headers/entidades.hpp" />
     <Unit filename="Headers/interfaces.hpp" />
     <Unit filename="Headers/repositorios.hpp" />
+    <Unit filename="Headers/banco_dados.hpp" />
     <Unit filename="Headers/controladoras_servico.hpp" />
     <Unit filename="Headers/apresentacao.hpp" />
     <Extensions />

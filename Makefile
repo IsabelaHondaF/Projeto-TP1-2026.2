@@ -2,6 +2,9 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic
 LDFLAGS =
 
+# Biblioteca dos alvos que utilizam persistência SQLite.
+LDLIBS = -lsqlite3
+
 # Diretórios
 BIN_DIR = bin
 OBJ_DIR = obj
@@ -12,6 +15,7 @@ HTML_DIR = $(DOC_DIR)/html
 SRCS_DOMINIOS = Dominios/dominios.cpp
 SRCS_ENTIDADES = Entidades/entidades.cpp
 SRCS_REPOSITORIOS = Repositorios/repositorios.cpp
+SRCS_BANCO_DADOS = BancoDados/banco_dados.cpp
 SRCS_SERVICOS = Servicos/controladoras_servico.cpp
 SRCS_APRESENTACAO = Apresentacao/apresentacao.cpp
 SRCS_MAIN = Main/main.cpp
@@ -37,17 +41,17 @@ dirs:
 	@mkdir -p $(BIN_DIR)/Debug $(BIN_DIR)/Release $(BIN_DIR)/SmokeTest $(BIN_DIR)/TestesUnitarios $(DOC_DIR)
 
 # Executável principal na raiz e alvos Code::Blocks
-$(TARGET_MAIN): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_SERVICOS) $(SRCS_APRESENTACAO) $(SRCS_MAIN)
-	$(CXX) $(CXXFLAGS) -O2 $^ -o $@ $(LDFLAGS)
+$(TARGET_MAIN): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_BANCO_DADOS) $(SRCS_SERVICOS) $(SRCS_APRESENTACAO) $(SRCS_MAIN)
+	$(CXX) $(CXXFLAGS) -O2 $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
-$(TARGET_DEBUG): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_SERVICOS) $(SRCS_APRESENTACAO) $(SRCS_MAIN)
-	$(CXX) $(CXXFLAGS) -g $^ -o $@ $(LDFLAGS)
+$(TARGET_DEBUG): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_BANCO_DADOS) $(SRCS_SERVICOS) $(SRCS_APRESENTACAO) $(SRCS_MAIN)
+	$(CXX) $(CXXFLAGS) -g $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
-$(TARGET_RELEASE): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_SERVICOS) $(SRCS_APRESENTACAO) $(SRCS_MAIN)
-	$(CXX) $(CXXFLAGS) -O2 -s $^ -o $@ $(LDFLAGS)
+$(TARGET_RELEASE): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_BANCO_DADOS) $(SRCS_SERVICOS) $(SRCS_APRESENTACAO) $(SRCS_MAIN)
+	$(CXX) $(CXXFLAGS) -O2 -s $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
-$(TARGET_SMOKE): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_SERVICOS) $(SRCS_SMOKE_TEST)
-	$(CXX) $(CXXFLAGS) -O2 $^ -o $@ $(LDFLAGS)
+$(TARGET_SMOKE): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_REPOSITORIOS) $(SRCS_BANCO_DADOS) $(SRCS_SERVICOS) $(SRCS_SMOKE_TEST)
+	$(CXX) $(CXXFLAGS) -O2 $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(TARGET_UNIT): $(SRCS_DOMINIOS) $(SRCS_ENTIDADES) $(SRCS_TESTES_DOMINIOS) $(SRCS_TESTES_ENTIDADES) $(SRCS_TESTES_UNITARIOS)
 	$(CXX) $(CXXFLAGS) -O2 $^ -o $@ $(LDFLAGS)
@@ -66,9 +70,12 @@ test_smoke: dirs $(TARGET_SMOKE)
 	@echo "\n>>> Executando Teste de Fumaca das Controladoras de Servico..."
 	./$(TARGET_SMOKE)
 
+# Executa com um banco temporário, preservando o kanban.db usado pelo programa.
 test_integrated: dirs $(TARGET_MAIN)
 	@echo "\n>>> Executando Teste de Fumaca Integrado com Roteiro Automatizado..."
-	./$(TARGET_MAIN) < Testes/roteiro_teste_fumaca.txt
+	@diretorio_teste=$$(mktemp -d) || exit 1; \
+	trap 'rm -rf -- "$$diretorio_teste"' EXIT; \
+	cd "$$diretorio_teste" && "$(abspath $(TARGET_MAIN))" < "$(abspath Testes/roteiro_teste_fumaca.txt)"
 
 # Documentação
 doc:
