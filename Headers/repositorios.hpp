@@ -5,17 +5,28 @@
 #include <string>
 #include <vector>
 
+// Declaração antecipada do gerenciador da conexão SQLite.
+class BancoDados;
+
 /**
- * @brief Armazenamento em memória das pessoas cadastradas.
+ * @brief Persistência em banco de dados relacional SQLite das pessoas cadastradas.
  *
- * O repositório cuida exclusivamente da persistência em memória e da garantia de unicidade
+ * O repositório cuida exclusivamente da persistência dos dados e da garantia de unicidade
  * da chave primária (email). Autenticação e regras de permissão pertencem às controladoras de serviço.
  */
 class ContainerPessoas {
 private:
-    std::vector<Pessoa> pessoas;
+    BancoDados& banco; /**< Referência ao gerenciador da conexão SQLite compartilhada. */
 
 public:
+    /**
+     * @brief Inicializa o contêiner de pessoas com o banco de dados compartilhado.
+     * @param[in] bancoDados Gerenciador da conexão SQLite utilizada pelo contêiner.
+     * @note O banco deve permanecer válido durante toda a vida do contêiner.
+     * O contêiner não abre nem fecha a conexão.
+     */
+    explicit ContainerPessoas(BancoDados& bancoDados) : banco(bancoDados) {}
+
     /**
      * @brief Insere uma nova pessoa no contêiner se o email não estiver cadastrado.
      * @param[in] pessoa Instância da entidade Pessoa a ser inserida.
@@ -69,13 +80,21 @@ struct RegistroProjeto {
 };
 
 /**
- * @brief Armazenamento em memória de projetos e seus respectivos gestores.
+ * @brief Persistência em banco de dados relacional SQLite de projetos e seus respectivos gestores.
  */
 class ContainerProjetos {
 private:
-    std::vector<RegistroProjeto> projetos;
+    BancoDados& banco; /**< Referência ao gerenciador da conexão SQLite compartilhada. */
 
 public:
+    /**
+     * @brief Inicializa o contêiner de projetos com o banco de dados compartilhado.
+     * @param[in] bancoDados Gerenciador da conexão SQLite utilizada pelo contêiner.
+     * @note O banco deve permanecer válido durante toda a vida do contêiner.
+     * O contêiner não abre nem fecha a conexão.
+     */
+    explicit ContainerProjetos(BancoDados& bancoDados) : banco(bancoDados) {}
+
     /**
      * @brief Insere um novo projeto associado ao seu criador/gestor.
      * @param[in] projeto Dados da entidade Projeto.
@@ -147,13 +166,21 @@ struct RegistroQuadro {
 };
 
 /**
- * @brief Armazenamento em memória de quadros Kanban e seus vínculos com projetos.
+ * @brief Persistência em banco de dados relacional SQLite de quadros Kanban e seus vínculos com projetos.
  */
 class ContainerQuadros {
 private:
-    std::vector<RegistroQuadro> quadros;
+    BancoDados& banco; /**< Referência ao gerenciador da conexão SQLite compartilhada. */
 
 public:
+    /**
+     * @brief Inicializa o contêiner de quadros com o banco de dados compartilhado.
+     * @param[in] bancoDados Gerenciador da conexão SQLite utilizada pelo contêiner.
+     * @note O banco deve permanecer válido durante toda a vida do contêiner.
+     * O contêiner não abre nem fecha a conexão.
+     */
+    explicit ContainerQuadros(BancoDados& bancoDados) : banco(bancoDados) {}
+
     /**
      * @brief Insere um quadro vinculado a um projeto.
      * @param[in] quadro Dados da entidade Quadro.
@@ -234,13 +261,21 @@ struct RegistroCartao {
 };
 
 /**
- * @brief Armazenamento em memória de cartões de atividade e seus vínculos.
+ * @brief Persistência em banco de dados relacional SQLite de cartões de atividade e seus vínculos.
  */
 class ContainerCartoes {
 private:
-    std::vector<RegistroCartao> cartoes;
+    BancoDados& banco; /**< Referência ao gerenciador da conexão SQLite compartilhada. */
 
 public:
+    /**
+     * @brief Inicializa o contêiner de cartões com o banco de dados compartilhado.
+     * @param[in] bancoDados Gerenciador da conexão SQLite utilizada pelo contêiner.
+     * @note O banco deve permanecer válido durante toda a vida do contêiner.
+     * O contêiner não abre nem fecha a conexão.
+     */
+    explicit ContainerCartoes(BancoDados& bancoDados) : banco(bancoDados) {}
+
     /**
      * @brief Insere um cartão com seus relacionamentos de quadro e responsável.
      * @param[in] cartao Dados da entidade CartaoDeAtividade.
