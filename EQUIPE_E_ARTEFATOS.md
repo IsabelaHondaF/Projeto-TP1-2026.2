@@ -11,10 +11,10 @@
 
 | Nome Completo | Matrícula | Função Principal / Responsabilidade |
 |---|---|---|
-| **Arthur Vieira** | `[Inserir Matrícula Arthur]` | Modelagem de Domínios e Entidades |
-| **Gabriel Sales** | `[Inserir Matrícula Gabriel]` | Interfaces entre Módulos e Testes de Unidade |
-| **Isabela Honda Ferreira** | `[Inserir Matrícula Isabela]` | Repositório |
-| **João Roberto** | `[Inserir Matrícula João]` | Camada de Serviço, Apresentação, Integração e Domínios, Banco de Dados |
+| **Arthur Vieira** | 241041984 | Modelagem de Domínios e Entidades |
+| **Gabriel Sales** | 252032197 | Interfaces entre Módulos e Testes de Unidade |
+| **Isabela Honda Ferreira** | 252009125 | Repositório Github |
+| **João Roberto** | 252001092 | Camada de Serviço, Apresentação, Integração e Domínios, Banco de Dados |
 
 > **Nota:** Antes do empacotamento final de entrega (`T1-TP1-X-Y-Z-W.ZIP`), cada membro deve preencher seu respectivo número de matrícula nos campos acima e no nome do arquivo ZIP conforme a regra 33 e 34 do enunciado.
 
