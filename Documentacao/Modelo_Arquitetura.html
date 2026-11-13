@@ -171,25 +171,39 @@ A camada de apresentação realiza a interação com o usuário, valida os
 dados de entrada e solicita operações por meio de interfaces abstratas.
 A camada de serviço aplica as regras de negócio, verifica permissões,
 preserva os relacionamentos entre as entidades e utiliza contêineres
-para armazenar os dados em memória. As classes de domínio e entidade
+repositórios para acessar um banco de dados relacional SQLite.
+A classe <code>BancoDados</code> gerencia a conexão compartilhada,
+cria as tabelas e os índices necessários e habilita a verificação
+das chaves estrangeiras. Os dados são mantidos no arquivo
+<code>kanban.db</code> entre execuções. As classes de domínio e entidade
 representam os dados utilizados pelas duas camadas.
 </p>
 
 <h2>2. Diagrama de Módulos, Interfaces e Relacionamentos (UML)</h2>
 <p>
 O diagrama a seguir especifica os módulos do sistema, as interfaces
-abstratas e as dependências entre os componentes.
+abstratas e as dependências entre os componentes. Os repositórios,
+<code>BancoDados</code> e o banco SQLite aparecem como componentes
+de apoio à camada de serviço.
 </p>
 
 <div class="diagrama-container">
 <img
   src="Diagrama_Arquitetura.png"
   alt="Arquitetura em duas camadas, com
-       sete módulos, seis interfaces e três subsistemas, como também as dependências entre os subsistemas."
+       sete módulos funcionais, seis interfaces e três subsistemas.
+       Os serviços utilizam repositórios SQL, que obtêm a conexão de BancoDados
+       e executam comandos no SQLite, com dados persistidos em kanban.db."
   style="display: block; width: 100%; height: auto; margin: 0 auto;"
 >
-<div class="diagrama-legenda">Figura 1 — Modelo de Arquitetura em Camadas com Interfaces Abstratas e Módulos do Sistema Kanban.</div>
+<div class="diagrama-legenda">Figura 1 — Modelo de Arquitetura em Camadas com Interfaces Abstratas, Módulos Funcionais e Persistência SQLite.</div>
 </div>
+
+<p>
+Os repositórios obtêm de <code>BancoDados</code> a conexão compartilhada
+e utilizam a API do SQLite para executar os comandos SQL. Cada serviço
+utiliza os contêineres indicados nas seções 4.5 a 4.7.
+</p>
 
 <div class="page-break"></div>
 
@@ -269,9 +283,11 @@ O diagrama de entidades define as quatro classes fundamentais de dados do sistem
 <h2>4. Descrição Textual das Responsabilidades dos Módulos</h2>
 
 <p>
-A arquitetura possui sete módulos, distribuídos entre as camadas
-de apresentação e serviço. As siglas abaixo correspondem aos módulos
-e às interfaces identificados no diagrama de arquitetura.
+A arquitetura possui sete módulos funcionais, distribuídos entre as camadas
+de apresentação e serviço, com o apoio dos repositórios e de
+<code>BancoDados</code> para a persistência SQLite. As siglas abaixo
+correspondem aos módulos e às interfaces identificados na Figura 1,
+que também representa os componentes de persistência.
 </p>
 
 <h3>4.1 MAC — Apresentação Principal</h3>
@@ -355,12 +371,15 @@ para solicitar operações à camada de serviço.
 <p>
 As classes <code>ContainerPessoas</code>,
 <code>ContainerProjetos</code>, <code>ContainerQuadros</code>
-e <code>ContainerCartoes</code> implementam o armazenamento
-em memória utilizado pelos módulos de serviço.
-Garantem a unicidade das chaves e armazenam os vínculos
-entre as entidades. Suas instâncias são criadas no
-<code>main.cpp</code> e compartilhadas entre as controladoras
-de serviço por referência.
+e <code>ContainerCartoes</code> implementam os repositórios SQL
+utilizados pelos módulos de serviço. Executam comandos preparados,
+com parâmetros vinculados, para cadastrar, consultar, atualizar e
+excluir registros. As chaves primárias garantem a unicidade dos
+identificadores, e as chaves estrangeiras preservam os vínculos
+entre as tabelas. As instâncias dos contêineres são criadas em
+<code>Main/main.cpp</code>, recebem por referência o mesmo objeto
+<code>BancoDados</code> e são compartilhadas por referência entre
+as controladoras de serviço.
 </p>
 
 <p>
@@ -370,6 +389,36 @@ compostos por classes de domínio. Os domínios validam
 formatos e valores por meio de seus métodos de atribuição,
 lançando <code>std::invalid_argument</code> quando recebem
 valores inválidos.
+</p>
+
+<h3>4.9 Persistência e Banco de Dados</h3>
+<p>
+A classe <code>BancoDados</code> é declarada em
+<code>Headers/banco_dados.hpp</code> e implementada em
+<code>BancoDados/banco_dados.cpp</code>. Abre a conexão SQLite,
+habilita a verificação das chaves estrangeiras e cria, em uma transação,
+as tabelas <code>pessoas</code>, <code>projetos</code>,
+<code>quadros</code> e <code>cartoes</code>, além dos índices necessários,
+quando ainda não existirem. A inicialização preserva os registros
+já armazenados. O destrutor fecha a conexão.
+</p>
+<p>
+As chaves estrangeiras vinculam os projetos aos gestores, os quadros
+aos projetos e os cartões aos quadros e desenvolvedores.
+As restrições <code>ON DELETE RESTRICT</code> e
+<code>ON UPDATE RESTRICT</code> impedem excluir ou alterar chaves
+ainda referenciadas. As controladoras continuam responsáveis pelas
+permissões, pelos papéis dos usuários, pelo controle de WIP, pelas
+movimentações e pelos cálculos das métricas.
+</p>
+<p>
+Em <code>Main/main.cpp</code>, <code>BancoDados</code> é criado antes
+dos contêineres e permanece válido durante o uso deles. O arquivo
+<code>kanban.db</code> é relativo ao diretório de execução; ao fechar
+e reabrir o programa nesse mesmo diretório, os registros permanecem
+disponíveis. O teste de fumaça das controladoras utiliza um banco
+SQLite isolado em memória (<code>:memory:</code>), descartado ao
+encerrar o teste, preservando o banco de uso normal.
 </p>
 
 <div class="page-break"></div>

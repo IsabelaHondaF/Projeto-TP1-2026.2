@@ -15,7 +15,7 @@
 | **Arthur Vieira** | Domínios, Entidades e Configuração Code::Blocks |
 | **Gabriel Sales** | Entidades, Interfaces Abstratas, Testes de Unidade e Documentação Doxygen |
 | **Isabela Honda Ferreira** | Repositório GitHub |
-| **João Roberto Machado** | Serviços de Negócio, Apresentação, Integração e Domínios |
+| **João Roberto Machado** | Serviços de Negócio, Apresentação, Integração, Domínios e Banco de Dados|
 
 > Para o detalhamento completo dos artefatos construídos por cada autor, consulte `EQUIPE_E_ARTEFATOS.md`.
 
