@@ -14,7 +14,7 @@
 | **Arthur Vieira** | `[Inserir Matrícula Arthur]` | Modelagem de Domínios e Entidades |
 | **Gabriel Sales** | `[Inserir Matrícula Gabriel]` | Interfaces entre Módulos e Testes de Unidade |
 | **Isabela Honda Ferreira** | `[Inserir Matrícula Isabela]` | Repositório |
-| **João Roberto** | `[Inserir Matrícula João]` | Camada de Serviço, Apresentação, Integração e Domínios |
+| **João Roberto** | `[Inserir Matrícula João]` | Camada de Serviço, Apresentação, Integração e Domínios, Banco de Dados |
 
 > **Nota:** Antes do empacotamento final de entrega (`T1-TP1-X-Y-Z-W.ZIP`), cada membro deve preencher seu respectivo número de matrícula nos campos acima e no nome do arquivo ZIP conforme a regra 33 e 34 do enunciado.
 
@@ -43,7 +43,7 @@
 
 ### João Roberto
 - Implementação das interfaces abstratas `IServicoPessoa` e `IServicoProjeto`.
-- Implementação dos contêineres de dados em memória:
+- Implementação dos contêineres com persistência em banco de dados SQLite:
   - `Headers/repositorios.hpp` e `Repositorios/repositorios.cpp` (`ContainerPessoas`, `ContainerProjetos`, `ContainerQuadros`, `ContainerCartoes`).
 - Implementação completa da Camada de Serviço:
   - `Headers/controladoras_servico.hpp` e `Servicos/controladoras_servico.cpp` (regras de negócio, permissões Gestor vs. Desenvolvedor, cálculo de Lead Time, Cycle Time e WIP).
@@ -60,15 +60,15 @@
 - **Domínios (11 classes):** `Headers/dominios.hpp`, `Dominios/dominios.cpp`
 - **Entidades (4 classes):** `Headers/entidades.hpp`, `Entidades/entidades.cpp`
 - **Interfaces Abstratas (6 interfaces: 3 de apresentação e 3 de serviço):** `Headers/interfaces.hpp`. As interfaces de serviço contemplam os 26 serviços funcionais do enunciado, além das operações auxiliares.
-- **Contêineres / Repositórios em Memória:** `Headers/repositorios.hpp`, `Repositorios/repositorios.cpp`
+- **Contêineres / Repositórios SQLite:** `Headers/repositorios.hpp`, `Repositorios/repositorios.cpp`
 - **Controladoras de Serviço:** `Headers/controladoras_servico.hpp`, `Servicos/controladoras_servico.cpp`
 - **Controladoras de Apresentação:** `Headers/apresentacao.hpp`, `Apresentacao/apresentacao.cpp`
 - **Ponto de Entrada Integrado:** `Main/main.cpp`
 
 ### Testes e Verificação de Qualidade
-- **Testes de Unidade de Domínios:** `Headers/testes_dominios.hpp`, `Testes/testes_dominios.cpp` (106 asserções)
-- **Testes de Unidade de Entidades:** `Headers/testes_entidades.hpp`, `Testes/testes_entidades.cpp`
-- **Driver de Execução de Unidade:** `Testes/testes_unitarios.cpp`
+- **Testes de Unidade de Domínios:** `Headers/testes_dominios.hpp`, `Testes/testes_dominios.cpp` (11 classes de domínio).
+- **Testes de Unidade de Entidades:** `Headers/testes_entidades.hpp`, `Testes/testes_entidades.cpp` (4 classes de entidade).
+- **Driver de Execução de Unidade:** `Testes/testes_unitarios.cpp` (106 verificações no total, considerando domínios e entidades).
 - **Teste de Fumaça das Controladoras:** `Testes/smoke_test_controladoras.cpp` (75 asserções)
 - **Roteiro de Teste de Fumaça Integrado:** `Testes/roteiro_teste_fumaca.txt` (cobre todos os 26 serviços)
 - **Guia do Teste de Fumaça e Roteiro de Vídeo:** `Testes/LEIA-ME_TESTE_FUMACA.md`

@@ -95,7 +95,7 @@ doc:
 # Empacotamento para Entrega
 zip: all doc test
 	@echo "\n>>> Criando pacote ZIP de entrega..."
-	@ZIP_NAME="T1-TP1-Arthur-Gabriel-Isabela-Joao.ZIP"; \
+	@ZIP_NAME="T1-TP1-241041984-252032197-252009125-252001092.ZIP"; \
 	rm -f $$ZIP_NAME; \
 	zip -r -q $$ZIP_NAME . -x ".*" ".git/*" "obj/*" "build/*" "/tmp/*"; \
 	echo "Arquivo de entrega gerado: $$ZIP_NAME"; \

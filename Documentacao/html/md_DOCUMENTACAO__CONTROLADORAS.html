@@ -123,7 +123,7 @@ Estrutura</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Entidades  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="entidades_8hpp.html">Headers/entidades.hpp</a></span>, <span class="tt"><a class="el" href="entidades_8cpp.html">Entidades/entidades.cpp</a></span>  </td><td class="markdownTableBodyNone"><a class="el" href="classPessoa.html" title="Representa uma pessoa cadastrada no sistema.">Pessoa</a>, <a class="el" href="classProjeto.html" title="Representa um projeto cadastrado no sistema.">Projeto</a>, <a class="el" href="classQuadro.html" title="Representa um quadro Kanban.">Quadro</a>, Cartão (atributos são domínios)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Interfaces de serviço  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="interfaces_8hpp.html">Headers/interfaces.hpp</a></span>  </td><td class="markdownTableBodyNone">4 classes abstratas com os 26 serviços  </td></tr>
+<td class="markdownTableBodyNone">Interfaces de serviço  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="interfaces_8hpp.html">Headers/interfaces.hpp</a></span>  </td><td class="markdownTableBodyNone">3 classes abstratas: <a class="el" href="classIServicoPessoa.html" title="Define operações para cadastrar contas, verificar credenciais e consultar usuários.">IServicoPessoa</a>, <a class="el" href="classIServicoProjeto.html" title="Define operações para cadastrar e manter conjuntos de atividades e seus períodos.">IServicoProjeto</a> e <a class="el" href="classIServicoQuadro.html" title="Interface dos serviços de quadros e cartões do subsistema Quadro (ISQ).">IServicoQuadro</a>, contemplando os 26 serviços exigidos e operações auxiliares  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Serviço  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="controladoras__servico_8hpp.html">Headers/controladoras_servico.hpp</a></span>, <span class="tt"><a class="el" href="controladoras__servico_8cpp.html">Servicos/controladoras_servico.cpp</a></span>  </td><td class="markdownTableBodyNone">Controladoras <span class="tt">CntrServico...</span>: regras de negócio e permissões  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -161,7 +161,7 @@ Decisões que o enunciado não especifica</h1>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
 Compilar e testar</h1>
-<p>Veja <span class="tt">Testes/LEIA-ME_TESTE_FUMACA.md</span>. No Code::Blocks há três alvos: <span class="tt">Debug</span> e <span class="tt">Release</span> (sistema) e <span class="tt">SmokeTest</span> (teste automático das controladoras de serviço). </p>
+<p>Veja <span class="tt">Testes/LEIA-ME_TESTE_FUMACA.md</span>. No Code::Blocks há quatro alvos: <span class="tt">Debug</span> e <span class="tt">Release</span> (sistema integrado), <span class="tt">SmokeTest</span> (teste automático das controladoras de serviço) e <span class="tt">TestesUnitarios</span> (testes de domínios e entidades). </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

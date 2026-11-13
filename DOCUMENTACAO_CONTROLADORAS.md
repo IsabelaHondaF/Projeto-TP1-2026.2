@@ -6,7 +6,7 @@
 |---|---|---|
 | Domínios | `Headers/dominios.hpp`, `Dominios/dominios.cpp` | Validam formato; `set` lança exceção se inválido |
 | Entidades | `Headers/entidades.hpp`, `Entidades/entidades.cpp` | Pessoa, Projeto, Quadro, Cartão (atributos são domínios) |
-| Interfaces de serviço | `Headers/interfaces.hpp` | 4 classes abstratas com os 26 serviços |
+| Interfaces de serviço | `Headers/interfaces.hpp` | 3 classes abstratas: IServicoPessoa, IServicoProjeto e IServicoQuadro, contemplando os 26 serviços exigidos e operações auxiliares |
 | Serviço | `Headers/controladoras_servico.hpp`, `Servicos/controladoras_servico.cpp` | Controladoras `CntrServico...`: regras de negócio e permissões |
 | Containers | `Headers/repositorios.hpp`, `Repositorios/repositorios.cpp` | Persistência em SQLite e acesso aos vínculos entre entidades |
 | Apresentação | `Headers/apresentacao.hpp`, `Apresentacao/apresentacao.cpp` | Controladoras `CntrApresentacao...`: menus (cin/cout) e validação da entrada |
@@ -40,4 +40,4 @@ As controladoras recebem os containers por referência, e todas compartilham o m
 
 ## Compilar e testar
 
-Veja `Testes/LEIA-ME_TESTE_FUMACA.md`. No Code::Blocks há três alvos: `Debug` e `Release` (sistema) e `SmokeTest` (teste automático das controladoras de serviço).
+Veja `Testes/LEIA-ME_TESTE_FUMACA.md`. No Code::Blocks há quatro alvos: `Debug` e `Release` (sistema integrado), `SmokeTest` (teste automático das controladoras de serviço) e `TestesUnitarios` (testes de domínios e entidades).
