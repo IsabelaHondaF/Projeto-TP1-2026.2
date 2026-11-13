@@ -197,6 +197,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se existir; false caso contrário. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -222,7 +228,13 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a inserção for concluída; false se já existir registro com mesmo email. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a pessoa for inserida; false se o email já existir ou se os dados violarem uma restrição de integridade do banco. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -243,6 +255,12 @@ Membros Públicos</h2></td></tr>
 
 <p>Retorna a lista contendo as chaves primárias (emails) de todas as pessoas. </p>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor com as strings dos emails cadastrados. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -273,7 +291,15 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se encontrada; false caso contrário. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o registro for encontrado; false se não existir. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>Se um valor armazenado não atender ao formato exigido pelo domínio ao reconstruir a entidade. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>Se o retorno for false, os parâmetros de saída permanecem inalterados. </dd></dl>
 
 </div>
 </div>
@@ -299,7 +325,13 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se removida; false se não for encontrada. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a pessoa for removida; false se ela não existir ou se uma restrição de integridade impedir a remoção, inclusive quando a pessoa for referenciada como gestora de projeto ou desenvolvedora de cartão. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -330,7 +362,14 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a substituição for realizada; false se não existir. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem atualizados; false se a pessoa não existir, se pessoa.getEmail() diferir de email ou se uma restrição de integridade do banco impedir a atualização. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>O email não é alterado. As permissões e as regras para mudança de papel são verificadas pela controladora de serviço. </dd></dl>
 
 </div>
 </div>

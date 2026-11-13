@@ -30,7 +30,10 @@ public:
     /**
      * @brief Insere uma nova pessoa no contêiner se o email não estiver cadastrado.
      * @param[in] pessoa Instância da entidade Pessoa a ser inserida.
-     * @return true se a inserção for concluída; false se já existir registro com mesmo email.
+     * @return true se a pessoa for inserida; false se o email já existir
+     * ou se os dados violarem uma restrição de integridade do banco.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool inserir(const Pessoa& pessoa);
 
@@ -38,7 +41,12 @@ public:
      * @brief Localiza e recupera uma pessoa cadastrada pelo email.
      * @param[in] email Chave primária da conta a ser consultada.
      * @param[out] pessoa Referência para retornar os dados encontrados.
-     * @return true se encontrada; false caso contrário.
+     * @return true se o registro for encontrado; false se não existir.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @throws std::invalid_argument Se um valor armazenado não atender ao
+     * formato exigido pelo domínio ao reconstruir a entidade.
+     * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& email, Pessoa& pessoa) const;
 
@@ -46,14 +54,24 @@ public:
      * @brief Substitui os dados de uma pessoa existente mantendo a chave primária.
      * @param[in] email Chave primária da pessoa a ser atualizada.
      * @param[in] pessoa Novos dados da pessoa.
-     * @return true se a substituição for realizada; false se não existir.
+     * @return true se os dados forem atualizados; false se a pessoa não existir,
+     * se pessoa.getEmail() diferir de email ou se uma restrição de integridade
+     * do banco impedir a atualização.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @note O email não é alterado. As permissões e as regras para mudança de papel
+     * são verificadas pela controladora de serviço.
      */
     bool substituir(const std::string& email, const Pessoa& pessoa);
 
     /**
      * @brief Remove uma pessoa do contêiner a partir de seu email.
      * @param[in] email Chave primária da pessoa a ser excluída.
-     * @return true se removida; false se não for encontrada.
+     * @return true se a pessoa for removida; false se ela não existir ou se uma
+     * restrição de integridade impedir a remoção, inclusive quando a pessoa
+     * for referenciada como gestora de projeto ou desenvolvedora de cartão.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool remover(const std::string& email);
 
@@ -61,12 +79,16 @@ public:
      * @brief Verifica se existe uma conta cadastrada com o email fornecido.
      * @param[in] email Chave a ser verificada.
      * @return true se existir; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool existe(const std::string& email) const;
 
     /**
      * @brief Retorna a lista contendo as chaves primárias (emails) de todas as pessoas.
      * @return Vetor com as strings dos emails cadastrados.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     std::vector<std::string> listarEmails() const;
 };
@@ -99,7 +121,13 @@ public:
      * @brief Insere um novo projeto associado ao seu criador/gestor.
      * @param[in] projeto Dados da entidade Projeto.
      * @param[in] emailGestor Email da pessoa cadastrada como gestora.
-     * @return true se inserido com sucesso; false se o identificador já existir.
+     * @return true se o projeto for inserido; false se o identificador já existir,
+     * se emailGestor não identificar uma pessoa cadastrada ou se outra
+     * restrição de integridade do banco impedir a inserção.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @note A existência da pessoa é assegurada pela chave estrangeira. A verificação
+     * de seu papel GESTOR e das permissões cabe à controladora de serviço.
      */
     bool inserir(const Projeto& projeto, const std::string& emailGestor);
 
@@ -108,7 +136,12 @@ public:
      * @param[in] id Identificador do projeto.
      * @param[out] projeto Recebe os dados do projeto.
      * @param[out] emailGestor Ponteiro opcional para receber o email do gestor.
-     * @return true se o projeto for encontrado; false caso contrário.
+     * @return true se o registro for encontrado; false se não existir.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @throws std::invalid_argument Se um valor armazenado não atender ao
+     * formato exigido pelo domínio ao reconstruir a entidade.
+     * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& id, Projeto& projeto,
                std::string* emailGestor = 0) const;
@@ -117,14 +150,23 @@ public:
      * @brief Substitui os dados de um projeto existente.
      * @param[in] id Identificador do projeto a ser atualizado.
      * @param[in] projeto Novos dados do projeto.
-     * @return true se atualizado; false se não existir.
+     * @return true se os dados forem atualizados; false se o projeto não existir,
+     * se projeto.getIdentificador() diferir de id ou se uma restrição de
+     * integridade do banco impedir a atualização.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @note A chave primária e o vínculo com o gestor são preservados.
      */
     bool substituir(const std::string& id, const Projeto& projeto);
 
     /**
      * @brief Remove um projeto do contêiner.
      * @param[in] id Identificador do projeto a ser removido.
-     * @return true se removido; false se inexistente.
+     * @return true se o projeto for removido; false se ele não existir ou se uma
+     * restrição de integridade impedir a remoção, inclusive quando houver
+     * quadros vinculados ao projeto.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool remover(const std::string& id);
 
@@ -132,6 +174,8 @@ public:
      * @brief Verifica se um projeto existe.
      * @param[in] id Identificador do projeto.
      * @return true se existir; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool existe(const std::string& id) const;
 
@@ -140,6 +184,8 @@ public:
      * @param[in] id Identificador do projeto.
      * @param[out] emailGestor Referência para retornar o email do gestor.
      * @return true se encontrado; false caso o projeto não exista.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool gestorDoProjeto(const std::string& id, std::string& emailGestor) const;
 
@@ -147,12 +193,16 @@ public:
      * @brief Verifica se determinado usuário gerencia pelo menos um projeto.
      * @param[in] emailGestor Email a ser verificado.
      * @return true se houver projeto gerenciado por esse email; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool temProjetoGerenciadoPor(const std::string& emailGestor) const;
 
     /**
      * @brief Lista todos os identificadores de projetos cadastrados.
      * @return Vetor contendo os identificadores dos projetos.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     std::vector<std::string> listarIds() const;
 };
@@ -185,7 +235,11 @@ public:
      * @brief Insere um quadro vinculado a um projeto.
      * @param[in] quadro Dados da entidade Quadro.
      * @param[in] idProjeto Identificador do projeto proprietário.
-     * @return true se inserido; false se o identificador já existir.
+     * @return true se o quadro for inserido; false se o identificador já existir,
+     * se idProjeto não identificar um projeto cadastrado ou se outra
+     * restrição de integridade do banco impedir a inserção.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool inserir(const Quadro& quadro, const std::string& idProjeto);
 
@@ -194,7 +248,12 @@ public:
      * @param[in] id Identificador do quadro.
      * @param[out] quadro Recebe os dados do quadro.
      * @param[out] idProjeto Ponteiro opcional para receber o identificador do projeto.
-     * @return true se encontrado; false caso contrário.
+     * @return true se o registro for encontrado; false se não existir.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @throws std::invalid_argument Se um valor armazenado não atender ao
+     * formato exigido pelo domínio ao reconstruir a entidade.
+     * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& id, Quadro& quadro,
                std::string* idProjeto = 0) const;
@@ -203,14 +262,24 @@ public:
      * @brief Atualiza os dados de um quadro mantendo seus vínculos.
      * @param[in] id Identificador do quadro.
      * @param[in] quadro Novos dados do quadro.
-     * @return true se substituído com sucesso; false se não existir.
+     * @return true se os dados forem atualizados; false se o quadro não existir,
+     * se quadro.getIdentificador() diferir de id ou se uma restrição de
+     * integridade do banco impedir a atualização.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @note A chave primária e o vínculo com o projeto são preservados. A comparação
+     * do limite com o WIP atual cabe à controladora de serviço.
      */
     bool substituir(const std::string& id, const Quadro& quadro);
 
     /**
      * @brief Remove um quadro pelo identificador.
      * @param[in] id Identificador do quadro.
-     * @return true se removido; false se inexistente.
+     * @return true se o quadro for removido; false se ele não existir ou se uma
+     * restrição de integridade impedir a remoção, inclusive quando houver
+     * cartões vinculados ao quadro.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool remover(const std::string& id);
 
@@ -218,6 +287,8 @@ public:
      * @brief Verifica se um quadro existe no contêiner.
      * @param[in] id Identificador do quadro.
      * @return true se existir; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool existe(const std::string& id) const;
 
@@ -226,6 +297,8 @@ public:
      * @param[in] id Identificador do quadro.
      * @param[out] idProjeto Recebe o código do projeto.
      * @return true se o quadro existir; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool projetoDoQuadro(const std::string& id, std::string& idProjeto) const;
 
@@ -233,12 +306,16 @@ public:
      * @brief Verifica se existem quadros vinculados a determinado projeto.
      * @param[in] idProjeto Identificador do projeto.
      * @return true se houver ao menos um quadro no projeto; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool temQuadroDoProjeto(const std::string& idProjeto) const;
 
     /**
      * @brief Lista todos os identificadores de quadros cadastrados.
      * @return Vetor de identificadores.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     std::vector<std::string> listarIds() const;
 
@@ -247,6 +324,8 @@ public:
      * @param[in] idProjeto Identificador do projeto a consultar.
      * @return Vetor com os identificadores encontrados; vazio se não houver vínculos.
      * @note A existência do projeto é verificada pela controladora de serviço.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     std::vector<std::string> listarIdsDoProjeto(const std::string& idProjeto) const;
 };
@@ -281,7 +360,13 @@ public:
      * @param[in] cartao Dados da entidade CartaoDeAtividade.
      * @param[in] idQuadro Identificador do quadro Kanban.
      * @param[in] emailDesenvolvedor Email do desenvolvedor atribuído.
-     * @return true se inserido com sucesso; false se o identificador já existir.
+     * @return true se o cartão for inserido; false se o identificador já existir,
+     * se o quadro ou a pessoa responsável não estiverem cadastrados ou se
+     * outra restrição de integridade do banco impedir a inserção.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @note A verificação do papel DESENVOLVEDOR, das permissões e do estado inicial
+     * do cartão cabe à controladora de serviço.
      */
     bool inserir(const CartaoDeAtividade& cartao, const std::string& idQuadro,
                  const std::string& emailDesenvolvedor);
@@ -292,7 +377,12 @@ public:
      * @param[out] cartao Recebe os dados do cartão.
      * @param[out] idQuadro Ponteiro opcional para receber o id do quadro.
      * @param[out] emailDesenvolvedor Ponteiro opcional para receber o email do desenvolvedor.
-     * @return true se encontrado; false caso contrário.
+     * @return true se o registro for encontrado; false se não existir.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @throws std::invalid_argument Se um valor armazenado não atender ao
+     * formato exigido pelo domínio ao reconstruir a entidade.
+     * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& id, CartaoDeAtividade& cartao,
                std::string* idQuadro = 0,
@@ -302,14 +392,23 @@ public:
      * @brief Atualiza os dados de um cartão existente.
      * @param[in] id Identificador do cartão.
      * @param[in] cartao Novos dados do cartão.
-     * @return true se atualizado; false se não encontrado.
+     * @return true se os dados forem atualizados; false se o cartão não existir,
+     * se cartao.getIdentificador() diferir de id ou se uma restrição de
+     * integridade do banco impedir a atualização.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @note A chave primária e os vínculos com quadro e desenvolvedor são preservados.
+     * As regras de movimentação, timestamps e WIP cabem à controladora de serviço.
      */
     bool substituir(const std::string& id, const CartaoDeAtividade& cartao);
 
     /**
      * @brief Remove um cartão de atividade.
      * @param[in] id Identificador do cartão a ser excluído.
-     * @return true se removido; false se inexistente.
+     * @return true se o cartão for removido; false se ele não existir ou se uma
+     * restrição de integridade do banco impedir a remoção.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool remover(const std::string& id);
 
@@ -317,6 +416,8 @@ public:
      * @brief Verifica se um cartão existe no contêiner.
      * @param[in] id Identificador do cartão.
      * @return true se existir; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool existe(const std::string& id) const;
 
@@ -324,6 +425,8 @@ public:
      * @brief Verifica se determinado quadro possui algum cartão cadastrado.
      * @param[in] idQuadro Identificador do quadro.
      * @return true se houver cartões; false caso o quadro esteja vazio.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool temCartaoNoQuadro(const std::string& idQuadro) const;
 
@@ -331,6 +434,8 @@ public:
      * @brief Verifica se determinado desenvolvedor possui algum cartão sob sua responsabilidade.
      * @param[in] emailDesenvolvedor Email do desenvolvedor.
      * @return true se houver ao menos um cartão; false caso contrário.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     bool temCartaoDoDesenvolvedor(const std::string& emailDesenvolvedor) const;
 
@@ -338,6 +443,8 @@ public:
      * @brief Lista os identificadores de todos os cartões vinculados a um quadro.
      * @param[in] idQuadro Identificador do quadro.
      * @return Vetor de identificadores dos cartões.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
      */
     std::vector<std::string> listarIdsDoQuadro(const std::string& idQuadro) const;
 
@@ -345,6 +452,10 @@ public:
      * @brief Retorna cópias de todas as entidades cartão de um determinado quadro.
      * @param[in] idQuadro Identificador do quadro.
      * @return Vetor contendo as instâncias de CartaoDeAtividade.
+     * @throws std::runtime_error Se ocorrer falha ao acessar o banco ou
+     * preparar, vincular parâmetros, executar ou ler o comando SQL.
+     * @throws std::invalid_argument Se um valor armazenado não atender ao
+     * formato exigido pelo domínio ao reconstruir a entidade.
      */
     std::vector<CartaoDeAtividade> listarCartoesDoQuadro(const std::string& idQuadro) const;
 };

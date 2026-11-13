@@ -202,6 +202,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se existir; false caso contrário. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -238,7 +244,14 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se inserido com sucesso; false se o identificador já existir. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o cartão for inserido; false se o identificador já existir, se o quadro ou a pessoa responsável não estiverem cadastrados ou se outra restrição de integridade do banco impedir a inserção. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>A verificação do papel DESENVOLVEDOR, das permissões e do estado inicial do cartão cabe à controladora de serviço. </dd></dl>
 
 </div>
 </div>
@@ -265,6 +278,13 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor contendo as instâncias de <a class="el" href="classCartaoDeAtividade.html" title="Representa um cartao de atividade de um quadro Kanban.">CartaoDeAtividade</a>. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>Se um valor armazenado não atender ao formato exigido pelo domínio ao reconstruir a entidade. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -291,6 +311,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor de identificadores dos cartões. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -333,7 +359,15 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se encontrado; false caso contrário. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o registro for encontrado; false se não existir. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>Se um valor armazenado não atender ao formato exigido pelo domínio ao reconstruir a entidade. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>Se o retorno for false, os parâmetros de saída permanecem inalterados. </dd></dl>
 
 </div>
 </div>
@@ -359,7 +393,13 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se removido; false se inexistente. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o cartão for removido; false se ele não existir ou se uma restrição de integridade do banco impedir a remoção. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -390,7 +430,14 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se atualizado; false se não encontrado. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem atualizados; false se o cartão não existir, se cartao.getIdentificador() diferir de id ou se uma restrição de integridade do banco impedir a atualização. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>A chave primária e os vínculos com quadro e desenvolvedor são preservados. As regras de movimentação, timestamps e WIP cabem à controladora de serviço. </dd></dl>
 
 </div>
 </div>
@@ -417,6 +464,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se houver ao menos um cartão; false caso contrário. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -443,6 +496,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se houver cartões; false caso o quadro esteja vazio. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

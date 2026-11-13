@@ -202,6 +202,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se existir; false caso contrário. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -232,7 +238,13 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se inserido; false se o identificador já existir. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o quadro for inserido; false se o identificador já existir, se idProjeto não identificar um projeto cadastrado ou se outra restrição de integridade do banco impedir a inserção. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -253,6 +265,12 @@ Membros Públicos</h2></td></tr>
 
 <p>Lista todos os identificadores de quadros cadastrados. </p>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor de identificadores. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -280,6 +298,12 @@ Membros Públicos</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor com os identificadores encontrados; vazio se não houver vínculos. </dd></dl>
 <dl class="section note"><dt>Observação</dt><dd>A existência do projeto é verificada pela controladora de serviço. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -316,7 +340,15 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se encontrado; false caso contrário. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o registro for encontrado; false se não existir. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>Se um valor armazenado não atender ao formato exigido pelo domínio ao reconstruir a entidade. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>Se o retorno for false, os parâmetros de saída permanecem inalterados. </dd></dl>
 
 </div>
 </div>
@@ -348,6 +380,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se o quadro existir; false caso contrário. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -373,7 +411,13 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se removido; false se inexistente. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o quadro for removido; false se ele não existir ou se uma restrição de integridade impedir a remoção, inclusive quando houver cartões vinculados ao quadro. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -404,7 +448,14 @@ Membros Públicos</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se substituído com sucesso; false se não existir. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se os dados forem atualizados; false se o quadro não existir, se quadro.getIdentificador() diferir de id ou se uma restrição de integridade do banco impedir a atualização. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>A chave primária e o vínculo com o projeto são preservados. A comparação do limite com o WIP atual cabe à controladora de serviço. </dd></dl>
 
 </div>
 </div>
@@ -431,6 +482,12 @@ Membros Públicos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se houver ao menos um quadro no projeto; false caso contrário. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao acessar o banco ou preparar, vincular parâmetros, executar ou ler o comando SQL. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

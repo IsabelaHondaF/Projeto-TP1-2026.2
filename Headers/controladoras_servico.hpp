@@ -7,7 +7,10 @@
 /**
  * @brief Implementação concreta dos serviços de negócio relacionados a Pessoa.
  *
- * Implementa a interface IServicoPessoa acessando os contêineres compartilhados em memória.
+ * Implementa IServicoPessoa utilizando os repositórios de pessoas, projetos e cartões.
+ * Esses contêineres compartilham a conexão SQLite gerenciada por BancoDados.
+ * Na execução normal, os dados são persistidos em kanban.db; nos testes,
+ * o gerenciador pode utilizar um banco temporário em memória (:memory:).
  */
 class CntrServicoPessoa : public IServicoPessoa {
 private:
