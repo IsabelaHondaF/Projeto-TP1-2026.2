@@ -127,7 +127,7 @@ Estrutura</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Serviço  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="controladoras__servico_8hpp.html">Headers/controladoras_servico.hpp</a></span>, <span class="tt"><a class="el" href="controladoras__servico_8cpp.html">Servicos/controladoras_servico.cpp</a></span>  </td><td class="markdownTableBodyNone">Controladoras <span class="tt">CntrServico...</span>: regras de negócio e permissões  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Containers  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="repositorios_8hpp.html">Headers/repositorios.hpp</a></span>, <span class="tt"><a class="el" href="repositorios_8cpp.html" title="Persistência dos contêineres em tabelas relacionais SQLite.">Repositorios/repositorios.cpp</a></span>  </td><td class="markdownTableBodyNone">Armazenamento em memória e vínculos entre entidades  </td></tr>
+<td class="markdownTableBodyNone">Containers  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="repositorios_8hpp.html">Headers/repositorios.hpp</a></span>, <span class="tt"><a class="el" href="repositorios_8cpp.html" title="Persistência dos contêineres em tabelas relacionais SQLite.">Repositorios/repositorios.cpp</a></span>  </td><td class="markdownTableBodyNone">Persistência em SQLite e acesso aos vínculos entre entidades  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Apresentação  </td><td class="markdownTableBodyNone"><span class="tt"><a class="el" href="apresentacao_8hpp.html" title="Camada de apresentação: interface com o usuário (cin/cout) e validação dos dados de entrada.">Headers/apresentacao.hpp</a></span>, <span class="tt"><a class="el" href="apresentacao_8cpp.html">Apresentacao/apresentacao.cpp</a></span>  </td><td class="markdownTableBodyNone">Controladoras <span class="tt">CntrApresentacao...</span>: menus (cin/cout) e validação da entrada  </td></tr>
 </table>
@@ -157,7 +157,7 @@ Decisões que o enunciado não especifica</h1>
 <li>Atualizar/excluir pessoa restrito à própria conta (evita que alguém altere a conta de outro).</li>
 <li>O desenvolvedor responsável pelo cartão não pode atualizá-lo nem excluí-lo (a tabela do enunciado reserva essas operações ao GESTOR), mas pode movê-lo.</li>
 <li>As interfaces recebem o e-mail do solicitante, sem token de sessão. A apresentação só repassa o e-mail de quem foi autenticado.</li>
-<li>Armazenamento somente em memória: os dados somem ao encerrar o programa.</li>
+<li>Persistência em banco de dados relacional SQLite: os dados são mantidos no arquivo <span class="tt">kanban.db</span> após encerrar o programa e ficam disponíveis ao reabri-lo no mesmo diretório de execução.</li>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
 Compilar e testar</h1>

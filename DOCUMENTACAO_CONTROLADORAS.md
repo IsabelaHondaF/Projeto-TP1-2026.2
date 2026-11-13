@@ -8,7 +8,7 @@
 | Entidades | `Headers/entidades.hpp`, `Entidades/entidades.cpp` | Pessoa, Projeto, Quadro, Cartão (atributos são domínios) |
 | Interfaces de serviço | `Headers/interfaces.hpp` | 4 classes abstratas com os 26 serviços |
 | Serviço | `Headers/controladoras_servico.hpp`, `Servicos/controladoras_servico.cpp` | Controladoras `CntrServico...`: regras de negócio e permissões |
-| Containers | `Headers/repositorios.hpp`, `Repositorios/repositorios.cpp` | Armazenamento em memória e vínculos entre entidades |
+| Containers | `Headers/repositorios.hpp`, `Repositorios/repositorios.cpp` | Persistência em SQLite e acesso aos vínculos entre entidades |
 | Apresentação | `Headers/apresentacao.hpp`, `Apresentacao/apresentacao.cpp` | Controladoras `CntrApresentacao...`: menus (cin/cout) e validação da entrada |
 
 A apresentação depende apenas das interfaces `IServico...`; `Main/main.cpp` liga as camadas.
@@ -36,7 +36,7 @@ As controladoras recebem os containers por referência, e todas compartilham o m
 - Atualizar/excluir pessoa restrito à própria conta (evita que alguém altere a conta de outro).
 - O desenvolvedor responsável pelo cartão não pode atualizá-lo nem excluí-lo (a tabela do enunciado reserva essas operações ao GESTOR), mas pode movê-lo.
 - As interfaces recebem o e-mail do solicitante, sem token de sessão. A apresentação só repassa o e-mail de quem foi autenticado.
-- Armazenamento somente em memória: os dados somem ao encerrar o programa.
+- Persistência em banco de dados relacional SQLite: os dados são mantidos no arquivo `kanban.db` após encerrar o programa e ficam disponíveis ao reabri-lo no mesmo diretório de execução.
 
 ## Compilar e testar
 
