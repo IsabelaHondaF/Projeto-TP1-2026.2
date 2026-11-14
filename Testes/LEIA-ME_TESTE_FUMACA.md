@@ -11,11 +11,12 @@ Para atender ao **Requisito 4.26, 4.27 e Critério 6** da avaliação (100% de p
 ### Como gravar o vídeo (Duração recomendada: 3 a 7 minutos)
 1. Abra o terminal (ou o Code::Blocks) e mostre a pasta raiz do projeto.
 2. Apresente os membros da equipe: **Arthur Vieira, Gabriel Sales, Isabela Honda Ferreira e João Roberto**.
-3. Execute o programa integrado via terminal:
+3. Execute o programa integrado via terminal, com um banco temporário exclusivo para a demonstração:
    ```bash
-   ./Projeto_TP1 < Testes/roteiro_teste_fumaca.txt
+   make test_integrated
    ```
-   *(Ou execute `./Projeto_TP1` digitando manualmente os passos descritos abaixo).*
+   Esse alvo utiliza o mesmo `Testes/roteiro_teste_fumaca.txt`, mas executa o programa em um diretório temporário para preservar o `kanban.db` de uso normal. O diretório de teste é removido ao terminar.
+   *(Para digitar manualmente os passos descritos abaixo, prepare um diretório separado como indicado na seção 4 e execute o programa a partir dele.)*
 4. Destaque durante a apresentação as 4 fases do teste:
 
 #### Fase 1: Sessão do Gestor (Criação de Entidades e Contas)
@@ -84,6 +85,17 @@ Para atender ao **Requisito 4.26, 4.27 e Critério 6** da avaliação (100% de p
 
 O projeto conta com três suítes de testes automatizados:
 
+Para compilar os alvos que acessam o banco, o ambiente precisa disponibilizar o cabeçalho `sqlite3.h` e a biblioteca SQLite para vinculação com `-lsqlite3`. O `Makefile` e o `Projeto_TP1.cbp` atualizados já incluem `BancoDados/banco_dados.cpp` e essa dependência nos alvos correspondentes.
+
+| Execução | Banco utilizado | Dados após encerrar |
+|---|---|---|
+| `make test_unit` / `TestesUnitarios` | Não utiliza banco | Não se aplica |
+| `make test_smoke` / `SmokeTest` | SQLite em memória (`:memory:`) | Descartados ao fechar a conexão |
+| `make test_integrated` | `kanban.db` em um diretório temporário | Removidos com o diretório de teste |
+| Programa executado normalmente | `kanban.db` no diretório de execução | Preservados para a próxima execução nesse diretório |
+
+O banco em memória dos testes também executa SQL e utiliza o esquema definido por `BancoDados`. Seu conteúdo é temporário, conforme a [documentação oficial do SQLite](https://www.sqlite.org/inmemorydb.html).
+
 ### 3.1 Testes de Unidade (Domínios e Entidades)
 Testa individualmente todas as 11 classes de domínio e as 4 entidades com casos válidos e inválidos (106 asserções):
 ```bash
@@ -100,10 +112,12 @@ Testa as regras de negócio, permissões e restrições de integridade diretamen
 make test_smoke
 # ou:
 g++ -std=c++11 -Wall -Wextra -pedantic Dominios/dominios.cpp Entidades/entidades.cpp \
-  Repositorios/repositorios.cpp Servicos/controladoras_servico.cpp \
-  Testes/smoke_test_controladoras.cpp -o bin/smoke_test
+  Repositorios/repositorios.cpp BancoDados/banco_dados.cpp Servicos/controladoras_servico.cpp \
+  Testes/smoke_test_controladoras.cpp -o bin/smoke_test -lsqlite3
 ./bin/smoke_test
 ```
+
+Os quatro contêineres compartilham um `BancoDados(":memory:")`. Cada execução começa com um banco vazio, sem criar ou modificar o arquivo `kanban.db` do programa. As 75 asserções originais foram mantidas.
 
 ### 3.3 Teste Integrado Completo
 Executa o sistema integrado com o roteiro de entradas automatizado:
@@ -111,3 +125,63 @@ Executa o sistema integrado com o roteiro de entradas automatizado:
 make test_integrated
 ```
 Esperado: 100% de sucesso sem nenhuma ocorrência de `[ERRO]`.
+
+O alvo prepara um diretório temporário, inicia o programa com o roteiro e remove esse diretório ao terminar. Assim, os cadastros do teste não se misturam aos dados já persistidos pelo usuário. A execução direta de `./Projeto_TP1 < Testes/roteiro_teste_fumaca.txt` usaria o banco do diretório atual; para esta demonstração automatizada, utilize `make test_integrated`.
+
+---
+
+## 4. Verificação da Persistência entre Execuções
+
+Este teste complementar verifica se uma conta continua disponível depois de encerrar e abrir novamente o executável. O banco deve ser um arquivo em disco; o `SmokeTest` em memória não verifica a conservação dos dados entre processos.
+
+### 4.1 Preparar um diretório de teste separado
+
+No terminal, a partir da raiz do projeto, execute:
+
+```bash
+make Projeto_TP1
+diretorio_projeto="$PWD"
+diretorio_persistencia="$(mktemp -d)" || exit 1
+cd "$diretorio_persistencia" || exit 1
+printf 'Banco de teste: %s/kanban.db\n' "$PWD"
+"$diretorio_projeto/Projeto_TP1"
+```
+
+Mantenha o mesmo terminal e esse diretório durante as duas execuções. O arquivo `kanban.db` será criado ali; o banco existente na raiz do projeto permanecerá separado.
+
+### 4.2 Criar a conta e encerrar o programa
+
+1. Na tela inicial, escolha `2 - Criar conta`.
+2. Informe os dados de exemplo abaixo, pressionando Enter ao final de cada campo:
+
+   | Campo | Valor |
+   |---|---|
+   | Email | `persistencia@example.com` |
+   | Nome | `Ana Banco` |
+   | Senha | `abc12` |
+   | Papel | `GESTOR` |
+
+3. Confirme a mensagem `[OK] Conta criada.` e pressione Enter se solicitado.
+4. Na tela inicial, escolha `0 - Sair` para encerrar o executável.
+
+### 4.3 Reabrir e consultar os dados persistidos
+
+Ainda no mesmo terminal e diretório, execute novamente:
+
+```bash
+"$diretorio_projeto/Projeto_TP1"
+```
+
+1. Escolha `1 - Entrar` e use `persistencia@example.com` com a senha `abc12`.
+2. Confirme a mensagem `[OK] Autenticado como persistencia@example.com.`.
+3. No menu principal, escolha `1 - Pessoas`, depois `2 - Ler`, e informe o mesmo email.
+4. Confira o nome `Ana Banco` e o papel `GESTOR`.
+5. Use `0 - Voltar`, `0 - Sair da sessao` e `0 - Sair` para encerrar.
+
+**Resultado esperado:** a segunda execução autentica e consulta a conta cadastrada na primeira, sem recriá-la. O arquivo `kanban.db` permanece no diretório de teste para inspeção. Ao concluir, retorne à raiz do projeto com:
+
+```bash
+cd "$diretorio_projeto"
+```
+
+Para consultar esse mesmo banco posteriormente, volte ao diretório de teste antes de iniciar o executável. No Code::Blocks, o diretório de execução configurado para o alvo determina qual `kanban.db` será utilizado.

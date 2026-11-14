@@ -1,11 +1,15 @@
 # depslib dependency file v1.0
-1794318002 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Apresentacao/apresentacao.cpp
+1794397131 source:/home/joaor/Downloads/Projeto-TP1-2026.2/Apresentacao/apresentacao.cpp
 	"../Headers/apresentacao.hpp"
+	<cstdio>
 	<functional>
 	<iomanip>
 	<iostream>
 	<stdexcept>
 	<vector>
+	<cstdlib>
+	<io.h>
+	<unistd.h>
 
 1794318124 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/apresentacao.hpp
 	"interfaces.hpp"
@@ -39,7 +43,7 @@
 	"interfaces.hpp"
 	"repositorios.hpp"
 
-1793975778 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/repositorios.hpp
+1794496457 /home/joaor/Downloads/Projeto-TP1-2026.2/Headers/repositorios.hpp
 	"entidades.hpp"
 	<string>
 	<vector>
@@ -52,4 +56,81 @@
 	<exception>
 	<string>
 	<vector>
+
+1790526947 /usr/include/unistd.h
+	<features.h>
+	<bits/posix_opt.h>
+	<bits/environments.h>
+	<bits/types.h>
+	<stddef.h>
+	<bits/confname.h>
+	<bits/getopt_posix.h>
+	<bits/unistd.h>
+	<bits/unistd_ext.h>
+
+1790526947 /usr/include/features.h
+	<features-time64.h>
+	<stdc-predef.h>
+	<sys/cdefs.h>
+	<gnu/stubs.h>
+
+1790526947 /usr/include/features-time64.h
+	<bits/wordsize.h>
+	<bits/timesize.h>
+
+1790526947 /usr/include/bits/wordsize.h
+
+1790526947 /usr/include/bits/timesize.h
+	<bits/wordsize.h>
+
+1790526947 /usr/include/stdc-predef.h
+
+1790526947 /usr/include/sys/cdefs.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/long-double.h>
+
+1790526947 /usr/include/bits/long-double.h
+
+1790526947 /usr/include/gnu/stubs.h
+	<gnu/stubs-32.h>
+	<gnu/stubs-64.h>
+	<gnu/stubs-x32.h>
+
+1790526947 /usr/include/gnu/stubs-32.h
+
+1790526947 /usr/include/gnu/stubs-64.h
+
+1790526947 /usr/include/bits/posix_opt.h
+
+1790526947 /usr/include/bits/environments.h
+	<bits/wordsize.h>
+
+1790526947 /usr/include/bits/types.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/timesize.h>
+	<bits/typesizes.h>
+	<bits/time64.h>
+
+1790526947 /usr/include/bits/typesizes.h
+
+1790526947 /usr/include/bits/time64.h
+
+1790526947 /usr/include/bits/confname.h
+
+1790526947 /usr/include/bits/getopt_posix.h
+	<bits/getopt_core.h>
+
+1790526947 /usr/include/bits/getopt_core.h
+
+1790526947 /usr/include/bits/unistd.h
+	<bits/unistd-decl.h>
+
+1790526947 /usr/include/bits/unistd-decl.h
+
+1790526947 /usr/include/bits/unistd_ext.h
+	"linux/close_range.h"
+
+1786956356 /usr/include/linux/close_range.h
 

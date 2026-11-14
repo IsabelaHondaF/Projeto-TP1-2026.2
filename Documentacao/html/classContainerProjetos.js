@@ -1,5 +1,6 @@
 var classContainerProjetos =
 [
+    [ "ContainerProjetos", "classContainerProjetos.html#afba05c76a8f2321bbb81174a534facf7", null ],
     [ "existe", "classContainerProjetos.html#af9619d9e07d3eb566225be6ddfee2ed5", null ],
     [ "gestorDoProjeto", "classContainerProjetos.html#a5b60070978d0cb073605e694c6a824f8", null ],
     [ "inserir", "classContainerProjetos.html#a7fd1326b99eeba309c6b075d8aeb2b6e", null ],

@@ -3,8 +3,10 @@
 // (permissão, multiplicidade, WIP e consistência na exclusão).
 //
 // Compilar sem Main/main.cpp e sem Apresentacao/ (este arquivo tem o próprio main).
+// Incluir BancoDados/banco_dados.cpp e vincular com SQLite (-lsqlite3).
 
 #include "../Headers/controladoras_servico.hpp"
+#include "../Headers/banco_dados.hpp"
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -56,10 +58,12 @@ CartaoDeAtividade cartao(const std::string& i, const std::string& nome, const st
 } // namespace
 
 int main() {
-    ContainerPessoas pessoas;
-    ContainerProjetos projetos;
-    ContainerQuadros quadros;
-    ContainerCartoes cartoes;
+    // Banco isolado em memória: cada execução começa vazia e não altera kanban.db.
+    BancoDados banco(":memory:");
+    ContainerPessoas pessoas(banco);
+    ContainerProjetos projetos(banco);
+    ContainerQuadros quadros(banco);
+    ContainerCartoes cartoes(banco);
 
     // As controladoras são usadas somente por meio das interfaces.
     CntrServicoPessoa cp(pessoas, projetos, cartoes);

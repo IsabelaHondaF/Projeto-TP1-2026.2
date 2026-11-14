@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "BancoDados", "classBancoDados.html", null ],
     [ "CartaoDeAtividade", "classCartaoDeAtividade.html", null ],
     [ "CntrApresentacaoPrincipal", "classCntrApresentacaoPrincipal.html", null ],
     [ "ContainerCartoes", "classContainerCartoes.html", null ],

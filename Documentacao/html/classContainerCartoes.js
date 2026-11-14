@@ -1,5 +1,6 @@
 var classContainerCartoes =
 [
+    [ "ContainerCartoes", "classContainerCartoes.html#a362ee04aa07b83f1420f04bfbbb723a3", null ],
     [ "existe", "classContainerCartoes.html#a07e61a202ad59b4907f7ea10f4c6410a", null ],
     [ "inserir", "classContainerCartoes.html#a586ce6935f6d19d12d3ca7a39ae520f0", null ],
     [ "listarCartoesDoQuadro", "classContainerCartoes.html#ad31f00392b7195102e1ab17483b7e63b", null ],

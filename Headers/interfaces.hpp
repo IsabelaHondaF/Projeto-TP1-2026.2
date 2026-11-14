@@ -34,6 +34,7 @@ public:
      * fornecido identifica a nova conta e não pode duplicar uma conta existente.
      * @param[in] pessoa Dados de cadastro: endereço eletrônico, nome, senha e papel.
      * @return true se a conta for cadastrada; false se não for possível cadastrá-la.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool criar(
         const Pessoa& pessoa
@@ -46,6 +47,7 @@ public:
      * @param[in] senha Credencial apresentada para comprovar o acesso à conta.
      * @return true se a conta existir e a senha corresponder à cadastrada;
      * false se as credenciais não forem reconhecidas.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool autenticar(
         const Email& email,
@@ -61,6 +63,7 @@ public:
      * @param[out] pessoa Recebe os dados da conta consultada em caso de sucesso.
      * @return true se os dados forem obtidos; false se a conta não existir
      * ou a consulta não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool ler(
         const Email& usuario,
@@ -79,6 +82,7 @@ public:
      * @param[in] pessoa Endereço eletrônico da conta existente e novos dados editáveis.
      * @return true se os dados forem atualizados; false se a conta não existir
      * ou a atualização não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool atualizar(
         const Email& usuario,
@@ -95,6 +99,7 @@ public:
      * @param[in] alvo Endereço eletrônico da conta a ser removida.
      * @return true se a conta for removida; false se ela não existir
      * ou a exclusão não puder ser realizada com consistência.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool excluir(
         const Email& usuario,
@@ -109,6 +114,7 @@ public:
      * @param[out] emails Recebe as chaves primárias das contas em caso de sucesso.
      * @return true se a consulta for concluída, inclusive quando não houver contas
      * a listar; false se a consulta não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool listar(
         const Email& usuario,
@@ -145,6 +151,7 @@ public:
      * @param[in] projeto Código, nome, descrição, início e término a serem cadastrados.
      * @return true se o cadastro e o vínculo com o gestor forem concluídos;
      * false se a criação não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool criar(
         const Email& gestor,
@@ -160,6 +167,7 @@ public:
      * @param[out] projeto Recebe os dados do registro consultado em caso de sucesso.
      * @return true se os dados forem obtidos; false se o registro não existir
      * ou a consulta não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool ler(
         const Email& usuario,
@@ -178,6 +186,7 @@ public:
      * @param[in] projeto Código do registro existente e novos valores dos dados editáveis.
      * @return true se os dados forem atualizados; false se o registro não existir
      * ou a atualização não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool atualizar(
         const Email& usuario,
@@ -194,6 +203,7 @@ public:
      * @param[in] identificador Código do registro a ser removido.
      * @return true se o registro for removido; false se ele não existir
      * ou a exclusão não puder ser realizada com consistência.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool excluir(
         const Email& usuario,
@@ -208,6 +218,7 @@ public:
      * @param[out] identificadores Recebe as chaves primárias dos projetos em caso de sucesso.
      * @return true se a consulta for concluída, inclusive quando não houver projetos
      * a listar; false se a consulta não puder ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool listar(
         const Email& usuario,
@@ -244,6 +255,7 @@ public:
      *
      * @return true caso o quadro seja criado com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool criar(
         const Email& usuario,
@@ -262,6 +274,7 @@ public:
      *
      * @return true caso o quadro seja encontrado.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool ler(
         const Email& usuario,
@@ -281,6 +294,7 @@ public:
      *
      * @return true caso a atualização seja realizada com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool atualizar(
         const Email& usuario,
@@ -299,6 +313,7 @@ public:
      *
      * @return true caso o quadro seja excluído com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool excluir(
         const Email& usuario,
@@ -314,6 +329,7 @@ public:
      *
      * @return true caso a listagem seja realizada com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool listar(
         const Email& usuario,
@@ -330,6 +346,7 @@ public:
      * quadros; false se o usuário não estiver cadastrado, o projeto não existir
      * ou a consulta não puder ser concluída.
      * @note Em caso de falha, o vetor de saída permanece inalterado.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool listarPorProjeto(
         const Email& usuario,
@@ -351,6 +368,7 @@ public:
      *
      * @return true caso o cartão seja criado com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool criarCartao(
         const Email& usuario,
@@ -370,6 +388,7 @@ public:
      *
      * @return true caso o cartão seja encontrado.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool lerCartao(
         const Email& usuario,
@@ -392,6 +411,7 @@ public:
      *
      * @return true caso a atualização seja realizada com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool atualizarCartao(
         const Email& usuario,
@@ -407,6 +427,7 @@ public:
      *
      * @return true caso o cartão seja excluído com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool excluirCartao(
         const Email& usuario,
@@ -423,6 +444,7 @@ public:
      *
      * @return true caso a listagem seja realizada com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool listarCartoes(
         const Email& usuario,
@@ -449,6 +471,7 @@ public:
      *
      * @return true caso a movimentação seja realizada.
      * @return false caso a movimentação não seja permitida.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool moverCartao(
         const Email& usuario,
@@ -469,6 +492,7 @@ public:
      *
      * @return true caso o tempo de ciclo possa ser calculado.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool lerTempoCiclo(
         const Email& usuario,
@@ -489,6 +513,7 @@ public:
      *
      * @return true caso a média possa ser calculada.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool lerTempoCicloMedio(
         const Email& usuario,
@@ -509,6 +534,7 @@ public:
      *
      * @return true caso o lead time possa ser calculado.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool lerLeadTime(
         const Email& usuario,
@@ -526,6 +552,7 @@ public:
      *
      * @return true caso a média possa ser calculada.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool lerLeadTimeMedio(
         const Email& usuario,
@@ -546,6 +573,7 @@ public:
      *
      * @return true caso o WIP seja obtido com sucesso.
      * @return false caso a operação não possa ser realizada.
+     * @throws std::runtime_error Se ocorrer falha no acesso ao armazenamento de dados.
      */
     virtual bool lerWIP(
         const Email& usuario,

@@ -31,18 +31,20 @@ var NAVTREE =
       [ "Arquitetura do Software", "index.html#autotoc_md7", null ],
       [ "Como Compilar e Executar", "index.html#autotoc_md9", [
         [ "Trabalho Prático de Técnicas de Programação 1 — Universidade de Brasília (UnB)", "index.html#autotoc_md1", null ],
-        [ "1. Compilação via Makefile", "index.html#autotoc_md10", null ],
-        [ "2. Executando o Sistema Integrado", "index.html#autotoc_md11", null ],
-        [ "3. Ambiente Code::Blocks", "index.html#autotoc_md12", null ]
+        [ "Dependência SQLite", "index.html#autotoc_md10", null ],
+        [ "1. Compilação via Makefile", "index.html#autotoc_md11", null ],
+        [ "2. Executando o Sistema Integrado", "index.html#autotoc_md12", null ],
+        [ "3. Ambiente Code::Blocks", "index.html#autotoc_md13", null ]
       ] ],
-      [ "Suítes de Testes", "index.html#autotoc_md14", null ]
+      [ "Persistência com SQLite", "index.html#autotoc_md15", null ],
+      [ "Suítes de Testes", "index.html#autotoc_md17", null ]
     ] ],
     [ "Controladoras — TP1 Kanban", "md_DOCUMENTACAO__CONTROLADORAS.html", [
-      [ "Estrutura", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md16", null ],
-      [ "Como as camadas se comunicam", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md17", null ],
-      [ "Regras implementadas (conforme tabela de serviços do enunciado)", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md18", null ],
-      [ "Decisões que o enunciado não especifica", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md19", null ],
-      [ "Compilar e testar", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md20", null ]
+      [ "Estrutura", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md19", null ],
+      [ "Como as camadas se comunicam", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md20", null ],
+      [ "Regras implementadas (conforme tabela de serviços do enunciado)", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md21", null ],
+      [ "Decisões que o enunciado não especifica", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md22", null ],
+      [ "Compilar e testar", "md_DOCUMENTACAO__CONTROLADORAS.html#autotoc_md23", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Lista de Classes", "annotated.html", "annotated_dup" ],
@@ -50,7 +52,7 @@ var NAVTREE =
       [ "Hierarquia de Classes", "hierarchy.html", "hierarchy" ],
       [ "Membros de classe", "functions.html", [
         [ "Todos", "functions.html", "functions_dup" ],
-        [ "Funções", "functions_func.html", null ],
+        [ "Funções", "functions_func.html", "functions_func" ],
         [ "Variáveis", "functions_vars.html", null ]
       ] ]
     ] ],
@@ -68,7 +70,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classTUPessoa.html#ab7246dd4b3c94b3982aae509d2226512"
+"classTUNome.html#a0047dd6c89e30c19963abff5ed03b3c0"
 ];
 
 const SYNCONMSG = 'clique para desativar a sincronização do painel';
