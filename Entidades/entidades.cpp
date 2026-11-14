@@ -1,5 +1,3 @@
-#ifndef ENTIDADES_CPP_INCLUDED
-#define ENTIDADES_CPP_INCLUDED
 #include "../Headers/entidades.hpp"
 
 //Classe Pessoa
@@ -92,5 +90,3 @@ void CartaoDeAtividade::setInicio(const std::string& inicio){
 void CartaoDeAtividade::setTermino(const std::string& termino){
     this->termino.setTimestamp(termino);
 }
-
-#endif // ENTIDADES_CPP_INCLUDED

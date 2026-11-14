@@ -144,7 +144,7 @@ public:
      * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& id, Projeto& projeto,
-               std::string* emailGestor = 0) const;
+               std::string* emailGestor = nullptr) const;
 
     /**
      * @brief Substitui os dados de um projeto existente.
@@ -256,7 +256,7 @@ public:
      * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& id, Quadro& quadro,
-               std::string* idProjeto = 0) const;
+               std::string* idProjeto = nullptr) const;
 
     /**
      * @brief Atualiza os dados de um quadro mantendo seus vínculos.
@@ -385,8 +385,8 @@ public:
      * @note Se o retorno for false, os parâmetros de saída permanecem inalterados.
      */
     bool obter(const std::string& id, CartaoDeAtividade& cartao,
-               std::string* idQuadro = 0,
-               std::string* emailDesenvolvedor = 0) const;
+               std::string* idQuadro = nullptr,
+               std::string* emailDesenvolvedor = nullptr) const;
 
     /**
      * @brief Atualiza os dados de um cartão existente.
@@ -458,6 +458,16 @@ public:
      * formato exigido pelo domínio ao reconstruir a entidade.
      */
     std::vector<CartaoDeAtividade> listarCartoesDoQuadro(const std::string& idQuadro) const;
+
+    /**
+     * @brief Conta diretamente no banco o número de cartões de um quadro em determinado estado.
+     * @param[in] idQuadro Identificador do quadro Kanban.
+     * @param[in] estado Estado dos cartões a serem contabilizados (ex: "FAZENDO").
+     * @return Quantidade de cartões encontrados com o estado especificado.
+     * @throws std::runtime_error Se ocorrer falha ao consultar o banco de dados.
+     */
+    int contarCartoesPorEstado(const std::string& idQuadro, const std::string& estado) const;
 };
 
 #endif // REPOSITORIOS_HPP_INCLUDED
+

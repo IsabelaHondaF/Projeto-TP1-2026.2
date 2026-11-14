@@ -70,78 +70,11 @@ bool ehGestorDoCartao(const ContainerPessoas& pessoas,
 }
 
 int contarWip(const ContainerCartoes& cartoes, const std::string& idQuadro) {
-    const std::vector<CartaoDeAtividade> itens = cartoes.listarCartoesDoQuadro(idQuadro);
-    int wip = 0;
-    for (std::size_t i = 0; i < itens.size(); ++i)
-        if (itens[i].getEstado() == "FAZENDO") ++wip;
-    return wip;
+    return cartoes.contarCartoesPorEstado(idQuadro, "FAZENDO");
 }
 
-bool ehAnoBissexto(int ano) {
-    return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
-}
-
-int diasNoMes(int mes, int ano) {
-    static const int dias[12] = {31, 28, 31, 30, 31, 30,
-                                  31, 31, 30, 31, 30, 31};
-    if (mes == 2 && ehAnoBissexto(ano)) return 29;
-    if (mes < 1 || mes > 12) return 0;
-    return dias[mes - 1];
-}
-
-/**
- * Converte DIA-MES-ANO-HH:MM para minutos contados desde 01-JAN-2000 00:00.
- * Retorna false para texto vazio ou malformado. A validação principal do
- * formato continua sendo responsabilidade da classe de domínio Timestamp.
- */
 bool timestampEmMinutos(const std::string& texto, long long& resultado) {
-    const std::size_t p1 = texto.find('-');
-    const std::size_t p2 = p1 == std::string::npos ? std::string::npos : texto.find('-', p1 + 1);
-    const std::size_t p3 = p2 == std::string::npos ? std::string::npos : texto.find('-', p2 + 1);
-    if (p1 == std::string::npos || p2 == std::string::npos || p3 == std::string::npos)
-        return false;
-
-    const std::string diaTexto = texto.substr(0, p1);
-    const std::string mesTexto = texto.substr(p1 + 1, p2 - p1 - 1);
-    const std::string anoTexto = texto.substr(p2 + 1, p3 - p2 - 1);
-    const std::string horaTexto = texto.substr(p3 + 1);
-
-    if (diaTexto.empty() || anoTexto.size() != 4 || horaTexto.size() != 5 ||
-        horaTexto[2] != ':' || mesTexto.size() != 3) return false;
-
-    int dia = 0, mes = 0, ano = 0, hora = 0, minuto = 0;
-    try {
-        std::size_t usados = 0;
-        dia = std::stoi(diaTexto, &usados);
-        if (usados != diaTexto.size()) return false;
-        ano = std::stoi(anoTexto, &usados);
-        if (usados != anoTexto.size()) return false;
-        hora = std::stoi(horaTexto.substr(0, 2), &usados);
-        if (usados != 2) return false;
-        minuto = std::stoi(horaTexto.substr(3, 2), &usados);
-        if (usados != 2) return false;
-    } catch (const std::exception&) {
-        return false;
-    }
-
-    static const char* meses[12] = {"JAN", "FEV", "MAR", "ABR", "MAI", "JUN",
-                                    "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"};
-    for (int i = 0; i < 12; ++i)
-        if (mesTexto == meses[i]) mes = i + 1;
-
-    if (ano < 2000 || ano > 2099 || mes == 0 || dia < 1 ||
-        dia > diasNoMes(mes, ano) || hora < 0 || hora > 23 ||
-        minuto < 0 || minuto > 59) return false;
-
-    long long dias = 0;
-    for (int a = 2000; a < ano; ++a)
-        dias += ehAnoBissexto(a) ? 366 : 365;
-    for (int m = 1; m < mes; ++m)
-        dias += diasNoMes(m, ano);
-    dias += dia - 1;
-
-    resultado = dias * 24LL * 60LL + hora * 60LL + minuto;
-    return true;
+    return Timestamp::paraMinutos(texto, resultado);
 }
 
 bool pessoaCompleta(const Pessoa& pessoa) {

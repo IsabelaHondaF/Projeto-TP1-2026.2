@@ -50,12 +50,12 @@ private:
 public:
     /** @brief Prepara o SQL usando a conexão recebida, sem executá-lo. */
     ComandoSQL(sqlite3* conexaoBanco, const char* sql)
-        : conexao(conexaoBanco), comando(0) {
-        if (conexao == 0)
+        : conexao(conexaoBanco), comando(nullptr) {
+        if (conexao == nullptr)
             throw std::runtime_error("Conexao com o banco de dados indisponivel.");
 
         // Em caso de erro, sqlite3_prepare_v2 deixa comando nulo.
-        verificar(sqlite3_prepare_v2(conexao, sql, -1, &comando, 0),
+        verificar(sqlite3_prepare_v2(conexao, sql, -1, &comando, nullptr),
                   "Erro ao preparar comando SQL");
     }
 
@@ -115,7 +115,7 @@ public:
     /** @brief Lê uma coluna textual da linha atual; NULL é representado por "". */
     std::string texto(int coluna) const {
         const unsigned char* valor = sqlite3_column_text(comando, coluna);
-        if (valor == 0) {
+        if (valor == nullptr) {
             if (sqlite3_column_type(comando, coluna) != SQLITE_NULL)
                 throw std::runtime_error("Erro ao ler texto do banco de dados.");
             return std::string();
@@ -255,7 +255,7 @@ bool ContainerProjetos::obter(const std::string& id, Projeto& projeto,
     encontrado.setTermino(comando.texto(4));
     const std::string gestor = comando.texto(5);
     projeto = encontrado;
-    if (emailGestor != 0) *emailGestor = gestor;
+    if (emailGestor != nullptr) *emailGestor = gestor;
     return true;
 }
 
@@ -331,7 +331,7 @@ bool ContainerQuadros::obter(const std::string& id, Quadro& quadro,
     encontrado.setLimite(comando.inteiro(2));
     const std::string projeto = comando.texto(3);
     quadro = encontrado;
-    if (idProjeto != 0) *idProjeto = projeto;
+    if (idProjeto != nullptr) *idProjeto = projeto;
     return true;
 }
 
@@ -422,8 +422,8 @@ bool ContainerCartoes::obter(const std::string& id, CartaoDeAtividade& cartao,
     const std::string quadro = comando.texto(9);
     const std::string desenvolvedor = comando.texto(10);
     cartao = encontrado;
-    if (idQuadro != 0) *idQuadro = quadro;
-    if (emailDesenvolvedor != 0) *emailDesenvolvedor = desenvolvedor;
+    if (idQuadro != nullptr) *idQuadro = quadro;
+    if (emailDesenvolvedor != nullptr) *emailDesenvolvedor = desenvolvedor;
     return true;
 }
 
@@ -483,3 +483,13 @@ std::vector<CartaoDeAtividade> ContainerCartoes::listarCartoesDoQuadro(const std
         resultado.push_back(lerCartao(comando));
     return resultado;
 }
+
+int ContainerCartoes::contarCartoesPorEstado(const std::string& idQuadro, const std::string& estado) const {
+    ComandoSQL comando(banco.getConexao(),
+        "SELECT COUNT(*) FROM cartoes WHERE id_quadro = ? AND estado = ?");
+    comando.vincularTexto(1, idQuadro);
+    comando.vincularTexto(2, estado);
+    if (!comando.proximaLinha()) return 0;
+    return comando.inteiro(0);
+}
+

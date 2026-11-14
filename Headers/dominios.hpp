@@ -14,7 +14,7 @@ class Limite {
 private:
     static const int MINIMO = 1;
     static const int MAXIMO = 25;
-    int valor = 0;
+    int valor = MINIMO;
     void validar(int);
 
 public:
@@ -157,7 +157,8 @@ inline std::string Prioridade::getPrioridade() const{
  * @brief Classifica a dimensão do trabalho de uma atividade.
  *
  * Aceita as categorias GRANDE, MEDIO e PEQUENO, escritas em letras maiúsculas.
- * A escrita MÉDIO também é aceita e armazenada como MEDIO.
+ * A forma canônica é MEDIO (sem acento), em conformidade com o Requisito Não Funcional 12
+ * (dispensa de acentuação), mas a grafia MÉDIO também é aceita e convertida para MEDIO.
  */
 class Tamanho{
 private:
@@ -218,7 +219,7 @@ public:
      */
     void setNome(const std::string&);
     /**
-     * @brief Consultao nome atualmente armazenado.
+     * @brief Consulta o nome atualmente armazenado.
      *
      * @return Cópia do texto utilizado para reconhecer a entidade pelo nome.
      */
@@ -427,6 +428,16 @@ public:
      * @return Cópia do texto correspondente ao timestamp armazenado.
      */
     std::string getTimestamp() const;
+
+    /**
+     * @brief Converte um texto de timestamp no formato DIA-MES-ANO-HH:MM para minutos
+     * contados a partir de 01-JAN-2000 00:00.
+     *
+     * @param[in] texto String contendo o timestamp a ser convertido.
+     * @param[out] resultado Referência que recebe o total de minutos em caso de sucesso.
+     * @return true se a conversão for realizada com sucesso; false caso o formato seja inválido.
+     */
+    static bool paraMinutos(const std::string& texto, long long& resultado);
 };
 
 inline std::string Timestamp::getTimestamp() const{

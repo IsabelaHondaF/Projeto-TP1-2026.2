@@ -1,5 +1,3 @@
-#ifndef DOMINIOS_CPP_INCLUDED
-#define DOMINIOS_CPP_INCLUDED
 #include "../Headers/dominios.hpp"
 #include <stdexcept>
 #include <cstring>
@@ -415,4 +413,32 @@ void Timestamp::setTimestamp(const std::string& timestamp){
     this->timestamp = timestamp;
 }
 
-#endif // DOMINIOS_CPP_INCLUDED
+bool Timestamp::paraMinutos(const std::string& texto, long long& resultado) {
+    try {
+        Timestamp temp;
+        temp.validar(texto);
+    } catch (...) {
+        return false;
+    }
+
+    std::size_t p1 = texto.find('-');
+    std::size_t p2 = texto.find('-', p1 + 1);
+    std::size_t p3 = texto.find('-', p2 + 1);
+
+    int dia = std::stoi(texto.substr(0, p1));
+    std::string mesStr = texto.substr(p1 + 1, p2 - p1 - 1);
+    int mes = indiceMes(mesStr);
+    int ano = std::stoi(texto.substr(p2 + 1, p3 - p2 - 1));
+    int hora = std::stoi(texto.substr(p3 + 1, 2));
+    int minuto = std::stoi(texto.substr(p3 + 4, 2));
+
+    long long dias = 0;
+    for (int a = ANO_MINIMO; a < ano; ++a)
+        dias += ehBissexto(a) ? 366 : 365;
+    for (int m = 1; m < mes; ++m)
+        dias += diasNoMes(m, ano);
+    dias += dia - 1;
+
+    resultado = dias * 24LL * 60LL + hora * 60LL + minuto;
+    return true;
+}
