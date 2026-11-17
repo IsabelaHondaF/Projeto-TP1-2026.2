@@ -320,23 +320,16 @@ bool Timestamp::ehBissexto(int ano){
 }
 
 int Timestamp::indiceMes(const std::string& mes){
-    // Aceita mês com um ou dois dígitos.
-    if (mes.empty() || mes.length() > 2)
-        return -1;
+    static const std::string meses[12] = {
+        "JAN", "FEV", "MAR", "ABR", "MAI", "JUN",
+        "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"
+    };
 
-    // Rejeita letras, espaços e outros símbolos.
-    for (char caractere : mes){
-        if (caractere < '0' || caractere > '9')
-            return -1;
-    }
+    for(int i = 0; i < 12; i++)
+        if(mes == meses[i])
+            return i + 1;
 
-    int numeroMes = std::stoi(mes);
-
-    // O mês deve estar entre 1 e 12.
-    if (numeroMes < 1 || numeroMes > 12)
-        return -1;
-
-    return numeroMes;
+    return -1;
 }
 
 int Timestamp::diasNoMes(int mes, int ano){
