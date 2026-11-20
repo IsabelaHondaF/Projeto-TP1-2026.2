@@ -1,0 +1,8 @@
+Formatos de entrada que usarei no exemplo do video:
+
+- Email: gestor.01@exemplo.com   // minúsculas, por exemplo gestor@example.com
+- Nome:  Primeiro Gestor         // só letras e espaços
+- Senha: a1b2C           	 // exatamente 5 caracteres, com letra e dígito
+- Identificador: CIC197   	 // 3 letras + 3 dígitos, por exemplo
+- Descrição: Projeto de teste., Segundo projeto., Descricao nova., Tarefa de teste.		    	 // começa com maiúscula, termina com ponto De 1 a 30 caracteres
+- Data: 1-JAN-2026-09:00	 // formato padrão do pdf

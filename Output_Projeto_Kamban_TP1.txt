@@ -1,0 +1,858 @@
+1. O que foi efetivamente testado?
+Testes unitários — 106 verificações
+
+Foram testados:
+- Validação de email, senha, nome e identificador.
+- Validação de datas e timestamps.
+- Estados e prioridades.
+- Entidades Pessoa, Projeto, Quadro e Cartão.
+Testes das controladoras — 75 verificações
+
+Foram testados:
+- Criação, leitura, atualização e exclusão.
+- Autenticação.
+- Permissões de gestores e desenvolvedores.
+- Restrições de exclusão.
+- Limites WIP.
+- Movimentação dos cartões.
+- Métricas de ciclo e lead time.
+Teste integrado
+
+O sistema executou um roteiro automatizado simulando a utilização real, incluindo criação de contas, projetos, quadros e cartões, movimentação de tarefas e exclusões.
+
+
+
+//------------------------------------Output--------------------------------------------//
+
+
+arthu@DellG15Arthur UCRT64 /c/Users/arthu/Downloads/Projeto-TP1-2026.2-main/Projeto-TP1-2026.2-main
+$ make test
+\n>>> Executando Testes de Unidade (Dominios e Entidades)...
+./bin/TestesUnitarios/TestesUnitarios
+====================================================
+ BATERIA DE TESTES DE UNIDADE: DOMINIOS E ENTIDADES 
+====================================================
+
+-- Testes de Classes de Dominio --
+[OK] Dominio Limite (6 verificacoes passaram)
+[OK] Dominio Senha (8 verificacoes passaram)
+[OK] Dominio Estado (6 verificacoes passaram)
+[OK] Dominio Prioridade (5 verificacoes passaram)
+[OK] Dominio Tamanho (6 verificacoes passaram)
+[OK] Dominio Nome (9 verificacoes passaram)
+[OK] Dominio Papel (4 verificacoes passaram)
+[OK] Dominio Texto (7 verificacoes passaram)
+[OK] Dominio Identificador (7 verificacoes passaram)
+[OK] Dominio Email (9 verificacoes passaram)
+[OK] Dominio Timestamp (9 verificacoes passaram)
+
+-- Testes de Classes de Entidade --
+[OK] Entidade Pessoa (6 verificacoes passaram)
+[OK] Entidade Projeto (7 verificacoes passaram)
+[OK] Entidade Quadro (5 verificacoes passaram)
+[OK] Entidade CartaoDeAtividade (12 verificacoes passaram)
+
+====================================================
+RESULTADO FINAL DOS TESTES DE UNIDADE:
+Total de verificacoes bem-sucedidas: 106
+Total de falhas: 0
+Status: 100% DOS TESTES PASSARAM COM SUCESSO!
+====================================================
+\n>>> Executando Teste de Fumaca das Controladoras de Servico...
+./bin/SmokeTest/SmokeTest
+== Casos de sucesso (um por servico) ==
+[OK]    01 CRIAR PESSOA (gestor)
+[OK]    01 CRIAR PESSOA (outro gestor)
+[OK]    01 CRIAR PESSOA (desenvolvedor)
+[OK]    01 CRIAR PESSOA (desenvolvedor 2)
+[OK]    -- AUTENTICAR com senha correta
+[OK]    02 LER PESSOA
+[OK]    03 ATUALIZAR PESSOA (propria conta)
+[OK]    02 LER PESSOA (dado atualizado)
+[OK]    05 LISTAR PESSOA
+[OK]    06 CRIAR PROJETO
+[OK]    07 LER PROJETO
+[OK]    08 ATUALIZAR PROJETO
+[OK]    07 LER PROJETO (dado atualizado)
+[OK]    10 LISTAR PROJETO
+[OK]    11 CRIAR QUADRO
+[OK]    12 LER QUADRO
+[OK]    13 ATUALIZAR QUADRO
+[OK]    12 LER QUADRO (dado atualizado)
+[OK]    15 LISTAR QUADRO
+[OK]    16 CRIAR CARTAO DE ATIVIDADE (CAR001)
+[OK]    16 CRIAR CARTAO DE ATIVIDADE (CAR002)
+[OK]    16 CRIAR CARTAO DE ATIVIDADE (CAR003)
+[OK]    17 LER CARTAO DE ATIVIDADE
+[OK]    18 ATUALIZAR CARTAO DE ATIVIDADE
+[OK]    17 LER CARTAO DE ATIVIDADE (dado atualizado)
+[OK]    20 LISTAR CARTAO DE ATIVIDADE
+[OK]    26 LER WIP (inicial = 0)
+[OK]    21 MOVER CAR001 (A FAZER -> FAZENDO)
+[OK]    21 MOVER CAR002 (A FAZER -> FAZENDO)
+[OK]    26 LER WIP (dois em FAZENDO)
+[OK]    21 MOVER CAR001 (FAZENDO -> FEITO)
+[OK]    21 MOVER CAR002 (FAZENDO -> FEITO, gestor)
+[OK]    26 LER WIP (final = 0)
+[OK]    22 LER TEMPO DE CICLO (CAR001 = 150 min)
+[OK]    24 LER LEAD TIME (CAR001 = 210 min)
+[OK]    23 LER TEMPO DE CICLO MEDIO (150 e 180 -> 165)
+[OK]    25 LER LEAD TIME MEDIO (210 e 270 -> 240)
+
+== Casos em que o servico deve recusar ==
+[OK]    AUTENTICAR com senha errada e recusado
+[OK]    CRIAR PESSOA com email repetido e recusado
+[OK]    ATUALIZAR PESSOA de outro usuario e recusado
+[OK]    EXCLUIR PESSOA de outro usuario e recusado
+[OK]    DESENVOLVEDOR nao cria projeto
+[OK]    PROJETO duplicado e recusado
+[OK]    Gestor que nao criou o projeto nao atualiza
+[OK]    Gestor que nao criou o projeto nao cria quadro nele
+[OK]    DESENVOLVEDOR nao cria cartao
+[OK]    DESENVOLVEDOR nao atualiza cartao
+[OK]    DESENVOLVEDOR nao exclui cartao
+[OK]    Cartao de quadro inexistente e recusado
+[OK]    Cartao so pode ser criado para um DESENVOLVEDOR
+[OK]    Cartao FEITO nao pode mais ser movido
+[OK]    Mover cartao de outro desenvolvedor e recusado
+[OK]    -- preparo: CAR004
+[OK]    -- preparo: CAR005
+[OK]    -- preparo: CAR006
+[OK]    MOVER CAR004 para FAZENDO
+[OK]    MOVER CAR005 para FAZENDO
+[OK]    WIP acima do limite e recusado (limite 2)
+[OK]    Reduzir limite abaixo do WIP atual e recusado
+[OK]    Mover com instante anterior ao inicio e recusado
+[OK]    Conclui CAR004
+[OK]    Com vaga liberada, CAR006 entra em FAZENDO
+[OK]    Metrica de cartao que nao esta FEITO e recusada
+
+== Consistencia nas exclusoes ==
+[OK]    Excluir projeto com quadro e recusado
+[OK]    Excluir quadro com cartoes e recusado
+[OK]    Excluir gestor que gerencia projeto e recusado
+[OK]    Excluir desenvolvedor com cartoes e recusado
+
+== Exclusoes que devem funcionar (ordem inversa das dependencias) ==
+[OK]    19 EXCLUIR CARTAO DE ATIVIDADE (seis cartoes)
+[OK]    17 LER CARTAO excluido e recusado
+[OK]    14 EXCLUIR QUADRO
+[OK]    09 EXCLUIR PROJETO
+[OK]    04 EXCLUIR PESSOA (dev2, sem vinculos)
+[OK]    04 EXCLUIR PESSOA (dev, agora sem cartoes)
+[OK]    04 EXCLUIR PESSOA (gestor, agora sem projetos)
+[OK]    05 LISTAR PESSOA (resta um usuario)
+
+Resultado: 75 de 75 verificacoes passaram.
+\n>>> Executando Teste de Fumaca Integrado com Roteiro Automatizado...
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: 
+--- Criar conta ---
+Email: Nome: Senha (5 caracteres, letras e digitos): Papel (GESTOR ou DESENVOLVEDOR): [OK] Conta criada.
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: 
+--- Criar conta ---
+Email: Nome: Senha (5 caracteres, letras e digitos): Papel (GESTOR ou DESENVOLVEDOR): [OK] Conta criada.
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: 
+--- Entrar ---
+Email: Senha: [OK] Autenticado como gestor@example.com.
+
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: Email da pessoa:   Email: dev@example.com
+  Nome: Bia Lima
+  Papel: DESENVOLVEDOR
+
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: Novos dados da sua conta (o email nao pode ser alterado).
+Nome: Senha (5 caracteres, letras e digitos): Papel (GESTOR ou DESENVOLVEDOR): [OK] Conta atualizada.
+
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao:   Pessoas cadastradas (2):
+  - gestor@example.com
+  - dev@example.com
+
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao: Identificador (3 letras + 3 digitos): Nome: Descricao: Inicio (DIA-MES-ANO-HH:MM): Termino (DIA-MES-ANO-HH:MM): [OK] Projeto criado. Voce e o gestor.
+
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao: Identificador do projeto:   Identificador: PRJ001
+  Nome: Projeto Alfa
+  Descricao: Projeto de teste.
+  Inicio: 1-JAN-2026-09:00
+  Termino: 31-DEZ-2026-18:00
+
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao: Identificador do projeto: Novo nome: Nova descricao: Novo inicio (DIA-MES-ANO-HH:MM): Novo termino (DIA-MES-ANO-HH:MM): [OK] Projeto atualizado.
+
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao:   Projetos (1):
+  - PRJ001
+
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: Identificador do projeto: Identificador do quadro (3 letras + 3 digitos): Nome: Limite de WIP (1 a 25): [OK] Quadro criado com as colunas A FAZER, FAZENDO e FEITO.
+
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: Identificador do quadro:   Identificador: QUA001
+  Nome: Sprint Um
+  Limite WIP: 2
+
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: Identificador do quadro: Novo nome: Novo limite de WIP (1 a 25): [OK] Quadro atualizado.
+
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao:   Quadros (1):
+  - QUA001
+
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro: Email do desenvolvedor responsavel: Identificador do cartao (3 letras + 3 digitos): Nome: Descricao: Prioridade (ALTA, MEDIA ou BAIXA): Tamanho (GRANDE, MEDIO ou PEQUENO): Entrada na coluna A FAZER (DIA-MES-ANO-HH:MM): [OK] Cartao criado na coluna A FAZER.
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro: Email do desenvolvedor responsavel: Identificador do cartao (3 letras + 3 digitos): Nome: Descricao: Prioridade (ALTA, MEDIA ou BAIXA): Tamanho (GRANDE, MEDIO ou PEQUENO): Entrada na coluna A FAZER (DIA-MES-ANO-HH:MM): [OK] Cartao criado na coluna A FAZER.
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do cartao:   Identificador: CAR001
+  Nome: Tarefa Um
+  Descricao: Tarefa de teste.
+  Prioridade: ALTA
+  Tamanho: MEDIO
+  Estado: A FAZER
+  Entrada: 2-JAN-2026-09:00
+  Inicio: 
+  Termino: 
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Estado e datas so mudam pela opcao Mover.
+Identificador do cartao: Novo nome: Nova descricao: Nova prioridade (ALTA, MEDIA ou BAIXA): Novo tamanho (GRANDE, MEDIO ou PEQUENO): [OK] Cartao atualizado.
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro:   Cartoes do quadro (2):
+  - CAR001
+  - CAR002
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: 
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: Sessao encerrada.
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: 
+--- Entrar ---
+Email: Senha: [OK] Autenticado como dev@example.com.
+
+=== Menu principal (dev@example.com - DESENVOLVEDOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Quadros ---
+2 - Ler
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Movimentos possiveis: A FAZER -> FAZENDO e FAZENDO -> FEITO.
+Identificador do cartao: Instante da movimentacao (DIA-MES-ANO-HH:MM): [OK] Cartao movido para a proxima coluna.
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Movimentos possiveis: A FAZER -> FAZENDO e FAZENDO -> FEITO.
+Identificador do cartao: Instante da movimentacao (DIA-MES-ANO-HH:MM): [OK] Cartao movido para a proxima coluna.
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro:   WIP (cartoes em FAZENDO): 2
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Movimentos possiveis: A FAZER -> FAZENDO e FAZENDO -> FEITO.
+Identificador do cartao: Instante da movimentacao (DIA-MES-ANO-HH:MM): [OK] Cartao movido para a proxima coluna.
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Movimentos possiveis: A FAZER -> FAZENDO e FAZENDO -> FEITO.
+Identificador do cartao: Instante da movimentacao (DIA-MES-ANO-HH:MM): [OK] Cartao movido para a proxima coluna.
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do cartao:   Tempo de ciclo: 150 minutos
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do cartao:   Lead time: 210 minutos
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro:   Tempo de ciclo medio: 165.0 minutos
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro:   Lead time medio: 240.0 minutos
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do quadro:   WIP (cartoes em FAZENDO): 0
+
+--- Cartoes de atividade ---
+2 - Ler
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: 
+--- Quadros ---
+2 - Ler
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+=== Menu principal (dev@example.com - DESENVOLVEDOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Projetos ---
+2 - Ler
+5 - Listar
+0 - Voltar
+Opcao: Identificador do projeto:   Identificador: PRJ001
+  Nome: Projeto Beta
+  Descricao: Nova descricao.
+  Inicio: 1-JAN-2026-09:00
+  Termino: 31-DEZ-2026-18:00
+
+--- Projetos ---
+2 - Ler
+5 - Listar
+0 - Voltar
+Opcao: 
+=== Menu principal (dev@example.com - DESENVOLVEDOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Quadros ---
+2 - Ler
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: Identificador do quadro:   Identificador: QUA001
+  Nome: Sprint Dois
+  Limite WIP: 2
+
+--- Quadros ---
+2 - Ler
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+=== Menu principal (dev@example.com - DESENVOLVEDOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: Novos dados da sua conta (o email nao pode ser alterado).
+Nome: Senha (5 caracteres, letras e digitos): Papel (GESTOR ou DESENVOLVEDOR): [OK] Conta atualizada.
+
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: 
+=== Menu principal (dev@example.com - DESENVOLVEDOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: Sessao encerrada.
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: 
+--- Entrar ---
+Email: Senha: [OK] Autenticado como gestor@example.com.
+
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do cartao: [OK] Cartao excluido.
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: Identificador do cartao: [OK] Cartao excluido.
+
+--- Cartoes de atividade ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar (por quadro)
+6 - Mover
+7 - Ler tempo de ciclo
+8 - Ler tempo de ciclo medio
+9 - Ler lead time
+10 - Ler lead time medio
+11 - Ler WIP
+0 - Voltar
+Opcao: 
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: Identificador do quadro: [OK] Quadro excluido.
+
+--- Quadros ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+6 - Gerenciar cartoes
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao: Identificador do projeto: [OK] Projeto excluido.
+
+--- Projetos ---
+1 - Criar
+2 - Ler
+3 - Atualizar
+4 - Excluir
+5 - Listar
+0 - Voltar
+Opcao: 
+=== Menu principal (gestor@example.com - GESTOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: [OK] Conta excluida. Sessao encerrada.
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: 
+--- Entrar ---
+Email: Senha: [OK] Autenticado como dev@example.com.
+
+=== Menu principal (dev@example.com - DESENVOLVEDOR) ===
+1 - Pessoas
+2 - Projetos
+3 - Quadros
+0 - Sair da sessao
+Opcao: 
+--- Pessoas ---
+2 - Ler
+3 - Atualizar (propria conta)
+4 - Excluir (propria conta)
+5 - Listar
+0 - Voltar
+Opcao: [OK] Conta excluida. Sessao encerrada.
+
+=== Sistema Kanban ===
+1 - Entrar
+2 - Criar conta
+0 - Sair
+Opcao: Ate logo.
+\n==============================================
+ TODOS OS TESTES FORAM EXECUTADOS COM SUCESSO!
+==============================================
