@@ -122,6 +122,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('classContainer
 Membros Públicos</h2></td></tr>
 <tr class="memitem:a362ee04aa07b83f1420f04bfbbb723a3" id="r_a362ee04aa07b83f1420f04bfbbb723a3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a362ee04aa07b83f1420f04bfbbb723a3">ContainerCartoes</a> (<a class="el" href="classBancoDados.html">BancoDados</a> &amp;bancoDados)</td></tr>
 <tr class="memdesc:a362ee04aa07b83f1420f04bfbbb723a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o contêiner de cartões com o banco de dados compartilhado.  <br /></td></tr>
+<tr class="memitem:a6e51369f23b79e37f9d70a98d9f6bfa5" id="r_a6e51369f23b79e37f9d70a98d9f6bfa5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6e51369f23b79e37f9d70a98d9f6bfa5">contarCartoesPorEstado</a> (const std::string &amp;idQuadro, const std::string &amp;estado) const</td></tr>
+<tr class="memdesc:a6e51369f23b79e37f9d70a98d9f6bfa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conta diretamente no banco o número de cartões de um quadro em determinado estado.  <br /></td></tr>
 <tr class="memitem:a07e61a202ad59b4907f7ea10f4c6410a" id="r_a07e61a202ad59b4907f7ea10f4c6410a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a07e61a202ad59b4907f7ea10f4c6410a">existe</a> (const std::string &amp;id) const</td></tr>
 <tr class="memdesc:a07e61a202ad59b4907f7ea10f4c6410a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um cartão existe no contêiner.  <br /></td></tr>
 <tr class="memitem:a586ce6935f6d19d12d3ca7a39ae520f0" id="r_a586ce6935f6d19d12d3ca7a39ae520f0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a586ce6935f6d19d12d3ca7a39ae520f0">inserir</a> (const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao, const std::string &amp;idQuadro, const std::string &amp;emailDesenvolvedor)</td></tr>
@@ -130,8 +132,8 @@ Membros Públicos</h2></td></tr>
 <tr class="memdesc:ad31f00392b7195102e1ab17483b7e63b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna cópias de todas as entidades cartão de um determinado quadro.  <br /></td></tr>
 <tr class="memitem:a735aaab993a8333222d0fd4dbb4792e3" id="r_a735aaab993a8333222d0fd4dbb4792e3"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a735aaab993a8333222d0fd4dbb4792e3">listarIdsDoQuadro</a> (const std::string &amp;idQuadro) const</td></tr>
 <tr class="memdesc:a735aaab993a8333222d0fd4dbb4792e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os identificadores de todos os cartões vinculados a um quadro.  <br /></td></tr>
-<tr class="memitem:a3071f3ac3b55e44f526cdc68db78e31b" id="r_a3071f3ac3b55e44f526cdc68db78e31b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3071f3ac3b55e44f526cdc68db78e31b">obter</a> (const std::string &amp;id, <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao, std::string *idQuadro=0, std::string *emailDesenvolvedor=0) const</td></tr>
-<tr class="memdesc:a3071f3ac3b55e44f526cdc68db78e31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera um cartão de atividade e opcionalmente seus vínculos.  <br /></td></tr>
+<tr class="memitem:ad1e0f33355fb8d3f4855891b5f707073" id="r_ad1e0f33355fb8d3f4855891b5f707073"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad1e0f33355fb8d3f4855891b5f707073">obter</a> (const std::string &amp;id, <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao, std::string *idQuadro=nullptr, std::string *emailDesenvolvedor=nullptr) const</td></tr>
+<tr class="memdesc:ad1e0f33355fb8d3f4855891b5f707073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recupera um cartão de atividade e opcionalmente seus vínculos.  <br /></td></tr>
 <tr class="memitem:ac1fae919d61b732dcd440f93db21b52f" id="r_ac1fae919d61b732dcd440f93db21b52f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac1fae919d61b732dcd440f93db21b52f">remover</a> (const std::string &amp;id)</td></tr>
 <tr class="memdesc:ac1fae919d61b732dcd440f93db21b52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um cartão de atividade.  <br /></td></tr>
 <tr class="memitem:a5cfb05113d18fea76723d5b84e4d36d4" id="r_a5cfb05113d18fea76723d5b84e4d36d4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5cfb05113d18fea76723d5b84e4d36d4">substituir</a> (const std::string &amp;id, const <a class="el" href="classCartaoDeAtividade.html">CartaoDeAtividade</a> &amp;cartao)</td></tr>
@@ -179,6 +181,43 @@ Membros Públicos</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a6e51369f23b79e37f9d70a98d9f6bfa5" name="a6e51369f23b79e37f9d70a98d9f6bfa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e51369f23b79e37f9d70a98d9f6bfa5">&#9670;&#160;</a></span>contarCartoesPorEstado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ContainerCartoes::contarCartoesPorEstado </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>idQuadro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>estado</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Conta diretamente no banco o número de cartões de um quadro em determinado estado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idQuadro</td><td><a class="el" href="classIdentificador.html" title="Armazena o código utilizado como chave primária de projetos, quadros e atividades.">Identificador</a> do quadro Kanban. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">estado</td><td><a class="el" href="classEstado.html" title="Identifica a etapa de execução de uma atividade no quadro Kanban.">Estado</a> dos cartões a serem contabilizados (ex: "FAZENDO"). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Quantidade de cartões encontrados com o estado especificado. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se ocorrer falha ao consultar o banco de dados. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a07e61a202ad59b4907f7ea10f4c6410a" name="a07e61a202ad59b4907f7ea10f4c6410a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07e61a202ad59b4907f7ea10f4c6410a">&#9670;&#160;</a></span>existe()</h2>
 
@@ -320,8 +359,8 @@ Membros Públicos</h2></td></tr>
 
 </div>
 </div>
-<a id="a3071f3ac3b55e44f526cdc68db78e31b" name="a3071f3ac3b55e44f526cdc68db78e31b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3071f3ac3b55e44f526cdc68db78e31b">&#9670;&#160;</a></span>obter()</h2>
+<a id="ad1e0f33355fb8d3f4855891b5f707073" name="ad1e0f33355fb8d3f4855891b5f707073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e0f33355fb8d3f4855891b5f707073">&#9670;&#160;</a></span>obter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,12 +378,12 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>idQuadro</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>idQuadro</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>emailDesenvolvedor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>emailDesenvolvedor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -13,6 +13,5 @@ var searchData=
   ['do_20software_10',['Arquitetura do Software',['../index.html#autotoc_md7',1,'']]],
   ['documentacao_5fcontroladoras_2emd_11',['DOCUMENTACAO_CONTROLADORAS.md',['../DOCUMENTACAO__CONTROLADORAS_8md.html',1,'']]],
   ['dominios_2ecpp_12',['dominios.cpp',['../dominios_8cpp.html',1,'']]],
-  ['dominios_2ehpp_13',['dominios.hpp',['../dominios_8hpp.html',1,'']]],
-  ['dominios_5fcpp_5fincluded_14',['DOMINIOS_CPP_INCLUDED',['../dominios_8cpp.html#aa6efff970f01ccbcb4ebcc8182fd35e6',1,'dominios.cpp']]]
+  ['dominios_2ehpp_13',['dominios.hpp',['../dominios_8hpp.html',1,'']]]
 ];

@@ -124,6 +124,11 @@ Membros Públicos</h2></td></tr>
 <tr class="memdesc:aea0993104ecbba77b07f4c8b2a6330ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta o instante de tempo atualmente armazenado.  <br /></td></tr>
 <tr class="memitem:a909c4ce49ca04d6084fa58cff3f7e547" id="r_a909c4ce49ca04d6084fa58cff3f7e547"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a909c4ce49ca04d6084fa58cff3f7e547">setTimestamp</a> (const std::string &amp;)</td></tr>
 <tr class="memdesc:a909c4ce49ca04d6084fa58cff3f7e547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valida e armazena o instante de tempo.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Membros públicos estáticos</h2></td></tr>
+<tr class="memitem:a4b29014e5c5857177b803713474248c6" id="r_a4b29014e5c5857177b803713474248c6"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a4b29014e5c5857177b803713474248c6">paraMinutos</a> (const std::string &amp;texto, long long &amp;resultado)</td></tr>
+<tr class="memdesc:a4b29014e5c5857177b803713474248c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte um texto de timestamp no formato DIA-MES-ANO-HH:MM para minutos contados a partir de 01-JAN-2000 00:00.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Armazena um instante no tempo composto por data e horário. </p>
@@ -159,6 +164,45 @@ Membros Públicos</h2></td></tr>
 
 <p>Consulta o instante de tempo atualmente armazenado. </p>
 <dl class="section return"><dt>Retorna</dt><dd>Cópia do texto correspondente ao timestamp armazenado. </dd></dl>
+
+</div>
+</div>
+<a id="a4b29014e5c5857177b803713474248c6" name="a4b29014e5c5857177b803713474248c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b29014e5c5857177b803713474248c6">&#9670;&#160;</a></span>paraMinutos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Timestamp::paraMinutos </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>texto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long &amp;</td>          <td class="paramname"><span class="paramname"><em>resultado</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converte um texto de timestamp no formato DIA-MES-ANO-HH:MM para minutos contados a partir de 01-JAN-2000 00:00. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">texto</td><td>String contendo o timestamp a ser convertido. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">resultado</td><td>Referência que recebe o total de minutos em caso de sucesso. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a conversão for realizada com sucesso; false caso o formato seja inválido. </dd></dl>
 
 </div>
 </div>

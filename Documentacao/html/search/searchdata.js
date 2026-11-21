@@ -5,8 +5,7 @@ var indexSectionsWithContent =
   2: "abcdeimrt",
   3: "abcegilmoprst~",
   4: "cefipqs",
-  5: "de",
-  6: "123abcdeikmnopqrstuv—👥"
+  5: "123abcdeikmnopqrstuv—👥"
 };
 
 var indexSectionNames =
@@ -16,8 +15,7 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "defines",
-  6: "pages"
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -27,7 +25,6 @@ var indexSectionLabels =
   2: "Arquivos",
   3: "Funções",
   4: "Variáveis",
-  5: "Definições e Macros",
-  6: "Páginas"
+  5: "Páginas"
 };
 

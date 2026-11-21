@@ -67,5 +67,4 @@ var menudata={children:[
 {text:"Lista de Arquivos",url:"files.html"},
 {text:"Membros dos Arquivos",url:"globals.html",children:[
 {text:"Todos",url:"globals.html"},
-{text:"Funções",url:"globals_func.html"},
-{text:"Definições e Macros",url:"globals_defs.html"}]}]}]}
+{text:"Funções",url:"globals_func.html"}]}]}]}
